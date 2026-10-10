@@ -12,7 +12,14 @@ def collect(source, client):
     path = DATA/'raw'/source['filename']
     path.parent.mkdir(parents=True, exist_ok=True)
     if not path.exists():
-        response = client.get(source['url']); response.raise_for_status()
+        try:
+            response = client.get(source['url']); response.raise_for_status()
+        except httpx.HTTPError as error:
+            raise RuntimeError(
+                f"Could not download {source['id']}. Download the public official PDF "
+                f"from {source['url']} on an accessible connection and place it at "
+                f"runtime/data/raw/{source['filename']}; its locked SHA-256 will still be checked."
+            ) from error
         temporary = path.with_suffix('.part'); temporary.write_bytes(response.content); temporary.replace(path)
     if digest(path.read_bytes()) != source['sha256']:
         raise ValueError(f"Source changed: {source['id']}; audit before updating the lock.")
@@ -79,7 +86,7 @@ def key_criteria(path, source):
 
 def main():
     sources=read_json(ROOT/'data/sources.lock.json')['sources']; records=[]
-    with httpx.Client(follow_redirects=True,timeout=180,headers={'User-Agent':'Mozilla/5.0'},transport=httpx.HTTPTransport(retries=3)) as client:
+    with httpx.Client(follow_redirects=True,timeout=45,headers={'User-Agent':'Mozilla/5.0'},transport=httpx.HTTPTransport(retries=1)) as client:
         for source in sources:
             path=collect(source,client)
             if source['kind']=='band_descriptors': records+=rubric_cells(path,source)

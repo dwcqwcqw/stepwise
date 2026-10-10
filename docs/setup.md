@@ -34,6 +34,7 @@ Open http://localhost:8080, or Cloud Shell Web Preview on port 8080. API docs: h
 - HTTP 404: check model availability and `GEMINI_MODEL` against Google's official model documentation.
 - HTTP 429/5xx: bounded retries are built in; rerun once the project's quota/service recovers.
 - Source hash drift: inspect the updated official source and audit it before changing the lock.
+- Official PDF download blocked: some cloud regions receive HTTP 403 from the British Council website. Download the same public PDF from its official URL on an accessible connection, then copy it to `runtime/data/raw/bc-task2-answer-the-question.pdf` before restarting Compose. The ingestion container still verifies the exact SHA-256 in `data/sources.lock.json`; do not substitute another file or change the hash to suppress the error. The verified cloud run used this cache path for the supplementary British Council PDF.
 - Evidence validation failure: no unchecked assessment is shown. Review the model contract and retry.
 
 Google Cloud Shell provides a temporary development VM and authenticated preview, not persistent production hosting. API/web ports bind to loopback, and Qdrant has no host-published port. Stepwise does not persist learner submissions; Google receives text to perform inference under the selected Cloud project.
