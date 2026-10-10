@@ -22,7 +22,7 @@ for attempt in range(90):
     try:
         status=call('/api/ready')
         break
-    except (urllib.error.URLError,TimeoutError):
+    except (urllib.error.URLError,TimeoutError,ConnectionError):
         if attempt == 89: raise
         time.sleep(2)
 assert status['status']=='ready' and status['points']==24,status
