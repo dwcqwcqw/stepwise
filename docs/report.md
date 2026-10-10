@@ -71,7 +71,15 @@ make run
 
 Prerequisites: Docker/Compose, make, Python 3, an authorized gcloud session and an enabled billing/Vertex project. Open localhost:8080 or Cloud Shell Web Preview on port 8080. docs/setup.md contains full configuration and troubleshooting. make verify repeats real model calls; make evidence captures existing outputs/logs; make test runs without Google calls. The Cloud Shell preview is temporary.
 
-## 6. MS3 development and references
+## 6. Vercel deployment
+
+Frontend preview: [Stepwise on Vercel](https://stepwise-6lbri9nsq-baileys-projects-7e3a3dc4.vercel.app). The deployment reached READY on 11 October 2026 and is protected by Vercel authentication. Its shared UI source and Node gateway were uploaded from commit 2e97c6e20c48ed20a0d6b102508ca044e298c72a; 21 local tests passed. The source-file deployment is linked to that commit in metadata; GitHub automatic deployment is not configured because the Vercel GitHub integration is not installed.
+
+Prepared cloud connection: Vercel → short-lived OIDC identity → private Cloud Run → Vertex AI. The Cloud Run image uses a frozen export of all 131 official rubric vectors and the pinned embedding model. Dedicated runtime, invoker and build identities separate permissions. Google credentials are not placed in frontend code.
+
+Current boundary: Cloud Run deployment and its restricted IAM trust await owner approval. Browser verification also awaits Vercel login. The Vercel preview has not yet passed end-to-end model assessment; the earlier Cloud Shell scoring and generation evidence remains valid. Deployment scripts, configuration and checks are in deploy/README.md.
+
+## 7. MS3 development and references
 
 Next: audit reliable Task 2 adaptation data, label provenance and prompt-family leakage; compare prompting, official RAG and an open-model LoRA baseline. Track criterion MAE, within-0.5-band agreement, repeated-run variance, target-band deviation, latency and token cost. Current samples establish integration; high generated scores and target overshoot require held-out calibration. Persistent hosting, production authentication and load evaluation follow in later milestones.
 
