@@ -1,0 +1,1 @@
+{"name":"stepwise-frontend","private":true,"type":"module","scripts":{"build":"node scripts/build-vercel.mjs"},"dependencies":{"@vercel/oidc":"4.0.0"},"engines":{"node":"22.x"}}

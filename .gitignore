@@ -16,3 +16,7 @@ data/cache/
 !data/sources.lock.json
 
 .dev/
+node_modules/
+public/
+.vercel/
+.cloudrun-bundle/

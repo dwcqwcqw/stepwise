@@ -14,6 +14,16 @@ def embedder():
 
 @lru_cache
 def database():
+    if os.getenv('QDRANT_MODE') == 'bundled':
+        # Cloud Run replicas each load the same immutable official corpus.
+        # The containerized MS2 pipeline continues to use the Qdrant server.
+        index = active_index()
+        points = read_json(DATA/'processed/points.json')
+        if len(points) != index['points']: raise ValueError('Incomplete bundled index')
+        db = QdrantClient(location=':memory:')
+        db.create_collection(index['collection'], vectors_config=models.VectorParams(size=DIMENSION,distance=models.Distance.COSINE))
+        db.upsert(index['collection'], points=[models.PointStruct(**p) for p in points], wait=True)
+        return db
     return QdrantClient(url=os.getenv('QDRANT_URL','http://qdrant:6333'),timeout=60)
 
 def active_index():

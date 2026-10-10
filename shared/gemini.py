@@ -11,6 +11,19 @@ PROMPT_VERSION='official-rubric-v2'
 
 class ModelUnavailable(RuntimeError): pass
 
+def access_token():
+    if os.getenv('VERTEX_AUTH_MODE') == 'metadata':
+        try:
+            response=httpx.get('http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token',headers={'Metadata-Flavor':'Google'},timeout=10)
+            response.raise_for_status()
+            return response.json()['access_token']
+        except (httpx.HTTPError,KeyError,ValueError) as error:
+            raise ModelUnavailable('Cloud service authorization is temporarily unavailable.') from error
+    try: token=Path(os.getenv('VERTEX_TOKEN_FILE','/run/stepwise-auth/token')).read_text().strip()
+    except OSError as error: raise ModelUnavailable('Google authorization unavailable. Start scripts/cloud-auth.py in your signed-in Cloud Shell.') from error
+    if not token: raise ModelUnavailable('Google authorization is empty; refresh Cloud Shell authorization.')
+    return token
+
 def configuration():
     return {'provider':'Google Vertex AI','model':MODEL,'prompt_version':PROMPT_VERSION,'project_configured':bool(os.getenv('GOOGLE_CLOUD_PROJECT'))}
 
@@ -18,9 +31,7 @@ def generate(system, payload, schema, temperature=0.1):
     project=os.getenv('GOOGLE_CLOUD_PROJECT','')
     location=os.getenv('GOOGLE_CLOUD_LOCATION','global')
     if not re.fullmatch(r'[a-z][a-z0-9-]{4,61}[a-z0-9]',project): raise ModelUnavailable('Set GOOGLE_CLOUD_PROJECT to your authorized Google Cloud project.')
-    try: token=Path(os.getenv('VERTEX_TOKEN_FILE','/run/stepwise-auth/token')).read_text().strip()
-    except OSError as error: raise ModelUnavailable('Google authorization unavailable. Start scripts/cloud-auth.py in your signed-in Cloud Shell.') from error
-    if not token: raise ModelUnavailable('Google authorization is empty; refresh Cloud Shell authorization.')
+    token=access_token()
     host='aiplatform.googleapis.com' if location=='global' else f'{location}-aiplatform.googleapis.com'
     url=f'https://{host}/v1/projects/{project}/locations/{location}/publishers/google/models/{MODEL}:generateContent'
     body={'systemInstruction':{'parts':[{'text':system}]},'contents':[{'role':'user','parts':[{'text':json.dumps(payload,ensure_ascii=False)}]}],'generationConfig':{'temperature':temperature,'maxOutputTokens':16384,'responseMimeType':'application/json','responseSchema':schema}}

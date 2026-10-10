@@ -1,0 +1,11 @@
+.git
+.venv
+.tools-venv
+**/__pycache__
+runtime
+secrets
+.env
+.dev
+node_modules
+public
+docs
