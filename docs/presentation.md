@@ -1,14 +1,14 @@
 # MS2 TF presentation · 15 minutes
 
-Every member should explain every section; this is a shared-understanding guide.
+Every member should understand the entire implementation. Use current evidence receipts to describe what was actually run; historical preview receipts are stored separately.
 
-1. **Scope (1 min):** typed IELTS argument essays, four criteria, target-band examples and MS2 boundary.
-2. **Architecture (2 min):** README diagram, Compose stages, gateway/API/database flow.
-3. **Data (2 min):** lock/checksums, official knowledge versus candidate essays, quality receipt and grouped splits.
-4. **Chunks/vectors (2 min):** source table cell, metadata, 384-dimensional embedding and collection ID.
-5. **Retrieval (2 min):** `make verify`; show 6.5 TR retrieving 6 and 7. Explain why similarity is not a band score.
-6. **App (3 min):** sample draft, all criteria, goals and downloadable writing brief; show live/pending features.
-7. **Reproducibility (2 min):** `make run`, locks, logs, screenshots, tests and persistent storage; navigate to files.
-8. **Next milestone (1 min):** data approval, baseline/LoRA experiments, scoring/generation/evaluation.
+1. **Scope (1 min):** typed IELTS Academic Task 2 essays, four scores, specific revisions and tailored model essays.
+2. **Architecture (2 min):** five Python/uv containers, Qdrant, FastAPI gateway, Vertex Gemini and validated output.
+3. **Official knowledge (2 min):** three attributed sources; full nine-page band PDF, bands 0–9, all 20 detailed checks; 131 chunks. The 8,049 candidate essays are reserved for MS3 and not ingested.
+4. **Retrieval (2 min):** mandatory complete Task 2 band ladders plus semantic teaching guidance; task filtering; half-band mapping; source/page/chunk lineage.
+5. **Assessment (2 min):** target-blind scoring, exact quotations, source IDs, whole criterion bands, qualitative subcriteria and before/after revisions. Inspect actual model receipts if available.
+6. **Application (3 min):** question/draft -> feedback -> target/position/ideas -> complete generated essay -> a separate blind assessment. A configured endpoint is not evidence of successful inference; disclose any unresolved project authorization.
+7. **Reproducibility (2 min):** make run, source/model hashes, frozen locks, runtime authorization, logs and tests.
+8. **MS3 (1 min):** reliable adaptation data, prompt-family leakage audit, open-model baseline/LoRA, scoring agreement and repeatability evaluation.
 
-Q&A: metadata filters, half-band mapping, idempotent upserts, source changes, prompt leakage, readiness versus health, private DB access and what trained scoring requires beyond retrieval.
+Q&A: why all bands are retrieved during scoring, why the assessor never sees target or generator notes, why a target is not a guaranteed result, how source/excerpt validation works, how model error differs from fallback templates, why the library includes Task 1 but the scorer excludes it, and what integration tests cannot establish about grading accuracy.
