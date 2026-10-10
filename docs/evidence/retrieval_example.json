@@ -1,0 +1,48 @@
+{
+  "query": "How can I develop and support my position with specific examples?",
+  "criterion": "TR",
+  "target_band": 6.5,
+  "filters": {
+    "task": "academic_task_2",
+    "criterion": "TR",
+    "bands": [
+      6,
+      7
+    ]
+  },
+  "index_id": "ee2bf411da98a007",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "collection": "stepwise_ee2bf411da98a007",
+  "matches": [
+    {
+      "similarity": 0.6932185,
+      "task": "academic_task_2",
+      "criterion": "TR",
+      "criterion_name": "Task Response",
+      "band": 7,
+      "text": "IELTS Academic Writing Task 2 | Task Response | Band 7\nThe main parts of the prompt are appropriately addressed.\nA clear and developed position is presented.\nMain ideas are extended and supported but there may be a\ntendency to over-generalise or there may be a lack of focus and\nprecision in supporting ideas/material.",
+      "source_id": "ielts-writing-band-descriptors-2023",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+      "page": 7,
+      "version": "May 2023",
+      "chunk_id": "d399cf35300e83da3c451aa772d8fd8ab722f0e79773affce5de6cb78249eaf7",
+      "characters": 318
+    },
+    {
+      "similarity": 0.6738033,
+      "task": "academic_task_2",
+      "criterion": "TR",
+      "criterion_name": "Task Response",
+      "band": 6,
+      "text": "IELTS Academic Writing Task 2 | Task Response | Band 6\nThe main parts of the prompt are addressed (though some may be\nmore fully covered than others). An appropriate format is used.\nA position is presented that is directly relevant to the prompt,\nalthough the conclusions drawn may be unclear, unjustified or\nrepetitive.\nMain ideas are relevant, but some may be insufficiently developed\nor may lack clarity, while some supporting arguments and evidence\nmay be less relevant or inadequate.",
+      "source_id": "ielts-writing-band-descriptors-2023",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+      "page": 8,
+      "version": "May 2023",
+      "chunk_id": "6b3c9e46ff6bbfbb9c68ff6937297f6f68b1e2fcedffa40c11e3e8dc5a89a507",
+      "characters": 488
+    }
+  ]
+}

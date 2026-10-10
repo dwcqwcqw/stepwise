@@ -1,0 +1,12 @@
+{
+  "chunk_snapshot": "8b1961bb5f2344e7",
+  "model": "BAAI/bge-small-en-v1.5",
+  "weights_sha256": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+  "fastembed": "0.7.3",
+  "dimension": 384,
+  "metric": "cosine",
+  "index_id": "ee2bf411da98a007",
+  "collection": "stepwise_ee2bf411da98a007",
+  "points": 24,
+  "qdrant_client": "1.15.1"
+}

@@ -1,0 +1,40 @@
+{
+  "snapshot_id": "34cab16e4ffa06d6",
+  "sources": [
+    {
+      "id": "ielts-writing-band-descriptors-2023",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+      "filename": "ielts-writing-band-descriptors.pdf",
+      "role": "rubric"
+    },
+    {
+      "id": "chillies-ielts-task2-fa42fa7",
+      "url": "https://huggingface.co/datasets/chillies/ielts-writing-task2-essays/resolve/fa42fa7a2b02941e002cfbf5146c3176ba21f413/data/train-00000-of-00001.parquet",
+      "sha256": "634370b1a7c306bf6154f7294fe0d74f4cc9099243175023da806e2e11614128",
+      "filename": "ielts-task2.parquet",
+      "role": "training_candidate"
+    }
+  ],
+  "rubric_cells": 24,
+  "essay_quality": {
+    "source_rows": 8049,
+    "valid_unique_rows": 8049,
+    "exact_duplicates_removed": 0,
+    "invalid_rows": 0,
+    "unique_prompts": 1794,
+    "splits": {
+      "train": 6677,
+      "validation": 675,
+      "test": 697
+    },
+    "schema_mapping": {
+      "TR": "task_achievement_band",
+      "CC": "coherence_cohesion_band",
+      "LR": "lexical_resource_band",
+      "GRA": "grammatical_range_band"
+    },
+    "training_approved": false,
+    "notes": "Task 2 candidate corpus. No essays or GPT advice enter the official-rubric vector collection. Automated scores are not used as expert test labels. Near-duplicate and prompt-family checks remain before training."
+  }
+}

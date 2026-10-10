@@ -1,0 +1,314 @@
+qdrant-1  |            _                 _    
+qdrant-1  |   __ _  __| |_ __ __ _ _ __ | |_  
+qdrant-1  |  / _` |/ _` | '__/ _` | '_ \| __| 
+qdrant-1  | | (_| | (_| | | | (_| | | | | |_  
+qdrant-1  |  \__, |\__,_|_|  \__,_|_| |_|\__| 
+qdrant-1  |     |_|                           
+qdrant-1  | 
+qdrant-1  | Version: 1.15.4, build: 20db14f8
+qdrant-1  | Access web UI at http://localhost:6333/dashboard
+qdrant-1  | 
+qdrant-1  | 2026-10-10T14:31:26.520175Z  INFO storage::content_manager::consensus::persistent: Initializing new raft state at ./storage/raft_state.json    
+qdrant-1  | 2026-10-10T14:31:26.536222Z  INFO qdrant: Distributed mode disabled    
+qdrant-1  | 2026-10-10T14:31:26.536268Z  INFO qdrant: Telemetry reporting enabled, id: 51c32cab-fdb9-4e47-b2c2-2e72aa321d4f    
+qdrant-1  | 2026-10-10T14:31:26.556363Z  INFO qdrant::actix: TLS disabled for REST API    
+qdrant-1  | 2026-10-10T14:31:26.556593Z  INFO qdrant::actix: Qdrant HTTP listening on 6333    
+qdrant-1  | 2026-10-10T14:31:26.556653Z  INFO actix_server::builder: starting 3 workers
+qdrant-1  | 2026-10-10T14:31:26.556685Z  INFO actix_server::server: Actix runtime found; starting in Actix runtime
+qdrant-1  | 2026-10-10T14:31:26.556731Z  INFO actix_server::server: starting service: "actix-web-service-0.0.0.0:6333", workers: 3, listening on: 0.0.0.0:6333
+qdrant-1  | 2026-10-10T14:31:26.563516Z  INFO qdrant::tonic: Qdrant gRPC listening on 6334    
+qdrant-1  | 2026-10-10T14:31:26.563547Z  INFO qdrant::tonic: TLS disabled for gRPC API    
+qdrant-1  | 2026-10-10T14:31:52.223772Z  INFO actix_web::middleware::logger: 172.18.0.2 "GET /collections/stepwise_ee2bf411da98a007/exists HTTP/1.1" 200 83 "-" "python-client/1.15.1 python/3.12.11" 0.000311    
+qdrant-1  | 2026-10-10T14:31:52.226249Z  INFO storage::content_manager::toc::collection_meta_ops: Creating collection stepwise_ee2bf411da98a007    
+qdrant-1  | 2026-10-10T14:31:52.337051Z  INFO actix_web::middleware::logger: 172.18.0.2 "PUT /collections/stepwise_ee2bf411da98a007 HTTP/1.1" 200 71 "-" "python-client/1.15.1 python/3.12.11" 0.111016    
+qdrant-1  | 2026-10-10T14:31:52.362058Z  INFO actix_web::middleware::logger: 172.18.0.2 "PUT /collections/stepwise_ee2bf411da98a007/points?wait=true HTTP/1.1" 200 91 "-" "python-client/1.15.1 python/3.12.11" 0.009330    
+qdrant-1  | 2026-10-10T14:31:52.366559Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.001317    
+qdrant-1  | 2026-10-10T14:31:52.387963Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 909 "-" "python-client/1.15.1 python/3.12.11" 0.002384    
+qdrant-1  | 2026-10-10T14:31:59.001558Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000920    
+qdrant-1  | 2026-10-10T14:32:04.228845Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.001599    
+qdrant-1  | 2026-10-10T14:32:09.454152Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.001716    
+qdrant-1  | 2026-10-10T14:32:14.673090Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000518    
+qdrant-1  | 2026-10-10T14:32:19.895565Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000453    
+qdrant-1  | 2026-10-10T14:32:25.129310Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000539    
+qdrant-1  | 2026-10-10T14:32:30.336300Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000502    
+qdrant-1  | 2026-10-10T14:32:35.565864Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000584    
+qdrant-1  | 2026-10-10T14:32:40.793436Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000497    
+qdrant-1  | 2026-10-10T14:32:46.035525Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 78 "-" "python-client/1.15.1 python/3.12.11" 0.000444    
+qdrant-1  | 2026-10-10T14:32:51.255576Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000795    
+qdrant-1  | 2026-10-10T14:32:55.439166Z  INFO actix_web::middleware::logger: 172.18.0.5 "GET /collections/stepwise_ee2bf411da98a007/exists HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000211    
+qdrant-1  | 2026-10-10T14:32:55.464092Z  INFO actix_web::middleware::logger: 172.18.0.5 "PUT /collections/stepwise_ee2bf411da98a007/points?wait=true HTTP/1.1" 200 90 "-" "python-client/1.15.1 python/3.12.11" 0.009904    
+qdrant-1  | 2026-10-10T14:32:55.467260Z  INFO actix_web::middleware::logger: 172.18.0.5 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000492    
+qdrant-1  | 2026-10-10T14:32:55.489390Z  INFO actix_web::middleware::logger: 172.18.0.5 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 910 "-" "python-client/1.15.1 python/3.12.11" 0.001756    
+qdrant-1  | 2026-10-10T14:32:56.475922Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 78 "-" "python-client/1.15.1 python/3.12.11" 0.000452    
+qdrant-1  | 2026-10-10T14:32:56.807033Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000467    
+qdrant-1  | 2026-10-10T14:32:58.789394Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 580 "-" "python-client/1.15.1 python/3.12.11" 0.001928    
+qdrant-1  | 2026-10-10T14:32:58.828880Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 687 "-" "python-client/1.15.1 python/3.12.11" 0.001455    
+qdrant-1  | 2026-10-10T14:32:58.904009Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 628 "-" "python-client/1.15.1 python/3.12.11" 0.001431    
+qdrant-1  | 2026-10-10T14:32:58.942987Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 595 "-" "python-client/1.15.1 python/3.12.11" 0.001772    
+qdrant-1  | 2026-10-10T14:32:59.020921Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 908 "-" "python-client/1.15.1 python/3.12.11" 0.001337    
+qdrant-1  | 2026-10-10T14:32:59.391560Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000369    
+qdrant-1  | 2026-10-10T14:33:01.701929Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 78 "-" "python-client/1.15.1 python/3.12.11" 0.000454    
+qdrant-1  | 2026-10-10T14:33:06.917940Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000522    
+qdrant-1  | 2026-10-10T14:33:07.539687Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 582 "-" "python-client/1.15.1 python/3.12.11" 0.001269    
+qdrant-1  | 2026-10-10T14:33:07.572776Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 687 "-" "python-client/1.15.1 python/3.12.11" 0.001687    
+qdrant-1  | 2026-10-10T14:33:07.643601Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 628 "-" "python-client/1.15.1 python/3.12.11" 0.001530    
+qdrant-1  | 2026-10-10T14:33:07.673240Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 595 "-" "python-client/1.15.1 python/3.12.11" 0.001389    
+qdrant-1  | 2026-10-10T14:33:12.142453Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000431    
+qdrant-1  | 2026-10-10T14:33:17.353612Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000553    
+qdrant-1  | 2026-10-10T14:33:22.573839Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000431    
+qdrant-1  | 2026-10-10T14:33:27.801710Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 78 "-" "python-client/1.15.1 python/3.12.11" 0.000468    
+qdrant-1  | 2026-10-10T14:33:33.018463Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000439    
+qdrant-1  | 2026-10-10T14:33:38.222660Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000416    
+qdrant-1  | 2026-10-10T14:33:43.431628Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000423    
+qdrant-1  | 2026-10-10T14:33:48.665904Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000635    
+qdrant-1  | 2026-10-10T14:33:53.900816Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000585    
+qdrant-1  | 2026-10-10T14:33:59.124279Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000431    
+qdrant-1  | 2026-10-10T14:34:04.324017Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000455    
+qdrant-1  | 2026-10-10T14:34:09.524056Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 78 "-" "python-client/1.15.1 python/3.12.11" 0.000501    
+qdrant-1  | 2026-10-10T14:34:14.728034Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000485    
+qdrant-1  | 2026-10-10T14:34:19.935675Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000398    
+qdrant-1  | 2026-10-10T14:34:25.155106Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000513    
+qdrant-1  | 2026-10-10T14:34:30.367713Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 78 "-" "python-client/1.15.1 python/3.12.11" 0.000431    
+qdrant-1  | 2026-10-10T14:34:35.580241Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000434    
+qdrant-1  | 2026-10-10T14:34:40.791714Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000431    
+qdrant-1  | 2026-10-10T14:34:46.012093Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000458    
+qdrant-1  | 2026-10-10T14:34:51.228732Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000422    
+qdrant-1  | 2026-10-10T14:34:56.449972Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000464    
+qdrant-1  | 2026-10-10T14:35:01.670793Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000648    
+qdrant-1  | 2026-10-10T14:35:06.884422Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000544    
+qdrant-1  | 2026-10-10T14:35:12.106204Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000496    
+qdrant-1  | 2026-10-10T14:35:12.685706Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 582 "-" "python-client/1.15.1 python/3.12.11" 0.001686    
+qdrant-1  | 2026-10-10T14:35:17.310619Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000492    
+qdrant-1  | 2026-10-10T14:35:22.522828Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000435    
+qdrant-1  | 2026-10-10T14:35:27.740515Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000398    
+qdrant-1  | 2026-10-10T14:35:32.955069Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000506    
+qdrant-1  | 2026-10-10T14:35:38.169956Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000578    
+qdrant-1  | 2026-10-10T14:35:43.377128Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000444    
+qdrant-1  | 2026-10-10T14:35:48.611974Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.001006    
+qdrant-1  | 2026-10-10T14:35:53.507326Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000440    
+qdrant-1  | 2026-10-10T14:35:53.585919Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 581 "-" "python-client/1.15.1 python/3.12.11" 0.002018    
+qdrant-1  | 2026-10-10T14:35:53.622704Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 688 "-" "python-client/1.15.1 python/3.12.11" 0.001472    
+qdrant-1  | 2026-10-10T14:35:53.707419Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 628 "-" "python-client/1.15.1 python/3.12.11" 0.001711    
+qdrant-1  | 2026-10-10T14:35:53.751272Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 595 "-" "python-client/1.15.1 python/3.12.11" 0.001803    
+qdrant-1  | 2026-10-10T14:35:53.851160Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 907 "-" "python-client/1.15.1 python/3.12.11" 0.001388    
+qdrant-1  | 2026-10-10T14:35:53.949860Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.004226    
+qdrant-1  | 2026-10-10T14:35:53.956981Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 581 "-" "python-client/1.15.1 python/3.12.11" 0.002930    
+qdrant-1  | 2026-10-10T14:35:56.319354Z  INFO actix_web::middleware::logger: 172.18.0.5 "GET /collections/stepwise_ee2bf411da98a007/exists HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000220    
+qdrant-1  | 2026-10-10T14:35:56.341161Z  INFO actix_web::middleware::logger: 172.18.0.5 "PUT /collections/stepwise_ee2bf411da98a007/points?wait=true HTTP/1.1" 200 90 "-" "python-client/1.15.1 python/3.12.11" 0.008080    
+qdrant-1  | 2026-10-10T14:35:56.344224Z  INFO actix_web::middleware::logger: 172.18.0.5 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000408    
+qdrant-1  | 2026-10-10T14:35:56.365264Z  INFO actix_web::middleware::logger: 172.18.0.5 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 909 "-" "python-client/1.15.1 python/3.12.11" 0.001190    
+qdrant-1  | 2026-10-10T14:35:57.643363Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000412    
+qdrant-1  | 2026-10-10T14:35:57.712852Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 582 "-" "python-client/1.15.1 python/3.12.11" 0.001279    
+qdrant-1  | 2026-10-10T14:35:57.743069Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 688 "-" "python-client/1.15.1 python/3.12.11" 0.001406    
+qdrant-1  | 2026-10-10T14:35:57.813526Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 628 "-" "python-client/1.15.1 python/3.12.11" 0.001206    
+qdrant-1  | 2026-10-10T14:35:57.846782Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 596 "-" "python-client/1.15.1 python/3.12.11" 0.001328    
+qdrant-1  | 2026-10-10T14:35:57.910242Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 907 "-" "python-client/1.15.1 python/3.12.11" 0.001726    
+qdrant-1  | 2026-10-10T14:35:57.993417Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 581 "-" "python-client/1.15.1 python/3.12.11" 0.001287    
+qdrant-1  | 2026-10-10T14:35:59.173992Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000368    
+qdrant-1  | 2026-10-10T14:36:04.400034Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000771    
+qdrant-1  | 2026-10-10T14:36:09.628580Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000523    
+qdrant-1  | 2026-10-10T14:36:14.852417Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000496    
+qdrant-1  | 2026-10-10T14:36:20.075830Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000560    
+qdrant-1  | 2026-10-10T14:36:25.315381Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000398    
+qdrant-1  | 2026-10-10T14:36:28.635894Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/count HTTP/1.1" 200 79 "-" "python-client/1.15.1 python/3.12.11" 0.000443    
+qdrant-1  | 2026-10-10T14:36:28.709616Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 581 "-" "python-client/1.15.1 python/3.12.11" 0.001615    
+qdrant-1  | 2026-10-10T14:36:28.748837Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 688 "-" "python-client/1.15.1 python/3.12.11" 0.001749    
+qdrant-1  | 2026-10-10T14:36:28.822616Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 628 "-" "python-client/1.15.1 python/3.12.11" 0.001526    
+qdrant-1  | 2026-10-10T14:36:28.855506Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 595 "-" "python-client/1.15.1 python/3.12.11" 0.001318    
+qdrant-1  | 2026-10-10T14:36:28.923084Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 907 "-" "python-client/1.15.1 python/3.12.11" 0.001607    
+qdrant-1  | 2026-10-10T14:36:29.005108Z  INFO actix_web::middleware::logger: 172.18.0.2 "POST /collections/stepwise_ee2bf411da98a007/points/query HTTP/1.1" 200 581 "-" "python-client/1.15.1 python/3.12.11" 0.001206    
+ingest-1  | {"at": "2026-10-10T14:31:27.410527+00:00", "event": "source_verified", "source_id": "ielts-writing-band-descriptors-2023", "sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b", "bytes": 141876}
+ingest-1  | {"at": "2026-10-10T14:31:36.939032+00:00", "event": "source_verified", "source_id": "chillies-ielts-task2-fa42fa7", "sha256": "634370b1a7c306bf6154f7294fe0d74f4cc9099243175023da806e2e11614128", "bytes": 8278510}
+ingest-1  | {"at": "2026-10-10T14:31:39.376307+00:00", "event": "ingest_complete", "snapshot_id": "34cab16e4ffa06d6", "rubric_cells": 24, "source_rows": 8049, "valid_unique_rows": 8049, "exact_duplicates_removed": 0, "invalid_rows": 0, "unique_prompts": 1794, "splits": {"train": 6677, "validation": 675, "test": 697}, "schema_mapping": {"TR": "task_achievement_band", "CC": "coherence_cohesion_band", "LR": "lexical_resource_band", "GRA": "grammatical_range_band"}, "training_approved": false, "notes": "Task 2 candidate corpus. No essays or GPT advice enter the official-rubric vector collection. Automated scores are not used as expert test labels. Near-duplicate and prompt-family checks remain before training."}
+ingest-1  | {"at": "2026-10-10T14:32:44.512716+00:00", "event": "source_verified", "source_id": "ielts-writing-band-descriptors-2023", "sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b", "bytes": 141876}
+ingest-1  | {"at": "2026-10-10T14:32:45.791053+00:00", "event": "source_verified", "source_id": "chillies-ielts-task2-fa42fa7", "sha256": "634370b1a7c306bf6154f7294fe0d74f4cc9099243175023da806e2e11614128", "bytes": 8278510}
+chunk-1   | {"at": "2026-10-10T14:31:40.079132+00:00", "event": "chunk_complete", "source_snapshot": "34cab16e4ffa06d6", "chunk_snapshot": "8b1961bb5f2344e7", "strategy": "criterion_band_table_cell_v1", "overlap": 0, "chunks": 24, "min_characters": 260, "max_characters": 547, "rationale": "A table cell is the smallest complete band-specific judgement. Arbitrary character windows can mix criteria, bands, or Task 1 and Task 2."}
+chunk-1   | {"at": "2026-10-10T14:32:49.414684+00:00", "event": "chunk_complete", "source_snapshot": "34cab16e4ffa06d6", "chunk_snapshot": "8b1961bb5f2344e7", "strategy": "criterion_band_table_cell_v1", "overlap": 0, "chunks": 24, "min_characters": 260, "max_characters": 547, "rationale": "A table cell is the smallest complete band-specific judgement. Arbitrary character windows can mix criteria, bands, or Task 1 and Task 2."}
+chunk-1   | {"at": "2026-10-10T14:35:50.289293+00:00", "event": "chunk_complete", "source_snapshot": "34cab16e4ffa06d6", "chunk_snapshot": "8b1961bb5f2344e7", "strategy": "criterion_band_table_cell_v1", "overlap": 0, "chunks": 24, "min_characters": 260, "max_characters": 547, "rationale": "A table cell is the smallest complete band-specific judgement. Arbitrary character windows can mix criteria, bands, or Task 1 and Task 2."}
+ingest-1  | {"at": "2026-10-10T14:32:48.517676+00:00", "event": "ingest_complete", "snapshot_id": "34cab16e4ffa06d6", "rubric_cells": 24, "source_rows": 8049, "valid_unique_rows": 8049, "exact_duplicates_removed": 0, "invalid_rows": 0, "unique_prompts": 1794, "splits": {"train": 6677, "validation": 675, "test": 697}, "schema_mapping": {"TR": "task_achievement_band", "CC": "coherence_cohesion_band", "LR": "lexical_resource_band", "GRA": "grammatical_range_band"}, "training_approved": false, "notes": "Task 2 candidate corpus. No essays or GPT advice enter the official-rubric vector collection. Automated scores are not used as expert test labels. Near-duplicate and prompt-family checks remain before training."}
+ingest-1  | {"at": "2026-10-10T14:35:45.411999+00:00", "event": "source_verified", "source_id": "ielts-writing-band-descriptors-2023", "sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b", "bytes": 141876}
+ingest-1  | {"at": "2026-10-10T14:35:46.689856+00:00", "event": "source_verified", "source_id": "chillies-ielts-task2-fa42fa7", "sha256": "634370b1a7c306bf6154f7294fe0d74f4cc9099243175023da806e2e11614128", "bytes": 8278510}
+ingest-1  | {"at": "2026-10-10T14:35:49.458608+00:00", "event": "ingest_complete", "snapshot_id": "34cab16e4ffa06d6", "rubric_cells": 24, "source_rows": 8049, "valid_unique_rows": 8049, "exact_duplicates_removed": 0, "invalid_rows": 0, "unique_prompts": 1794, "splits": {"train": 6677, "validation": 675, "test": 697}, "schema_mapping": {"TR": "task_achievement_band", "CC": "coherence_cohesion_band", "LR": "lexical_resource_band", "GRA": "grammatical_range_band"}, "training_approved": false, "notes": "Task 2 candidate corpus. No essays or GPT advice enter the official-rubric vector collection. Automated scores are not used as expert test labels. Near-duplicate and prompt-family checks remain before training."}
+web-1     | INFO:     Started server process [1]
+web-1     | INFO:     Waiting for application startup.
+web-1     | INFO:     Application startup complete.
+web-1     | INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+web-1     | INFO:     127.0.0.1:53642 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:53646 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:52924 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:52940 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:51540 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:51554 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:57092 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:57098 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:50896 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:50912 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:36828 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:53028 - "GET /api/ready HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:53050 - "GET / HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:53040 - "POST /api/feedback HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:53050 - "GET /static/styles.css HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:53066 - "POST /api/retrieve HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:53050 - "GET /static/app.js HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:53050 - "GET /api/ready HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:53050 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+web-1     | INFO:     127.0.0.1:36868 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:43596 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:39360 - "POST /api/feedback HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:43614 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:57420 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:57430 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:53710 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:53712 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:39676 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:32830 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:32840 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:55734 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:55742 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:48530 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:48538 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:53604 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:53618 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:57230 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:57240 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:33048 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:33056 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:55124 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:55134 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:39392 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:39406 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:49656 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:49666 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:42436 - "POST /api/model-essay HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:41822 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:41828 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:48000 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:48014 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:34676 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:45822 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:45826 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36560 - "GET /api/ready HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36576 - "POST /api/feedback HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36582 - "POST /api/retrieve HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36596 - "POST /api/model-essay HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36606 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+web-1     | INFO:     172.18.0.1:36608 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+web-1     | INFO:     127.0.0.1:34978 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36624 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+web-1     | INFO:     172.18.0.1:36632 - "GET /api/ready HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36640 - "POST /api/feedback HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36642 - "POST /api/retrieve HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36656 - "POST /api/model-essay HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:36660 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+web-1     | INFO:     172.18.0.1:36668 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+web-1     | INFO:     172.18.0.1:36674 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+web-1     | INFO:     127.0.0.1:35040 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:50226 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:50230 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:46416 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:46428 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     127.0.0.1:43094 - "GET /health HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:49394 - "GET /api/ready HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:49396 - "POST /api/feedback HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:49398 - "POST /api/retrieve HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:49404 - "POST /api/model-essay HTTP/1.1" 200 OK
+web-1     | INFO:     172.18.0.1:49410 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+web-1     | INFO:     172.18.0.1:49424 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+web-1     | INFO:     172.18.0.1:49434 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+index-1   | 
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+Fetching 5 files:  20%|██        | 1/5 [00:00<00:02,  1.99it/s]'(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /qdrant/bge-small-en-v1.5-onnx-q/resolve/aa8f8b060edb00e03bfdd08813a2949946c8ba55/tokenizer_config.json (Caused by NewConnectionError("HTTPSConnection(host=\'huggingface.co\', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable"))'), '(Request ID: 741186c2-1ecf-4844-aab1-9c03817bc318)')' thrown while requesting HEAD https://huggingface.co/qdrant/bge-small-en-v1.5-onnx-q/resolve/aa8f8b060edb00e03bfdd08813a2949946c8ba55/tokenizer_config.json
+index-1   | Retrying in 1s [Retry 1/5].
+index-1   | 
+Fetching 5 files:  60%|██████    | 3/5 [00:04<00:03,  1.51s/it]
+Fetching 5 files: 100%|██████████| 5/5 [00:05<00:00,  1.15s/it]
+Fetching 5 files: 100%|██████████| 5/5 [00:05<00:00,  1.15s/it]
+index-1   | {"at": "2026-10-10T14:31:52.431295+00:00", "event": "index_complete", "chunk_snapshot": "8b1961bb5f2344e7", "model": "BAAI/bge-small-en-v1.5", "weights_sha256": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431", "fastembed": "0.7.3", "dimension": 384, "metric": "cosine", "index_id": "ee2bf411da98a007", "collection": "stepwise_ee2bf411da98a007", "points": 24, "qdrant_client": "1.15.1"}
+index-1   | {"at": "2026-10-10T14:31:52.431383+00:00", "event": "retrieval_verified", "query": "How can I extend my main ideas and support my position with relevant examples?", "criterion": "TR", "target_band": 6.5, "returned": 2, "chunk_ids": ["d399cf35300e83da3c451aa772d8fd8ab722f0e79773affce5de6cb78249eaf7", "6b3c9e46ff6bbfbb9c68ff6937297f6f68b1e2fcedffa40c11e3e8dc5a89a507"]}
+index-1   | {"at": "2026-10-10T14:32:55.531636+00:00", "event": "index_complete", "chunk_snapshot": "8b1961bb5f2344e7", "model": "BAAI/bge-small-en-v1.5", "weights_sha256": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431", "fastembed": "0.7.3", "dimension": 384, "metric": "cosine", "index_id": "ee2bf411da98a007", "collection": "stepwise_ee2bf411da98a007", "points": 24, "qdrant_client": "1.15.1"}
+index-1   | {"at": "2026-10-10T14:32:55.531727+00:00", "event": "retrieval_verified", "query": "How can I extend my main ideas and support my position with relevant examples?", "criterion": "TR", "target_band": 6.5, "returned": 2, "chunk_ids": ["d399cf35300e83da3c451aa772d8fd8ab722f0e79773affce5de6cb78249eaf7", "6b3c9e46ff6bbfbb9c68ff6937297f6f68b1e2fcedffa40c11e3e8dc5a89a507"]}
+index-1   | {"at": "2026-10-10T14:35:56.407510+00:00", "event": "index_complete", "chunk_snapshot": "8b1961bb5f2344e7", "model": "BAAI/bge-small-en-v1.5", "weights_sha256": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431", "fastembed": "0.7.3", "dimension": 384, "metric": "cosine", "index_id": "ee2bf411da98a007", "collection": "stepwise_ee2bf411da98a007", "points": 24, "qdrant_client": "1.15.1"}
+index-1   | {"at": "2026-10-10T14:35:56.407590+00:00", "event": "retrieval_verified", "query": "How can I extend my main ideas and support my position with relevant examples?", "criterion": "TR", "target_band": 6.5, "returned": 2, "chunk_ids": ["d399cf35300e83da3c451aa772d8fd8ab722f0e79773affce5de6cb78249eaf7", "6b3c9e46ff6bbfbb9c68ff6937297f6f68b1e2fcedffa40c11e3e8dc5a89a507"]}
+api-1     | INFO:     Started server process [1]
+api-1     | INFO:     Waiting for application startup.
+api-1     | INFO:     Application startup complete.
+api-1     | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+api-1     | INFO:     127.0.0.1:43678 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:57856 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:57864 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:43136 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:43140 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:45098 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:45106 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:40028 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:40040 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:51186 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:51200 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:46122 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:56002 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:56012 - "POST /api/feedback HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:56022 - "POST /api/retrieve HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:56034 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:46128 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:33818 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:40180 - "POST /api/feedback HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:33828 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:37850 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:37866 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:59702 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:59704 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:40380 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:44092 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:44108 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:33676 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:33680 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:56124 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:56136 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:58336 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:58338 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:49010 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:49026 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:60132 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:60148 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:54232 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:54248 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:57158 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:57172 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:58118 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:58130 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:37232 - "POST /api/model-essay HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:55220 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:55234 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:49340 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:49348 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:45754 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:59104 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:59118 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:38636 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:38650 - "POST /api/feedback HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:38664 - "POST /api/retrieve HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:34004 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:38676 - "POST /api/model-essay HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:38682 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+api-1     | INFO:     172.18.0.4:38686 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+api-1     | INFO:     172.18.0.4:38690 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+api-1     | INFO:     172.18.0.4:38692 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:38698 - "POST /api/feedback HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:38714 - "POST /api/retrieve HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:38720 - "POST /api/model-essay HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:38728 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+api-1     | INFO:     172.18.0.4:38732 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+api-1     | INFO:     172.18.0.4:38734 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+api-1     | INFO:     127.0.0.1:34014 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:55630 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:55646 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:40438 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:40444 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     127.0.0.1:45756 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:60352 - "GET /ready HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:60362 - "POST /api/feedback HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:60366 - "POST /api/retrieve HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:60380 - "POST /api/model-essay HTTP/1.1" 200 OK
+api-1     | INFO:     172.18.0.4:60394 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+api-1     | INFO:     172.18.0.4:60408 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity
+api-1     | INFO:     172.18.0.4:60410 - "POST /api/feedback HTTP/1.1" 422 Unprocessable Entity

@@ -1,0 +1,134 @@
+{
+  "mode": "rubric_retrieval_preview",
+  "notice": "MS2 preview: rubric retrieval is live. Suggestions are curated practice templates; band scoring and individualized model feedback will be added in MS3.",
+  "word_count": 273,
+  "target_band": 7.0,
+  "criteria": [
+    {
+      "criterion": "TR",
+      "name": "Task Response",
+      "score": null,
+      "score_status": "Awaiting calibrated model in MS3",
+      "essay_quote": "Governments have to decide how to divide transport budgets between public services and roads.",
+      "title": "Make each main idea do more work.",
+      "next_step": "State a claim, explain why it follows, and add one relevant example.",
+      "example": {
+        "before": "Public transport is useful.",
+        "after": "Affordable buses can widen access to jobs because workers can reach employers beyond walking distance; for example, a low-cost commuter pass can connect outer suburbs to the city.",
+        "type": "illustrative example, not an automatic correction of your text"
+      },
+      "rubric": [
+        {
+          "similarity": 0.5546696,
+          "task": "academic_task_2",
+          "criterion": "TR",
+          "criterion_name": "Task Response",
+          "band": 7,
+          "text": "IELTS Academic Writing Task 2 | Task Response | Band 7\nThe main parts of the prompt are appropriately addressed.\nA clear and developed position is presented.\nMain ideas are extended and supported but there may be a\ntendency to over-generalise or there may be a lack of focus and\nprecision in supporting ideas/material.",
+          "source_id": "ielts-writing-band-descriptors-2023",
+          "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+          "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+          "page": 7,
+          "version": "May 2023",
+          "chunk_id": "d399cf35300e83da3c451aa772d8fd8ab722f0e79773affce5de6cb78249eaf7",
+          "characters": 318
+        }
+      ]
+    },
+    {
+      "criterion": "CC",
+      "name": "Coherence and Cohesion",
+      "score": null,
+      "score_status": "Awaiting calibrated model in MS3",
+      "essay_quote": "I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.",
+      "title": "Give each paragraph one clear purpose.",
+      "next_step": "Use a topic sentence, develop that point, and make the connection to the next paragraph explicit.",
+      "example": {
+        "before": "It is cheap. Pollution is a problem.",
+        "after": "Alongside lower travel costs, reliable public transport can reduce pollution by replacing some journeys made in private cars.",
+        "type": "illustrative example, not an automatic correction of your text"
+      },
+      "rubric": [
+        {
+          "similarity": 0.6704936,
+          "task": "academic_task_2",
+          "criterion": "CC",
+          "criterion_name": "Coherence and Cohesion",
+          "band": 7,
+          "text": "IELTS Academic Writing Task 2 | Coherence and Cohesion | Band 7\nInformation and ideas are logically organised,\nand there is a clear progression throughout\nthe response. (A few lapses may occur, but\nthese are minor.)\nA range of cohesive devices including\nreference and substitution is used flexibly but\nwith some inaccuracies or some over/under\nuse.\nParagraphing is generally used effectively to\nsupport overall coherence, and the sequencing\nof ideas within a paragraph is generally logical.",
+          "source_id": "ielts-writing-band-descriptors-2023",
+          "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+          "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+          "page": 7,
+          "version": "May 2023",
+          "chunk_id": "6686a4f0b2a89bff68eab836643c9c21708cd39fc8953ddce520d0cb0ec8b4b9",
+          "characters": 490
+        }
+      ]
+    },
+    {
+      "criterion": "LR",
+      "name": "Lexical Resource",
+      "score": null,
+      "score_status": "Awaiting calibrated model in MS3",
+      "essay_quote": "A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.",
+      "title": "Choose precise words for your meaning.",
+      "next_step": "Replace broad words with accurate topic vocabulary and check the surrounding word combination.",
+      "example": {
+        "before": "There are many good things.",
+        "after": "Two potential benefits are lower commuting costs and wider access to employment.",
+        "type": "illustrative example, not an automatic correction of your text"
+      },
+      "rubric": [
+        {
+          "similarity": 0.6507404,
+          "task": "academic_task_2",
+          "criterion": "LR",
+          "criterion_name": "Lexical Resource",
+          "band": 7,
+          "text": "IELTS Academic Writing Task 2 | Lexical Resource | Band 7\nThe resource is sufficient to allow some\nflexibility and precision.\nThere is some ability to use less common\nand/or idiomatic items.\nAn awareness of style and collocation is\nevident, though inappropriacies occur.\nThere are only a few errors in spelling\nand/or word formation and they do not\ndetract from overall clarity.",
+          "source_id": "ielts-writing-band-descriptors-2023",
+          "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+          "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+          "page": 7,
+          "version": "May 2023",
+          "chunk_id": "0ff5873a5a7f3d965878dbbde1317a5e28f913f94331c6941726b33226aaf5ad",
+          "characters": 378
+        }
+      ]
+    },
+    {
+      "criterion": "GRA",
+      "name": "Grammatical Range and Accuracy",
+      "score": null,
+      "score_status": "Awaiting calibrated model in MS3",
+      "essay_quote": "The main reason to prioritize public transport is affordability.",
+      "title": "Use sentence variety with control.",
+      "next_step": "Combine two related ideas with a clear subordinate clause, then check agreement and punctuation.",
+      "example": {
+        "before": "Buses are cheap. People can use them.",
+        "after": "Because buses are affordable, more residents can use them for daily travel.",
+        "type": "illustrative example, not an automatic correction of your text"
+      },
+      "rubric": [
+        {
+          "similarity": 0.6038624,
+          "task": "academic_task_2",
+          "criterion": "GRA",
+          "criterion_name": "Grammatical Range and Accuracy",
+          "band": 7,
+          "text": "IELTS Academic Writing Task 2 | Grammatical Range and Accuracy | Band 7\nA variety of complex structures is used\nwith some flexibility and accuracy.\nGrammar and punctuation are generally\nwell controlled, and error-free sentences\nare frequent.\nA few errors in grammar may persist, but\nthese do not impede communication.",
+          "source_id": "ielts-writing-band-descriptors-2023",
+          "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+          "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+          "page": 7,
+          "version": "May 2023",
+          "chunk_id": "ce411768aba4d9baf8391866e973ab9c8fcd3cac1a6a5a033c1abd56ed56367e",
+          "characters": 317
+        }
+      ]
+    }
+  ],
+  "latency_ms": 176,
+  "index_id": "ee2bf411da98a007"
+}

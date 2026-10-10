@@ -1,0 +1,10 @@
+{
+  "source_snapshot": "34cab16e4ffa06d6",
+  "chunk_snapshot": "8b1961bb5f2344e7",
+  "strategy": "criterion_band_table_cell_v1",
+  "overlap": 0,
+  "chunks": 24,
+  "min_characters": 260,
+  "max_characters": 547,
+  "rationale": "A table cell is the smallest complete band-specific judgement. Arbitrary character windows can mix criteria, bands, or Task 1 and Task 2."
+}

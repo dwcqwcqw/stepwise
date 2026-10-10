@@ -93,3 +93,11 @@ We studied [Cheese App v0](https://github.com/dlops-io/cheese-app-v0) for stage 
 [Official MS2 requirements](https://harvard-iacs.github.io/2026-AC215/milestone2/) · [MS2 report](docs/report.md)
 
 Team Stepwise: Bei Li, Ernest Ferdian, Dimitris Pipinis, Xiahui Huang.
+
+## Submission package
+
+- [English report](docs/report.md) · [Google Docs report](https://docs.google.com/document/d/1zz4xZyHuphKdB_hXu1w4R4tl9ldOu46OoDFS8vkZt5Q/edit)
+- [TF presentation slides](docs/slides/Stepwise_MS2_Presentation_Final.pptx) · [15-minute walkthrough](docs/presentation.md)
+- [Actual execution evidence](docs/evidence/README.md)
+
+![Actual Stepwise feedback screen](docs/evidence/app-feedback-detail.jpg)

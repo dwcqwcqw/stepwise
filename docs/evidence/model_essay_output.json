@@ -1,0 +1,41 @@
+{
+  "status": "generation_pending_ms3",
+  "notice": "Your requirements and rubric context are ready. Model essay generation and its separate four-criterion scoring pass will be connected in MS3.",
+  "requirements": {
+    "prompt": "Some people think governments should spend more on public transport than on roads. To what extent do you agree or disagree?",
+    "target_band": 7.0,
+    "position": "Prioritize public transport while maintaining essential roads.",
+    "ideas": "Affordability for commuters; access to jobs; lower congestion; protect rural connections."
+  },
+  "outline": [
+    {
+      "section": "Introduction",
+      "purpose": "Introduce the question and state your position: Prioritize public transport while maintaining essential roads."
+    },
+    {
+      "section": "Body paragraphs",
+      "purpose": "Develop your requested ideas with reasons and examples: Affordability for commuters; access to jobs; lower congestion; protect rural connections."
+    },
+    {
+      "section": "Conclusion",
+      "purpose": "Summarize the argument and return to the question."
+    }
+  ],
+  "rubric": [
+    {
+      "similarity": 0.577065,
+      "task": "academic_task_2",
+      "criterion": "TR",
+      "criterion_name": "Task Response",
+      "band": 7,
+      "text": "IELTS Academic Writing Task 2 | Task Response | Band 7\nThe main parts of the prompt are appropriately addressed.\nA clear and developed position is presented.\nMain ideas are extended and supported but there may be a\ntendency to over-generalise or there may be a lack of focus and\nprecision in supporting ideas/material.",
+      "source_id": "ielts-writing-band-descriptors-2023",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+      "page": 7,
+      "version": "May 2023",
+      "chunk_id": "d399cf35300e83da3c451aa772d8fd8ab722f0e79773affce5de6cb78249eaf7",
+      "characters": 318
+    }
+  ]
+}

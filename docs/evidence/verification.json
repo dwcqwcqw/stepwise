@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "checks": [
+    "24 official rubric vectors",
+    "gateway to API",
+    "four criterion retrievals",
+    "essay quotes valid",
+    "target-band filters",
+    "half-band neighboring descriptors",
+    "model-essay requirements preserved",
+    "invalid input rejected"
+  ],
+  "index_id": "ee2bf411da98a007",
+  "feedback_latency_ms": 176,
+  "generation_status": "generation_pending_ms3",
+  "scoring_status": "pending MS3; no invented band scores"
+}
