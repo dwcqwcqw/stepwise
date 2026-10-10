@@ -2,4 +2,4 @@
 name = "stepwise-ingest"
 version = "0.2.0"
 requires-python = ">=3.12,<3.13"
-dependencies = ["httpx==0.28.1", "pymupdf==1.26.4", "pyarrow==21.0.0"]
+dependencies = ["httpx==0.28.1", "pymupdf==1.26.4"]

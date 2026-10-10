@@ -1,25 +1,27 @@
-# Data management and quality
+# Official assessment knowledge
 
-Official rubric cells are assessment knowledge. Scored essays are a separate adaptation candidate; they cannot override the rubric or provide expert evaluation labels merely by passing schema checks.
+MS2 ingests **official assessment resources only**. The 8,049-record essay candidate collection is reserved for MS3 adaptation; its manifest is in `data/ms3/sources.lock.json` and is not read by the running pipeline.
 
-## Collection and extraction
+| Source | What is indexed | Authority |
+|---|---|---|
+| [IELTS Writing Band Descriptors](https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf) | All nine PDF pages; 80 criterion-band cells covering both tasks and bands 0–9; merged Band 0 rule; rating instructions and bold limiting features | Primary band scale, May 2023 |
+| [IELTS Writing Key Assessment Criteria](https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf) | Task 2 definitions, shared response-format rules and all 20 detailed checks: TR 5, CC 5, LR 6, GRA 4 | Primary explanation of assessment criteria |
+| [British Council: Answer the Question](https://takeielts.britishcouncil.org/sites/default/files/writing_task_2_-_answer_the_questions.pdf) | Official question-analysis and relevance guidance, preserved by page | Supplementary teaching guidance, 2013; cannot override current band descriptors |
 
-The source lock pins the IELTS PDF checksum and immutable Hugging Face revision/LFS SHA-256. All cached downloads are reverified. `runtime/data/processed/manifest.json` records receipts and a deterministic snapshot ID; raw files are excluded from Git.
+Downloads are checksum-verified against `data/sources.lock.json`. Raw PDFs and the complete extracted text remain in ignored runtime storage. Source URLs, pages, hashes, dates and stable chunk IDs accompany every vector.
 
-PyMuPDF reads only tables headed `Task Response`, excluding Task 1. Extraction requires exactly 24 nonempty cells: four criteria × bands 4–9. Missing or duplicate cells fail the stage. This explicit MVP target range avoids the merged lower-band cells.
+## Coverage and boundaries
 
-Each chunk preserves an entire criterion-band cell, with task, band, criterion, source URL/page/version/hash. Chunk IDs hash source identity plus content. Zero overlap keeps neighboring ratings separate; arbitrary text windows could mix bands or criteria. Length statistics are recorded.
+The full source library contains **131 chunks**: 80 band cells, 20 subcriteria, five criterion definitions, seven rating-rule chunks, nine full source pages and ten teaching-resource pages. Page chunks preserve complete PDF coverage; criterion chunks provide precise retrieval. The same content may therefore be represented at both page and criterion level. Chunk overlap within each table cell or detailed bullet is zero.
 
-## Essay normalization and splits
+Both tasks are indexed to preserve the complete requested PDF. **The application assesses Task 2 only.** Its scoring context retrieves the complete 0–9 band ladder for each of TR/CC/LR/GRA, all detailed definitions/checks and applicable rating rules, with a task filter that excludes Task 1. Semantic retrieval adds up to two supplementary teaching pages. Mandatory coverage uses filtered Qdrant retrieval so semantic top-k cannot silently drop low bands or a criterion.
 
-Require a nonempty question, at least 40 essay words and numeric four-criterion labels between 0 and 9. Remove exact duplicates using case/whitespace-normalized essay hashes. Preserve original text. Explicitly map upstream `task_achievement_band` to Task 2's `TR` and record the mapping.
+Target-band retrieval is used for generation and the retrieval demonstration. The assessor never receives the user's target band: its score must be based on the essay. Four criterion scores are whole numbers; the interface reports their mean rounded to the nearest half band as a Task 2 practice estimate. This is not a full Writing-section result combining Tasks 1 and 2.
 
-Assign all essays sharing a normalized prompt to one train/validation/test bucket by deterministic prompt hash: 80/10/10 by hash buckets, with actual essay proportions reported. This prevents exact prompt leakage. Near-duplicate essays, paraphrased prompt families and prompt/essay mismatches still require an audit before training.
+The 20 qualitative detailed checks are **not** official individually scored bands. The model supplies a judgment and evidence for each; the server attaches the exact official wording and source link.
 
-Every record has `training_approved=false`. Record the dataset card's CC BY 4.0 declaration; audit underlying reuse and score provenance before adaptation. Optional GPT advice is not authoritative feedback. MS2 makes no calibrated model-accuracy claim from these candidate labels.
+## Versions
 
-## Index versioning
+Source snapshot: `3aea32a1828dd022`. Chunk snapshot: `2b9f6740186efff1`. Index identity additionally hashes the actual ONNX embedding weights and dependency configuration. Repeated upserts use stable UUIDs and exact count checks. See generated `docs/evidence/index.json` for the verified runtime index.
 
-The chunk snapshot, embedding model, actual ONNX hash, FastEmbed version, dimension and cosine metric determine the index ID and `stepwise_<id>` collection. Stable UUIDs make upserts idempotent. Exact point count is checked before publishing the active index manifest.
-
-Ingest reads source lock -> chunk reads data manifest -> index reads chunk manifest -> API reads index manifest. This records the data version each stage uses. Source changes create distinct index identities; old collections are retained. Automated production retention/rollback belongs to later milestones.
+MS3 will audit candidate essay reuse, label provenance, near duplicates, prompt families and prompt/essay alignment before fine-tuning. MS2 neither downloads that collection nor uses its essays, labels or generated advice for assessment.

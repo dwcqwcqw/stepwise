@@ -1,36 +1,39 @@
-# Environment setup
+# Run Stepwise in Google Cloud Shell
 
-## Local
-
-Install Docker Desktop/Engine, Compose v2+, Python, Make and [uv](https://docs.astral.sh/uv/). Start the Docker daemon and check `docker version` and `docker compose version`. Clone `milestone2` and run `make run`. No secrets are required. Docker Desktop or a running Colima VM provides Linux containers on macOS; use WSL2 on Windows.
-
-`make test` builds `services/api/.venv` from its lock and runs offline contracts/chunking tests. Real embeddings and vector DB checks run via `make verify` against the full container system.
-
-## Google Cloud Shell
-
-Cloud Shell's temporary Linux VM supports the CPU pipeline without creating a billable Compute Engine instance or choosing a billing project. Home storage persists within Cloud Shell limits; running sessions are temporary. This is a reproducible development demonstration, not a production deployment.
-
-1. Activate Cloud Shell in the existing course Google Cloud session; authorize the existing login if prompted. The app itself uses no Google credentials.
-2. Run:
+Prerequisites: Docker Engine + Compose v2 or newer, make, Python 3, gcloud signed into your authorized account, outbound HTTPS, and a Google Cloud project with billing and Vertex AI API already available. Host `uv` is needed only for `make test`.
 
 ```bash
 git clone --branch milestone2 https://github.com/dwcqwcqw/stepwise.git
 cd stepwise
+export GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
+export GOOGLE_CLOUD_LOCATION=global
+export GEMINI_MODEL=gemini-3.8-flash
+export STEPWISE_AUTH_DIR=/dev/shm/stepwise-auth
+python3 scripts/cloud-auth.py > /tmp/stepwise-auth.log 2>&1 &
 make run
-make evidence
 ```
 
-3. Open Cloud Shell Web Preview on port **8080**, using its authenticated proxy. No public firewall change is needed.
-4. Capture `docker compose ps -a` and the app for evidence. Download evidence if needed.
-5. `make stop` ends the development containers while preserving the data cache.
+The auth helper reads the existing gcloud session and refreshes a short-lived access token every 20 minutes in memory-backed `/dev/shm`. The directory is mode 0700, its token is 0600, and only the API container receives a read-only mount. Tokens are never printed, embedded in an image, added to Git or passed to the browser. Keep the helper alive while the demo runs. It does not create API keys or service-account keys. On hosts without `/dev/shm`, provide a private temporary directory through `STEPWISE_AUTH_DIR` and remove it after stopping the demo.
 
-Cloud Shell has session, disk and memory quotas. A longer session can use a Linux VM in an explicitly selected billing project with Docker/Compose and the same command. A paid VM is not needed for MS2.
+`GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION` and `GEMINI_MODEL` are ordinary configuration, not secrets. `GEMINI_MODEL` is configurable because availability differs between projects and model lifecycles. The evidence receipt records the model actually used; a configured model name alone does not prove successful inference.
 
-## Failure recovery
+Open http://localhost:8080, or Cloud Shell Web Preview on port 8080. API docs: http://localhost:8000/docs. The first run downloads three official PDFs and embedding weights. No essay training corpus is downloaded.
 
-- Checksum mismatch: inspect the source change before updating the lock or replacing the affected cached file.
-- Failed stage: inspect `docker compose logs ingest chunk index`, resolve the error, rerun `make run`.
-- Model unavailable: check outbound Hugging Face access; the shared model cache avoids repeat downloads.
-- API unready: check `/ready` and DB/index logs. A healthy HTTP process alone does not prove indexing succeeded.
-- Port conflict: change the host port mapping and set `STEPWISE_URL` for verification.
-- Use `make stop` for routine cleanup; retain runtime data/DB directories.
+`make run` builds and starts the full container pipeline, then makes **real billable model calls** for draft feedback, essay generation, separate essay assessment and a distinct weak draft. It writes sample inputs/outputs and receipts to `runtime/artifacts`. It fails if Google authorization, the model, citations, excerpts or required criteria are unavailable; there is no template fallback.
+
+- `make verify`: repeat the real integration checks (calls Google again).
+- `make test`: local deterministic contract/evidence tests, no Google calls.
+- `make evidence`: capture current logs and previously verified artifacts; does not repeat paid calls.
+- `make logs`: show container logs.
+- `make stop`: stop services while retaining data; stop the auth helper afterward.
+
+## Troubleshooting
+
+- HTTP 401: verify your signed-in gcloud session and restart the auth helper.
+- HTTP 403 / `SERVICE_DISABLED`: inspect the selected project's Vertex API, billing and your permissions. Resolve access in the intended project; do not switch to another organization's project merely because it is listed.
+- HTTP 404: check model availability and `GEMINI_MODEL` against Google's official model documentation.
+- HTTP 429/5xx: bounded retries are built in; rerun once the project's quota/service recovers.
+- Source hash drift: inspect the updated official source and audit it before changing the lock.
+- Evidence validation failure: no unchecked assessment is shown. Review the model contract and retry.
+
+Google Cloud Shell provides a temporary development VM and authenticated preview, not persistent production hosting. API/web ports bind to loopback, and Qdrant has no host-published port. Stepwise does not persist learner submissions; Google receives text to perform inference under the selected Cloud project.

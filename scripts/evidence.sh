@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-python3 scripts/verify.py
+test -f runtime/artifacts/verification.json || { echo "Run make verify first."; exit 1; }
 mkdir -p docs/evidence
 docker compose logs --no-color > docs/evidence/pipeline.log
 docker compose ps -a --format json > docs/evidence/containers.jsonl

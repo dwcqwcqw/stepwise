@@ -10,17 +10,30 @@
       "sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
       "license_note": "Official public IELTS assessment resource; fetched at runtime for attributed educational retrieval. Raw PDF and full extracted text are not redistributed in Git.",
       "version": "May 2023",
-      "selection": "Task Response tables, bands 4-9, all four criteria, PDF pages 7-9"
+      "selection": "Entire nine-page PDF; Task 1 and Task 2 bands 0\u20139, all four criteria, merged Band 0 rule, page text and rating instructions.",
+      "kind": "band_descriptors"
     },
     {
-      "id": "chillies-ielts-task2-fa42fa7",
-      "role": "training_candidate",
-      "filename": "ielts-task2.parquet",
-      "url": "https://huggingface.co/datasets/chillies/ielts-writing-task2-essays/resolve/fa42fa7a2b02941e002cfbf5146c3176ba21f413/data/train-00000-of-00001.parquet",
-      "sha256": "634370b1a7c306bf6154f7294fe0d74f4cc9099243175023da806e2e11614128",
-      "revision": "fa42fa7a2b02941e002cfbf5146c3176ba21f413",
-      "license_note": "Dataset card declares CC BY 4.0. Underlying reuse rights and label provenance remain under audit; training_approved=false.",
-      "selection": "Validate schema, remove exact essay duplicates, group splits by normalized prompt; do not index candidate essays as official rubric knowledge."
+      "id": "ielts-key-assessment-criteria",
+      "role": "rubric",
+      "kind": "key_criteria",
+      "filename": "ielts-writing-key-assessment-criteria.pdf",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+      "sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+      "version": "Retrieved 2026-10-10",
+      "selection": "Official four-criterion definitions and every Task 2 assessment bullet; shared format rules.",
+      "license_note": "Official public IELTS assessment resource, retrieved at runtime with source attribution."
+    },
+    {
+      "id": "british-council-task2-relevance",
+      "role": "rubric",
+      "kind": "task_guidance",
+      "filename": "bc-task2-answer-the-question.pdf",
+      "url": "https://takeielts.britishcouncil.org/sites/default/files/writing_task_2_-_answer_the_questions.pdf",
+      "sha256": "2c973185efff8fb26d256870b33bca11b7861d31d1de3978686a47ec965219f3",
+      "version": "British Council 2013",
+      "selection": "Official teaching guidance on question analysis and relevant ideas; supplementary guidance, not a replacement band scale.",
+      "license_note": "British Council public teaching resource, retrieved at runtime with attribution."
     }
   ]
 }

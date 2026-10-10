@@ -18,7 +18,7 @@ def health(): return {'status':'ok'}
 
 @app.api_route('/api/{path:path}',methods=['GET','POST'])
 async def proxy(path: str,request: Request):
-    async with httpx.AsyncClient(timeout=120) as client:
+    async with httpx.AsyncClient(timeout=600) as client:
         target = '/ready' if path == 'ready' else f'/api/{path}'
         try:
             result=await client.request(request.method,os.getenv('API_URL','http://api:8000')+target,content=await request.body(),headers={'content-type':'application/json'})

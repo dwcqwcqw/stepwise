@@ -1,0 +1,16 @@
+{
+  "lock_version": 1,
+  "purpose": "MS3 adaptation only; excluded from make run and RAG",
+  "sources": [
+    {
+      "id": "chillies-ielts-task2-fa42fa7",
+      "role": "training_candidate",
+      "filename": "ielts-task2.parquet",
+      "url": "https://huggingface.co/datasets/chillies/ielts-writing-task2-essays/resolve/fa42fa7a2b02941e002cfbf5146c3176ba21f413/data/train-00000-of-00001.parquet",
+      "sha256": "634370b1a7c306bf6154f7294fe0d74f4cc9099243175023da806e2e11614128",
+      "revision": "fa42fa7a2b02941e002cfbf5146c3176ba21f413",
+      "license_note": "Dataset card declares CC BY 4.0. Underlying reuse rights and label provenance remain under audit; training_approved=false.",
+      "selection": "Validate schema, remove exact essay duplicates, group splits by normalized prompt; do not index candidate essays as official rubric knowledge."
+    }
+  ]
+}

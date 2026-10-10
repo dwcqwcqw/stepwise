@@ -39,8 +39,14 @@ services:
       qdrant: {condition: service_healthy}
   api:
     build: {context: ., dockerfile: services/api/Dockerfile}
-    environment: *environment
+    environment:
+      <<: *environment
+      GOOGLE_CLOUD_PROJECT: ${GOOGLE_CLOUD_PROJECT:-}
+      GOOGLE_CLOUD_LOCATION: ${GOOGLE_CLOUD_LOCATION:-global}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.8-flash}
+      VERTEX_TOKEN_FILE: /run/stepwise-auth/token
     volumes:
+      - ${STEPWISE_AUTH_DIR:-/dev/shm/stepwise-auth}:/run/stepwise-auth:ro
       - ./runtime/data:/data:ro
       - ./runtime/model-cache:/cache
     ports: ["127.0.0.1:8000:8000"]

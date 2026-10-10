@@ -8,7 +8,7 @@ from services.api.main import EssayRequest, ModelEssayRequest, RetrievalRequest
 from services.chunk.main import build_chunks
 from shared.common import digest
 
-@pytest.mark.parametrize('band',[3.5,9.5,6.3])
+@pytest.mark.parametrize('band',[-0.5,9.5,6.3])
 def test_target_band_rejected(band):
     with pytest.raises(ValidationError): RetrievalRequest(query='Examples and argument development',criterion='TR',target_band=band)
 

@@ -631,6 +631,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
     { name = "fastembed" },
+    { name = "httpx" },
     { name = "qdrant-client" },
     { name = "uvicorn" },
 ]
@@ -646,6 +647,7 @@ dev = [
 requires-dist = [
     { name = "fastapi", specifier = "==0.116.1" },
     { name = "fastembed", specifier = "==0.7.3" },
+    { name = "httpx", specifier = "==0.28.1" },
     { name = "qdrant-client", specifier = "==1.15.1" },
     { name = "uvicorn", specifier = "==0.35.0" },
 ]
