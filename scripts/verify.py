@@ -16,7 +16,11 @@ def call(path, body=None):
     request = urllib.request.Request(BASE+path,data=data,headers={'content-type':'application/json'})
     with urllib.request.urlopen(request,timeout=120) as response: return json.load(response)
 
-def save(name,value): (OUT/name).write_text(json.dumps(value,indent=2)+'\n')
+def save(name,value):
+    # Replace atomically so host verification can refresh container-created artifacts.
+    temporary = OUT/(name+'.tmp')
+    temporary.write_text(json.dumps(value,indent=2)+'\n')
+    temporary.replace(OUT/name)
 
 for attempt in range(90):
     try:
