@@ -1,0 +1,26 @@
+{
+  "lock_version": 1,
+  "created": "2026-10-10",
+  "sources": [
+    {
+      "id": "ielts-writing-band-descriptors-2023",
+      "role": "rubric",
+      "filename": "ielts-writing-band-descriptors.pdf",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+      "license_note": "Official public IELTS assessment resource; fetched at runtime for attributed educational retrieval. Raw PDF and full extracted text are not redistributed in Git.",
+      "version": "May 2023",
+      "selection": "Task Response tables, bands 4-9, all four criteria, PDF pages 7-9"
+    },
+    {
+      "id": "chillies-ielts-task2-fa42fa7",
+      "role": "training_candidate",
+      "filename": "ielts-task2.parquet",
+      "url": "https://huggingface.co/datasets/chillies/ielts-writing-task2-essays/resolve/fa42fa7a2b02941e002cfbf5146c3176ba21f413/data/train-00000-of-00001.parquet",
+      "sha256": "634370b1a7c306bf6154f7294fe0d74f4cc9099243175023da806e2e11614128",
+      "revision": "fa42fa7a2b02941e002cfbf5146c3176ba21f413",
+      "license_note": "Dataset card declares CC BY 4.0. Underlying reuse rights and label provenance remain under audit; training_approved=false.",
+      "selection": "Validate schema, remove exact essay duplicates, group splits by normalized prompt; do not index candidate essays as official rubric knowledge."
+    }
+  ]
+}

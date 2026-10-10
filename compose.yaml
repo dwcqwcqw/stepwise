@@ -1,0 +1,65 @@
+name: stepwise
+x-data: &data
+  - ./runtime/data:/data
+  - ./runtime/artifacts:/artifacts
+x-environment: &environment
+  DATA_DIR: /data
+  ARTIFACTS_DIR: /artifacts
+  QDRANT_URL: http://qdrant:6333
+  MODEL_CACHE: /cache
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.15.4
+    volumes:
+      - ./runtime/qdrant:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c ': > /dev/tcp/127.0.0.1/6333'"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+  ingest:
+    build: {context: ., dockerfile: services/ingest/Dockerfile}
+    environment: *environment
+    volumes: *data
+  chunk:
+    build: {context: ., dockerfile: services/chunk/Dockerfile}
+    environment: *environment
+    volumes: *data
+    depends_on:
+      ingest: {condition: service_completed_successfully}
+  index:
+    build: {context: ., dockerfile: services/index/Dockerfile}
+    environment: *environment
+    volumes:
+      - ./runtime/data:/data
+      - ./runtime/artifacts:/artifacts
+      - ./runtime/model-cache:/cache
+    depends_on:
+      chunk: {condition: service_completed_successfully}
+      qdrant: {condition: service_healthy}
+  api:
+    build: {context: ., dockerfile: services/api/Dockerfile}
+    environment: *environment
+    volumes:
+      - ./runtime/data:/data:ro
+      - ./runtime/model-cache:/cache
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      index: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/ready')"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  web:
+    build: {context: ., dockerfile: services/web/Dockerfile}
+    environment:
+      API_URL: http://api:8000
+    ports: ["127.0.0.1:8080:8080"]
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 30

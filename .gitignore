@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.env
+secrets/
+credentials*.json
+*service-account*.json
+.DS_Store
+runtime/
+data/raw/
+data/processed/
+data/cache/
+!data/sources.lock.json

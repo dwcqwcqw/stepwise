@@ -1,0 +1,5 @@
+[project]
+name = "stepwise-index"
+version = "0.2.0"
+requires-python = ">=3.12,<3.13"
+dependencies = ["fastembed==0.7.3", "qdrant-client==1.15.1"]

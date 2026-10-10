@@ -1,0 +1,5 @@
+[project]
+name = "stepwise-web"
+version = "0.2.0"
+requires-python = ">=3.12,<3.13"
+dependencies = ["fastapi==0.116.1", "uvicorn==0.35.0", "httpx==0.28.1"]
