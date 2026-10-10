@@ -1,0 +1,298 @@
+{
+  "status": "passed",
+  "implementation_commit": "c4522d75b45c2ae32a73b0b5c133ccfcb5e43a71",
+  "checks": [
+    "all 80 cells from complete official band PDF",
+    "all 20 official detailed checks",
+    "131 indexed official-source chunks",
+    "40 live criterion-band queries cover Task 2 bands 0\u20139",
+    "no Task 1 returned",
+    "half-band 6.5 returns 6 and 7",
+    "zero MS3 training candidate records loaded"
+  ],
+  "index_id": "2da4e8eda6a331b5",
+  "vectors": 131,
+  "traces": [
+    {
+      "criterion": "TR",
+      "band": 0,
+      "chunk_id": "45e304dd8e57e3d0744caa88491782e72a94ffadf8cda06886dc6dcbb6bd8f82",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "TR",
+      "band": 1,
+      "chunk_id": "f84810c04e2f4fe93e4c24b57b9b924e396a27065e4b20862cd4c24a3062c96f",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "TR",
+      "band": 2,
+      "chunk_id": "e1e9a2953e883f27067cc9604b5458c323f14f1cdca6bd879ccc25b6ccb9f0c1",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "TR",
+      "band": 3,
+      "chunk_id": "32697d50f58b94b4ce83fc6903bb3ee9f8563c10c33662e00342996c254eed40",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "TR",
+      "band": 4,
+      "chunk_id": "779d784cdc811bea9111aeb5097b9172efc5783905e67f86fd05781b8f172a11",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "TR",
+      "band": 5,
+      "chunk_id": "e5ddbe9dc5c48e7089ad8ad4ef0eb545176a10776da276162525a90e2590536a",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 8
+    },
+    {
+      "criterion": "TR",
+      "band": 6,
+      "chunk_id": "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 8
+    },
+    {
+      "criterion": "TR",
+      "band": 7,
+      "chunk_id": "a48820ccc82d8570c378eec242aa8e1728d9a7dc43ae16010f2e01a098a7f3b4",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "TR",
+      "band": 8,
+      "chunk_id": "6b4010bca51871c152b6c171de07f019ce30a06262667dc82e12a7eb656c4830",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "TR",
+      "band": 9,
+      "chunk_id": "1f375fdb4203eeed7723493182e6d41b8c2e9f43bbaec373159728554ab547e9",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "CC",
+      "band": 0,
+      "chunk_id": "e105856a56fd98a6319568d3a5d4e1e7f771556344c64fafef5067e2cf31f869",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "CC",
+      "band": 1,
+      "chunk_id": "b1f40b69543a041aea813530d1d098d4ceaf5cfda558c3b56ce7e9ac4e0d44e7",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "CC",
+      "band": 2,
+      "chunk_id": "30ac835c7459f0da33344344132af62815c0b102d32bb639bcf204ceb4ea90bb",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "CC",
+      "band": 3,
+      "chunk_id": "1a91177990cff2aa6111116b80f6f4427ac91bb577ee8e97c3efbce0b31ac498",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "CC",
+      "band": 4,
+      "chunk_id": "ed1ad6ba65718323d16a51f20c8975248c571614fd597c0f91eff475d5a8dd9a",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "CC",
+      "band": 5,
+      "chunk_id": "c1b0a13e2e9256634b4de0fdd330a25b60ae20cfe22105d0ee950d182f87fdd8",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 8
+    },
+    {
+      "criterion": "CC",
+      "band": 6,
+      "chunk_id": "808b288b48cf0870e25aa84d344a0d1b85ed905ad4ac8dd3455acd1560f4b60a",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 8
+    },
+    {
+      "criterion": "CC",
+      "band": 7,
+      "chunk_id": "517aec71389cf8bab8381bdec1791927f0b754b41945bf62d30a1a66d1ac1378",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "CC",
+      "band": 8,
+      "chunk_id": "9d92e9a4d003af20c5f1e8b95bdb7b748211bc67cebdf6f08f7c62a1f900692a",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "CC",
+      "band": 9,
+      "chunk_id": "d41ff754da93e2884e8e9110d297e1c38332952be5ec4241f3b4387631b083fc",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "LR",
+      "band": 0,
+      "chunk_id": "bf5c67e70e9cb4314f79b58275d152f05ce612341c4727c1f0925ae7ed58178a",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "LR",
+      "band": 1,
+      "chunk_id": "b064cc91e5032a624ca8751624a63d6e5f0a3fa57192e923435aaf0b5c214035",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "LR",
+      "band": 2,
+      "chunk_id": "d8dda14bbd7fb406d793d2beb73a65938f4f86da214f6d6631941a144cda171e",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "LR",
+      "band": 3,
+      "chunk_id": "4ff812878de40d576ede23507e9255891e3e97a6191a1678e0ff010a6c8614a6",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "LR",
+      "band": 4,
+      "chunk_id": "e4e3c3d71d1dfa9e5ad8bfcb6f397dff9a2172dba12b1d99e71144cfddbd80a3",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "LR",
+      "band": 5,
+      "chunk_id": "5e7435dcbb2014e1fdbedb7b1919dbe1c90e30d3f191ddc55e622a2a2c1a0b8e",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 8
+    },
+    {
+      "criterion": "LR",
+      "band": 6,
+      "chunk_id": "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 8
+    },
+    {
+      "criterion": "LR",
+      "band": 7,
+      "chunk_id": "f44e245fa5d7218c4d1cdf5ec4c9c70a1626bf0b1565454662514ca2c82dbb70",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "LR",
+      "band": 8,
+      "chunk_id": "968223217dcbd8506d741921f898e85475b15bb70126952511c866d71b73fd13",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "LR",
+      "band": 9,
+      "chunk_id": "1816a3149c12b353b81233c371156864c32e6c9ce18d947152bcd9c14622f20e",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "GRA",
+      "band": 0,
+      "chunk_id": "4708094eb3c29fa1fd009bcd6c1b2014a1315253c563b40bb04378ecde4a6094",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "GRA",
+      "band": 1,
+      "chunk_id": "c9ba9dc93b78acc5580054a141b8412aa5c8c081cc6c5a415b59b35c030cfa28",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "GRA",
+      "band": 2,
+      "chunk_id": "4a98096d5b4c775440035297da4e3376427f32f6aca2d2e645786398a4d01e5b",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "GRA",
+      "band": 3,
+      "chunk_id": "d35615cfd274a9efd39c19ba5e5537d2f70474c0830815a9c41a8365ee8a01f9",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "GRA",
+      "band": 4,
+      "chunk_id": "b9946b3a3152fb16f09a6711c710c70d865b7b4dd5c0216e912424b03c91c7c5",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 9
+    },
+    {
+      "criterion": "GRA",
+      "band": 5,
+      "chunk_id": "1ca3fdb0e1fa87625e531e1faecdfd2e5f3b39855fe24ec599fa8f3cfc0ad9be",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 8
+    },
+    {
+      "criterion": "GRA",
+      "band": 6,
+      "chunk_id": "00a8b98103b3b44eba2ff81f7d2420c1b3d21f17773029b304f5d04ead41b215",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 8
+    },
+    {
+      "criterion": "GRA",
+      "band": 7,
+      "chunk_id": "839682a220a272e086a3734b52cdecca4ed67a81dc8bc557832f88a5dc23b975",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "GRA",
+      "band": 8,
+      "chunk_id": "97f5bec5fdc458e85f93ab8548c328519e1946043e5cef69049b8e8b3290b087",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    },
+    {
+      "criterion": "GRA",
+      "band": 9,
+      "chunk_id": "4539166cf9efe96da7b969c278333849cbc8dcac1d74ca01341fcfdfc6db2e79",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "page": 7
+    }
+  ],
+  "generation_status": "Not exercised by this retrieval-only check; see verification.json for model checks."
+}

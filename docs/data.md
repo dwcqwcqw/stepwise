@@ -22,6 +22,6 @@ The 20 qualitative detailed checks are **not** official individually scored band
 
 ## Versions
 
-Source snapshot: `3aea32a1828dd022`. Chunk snapshot: `2b9f6740186efff1`. Index identity additionally hashes the actual ONNX embedding weights and dependency configuration. Repeated upserts use stable UUIDs and exact count checks. See generated `docs/evidence/index.json` for the verified runtime index.
+Source snapshot: `3aea32a1828dd022`. Verified cloud chunk snapshot: `52814016b8103614`. Index identity additionally hashes the actual ONNX embedding weights and dependency configuration. Repeated upserts use stable UUIDs and exact count checks. See generated `docs/evidence/index.json` for the verified runtime index.
 
 MS3 will audit candidate essay reuse, label provenance, near duplicates, prompt families and prompt/essay alignment before fine-tuning. MS2 neither downloads that collection nor uses its essays, labels or generated advice for assessment.

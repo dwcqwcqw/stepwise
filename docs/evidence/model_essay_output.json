@@ -1,0 +1,902 @@
+{
+  "status": "generated_and_assessed",
+  "title": "Balancing Public Transport Investment and Road Maintenance",
+  "essay": "In recent debates surrounding urban planning, an increasingly prominent view is that public funding should be redirected predominantly toward mass transit systems rather than highway construction. While I strongly advocate for prioritizing investments in public transit to foster sustainable communities, I believe governments must still allocate sufficient capital to preserve vital road infrastructure.\n\nDirecting the majority of state expenditure into expanding train networks, subway lines, and bus routes provides immense socioeconomic and environmental advantages. Primary among these is affordability for commuters. Rising fuel prices and vehicle maintenance make private motoring economically prohibitive for many households. Reliable transit options therefore provide a cost-effective alternative, enabling lower-income residents to gain dependable access to jobs, education, and essential public services across sprawling metropolitan areas. Furthermore, high-capacity transport is the most practical remedy for traffic gridlock. When workers have access to efficient, modern train or bus rapid transit corridors, large numbers of private cars are removed from city thoroughfares, leading to lower congestion and reduced carbon emissions.\n\nNevertheless, this prioritization should not come at the expense of abandoning roadways, as doing so would cause severe regional disparities. Highway systems are essential for freight logistics and the movement of goods that drive national economies. More crucially, authorities have a duty to protect rural connections. In remote country towns and sparsely populated agricultural districts, building extensive mass transit systems such as light rail is rarely economically viable or logistically feasible. Inhabitants in these outlying regions depend heavily on private vehicles and local road networks to commute, visit hospitals, and access central marketplaces. Neglecting road preservation would inevitably isolate these communities and stifle local economic activity.\n\nIn conclusion, I largely agree that public transport should receive the lion's share of transport budgets due to its affordability, employment connectivity, and power to relieve congestion. However, balanced fiscal planning demands that essential roads are properly maintained to ensure regional equality.",
+  "word_count": 311,
+  "requirements": {
+    "prompt": "Some people think governments should spend more on public transport than on roads. To what extent do you agree or disagree?",
+    "target_band": 7.0,
+    "position": "Prioritize public transport while maintaining essential roads.",
+    "ideas": "Affordability for commuters; access to jobs; lower congestion; protect rural connections."
+  },
+  "requirement_notes": [
+    "Position: Prioritize public transport while maintaining essential roads is explicitly stated in the thesis statement and reaffirmed in the conclusion.",
+    "Idea 'Affordability for commuters': Developed in Body Paragraph 1 as a key benefit of transit over private car ownership.",
+    "Idea 'Access to jobs': Elaborated in Body Paragraph 1 regarding connecting lower-income workers to employment opportunities across metropolitan areas.",
+    "Idea 'Lower congestion': Developed in Body Paragraph 1 by explaining how high-capacity transit takes cars off the roads to ease gridlock.",
+    "Idea 'Protect rural connections': Fully integrated into Body Paragraph 2 to explain why road maintenance must not be abandoned, particularly for remote populations lacking transit infrastructure."
+  ],
+  "assessment": {
+    "summary": "This essay presents a nuanced, highly persuasive, and fully developed response to the prompt. It displays natural cohesion, sophisticated vocabulary used with high precision, and an exemplary range of accurate grammatical structures.",
+    "criteria": [
+      {
+        "criterion": "TR",
+        "score": 9,
+        "rationale": "The prompt is explored in depth with a clear, fully developed position maintained throughout. Arguments addressing the advantages of prioritising public transport alongside the necessity of maintaining road infrastructure are logically elaborated with well-supported details.",
+        "higher_band_gap": "Band 9 is sustained through thorough exploration of both dimensions of the question and compelling supporting points that leave no gaps in reasoning.",
+        "title": "Task Response",
+        "essay_quote": "While I strongly advocate for prioritizing investments in public transit to foster sustainable communities, I believe governments must still allocate sufficient capital to preserve vital road infrastructure.",
+        "next_step": "Maintain this standard by continuing to pair bold stances with qualified, fully reasoned conditions.",
+        "example": {
+          "before": "Highway systems are essential for freight logistics and the movement of goods that drive national economies.",
+          "after": "Highway networks remain indispensable for heavy freight logistics and interstate trade, both of which underpin domestic supply chains."
+        },
+        "source_ids": [
+          "1f375fdb4203eeed7723493182e6d41b8c2e9f43bbaec373159728554ab547e9",
+          "b4def3c78dee582206432ac44351c649e9bec0b4d5ccf4fe5c8581247355c05c"
+        ],
+        "subcriteria": [
+          {
+            "subcriterion_id": "TR-1",
+            "judgment": "strength",
+            "explanation": "The candidate addresses the comparative spending dilemma comprehensively across urban and rural settings.",
+            "essay_quote": "In recent debates surrounding urban planning, an increasingly prominent view is that public funding should be redirected predominantly toward mass transit systems rather than highway construction.",
+            "official_standard": "how fully the candidate responds to the task.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "TR",
+              "criterion_name": "Task Response",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow fully the candidate responds to the task.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "TR-1",
+              "chunk_id": "278ae8178cb9631204a00965b11c53a8ccbc477e1471ed5e9ac8ce8916ed699b",
+              "characters": 98
+            }
+          },
+          {
+            "subcriterion_id": "TR-2",
+            "judgment": "strength",
+            "explanation": "Main ideas are extended with concrete mechanisms such as affordability, emissions reduction, and regional trade.",
+            "essay_quote": "Rising fuel prices and vehicle maintenance make private motoring economically prohibitive for many households.",
+            "official_standard": "how adequately the main ideas are extended and supported.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "TR",
+              "criterion_name": "Task Response",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow adequately the main ideas are extended and supported.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "TR-2",
+              "chunk_id": "433d6b76fc32161997deb7ca3a675c3367af3d7db0bf2c6f035b07bb407db058",
+              "characters": 110
+            }
+          },
+          {
+            "subcriterion_id": "TR-3",
+            "judgment": "strength",
+            "explanation": "All points directly pertain to the allocation of transport funds.",
+            "essay_quote": "When workers have access to efficient, modern train or bus rapid transit corridors, large numbers of private cars are removed from city thoroughfares",
+            "official_standard": "how relevant the candidate\u2019s ideas are to the task.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "TR",
+              "criterion_name": "Task Response",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow relevant the candidate\u2019s ideas are to the task.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "TR-3",
+              "chunk_id": "4b75a24d694b0f60f3e5052c3418d8917218a080c177f067a02811cb3c220625",
+              "characters": 104
+            }
+          },
+          {
+            "subcriterion_id": "TR-4",
+            "judgment": "strength",
+            "explanation": "The position is clearly stated in the introduction, reinforced throughout the body paragraphs, and neatly summarised in the conclusion.",
+            "essay_quote": "In conclusion, I largely agree that public transport should receive the lion's share of transport budgets due to its affordability, employment connectivity, and power to relieve congestion.",
+            "official_standard": "how clearly the candidate opens the discourse, establishes their position and \nformulates conclusions.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "TR",
+              "criterion_name": "Task Response",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow clearly the candidate opens the discourse, establishes their position and \nformulates conclusions.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "TR-4",
+              "chunk_id": "1e9c384e6edba79e4fdcc6e0b42bcde94411c020ab4d6aeccf198427f843731b",
+              "characters": 155
+            }
+          },
+          {
+            "subcriterion_id": "TR-5",
+            "judgment": "strength",
+            "explanation": "The response adheres strictly to the conventions of an academic opinion essay.",
+            "essay_quote": "While I strongly advocate for prioritizing investments in public transit to foster sustainable communities, I believe governments must still allocate sufficient capital to preserve vital road infrastructure.",
+            "official_standard": "how appropriate the format of the response is to the task.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "TR",
+              "criterion_name": "Task Response",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow appropriate the format of the response is to the task.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "TR-5",
+              "chunk_id": "2abca835312b13b771b2f544ea0b02ba330e3036d86b4a7eed05a6d5287abd3c",
+              "characters": 111
+            }
+          }
+        ],
+        "name": "Task Response",
+        "rubric": [
+          {
+            "task": "academic_task_2",
+            "criterion": "TR",
+            "criterion_name": "Task Response",
+            "band": 9,
+            "kind": "band_descriptor",
+            "text": "IELTS academic_task_2 | Task Response | Band 9\nThe prompt is appropriately addressed and explored in depth.\nA clear and fully developed position is presented which directly\nanswers the question/s.\nIdeas are relevant, fully extended and well supported.\nAny lapses in content or support are extremely rare.",
+            "source_id": "ielts-writing-band-descriptors-2023",
+            "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+            "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+            "source_title": "Ielts Writing Band Descriptors 2023",
+            "page": 7,
+            "version": "May 2023",
+            "limiting_features": [],
+            "chunk_id": "1f375fdb4203eeed7723493182e6d41b8c2e9f43bbaec373159728554ab547e9",
+            "characters": 304
+          },
+          {
+            "task": "academic_task_2",
+            "criterion": "TR",
+            "criterion_name": "Task Response",
+            "band": null,
+            "kind": "criterion_definition",
+            "text": "IELTS academic_task_2 | Task Response | criterion_definition\n\u25aa how fully the candidate responds to the task. \n\u25aa how adequately the main ideas are extended and supported. \n\u25aa how relevant the candidate\u2019s ideas are to the task. \n\u25aa how clearly the candidate opens the discourse, establishes their position and \nformulates conclusions. \n\u25aa how appropriate the format of the response is to the task.",
+            "source_id": "ielts-key-assessment-criteria",
+            "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+            "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+            "source_title": "Ielts Key Assessment Criteria",
+            "page": 3,
+            "version": "Retrieved 2026-10-10",
+            "chunk_id": "b4def3c78dee582206432ac44351c649e9bec0b4d5ccf4fe5c8581247355c05c",
+            "characters": 392
+          }
+        ]
+      },
+      {
+        "criterion": "CC",
+        "score": 9,
+        "rationale": "The progression of ideas is effortless, with seamless logical sequencing within and across paragraphs. Cohesive devices and referencing occur naturally and never draw undue attention to themselves.",
+        "higher_band_gap": "Band 9 is maintained because paragraphing is skilfully managed and discourse markers integrate organically into the argument.",
+        "title": "Coherence and Cohesion",
+        "essay_quote": "Directing the majority of state expenditure into expanding train networks, subway lines, and bus routes provides immense socioeconomic and environmental advantages.",
+        "next_step": "Preserve this standard of seamless transitions and balanced paragraph development.",
+        "example": {
+          "before": "Nevertheless, this prioritization should not come at the expense of abandoning roadways, as doing so would cause severe regional disparities.",
+          "after": "Yet, such prioritisation must not precipitate the neglect of primary road systems, lest regional inequality widen."
+        },
+        "source_ids": [
+          "d41ff754da93e2884e8e9110d297e1c38332952be5ec4241f3b4387631b083fc",
+          "5bee8f903232884f94f4a6509e3be5641ce632de0e476a62763b030ec851246d"
+        ],
+        "subcriteria": [
+          {
+            "subcriterion_id": "CC-1",
+            "judgment": "strength",
+            "explanation": "The progression moves fluidly from urban transit benefits to rural road necessities and concludes with a balanced summary.",
+            "essay_quote": "Nevertheless, this prioritization should not come at the expense of abandoning roadways, as doing so would cause severe regional disparities.",
+            "official_standard": "the coherence of the response via the logical organisation of information \nand/or ideas, or the logical progression of the argument.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "CC",
+              "criterion_name": "Coherence and Cohesion",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe coherence of the response via the logical organisation of information \nand/or ideas, or the logical progression of the argument.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "CC-1",
+              "chunk_id": "6847483d0053c3f66b8c1dc9b0374667be1b2a3f0d9b451a91ec441d48798ae3",
+              "characters": 194
+            }
+          },
+          {
+            "subcriterion_id": "CC-2",
+            "judgment": "strength",
+            "explanation": "Each paragraph has a clearly defined, central focus that is logically expanded.",
+            "essay_quote": "Primary among these is affordability for commuters.",
+            "official_standard": "the appropriate use of paragraphing for topic organisation and presentation.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "CC",
+              "criterion_name": "Coherence and Cohesion",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe appropriate use of paragraphing for topic organisation and presentation.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "CC-2",
+              "chunk_id": "cfd6e6f586b195b07127b7ea7c4c5d31aa97f9599494b8935e82c40f81a3fa75",
+              "characters": 138
+            }
+          },
+          {
+            "subcriterion_id": "CC-3",
+            "judgment": "strength",
+            "explanation": "Information is arranged in a cause-and-effect manner that guarantees smooth transitions from sentence to sentence.",
+            "essay_quote": "Reliable transit options therefore provide a cost-effective alternative, enabling lower-income residents to gain dependable access to jobs",
+            "official_standard": "the logical sequencing of ideas and/or information within and across \nparagraphs.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "CC",
+              "criterion_name": "Coherence and Cohesion",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe logical sequencing of ideas and/or information within and across \nparagraphs.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "CC-3",
+              "chunk_id": "67b67e57fefcd8e0182546315721f413a2fe80f590efd280a0a52f1dfca2c418",
+              "characters": 143
+            }
+          },
+          {
+            "subcriterion_id": "CC-4",
+            "judgment": "strength",
+            "explanation": "Pronouns, determiners, and lexical substitution are deployed accurately without ambiguity.",
+            "essay_quote": "Inhabitants in these outlying regions depend heavily on private vehicles and local road networks to commute",
+            "official_standard": "the flexible use of reference and substitution (e.g. definite articles, pronouns).",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "CC",
+              "criterion_name": "Coherence and Cohesion",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe flexible use of reference and substitution (e.g. definite articles, pronouns).",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "CC-4",
+              "chunk_id": "ea689fea5f768bf51d3ef01212972b7dc56c4b0a2e28a12a41375471445c3230",
+              "characters": 144
+            }
+          },
+          {
+            "subcriterion_id": "CC-5",
+            "judgment": "strength",
+            "explanation": "Discourse markers such as 'Furthermore', 'More crucially', and 'Nevertheless' guide the reader naturally.",
+            "essay_quote": "More crucially, authorities have a duty to protect rural connections.",
+            "official_standard": "the appropriate use of discourse markers to clearly mark the stages in a \nresponse, e.g. [First of all | In conclusion], and to signal the relationship between \nideas and/or information, e.g. [as a result | similarly].",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "CC",
+              "criterion_name": "Coherence and Cohesion",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe appropriate use of discourse markers to clearly mark the stages in a \nresponse, e.g. [First of all | In conclusion], and to signal the relationship between \nideas and/or information, e.g. [as a result | similarly].",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 3,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "CC-5",
+              "chunk_id": "ff098df0a8a8ea153090dc48a02d9cffd99fbb594f5c6f1616170ac91146bd51",
+              "characters": 280
+            }
+          }
+        ],
+        "name": "Coherence and Cohesion",
+        "rubric": [
+          {
+            "task": "academic_task_2",
+            "criterion": "CC",
+            "criterion_name": "Coherence and Cohesion",
+            "band": 9,
+            "kind": "band_descriptor",
+            "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 9\nThe message can be followed effortlessly.\nCohesion is used in such a way that it very\nrarely attracts attention.\nAny lapses in coherence or cohesion are\nminimal.\nParagraphing is skilfully managed.",
+            "source_id": "ielts-writing-band-descriptors-2023",
+            "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+            "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+            "source_title": "Ielts Writing Band Descriptors 2023",
+            "page": 7,
+            "version": "May 2023",
+            "limiting_features": [],
+            "chunk_id": "d41ff754da93e2884e8e9110d297e1c38332952be5ec4241f3b4387631b083fc",
+            "characters": 252
+          },
+          {
+            "task": "academic_task_2",
+            "criterion": "CC",
+            "criterion_name": "Coherence and Cohesion",
+            "band": null,
+            "kind": "criterion_definition",
+            "text": "IELTS academic_task_2 | Coherence and Cohesion | criterion_definition\nThis criterion is concerned with the overall organisation and logical development of \nthe message: how the response organises and links information, ideas and language. \nCoherence refers to the linking of ideas through logical sequencing, while cohesion \nrefers to the varied and appropriate use of cohesive devices (e.g. logical connectors, \nconjunctions and pronouns) to assist in making clear the relationships between and \nwithin sentences. \n \nThe CC criterion assesses: \n \n\u25aa the coherence of the response via the logical organisation of information \nand/or ideas, or the logical progression of the argument. \n\u25aa the appropriate use of paragraphing for topic organisation and presentation. \n\u25aa the logical sequencing of ideas and/or information within and across \nparagraphs. \n\u25aa the flexible use of reference and substitution (e.g. definite articles, pronouns). \n\u25aa the appropriate use of discourse markers to clearly mark the stages in a \nresponse, e.g. [First of all | In conclusion], and to signal the relationship between \nideas and/or information, e.g. [as a result | similarly].",
+            "source_id": "ielts-key-assessment-criteria",
+            "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+            "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+            "source_title": "Ielts Key Assessment Criteria",
+            "page": 3,
+            "version": "Retrieved 2026-10-10",
+            "chunk_id": "5bee8f903232884f94f4a6509e3be5641ce632de0e476a62763b030ec851246d",
+            "characters": 1155
+          }
+        ]
+      },
+      {
+        "criterion": "LR",
+        "score": 9,
+        "rationale": "The essay displays full flexibility and precise control of lexical items, integrating sophisticated topic-specific vocabulary and natural collocations. Minor slips are non-existent, demonstrating mastery of style.",
+        "higher_band_gap": "Band 9 is attained through sustained precision in idiomatic collocations and formal register throughout.",
+        "title": "Lexical Resource",
+        "essay_quote": "In remote country towns and sparsely populated agricultural districts, building extensive mass transit systems such as light rail is rarely economically viable or logistically feasible.",
+        "next_step": "Continue utilizing contextually authentic collocations and domain-specific terminology.",
+        "example": {
+          "before": "receive the lion's share of transport budgets",
+          "after": "command the lion's share of municipal transit appropriations"
+        },
+        "source_ids": [
+          "1816a3149c12b353b81233c371156864c32e6c9ce18d947152bcd9c14622f20e",
+          "89500ee2a971044e06a7e09717fac60432c0f5ede73ec5bcf060e51cdf2e669e"
+        ],
+        "subcriteria": [
+          {
+            "subcriterion_id": "LR-1",
+            "judgment": "strength",
+            "explanation": "The candidate shows an extensive vocabulary range, avoiding repetitive phrasing for transit and roads.",
+            "essay_quote": "expanding train networks, subway lines, and bus routes",
+            "official_standard": "the range of general words used (e.g. the use of synonyms to avoid repetition).",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "LR",
+              "criterion_name": "Lexical Resource",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe range of general words used (e.g. the use of synonyms to avoid repetition).",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "LR-1",
+              "chunk_id": "69f66d6877cb71eead0de49e795a05ba9d2947f63b9f873da95b85ca05b2346c",
+              "characters": 135
+            }
+          },
+          {
+            "subcriterion_id": "LR-2",
+            "judgment": "strength",
+            "explanation": "Context-specific terms like 'freight logistics' and 'sprawling metropolitan areas' fit the topic impeccably.",
+            "essay_quote": "Highway systems are essential for freight logistics and the movement of goods that drive national economies.",
+            "official_standard": "the adequacy and appropriacy of the vocabulary (e.g. topic-specific items, \nindicators of writer\u2019s attitude).",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "LR",
+              "criterion_name": "Lexical Resource",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe adequacy and appropriacy of the vocabulary (e.g. topic-specific items, \nindicators of writer\u2019s attitude).",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "LR-2",
+              "chunk_id": "6a4ad8d8b6374809300c3e0b0dea491fc62774789e76cc1d89fa2000dd778792",
+              "characters": 165
+            }
+          },
+          {
+            "subcriterion_id": "LR-3",
+            "judgment": "strength",
+            "explanation": "Word choice conveys exact shades of meaning with high nuance.",
+            "essay_quote": "economically prohibitive for many households.",
+            "official_standard": "the precision of word choice and expression.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "LR",
+              "criterion_name": "Lexical Resource",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe precision of word choice and expression.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "LR-3",
+              "chunk_id": "039260ab9883de0ba9291fb16ba4417311afe7ab20184d5406c3b07c03d61d65",
+              "characters": 100
+            }
+          },
+          {
+            "subcriterion_id": "LR-4",
+            "judgment": "strength",
+            "explanation": "Collocations and idiomatic phrases such as 'traffic gridlock' and 'lion's share' are applied effortlessly.",
+            "essay_quote": "transport is the most practical remedy for traffic gridlock.",
+            "official_standard": "the control and use of collocations, idiomatic expressions and sophisticated \nphrasing.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "LR",
+              "criterion_name": "Lexical Resource",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe control and use of collocations, idiomatic expressions and sophisticated \nphrasing.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "LR-4",
+              "chunk_id": "9ebe4287ed047885dee1f4703805d01472bf6b547f0e0e80ca15b06a1bd08ce0",
+              "characters": 143
+            }
+          },
+          {
+            "subcriterion_id": "LR-5",
+            "judgment": "strength",
+            "explanation": "Spelling is completely accurate throughout the text.",
+            "essay_quote": "balanced fiscal planning demands that essential roads are properly maintained",
+            "official_standard": "the density and communicative effect of errors in spelling.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "LR",
+              "criterion_name": "Lexical Resource",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe density and communicative effect of errors in spelling.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "LR-5",
+              "chunk_id": "679f4f6fbb831587eb69588a1fdae357b4705e4cac942105394ad7e1a3a4c1e1",
+              "characters": 115
+            }
+          },
+          {
+            "subcriterion_id": "LR-6",
+            "judgment": "strength",
+            "explanation": "Word formation is accurate and morphologically sound in every instance.",
+            "essay_quote": "stifle local economic activity.",
+            "official_standard": "the density and communicative effect of errors in word formation.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "LR",
+              "criterion_name": "Lexical Resource",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe density and communicative effect of errors in word formation.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "LR-6",
+              "chunk_id": "e86ba5c2f5b1ea36733e0681649b882e364a71cb288c4bb73a8672addb6dfc48",
+              "characters": 121
+            }
+          }
+        ],
+        "name": "Lexical Resource",
+        "rubric": [
+          {
+            "task": "academic_task_2",
+            "criterion": "LR",
+            "criterion_name": "Lexical Resource",
+            "band": 9,
+            "kind": "band_descriptor",
+            "text": "IELTS academic_task_2 | Lexical Resource | Band 9\nFull flexibility and precise use are widely\nevident.\nA wide range of vocabulary is used\naccurately and appropriately with very\nnatural and sophisticated control of lexical\nfeatures.\nMinor errors in spelling and word\nformation are extremely rare and have\nminimal impact on communication.",
+            "source_id": "ielts-writing-band-descriptors-2023",
+            "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+            "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+            "source_title": "Ielts Writing Band Descriptors 2023",
+            "page": 7,
+            "version": "May 2023",
+            "limiting_features": [],
+            "chunk_id": "1816a3149c12b353b81233c371156864c32e6c9ce18d947152bcd9c14622f20e",
+            "characters": 336
+          },
+          {
+            "task": "academic_task_2",
+            "criterion": "LR",
+            "criterion_name": "Lexical Resource",
+            "band": null,
+            "kind": "criterion_definition",
+            "text": "IELTS academic_task_2 | Lexical Resource | criterion_definition\nThis criterion refers to the range of vocabulary the candidate has used and the \naccuracy and appropriacy of that use in terms of the specific task. \nThe LR criterion assesses: \n \n\u25aa the range of general words used (e.g. the use of synonyms to avoid repetition). \n\u25aa the adequacy and appropriacy of the vocabulary (e.g. topic-specific items, \nindicators of writer\u2019s attitude). \n\u25aa the precision of word choice and expression. \n\u25aa the control and use of collocations, idiomatic expressions and sophisticated \nphrasing. \n\u25aa the density and communicative effect of errors in spelling. \n\u25aa the density and communicative effect of errors in word formation. \n\u25aa",
+            "source_id": "ielts-key-assessment-criteria",
+            "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+            "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+            "source_title": "Ielts Key Assessment Criteria",
+            "page": 4,
+            "version": "Retrieved 2026-10-10",
+            "chunk_id": "89500ee2a971044e06a7e09717fac60432c0f5ede73ec5bcf060e51cdf2e669e",
+            "characters": 712
+          }
+        ]
+      },
+      {
+        "criterion": "GRA",
+        "score": 9,
+        "rationale": "A wide variety of complex sentence structures is used with full flexibility and grammatical control. Punctuation is flawless, supporting clarity and rhythmic flow.",
+        "higher_band_gap": "Band 9 is justified as complex syntactic patterns are handled with complete accuracy across every sentence.",
+        "title": "Grammatical Range and Accuracy",
+        "essay_quote": "When workers have access to efficient, modern train or bus rapid transit corridors, large numbers of private cars are removed from city thoroughfares, leading to lower congestion and reduced carbon emissions.",
+        "next_step": "Maintain this level of syntactic diversity and precise punctuation.",
+        "example": {
+          "before": "Neglecting road preservation would inevitably isolate these communities and stifle local economic activity.",
+          "after": "Were road maintenance to be neglected, these outlying communities would inevitably face isolation alongside diminished economic vitality."
+        },
+        "source_ids": [
+          "4539166cf9efe96da7b969c278333849cbc8dcac1d74ca01341fcfdfc6db2e79",
+          "dc6c439c6773f9448e196dd25c29f55720d4218b3354b4cd88d96cf45c411706"
+        ],
+        "subcriteria": [
+          {
+            "subcriterion_id": "GRA-1",
+            "judgment": "strength",
+            "explanation": "A rich array of participle clauses, subordinate clauses, and varied sentence openers is employed.",
+            "essay_quote": "Reliable transit options therefore provide a cost-effective alternative, enabling lower-income residents to gain dependable access",
+            "official_standard": "the range and appropriacy of structures used in a given response (e.g. simple, \ncompound and complex sentences).",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "GRA",
+              "criterion_name": "Grammatical Range and Accuracy",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | subcriterion\nthe range and appropriacy of structures used in a given response (e.g. simple, \ncompound and complex sentences).",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "GRA-1",
+              "chunk_id": "c7e540eeb334c658523d41e4b86f06c028a4f4409ee3113f9598a9c9bc37ebd3",
+              "characters": 182
+            }
+          },
+          {
+            "subcriterion_id": "GRA-2",
+            "judgment": "strength",
+            "explanation": "Every complex and compound structure is formed accurately.",
+            "essay_quote": "While I strongly advocate for prioritizing investments in public transit to foster sustainable communities, I believe governments must still allocate sufficient capital to preserve vital road infrastructure.",
+            "official_standard": "the accuracy of simple, compound and complex sentences.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "GRA",
+              "criterion_name": "Grammatical Range and Accuracy",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | subcriterion\nthe accuracy of simple, compound and complex sentences.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "GRA-2",
+              "chunk_id": "25322d597ab4be66b97fc1511f8afa14e26d9e678033f37e1409f993abd920f1",
+              "characters": 125
+            }
+          },
+          {
+            "subcriterion_id": "GRA-3",
+            "judgment": "strength",
+            "explanation": "The text is completely free of grammatical errors.",
+            "essay_quote": "Inhabitants in these outlying regions depend heavily on private vehicles and local road networks to commute, visit hospitals, and access central marketplaces.",
+            "official_standard": "the density and communicative effect of grammatical errors.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "GRA",
+              "criterion_name": "Grammatical Range and Accuracy",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | subcriterion\nthe density and communicative effect of grammatical errors.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "GRA-3",
+              "chunk_id": "e8e541442168381434cc271913c24bb20758757253e6243aed8dc70b8a708174",
+              "characters": 129
+            }
+          },
+          {
+            "subcriterion_id": "GRA-4",
+            "judgment": "strength",
+            "explanation": "Punctuation is used purposefully and correctly to demarcate complex relationships.",
+            "essay_quote": "Nevertheless, this prioritization should not come at the expense of abandoning roadways, as doing so would cause severe regional disparities.",
+            "official_standard": "the accurate and appropriate use of punctuation.",
+            "source": {
+              "task": "academic_task_2",
+              "criterion": "GRA",
+              "criterion_name": "Grammatical Range and Accuracy",
+              "band": null,
+              "kind": "subcriterion",
+              "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | subcriterion\nthe accurate and appropriate use of punctuation.",
+              "source_id": "ielts-key-assessment-criteria",
+              "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+              "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+              "source_title": "Ielts Key Assessment Criteria",
+              "page": 4,
+              "version": "Retrieved 2026-10-10",
+              "subcriterion_id": "GRA-4",
+              "chunk_id": "5bd84dfad397844432a3b7b0bef84373256a62d9b152d563a79937e6803d13b9",
+              "characters": 118
+            }
+          }
+        ],
+        "name": "Grammatical Range and Accuracy",
+        "rubric": [
+          {
+            "task": "academic_task_2",
+            "criterion": "GRA",
+            "criterion_name": "Grammatical Range and Accuracy",
+            "band": 9,
+            "kind": "band_descriptor",
+            "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | Band 9\nA wide range of structures is used with full\nflexibility and control.\nPunctuation and grammar are used\nappropriately throughout.\nMinor errors are extremely rare and have\nminimal impact on communication.",
+            "source_id": "ielts-writing-band-descriptors-2023",
+            "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+            "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+            "source_title": "Ielts Writing Band Descriptors 2023",
+            "page": 7,
+            "version": "May 2023",
+            "limiting_features": [],
+            "chunk_id": "4539166cf9efe96da7b969c278333849cbc8dcac1d74ca01341fcfdfc6db2e79",
+            "characters": 266
+          },
+          {
+            "task": "academic_task_2",
+            "criterion": "GRA",
+            "criterion_name": "Grammatical Range and Accuracy",
+            "band": null,
+            "kind": "criterion_definition",
+            "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | criterion_definition\nThis criterion refers to the range and accurate use of the candidate\u2019s grammatical \nresource via the candidate\u2019s writing at sentence level. \nThe GRA criterion assesses: \n \n\u25aa the range and appropriacy of structures used in a given response (e.g. simple, \ncompound and complex sentences). \n\u25aa the accuracy of simple, compound and complex sentences. \n\u25aa the density and communicative effect of grammatical errors. \n\u25aa the accurate and appropriate use of punctuation.",
+            "source_id": "ielts-key-assessment-criteria",
+            "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+            "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+            "source_title": "Ielts Key Assessment Criteria",
+            "page": 4,
+            "version": "Retrieved 2026-10-10",
+            "chunk_id": "dc6c439c6773f9448e196dd25c29f55720d4218b3354b4cd88d96cf45c411706",
+            "characters": 538
+          }
+        ]
+      }
+    ],
+    "criterion_mean": 9.0,
+    "overall_band": 9.0,
+    "score_label": "Estimated Task 2 band",
+    "word_count": 311,
+    "essay_sha256": "d911d9b87d9f1723a23e0ecd8b2c35c3832546748231709484d15c75acec136a",
+    "index_id": "2da4e8eda6a331b5",
+    "assessment_context_ids": [
+      "4ada740a11b4e738eea256ad3d8a3f833450fa8a5ba1d85905a8251b43bc3f46",
+      "6fd07f6cddf3a153ce363981553f5a1d8c75ea8ffbb1f228021c736facc1c68a",
+      "98f0a3daaca67ea6b9837c0246a9f5d5b1fb01894bc93a50cc92bcae64196dc7",
+      "e1b93862f5a0cd737ceeaaeb9fa0c05e9e7bd58278c37143afe3187048e0045d",
+      "e105856a56fd98a6319568d3a5d4e1e7f771556344c64fafef5067e2cf31f869",
+      "b1f40b69543a041aea813530d1d098d4ceaf5cfda558c3b56ce7e9ac4e0d44e7",
+      "30ac835c7459f0da33344344132af62815c0b102d32bb639bcf204ceb4ea90bb",
+      "1a91177990cff2aa6111116b80f6f4427ac91bb577ee8e97c3efbce0b31ac498",
+      "ed1ad6ba65718323d16a51f20c8975248c571614fd597c0f91eff475d5a8dd9a",
+      "c1b0a13e2e9256634b4de0fdd330a25b60ae20cfe22105d0ee950d182f87fdd8",
+      "808b288b48cf0870e25aa84d344a0d1b85ed905ad4ac8dd3455acd1560f4b60a",
+      "517aec71389cf8bab8381bdec1791927f0b754b41945bf62d30a1a66d1ac1378",
+      "9d92e9a4d003af20c5f1e8b95bdb7b748211bc67cebdf6f08f7c62a1f900692a",
+      "d41ff754da93e2884e8e9110d297e1c38332952be5ec4241f3b4387631b083fc",
+      "5bee8f903232884f94f4a6509e3be5641ce632de0e476a62763b030ec851246d",
+      "67b67e57fefcd8e0182546315721f413a2fe80f590efd280a0a52f1dfca2c418",
+      "6847483d0053c3f66b8c1dc9b0374667be1b2a3f0d9b451a91ec441d48798ae3",
+      "cfd6e6f586b195b07127b7ea7c4c5d31aa97f9599494b8935e82c40f81a3fa75",
+      "ea689fea5f768bf51d3ef01212972b7dc56c4b0a2e28a12a41375471445c3230",
+      "ff098df0a8a8ea153090dc48a02d9cffd99fbb594f5c6f1616170ac91146bd51",
+      "4708094eb3c29fa1fd009bcd6c1b2014a1315253c563b40bb04378ecde4a6094",
+      "c9ba9dc93b78acc5580054a141b8412aa5c8c081cc6c5a415b59b35c030cfa28",
+      "4a98096d5b4c775440035297da4e3376427f32f6aca2d2e645786398a4d01e5b",
+      "d35615cfd274a9efd39c19ba5e5537d2f70474c0830815a9c41a8365ee8a01f9",
+      "b9946b3a3152fb16f09a6711c710c70d865b7b4dd5c0216e912424b03c91c7c5",
+      "1ca3fdb0e1fa87625e531e1faecdfd2e5f3b39855fe24ec599fa8f3cfc0ad9be",
+      "00a8b98103b3b44eba2ff81f7d2420c1b3d21f17773029b304f5d04ead41b215",
+      "839682a220a272e086a3734b52cdecca4ed67a81dc8bc557832f88a5dc23b975",
+      "97f5bec5fdc458e85f93ab8548c328519e1946043e5cef69049b8e8b3290b087",
+      "4539166cf9efe96da7b969c278333849cbc8dcac1d74ca01341fcfdfc6db2e79",
+      "dc6c439c6773f9448e196dd25c29f55720d4218b3354b4cd88d96cf45c411706",
+      "25322d597ab4be66b97fc1511f8afa14e26d9e678033f37e1409f993abd920f1",
+      "5bd84dfad397844432a3b7b0bef84373256a62d9b152d563a79937e6803d13b9",
+      "c7e540eeb334c658523d41e4b86f06c028a4f4409ee3113f9598a9c9bc37ebd3",
+      "e8e541442168381434cc271913c24bb20758757253e6243aed8dc70b8a708174",
+      "bf5c67e70e9cb4314f79b58275d152f05ce612341c4727c1f0925ae7ed58178a",
+      "b064cc91e5032a624ca8751624a63d6e5f0a3fa57192e923435aaf0b5c214035",
+      "d8dda14bbd7fb406d793d2beb73a65938f4f86da214f6d6631941a144cda171e",
+      "4ff812878de40d576ede23507e9255891e3e97a6191a1678e0ff010a6c8614a6",
+      "e4e3c3d71d1dfa9e5ad8bfcb6f397dff9a2172dba12b1d99e71144cfddbd80a3",
+      "5e7435dcbb2014e1fdbedb7b1919dbe1c90e30d3f191ddc55e622a2a2c1a0b8e",
+      "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+      "f44e245fa5d7218c4d1cdf5ec4c9c70a1626bf0b1565454662514ca2c82dbb70",
+      "968223217dcbd8506d741921f898e85475b15bb70126952511c866d71b73fd13",
+      "1816a3149c12b353b81233c371156864c32e6c9ce18d947152bcd9c14622f20e",
+      "89500ee2a971044e06a7e09717fac60432c0f5ede73ec5bcf060e51cdf2e669e",
+      "039260ab9883de0ba9291fb16ba4417311afe7ab20184d5406c3b07c03d61d65",
+      "679f4f6fbb831587eb69588a1fdae357b4705e4cac942105394ad7e1a3a4c1e1",
+      "69f66d6877cb71eead0de49e795a05ba9d2947f63b9f873da95b85ca05b2346c",
+      "6a4ad8d8b6374809300c3e0b0dea491fc62774789e76cc1d89fa2000dd778792",
+      "9ebe4287ed047885dee1f4703805d01472bf6b547f0e0e80ca15b06a1bd08ce0",
+      "e86ba5c2f5b1ea36733e0681649b882e364a71cb288c4bb73a8672addb6dfc48",
+      "45e304dd8e57e3d0744caa88491782e72a94ffadf8cda06886dc6dcbb6bd8f82",
+      "f84810c04e2f4fe93e4c24b57b9b924e396a27065e4b20862cd4c24a3062c96f",
+      "e1e9a2953e883f27067cc9604b5458c323f14f1cdca6bd879ccc25b6ccb9f0c1",
+      "32697d50f58b94b4ce83fc6903bb3ee9f8563c10c33662e00342996c254eed40",
+      "779d784cdc811bea9111aeb5097b9172efc5783905e67f86fd05781b8f172a11",
+      "e5ddbe9dc5c48e7089ad8ad4ef0eb545176a10776da276162525a90e2590536a",
+      "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+      "a48820ccc82d8570c378eec242aa8e1728d9a7dc43ae16010f2e01a098a7f3b4",
+      "6b4010bca51871c152b6c171de07f019ce30a06262667dc82e12a7eb656c4830",
+      "1f375fdb4203eeed7723493182e6d41b8c2e9f43bbaec373159728554ab547e9",
+      "0ff216edc60976a47982f8f6857ab8d71673a49752cebdba165998a44ebf0ea3",
+      "b4def3c78dee582206432ac44351c649e9bec0b4d5ccf4fe5c8581247355c05c",
+      "1e9c384e6edba79e4fdcc6e0b42bcde94411c020ab4d6aeccf198427f843731b",
+      "278ae8178cb9631204a00965b11c53a8ccbc477e1471ed5e9ac8ce8916ed699b",
+      "2abca835312b13b771b2f544ea0b02ba330e3036d86b4a7eed05a6d5287abd3c",
+      "433d6b76fc32161997deb7ca3a675c3367af3d7db0bf2c6f035b07bb407db058",
+      "4b75a24d694b0f60f3e5052c3418d8917218a080c177f067a02811cb3c220625",
+      "4f893ad4576975519d66b63703acb6d89c9f506c3361fea1ab6acb730826d6e4",
+      "94d2e808cad5d8d03b3008b0dbc714376b8f37726e52d66df2408fb53378c300"
+    ],
+    "target_blind": true,
+    "rounding_note": "Four equally weighted criterion scores; Task 2 practice estimate rounded to the nearest half band. This is not a combined Task 1 + Task 2 Writing score.",
+    "model_calls": [
+      {
+        "provider": "Google Vertex AI",
+        "model": "gemini-3.8-flash",
+        "model_version": "gemini-3.8-flash",
+        "response_id": "JmbKapGNLav31e8P0qiokAs",
+        "usage": {
+          "promptTokenCount": 26758,
+          "candidatesTokenCount": 3011,
+          "totalTokenCount": 29769,
+          "trafficType": "ON_DEMAND",
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 26758
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 3011
+            }
+          ]
+        },
+        "latency_ms": 20629,
+        "prompt_version": "official-rubric-v2",
+        "temperature": 0.1
+      }
+    ]
+  },
+  "generation_calls": [
+    {
+      "provider": "Google Vertex AI",
+      "model": "gemini-3.8-flash",
+      "model_version": "gemini-3.8-flash",
+      "response_id": "IGbKavuMDZezvr0PgKSZyAU",
+      "usage": {
+        "promptTokenCount": 12716,
+        "candidatesTokenCount": 554,
+        "totalTokenCount": 13270,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 12716
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 554
+          }
+        ]
+      },
+      "latency_ms": 6227,
+      "prompt_version": "official-rubric-v2",
+      "temperature": 0.5
+    }
+  ],
+  "generation_context_ids": [
+    "4ada740a11b4e738eea256ad3d8a3f833450fa8a5ba1d85905a8251b43bc3f46",
+    "6fd07f6cddf3a153ce363981553f5a1d8c75ea8ffbb1f228021c736facc1c68a",
+    "98f0a3daaca67ea6b9837c0246a9f5d5b1fb01894bc93a50cc92bcae64196dc7",
+    "e1b93862f5a0cd737ceeaaeb9fa0c05e9e7bd58278c37143afe3187048e0045d",
+    "517aec71389cf8bab8381bdec1791927f0b754b41945bf62d30a1a66d1ac1378",
+    "5bee8f903232884f94f4a6509e3be5641ce632de0e476a62763b030ec851246d",
+    "67b67e57fefcd8e0182546315721f413a2fe80f590efd280a0a52f1dfca2c418",
+    "6847483d0053c3f66b8c1dc9b0374667be1b2a3f0d9b451a91ec441d48798ae3",
+    "cfd6e6f586b195b07127b7ea7c4c5d31aa97f9599494b8935e82c40f81a3fa75",
+    "ea689fea5f768bf51d3ef01212972b7dc56c4b0a2e28a12a41375471445c3230",
+    "ff098df0a8a8ea153090dc48a02d9cffd99fbb594f5c6f1616170ac91146bd51",
+    "839682a220a272e086a3734b52cdecca4ed67a81dc8bc557832f88a5dc23b975",
+    "dc6c439c6773f9448e196dd25c29f55720d4218b3354b4cd88d96cf45c411706",
+    "25322d597ab4be66b97fc1511f8afa14e26d9e678033f37e1409f993abd920f1",
+    "5bd84dfad397844432a3b7b0bef84373256a62d9b152d563a79937e6803d13b9",
+    "c7e540eeb334c658523d41e4b86f06c028a4f4409ee3113f9598a9c9bc37ebd3",
+    "e8e541442168381434cc271913c24bb20758757253e6243aed8dc70b8a708174",
+    "f44e245fa5d7218c4d1cdf5ec4c9c70a1626bf0b1565454662514ca2c82dbb70",
+    "89500ee2a971044e06a7e09717fac60432c0f5ede73ec5bcf060e51cdf2e669e",
+    "039260ab9883de0ba9291fb16ba4417311afe7ab20184d5406c3b07c03d61d65",
+    "679f4f6fbb831587eb69588a1fdae357b4705e4cac942105394ad7e1a3a4c1e1",
+    "69f66d6877cb71eead0de49e795a05ba9d2947f63b9f873da95b85ca05b2346c",
+    "6a4ad8d8b6374809300c3e0b0dea491fc62774789e76cc1d89fa2000dd778792",
+    "9ebe4287ed047885dee1f4703805d01472bf6b547f0e0e80ca15b06a1bd08ce0",
+    "e86ba5c2f5b1ea36733e0681649b882e364a71cb288c4bb73a8672addb6dfc48",
+    "a48820ccc82d8570c378eec242aa8e1728d9a7dc43ae16010f2e01a098a7f3b4",
+    "0ff216edc60976a47982f8f6857ab8d71673a49752cebdba165998a44ebf0ea3",
+    "b4def3c78dee582206432ac44351c649e9bec0b4d5ccf4fe5c8581247355c05c",
+    "1e9c384e6edba79e4fdcc6e0b42bcde94411c020ab4d6aeccf198427f843731b",
+    "278ae8178cb9631204a00965b11c53a8ccbc477e1471ed5e9ac8ce8916ed699b",
+    "2abca835312b13b771b2f544ea0b02ba330e3036d86b4a7eed05a6d5287abd3c",
+    "433d6b76fc32161997deb7ca3a675c3367af3d7db0bf2c6f035b07bb407db058",
+    "4b75a24d694b0f60f3e5052c3418d8917218a080c177f067a02811cb3c220625",
+    "188591ef1c5494fa5aa89eb0fcfd85229c32c6fe498e93a03153dcd1e75be955",
+    "94d2e808cad5d8d03b3008b0dbc714376b8f37726e52d66df2408fb53378c300"
+  ],
+  "target_met": true,
+  "notice": "The essay was generated from your requirements, then assessed in a separate call against retrieved official IELTS standards."
+}

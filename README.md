@@ -45,3 +45,9 @@ The 8,049 candidate essay records are **MS3 fine-tuning data**, excluded from MS
 Historical preview evidence is preserved under `docs/evidence/preview-v1/`; it describes the earlier placeholder implementation and must not be used as proof of current model inference.
 
 Team: Bei Li, Ernest Ferdian, Dimitris Pipinis, Xiahui Huang.
+
+## Verified delivery
+
+The cloud run on 11 October 2026 used `stepwise-ac215-20261010` and `gemini-3.8-flash`: 131 indexed points, 40 retrieval cases, 12 live workflow checks and 18 local tests passed. Draft scores were 8.0 for the authored sample and 3.0 for a distinct weak draft; a target-7.0 model essay was separately assessed 9.0. These are integration observations; scoring agreement and target deviation still require evaluation.
+
+[MS2 report](docs/report.md) · [Report PDF](docs/Stepwise_MS2_Report.pdf) · [Eight-slide presentation](docs/slides/Stepwise_MS2_Presentation_Final.pptx) · [Google Docs report](https://docs.google.com/document/d/1zz4xZyHuphKdB_hXu1w4R4tl9ldOu46OoDFS8vkZt5Q/edit)

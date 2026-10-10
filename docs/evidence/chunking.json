@@ -1,0 +1,10 @@
+{
+  "source_snapshot": "3aea32a1828dd022",
+  "chunk_snapshot": "52814016b8103614",
+  "strategy": "full_rubric_cells_definitions_subcriteria_pages_v2",
+  "overlap": 0,
+  "chunks": 131,
+  "min_characters": 97,
+  "max_characters": 4284,
+  "rationale": "Complete band 0–9 cells, intact rating rules, all 20 detailed subcriteria; full source pages retained for coverage. Task metadata prevents Task 1 contamination."
+}

@@ -7,4 +7,4 @@ docker compose logs --no-color > docs/evidence/pipeline.log
 docker compose ps -a --format json > docs/evidence/containers.jsonl
 docker version --format '{{json .}}' > docs/evidence/docker-version.json
 cp runtime/artifacts/*.json docs/evidence/
-echo "Evidence refreshed in docs/evidence. Inspect before committing; never copy raw essays or credentials."
+echo "Evidence refreshed in docs/evidence. Inspect before committing; never copy private learner submissions or credentials."

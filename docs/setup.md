@@ -38,3 +38,9 @@ Open http://localhost:8080, or Cloud Shell Web Preview on port 8080. API docs: h
 - Evidence validation failure: no unchecked assessment is shown. Review the model contract and retry.
 
 Google Cloud Shell provides a temporary development VM and authenticated preview, not persistent production hosting. API/web ports bind to loopback, and Qdrant has no host-published port. Stepwise does not persist learner submissions; Google receives text to perform inference under the selected Cloud project.
+
+## Verified project and artifact ownership
+
+The live run used `stepwise-ac215-20261010` in Harvard’s `self-paid` folder with Vertex AI enabled. An authorized account must have access to the selected project; cloning code does not grant Google Cloud permissions.
+
+If a previous Docker run created root-owned artifact files, restore ownership of only the generated artifact directory before verification: `sudo chown -R "$(id -u):$(id -g)" runtime/artifacts`. A fresh clone creates this directory as the invoking user.

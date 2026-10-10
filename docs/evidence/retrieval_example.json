@@ -1,0 +1,54 @@
+{
+  "query": "How can I develop and support my position with specific examples?",
+  "criterion": "TR",
+  "target_band": 6.5,
+  "filters": {
+    "task": "academic_task_2",
+    "criterion": "TR",
+    "bands": [
+      6,
+      7
+    ]
+  },
+  "index_id": "2da4e8eda6a331b5",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "collection": "stepwise_2da4e8eda6a331b5",
+  "matches": [
+    {
+      "similarity": 0.7016966,
+      "task": "academic_task_2",
+      "criterion": "TR",
+      "criterion_name": "Task Response",
+      "band": 7,
+      "kind": "band_descriptor",
+      "text": "IELTS academic_task_2 | Task Response | Band 7\nThe main parts of the prompt are appropriately addressed.\nA clear and developed position is presented.\nMain ideas are extended and supported but there may be a\ntendency to over-generalise or there may be a lack of focus and\nprecision in supporting ideas/material.",
+      "source_id": "ielts-writing-band-descriptors-2023",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+      "source_title": "Ielts Writing Band Descriptors 2023",
+      "page": 7,
+      "version": "May 2023",
+      "limiting_features": [],
+      "chunk_id": "a48820ccc82d8570c378eec242aa8e1728d9a7dc43ae16010f2e01a098a7f3b4",
+      "characters": 310
+    },
+    {
+      "similarity": 0.678992,
+      "task": "academic_task_2",
+      "criterion": "TR",
+      "criterion_name": "Task Response",
+      "band": 6,
+      "kind": "band_descriptor",
+      "text": "IELTS academic_task_2 | Task Response | Band 6\nThe main parts of the prompt are addressed (though some may be\nmore fully covered than others). An appropriate format is used.\nA position is presented that is directly relevant to the prompt,\nalthough the conclusions drawn may be unclear, unjustified or\nrepetitive.\nMain ideas are relevant, but some may be insufficiently developed\nor may lack clarity, while some supporting arguments and evidence\nmay be less relevant or inadequate.",
+      "source_id": "ielts-writing-band-descriptors-2023",
+      "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+      "source_title": "Ielts Writing Band Descriptors 2023",
+      "page": 8,
+      "version": "May 2023",
+      "limiting_features": [],
+      "chunk_id": "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+      "characters": 480
+    }
+  ]
+}

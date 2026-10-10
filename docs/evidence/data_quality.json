@@ -1,0 +1,35 @@
+{
+  "snapshot_id": "3aea32a1828dd022",
+  "sources": [
+    {
+      "id": "ielts-writing-band-descriptors-2023",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+      "sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+      "filename": "ielts-writing-band-descriptors.pdf",
+      "role": "rubric",
+      "version": "May 2023"
+    },
+    {
+      "id": "ielts-key-assessment-criteria",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+      "sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+      "filename": "ielts-writing-key-assessment-criteria.pdf",
+      "role": "rubric",
+      "version": "Retrieved 2026-10-10"
+    },
+    {
+      "id": "british-council-task2-relevance",
+      "url": "https://takeielts.britishcouncil.org/sites/default/files/writing_task_2_-_answer_the_questions.pdf",
+      "sha256": "2c973185efff8fb26d256870b33bca11b7861d31d1de3978686a47ec965219f3",
+      "filename": "bc-task2-answer-the-question.pdf",
+      "role": "rubric",
+      "version": "British Council 2013"
+    }
+  ],
+  "rubric_records": 131,
+  "descriptor_cells": 80,
+  "task2_descriptor_cells": 40,
+  "subcriteria": 20,
+  "training_candidates_loaded": 0,
+  "scope": "All band rules 0–9 for both tasks indexed; scoring constrained to Task 2 and shared rules."
+}

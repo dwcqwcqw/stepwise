@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "checks": [
+    "entire official band PDF indexed",
+    "Task 2 score excludes Task 1",
+    "real Google model scoring and feedback",
+    "20 official subcriteria checked",
+    "verbatim essay excerpts",
+    "validated source IDs and awarded bands",
+    "target-blind assessment",
+    "half-band descriptor retrieval",
+    "complete model essay generated",
+    "model essay independently assessed",
+    "different weak essay scores lower",
+    "invalid input rejected"
+  ],
+  "index_id": "2da4e8eda6a331b5",
+  "vectors": 131,
+  "sample_band": 8.0,
+  "weak_band": 3.0,
+  "generated_band": 9.0,
+  "target_band": 7,
+  "model": "gemini-3.8-flash",
+  "model_calls": 4,
+  "feedback_latency_ms": 22399
+}
