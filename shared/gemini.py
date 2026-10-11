@@ -44,7 +44,10 @@ def generate(system, payload, schema, temperature=0.1):
     host='aiplatform.googleapis.com' if location=='global' else f'{location}-aiplatform.googleapis.com'
     url=f'https://{host}/v1/projects/{project}/locations/{location}/publishers/google/models/{MODEL}:generateContent'
     body={'systemInstruction':{'parts':[{'text':system}]},'contents':[{'role':'user','parts':[{'text':json.dumps(payload,ensure_ascii=False,separators=(',',':'))}]}],'generationConfig':{'temperature':temperature,'maxOutputTokens':16384,'responseMimeType':'application/json','responseSchema':schema}}
-    if 'gemini-3' in MODEL: body['generationConfig']['thinkingConfig']={'thinkingLevel':'LOW'}
+    if 'gemini-3' in MODEL:
+        level=os.getenv('GEMINI_THINKING_LEVEL','LOW').upper()
+        if level not in {'MINIMAL','LOW','MEDIUM','HIGH'}:raise ModelUnavailable('Invalid Gemini thinking configuration.')
+        body['generationConfig']['thinkingConfig']={'thinkingLevel':level}
     else: body['generationConfig']['thinkingConfig']={'thinkingBudget':1024}
     started=time.monotonic()
     for attempt in range(3):
