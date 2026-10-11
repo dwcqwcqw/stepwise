@@ -2,7 +2,7 @@
 from copy import deepcopy
 import pytest
 from shared import assessment
-from shared.targeting import target_profile, adjust_writer_profile, nearest_score_profile, MAX_TARGET_ATTEMPTS
+from shared.targeting import target_profile, adjust_writer_profile, nearest_score_profile, MAX_TARGET_ATTEMPTS, apply_focus_edits
 from shared.band_matching import score_summary
 from shared.gemini import ModelUnavailable
 from shared.progress import events
@@ -28,6 +28,9 @@ def setup_generation(monkeypatch, bands, target=7):
                   'position':'Prioritize public transport.', 'ideas':'Improve job access; maintain rural roads.'}
     def model(system,payload,schema,temperature):
         payloads.append(deepcopy(payload))
+        if schema is assessment.PATCH_SCHEMA:
+            ending=payload['previous_essay'].rsplit(' ',2)[-2:]
+            return {'edits':[{'before':' '.join(ending),'after':'sentence. '+str(len(payloads))}]},{'response_id':str(len(payloads))}
         return {'title':'Transport priorities','position_sentence':'A learner sentence.','essay':('A learner sentence. '*100)+str(len(payloads)),
                 'requirement_notes':['Preserves job access and rural roads.']}, {'response_id':str(len(payloads))}
     def independent(prompt,essay,progress):
@@ -69,7 +72,7 @@ def test_generation_retrieves_adjacent_official_boundaries(monkeypatch):
 def test_persistent_overshoot_never_returns_wrong_band_as_success(monkeypatch):
     requirements,payloads,_=setup_generation(monkeypatch,[9]*MAX_TARGET_ATTEMPTS,5)
     output=[json.loads(line) for line in events(lambda emit:assessment.generate_essay(requirements,emit))]
-    assert len(payloads)==MAX_TARGET_ATTEMPTS
+    assert len(payloads)==MAX_TARGET_ATTEMPTS, apply_focus_edits
     assert not any(e['type']=='result' for e in output)
     assert output[-1]['type']=='error' and 'Band 5.0' in output[-1]['detail']
 
@@ -90,7 +93,7 @@ def test_nearest_profile_changes_only_the_required_score_sum(scores,target):
     assert all(type(v) is int and 0<=v<=9 for v in p.values())
 
 def test_rewrite_cannot_drop_the_protected_position(monkeypatch):
-    requirements,payloads,assessed=setup_generation(monkeypatch,[6,5],5)
+    requirements,payloads,assessed=setup_generation(monkeypatch,[6.5,5],5)
     original=assessment.generate
     def writer(*args,**kwargs):
         value,receipt=original(*args,**kwargs)
@@ -123,3 +126,20 @@ def test_focused_revision_keeps_calibrated_control_levels_for_unchanged_skills(m
     assert third=={'TR':5,'CC':5,'LR':6,'GRA':5}
     # Do not reset TR/CC/GRA to the observed scores (7/6/6), which rewrites
     # already calibrated skills and causes oscillation back to higher bands.
+
+
+def test_local_edits_preserve_every_unmodified_word_and_the_position():
+    essay='My position is clear. '+('ordinary words ' * 100)+'A specific observation matters.'
+    result=apply_focus_edits(essay,[{'before':'specific observation','after':'precise example'}],'My position is clear.',['LR'])
+    assert result==essay.replace('specific observation','precise example')
+
+@pytest.mark.parametrize('edits',[
+    [{'before':'invented passage','after':'new'}],
+    [{'before':'ordinary words','after':'new'}],
+    [{'before':'My position is clear.','after':'I am undecided.'}],
+    [{'before':'A specific observation matters.','after':' '.join(['long']*36)}],
+    [{'before':'A specific observation','after':'different'},{'before':'specific observation matters.','after':'overlap'}],
+])
+def test_invalid_focused_edits_are_rejected(edits):
+    essay='My position is clear. '+('ordinary words ' * 100)+'A specific observation matters.'
+    with pytest.raises(ValueError):apply_focus_edits(essay,edits,'My position is clear.',['LR'])

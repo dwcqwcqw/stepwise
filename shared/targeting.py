@@ -42,3 +42,30 @@ def nearest_score_profile(assessment, target):
                 scores[code]+=direction;remaining-=direction
             if not remaining:break
     return scores
+
+
+def apply_focus_edits(essay,edits,protected_position,focus_criteria):
+    """Apply bounded exact spans; the model cannot replace a whole essay."""
+    if not isinstance(edits,list) or not 1<=len(edits)<=8:
+        raise ValueError('Return one to eight short exact replacements')
+    spans=[];changed=0
+    for edit in edits:
+        before=edit.get('before');after=edit.get('after')
+        if not isinstance(before,str) or not before or not isinstance(after,str) or before==after or essay.count(before)!=1:
+            raise ValueError('Each before span must occur exactly once and change')
+        if len(before.split())>25 or len(after.split())>35:
+            raise ValueError('Replace short spans, never paragraphs')
+        if set(focus_criteria)<={'LR','GRA'} and ('\n' in before or '\n' in after):
+            raise ValueError('Language edits must preserve paragraph structure')
+        start=essay.index(before);spans.append((start,start+len(before),after))
+        changed+=len(before.split())+len(after.split())
+    limit=.2 if len(focus_criteria)<=2 else .5
+    if changed>len(essay.split())*limit:
+        raise ValueError('Local edits exceed the permitted change budget')
+    spans.sort()
+    if any(a[1]>b[0] for a,b in zip(spans,spans[1:])):
+        raise ValueError('Replacement spans must not overlap')
+    for start,end,after in reversed(spans):essay=essay[:start]+after+essay[end:]
+    if protected_position not in essay:
+        raise ValueError('Local edits must preserve the protected position verbatim')
+    return essay

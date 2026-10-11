@@ -2,10 +2,30 @@
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 import json
+import re
 from pathlib import Path
 import subprocess
 import time
 import urllib.request
+
+def streamed_generation(url,requirements,token,updates,started):
+    payload=dict(requirements)
+    for round_number in range(1,6):
+        value=None
+        request=urllib.request.Request(url.rstrip('/')+'/api/model-essay/stream',data=json.dumps(payload).encode(),
+            headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'})
+        with urllib.request.urlopen(request,timeout=290) as response:
+            for line in response:
+                event=json.loads(line)
+                if event['type']=='error':raise RuntimeError(event['detail'])
+                if event['type']=='result':value=event['result']
+                else:updates.append({**event,'request_round':round_number,'received_seconds':round(time.monotonic()-started,3)})
+        if value is None:raise RuntimeError('Stream ended before its result')
+        if value.get('status')!='continuation_required':return value
+        continuation=value.get('continuation_id','')
+        if not re.fullmatch('[a-f0-9]{64}',continuation):raise RuntimeError('Invalid continuation token')
+        payload={**requirements,'continuation_id':continuation}
+    raise RuntimeError('Generation exhausted its five candidate requests')
 
 def main():
     parser=argparse.ArgumentParser()
@@ -22,16 +42,8 @@ def main():
                       'position':'Prioritize public transport while maintaining essential roads.',
                       'ideas':'Affordability for commuters; access to jobs; lower congestion; protect rural connections.'}
         started=time.monotonic();updates=[];value=None
-        request=urllib.request.Request(args.url.rstrip('/')+'/api/model-essay/stream',data=json.dumps(requirements).encode(),
-            headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'})
         try:
-            with urllib.request.urlopen(request,timeout=290) as response:
-                for line in response:
-                    event=json.loads(line)
-                    if event['type']=='error':raise RuntimeError(event['detail'])
-                    if event['type']=='result':value=event['result']
-                    else:updates.append({**event,'received_seconds':round(time.monotonic()-started,3)})
-            assert value is not None
+            value=streamed_generation(args.url,requirements,token,updates,started)
             a=value['assessment'];essay=value['essay']
             assert a['overall_band']==band and value['target_met'] and value['target_match']['exact_match']
             assert a['target_blind'] and a['descriptor_statements_checked']==119
