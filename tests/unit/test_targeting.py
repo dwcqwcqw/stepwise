@@ -28,7 +28,7 @@ def setup_generation(monkeypatch, bands, target=7):
                   'position':'Prioritize public transport.', 'ideas':'Improve job access; maintain rural roads.'}
     def model(system,payload,schema,temperature):
         payloads.append(deepcopy(payload))
-        return {'title':'Transport priorities','essay':('A learner sentence. '*100)+str(len(payloads)),
+        return {'title':'Transport priorities','position_sentence':'A learner sentence.','essay':('A learner sentence. '*100)+str(len(payloads)),
                 'requirement_notes':['Preserves job access and rural roads.']}, {'response_id':str(len(payloads))}
     def independent(prompt,essay,progress):
         # Signature accepts no target/profile/plan/prior score.
@@ -55,6 +55,7 @@ def test_rewrite_until_independent_score_matches_exact_target(monkeypatch,target
     if len(observed)>1:
         assert payloads[1]['previous_essay']==assessed[0]
         assert payloads[1]['revision_feedback']['observed_band']==observed[0]
+        assert payloads[1]['protected_position_sentence']=='A learner sentence.'
         assert any(e['phase']=='generation' and e['status']=='repair' and e['attempt']==2 for e in updates)
     assert updates[-1]['phase']=='calibration' and updates[-1]['status']=='done'
 
@@ -87,3 +88,15 @@ def test_nearest_profile_changes_only_the_required_score_sum(scores,target):
     p=nearest_score_profile(a,target)
     assert score_summary(list(p.values()))['overall_band']==target
     assert all(type(v) is int and 0<=v<=9 for v in p.values())
+
+def test_rewrite_cannot_drop_the_protected_position(monkeypatch):
+    requirements,payloads,assessed=setup_generation(monkeypatch,[6,5],5)
+    original=assessment.generate
+    def writer(*args,**kwargs):
+        value,receipt=original(*args,**kwargs)
+        if len(payloads)==2:value['position_sentence']='A completely changed position.'
+        return value,receipt
+    monkeypatch.setattr(assessment,'generate',writer)
+    result=assessment.generate_essay(requirements)
+    assert len(payloads)==3 and len(assessed)==2
+    assert payloads[-1]['protected_position_sentence'] in result['essay']

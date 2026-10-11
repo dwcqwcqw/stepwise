@@ -7,7 +7,7 @@ git clone --branch milestone2 https://github.com/dwcqwcqw/stepwise.git
 cd stepwise
 export GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
 export GOOGLE_CLOUD_LOCATION=global
-export GEMINI_MODEL=gemini-3.8-flash
+export GEMINI_MODEL=gemini-3.5-flash
 export STEPWISE_AUTH_DIR=/dev/shm/stepwise-auth
 python3 scripts/cloud-auth.py > /tmp/stepwise-auth.log 2>&1 &
 make run

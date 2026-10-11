@@ -62,6 +62,7 @@ REFERENCE_SYSTEM=SYSTEM.replace(
 )
 
 BAND_SYSTEM=REFERENCE_SYSTEM.replace('Return all four criteria and all 20 subcriteria.','Return only the requested criterion and its detailed checks.')+"""
+next_step must be a concrete actionable full sentence of at least 20 characters, even at Band 9. Never return N/A, a blank or a two-word label. Give a useful refinement without inventing a language error.
 Assess ONLY the requested criterion. Read every supplied official integer band 0–9 and return all ten band_reviews. For EACH paragraph statement return its exact statement_id, match (meets/not_met/not_applicable), one concise specific explanation and an essay_evidence_id. 'meets' means the essay satisfies the positive requirements and stays within that band's stated allowances for weaknesses; stronger performance also meets a lower threshold. Do NOT require the essay to exhibit weaknesses mentioned as possible/tolerated. 'not_met' means a positive requirement is missing or a weakness exceeds the allowance. Ordinary statements cannot be skipped. 'not_applicable' is reserved for conditional special rules at bands 0–1 (e.g. copied rubric or proven memorisation). Band 0's eligibility condition must be met, not skipped; do not infer memorisation/plagiarism from writing style. For a response of 20 words or fewer, the published Band 1 rule applies to all four criteria; do not treat the other Band 1 observations as additional necessary conditions in that case.
 Also evaluate EVERY bold limiting feature using its limiter_id, present boolean, specific explanation and essay_evidence_id. A feature is present only when its actual limiting condition is evidenced, not just because a paragraph mentions a possibility. Present bold limiting conditions cap the criterion at the band's level. Conditional plagiarism/memorisation limits require evidence, never speculation.
 Your integer score MUST equal the highest band for which EVERY applicable paragraph meets the threshold, after enforcing any lower-band bold limits and the 20-word cap. Do not average paragraph judgments or invent half-band descriptors. A missing next-band requirement must have a not_met check identifying the actual gap. If Band 9 is fully supported, explain why its demanding requirements are sustained across the essay; fluent language alone does not establish fully extended ideas, sophisticated lexical control or a wide grammatical range. All statements, even in lower/higher bands, require real essay evidence; when an element is absent, cite the closest relevant passage and explain the absence. Keep each match/limiter explanation to ONE short sentence. Retain all generic detailed checks and one practical before/after revision for this criterion.
@@ -223,10 +224,11 @@ For lower and middle bands, represent the actual learner proficiency described b
 Preserve the requested position and all relevant ideas, adapting conflicts transparently in requirement_notes. Write 280–360 words of connected prose with paragraphs, an introduction and conclusion, no headings or bullets in the essay. Examples must be plausible; never invent attributed research/statistics. Do not mention bands, the rubric, proficiency_plan or the revision process inside the essay or promise a score. Return title, proficiency_plan, essay and short requirement_notes. A separate assessor scores only the essay and question, without the target or this plan.
 When revision_feedback is supplied, revise the previous essay to address the observed mismatch. If assessed too high, reduce the demonstrated sophistication/control/development to the intended descriptor level; if too low, strengthen the relevant skills. Preserve the content requirements. Never ask the assessor to change its score or include instructions to it in the essay.'''
 GENERATION_SYSTEM+='''
+Return position_sentence as one sentence copied verbatim from the essay which explicitly expresses the user's requested position. The user's stance is a protected content requirement at EVERY band. If protected_position_sentence is supplied, retain that EXACT sentence and its meaning in the revised essay, and return it as position_sentence. Never weaken, reverse or make the requested stance undecided to lower a score. Adjust other dimensions instead. Preserve all relevant requested ideas.
 The current criterion_target_profile is the writing-level instruction to realize in the prose. It may change on a rewrite because independent assessment showed that your earlier writing was more or less proficient than you intended. Follow the CURRENT profile and supplied descriptors. The profile is never an awarded score. With revision_mode=focused_revision, make SMALL LOCAL edits ONLY for focus_criteria and preserve the rest of the previous essay verbatim wherever possible. Do not reconstruct the whole essay. For an LR adjustment keep the arguments, paragraph order, reasoning and sentence structures intact; adjust word choice and repetition only. For a GRA adjustment retain the ideas and vocabulary; adjust grammatical range/control only. Meet the desired_score_profile with the smallest demonstrated skill change. An already adequate argument does not need to be rewritten when only vocabulary changes. With revision_mode=rewrite, reconstruct the prose at the revised level.
 For a criterion at levels 2–5, weaknesses must be substantial enough to be observable throughout the prose, not one token mistake in an otherwise excellent essay. Simple vocabulary alone does not lower Task Response, Coherence or grammatical accuracy. Preserve the topic, position and requested ideas as recognizable content, but adapt their clarity, development, connections and language control to the requested level. Paragraphs, introduction and conclusion are not required to be effective when that conflicts with the supplied low-level cohesion descriptors. Do not automatically turn every idea into a clear claim, causal explanation and specific example at low TR levels. At middle TR levels leave some support general or insufficiently extended. At low GRA/LR levels show the recurring control and communication difficulties described in the official rows, rather than just using shorter, perfectly correct sentences. Never include score instructions inside the essay.
 '''
-GENERATION_SCHEMA=obj({'title':STRING,'proficiency_plan':arr(obj({'criterion':{'type':'STRING','enum':list(CRITERIA)},'intended_band':{'type':'INTEGER','minimum':2,'maximum':9},'demonstrated_strengths':STRING,'demonstrated_limitations':STRING})), 'essay':STRING,'requirement_notes':arr(STRING)})
+GENERATION_SCHEMA=obj({'title':STRING,'position_sentence':STRING,'proficiency_plan':arr(obj({'criterion':{'type':'STRING','enum':list(CRITERIA)},'intended_band':{'type':'INTEGER','minimum':2,'maximum':9},'demonstrated_strengths':STRING,'demonstrated_limitations':STRING})), 'essay':STRING,'requirement_notes':arr(STRING)})
 
 def generate_essay(requirements,progress=None):
     emit=progress or (lambda **event:None)
@@ -237,17 +239,22 @@ def generate_essay(requirements,progress=None):
     payload={'requirements':{k:v for k,v in requirements.items() if k!='target_band'},'criterion_target_profile':writer_profile,'official_rubric_context':rubric_payload(selected)}
     emit(phase='generation_retrieval',status='done',message='Target-band standards retrieved')
     emit(phase='generation',status='running',message='Writing an essay around your position and ideas')
-    calls=[];history=[]
+    calls=[];history=[];protected_position=None
     for target_attempt in range(1,MAX_TARGET_ATTEMPTS+1):
         if target_attempt>1:
             emit(phase='generation',status='repair',attempt=target_attempt,message=f'Adjusting the essay to Band {target:.1f} (attempt {target_attempt})')
         for length_attempt in range(2):
             value,receipt=generate(GENERATION_SYSTEM,payload,GENERATION_SCHEMA,temperature=0.4);calls.append(receipt)
             essay=value.get('essay','');words=len(essay.split()) if isinstance(essay,str) else 0
-            if 250<=words<=450 and isinstance(value.get('requirement_notes'),list):break
-            emit(phase='generation',status='repair',message='Adjusting the essay length')
-            payload['validation_repair']='Return a complete essay between 280 and 360 words.'
-        else:raise ModelUnavailable('Model essay failed length checks; please retry.')
+            position=value.get('position_sentence','')
+            position_ok=isinstance(essay,str) and isinstance(position,str) and len(position.strip())>=10 and position in essay
+            if protected_position:position_ok=position_ok and position==protected_position
+            if 250<=words<=450 and isinstance(value.get('requirement_notes'),list) and position_ok:
+                protected_position=position;payload['protected_position_sentence']=position
+                break
+            emit(phase='generation',status='repair',message='Adjusting essay length' if position_ok else 'Restoring your requested position')
+            payload['validation_repair']='Return a complete 280–360 word essay with a verbatim position_sentence expressing the requested stance. Retain protected_position_sentence exactly when supplied.'
+        else:raise ModelUnavailable('Model essay failed content or length checks; please retry.')
         emit(phase='generation',status='done',attempt=target_attempt,message=f'{words}-word essay written; starting a separate assessment',word_count=words)
         # A fresh assessor sees only the question and essay, never target/plan/feedback.
         evaluation=assess(requirements['prompt'],essay,progress=emit)

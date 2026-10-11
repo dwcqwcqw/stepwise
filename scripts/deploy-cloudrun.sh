@@ -9,6 +9,7 @@ RUNTIME=stepwise-runtime@${P}.iam.gserviceaccount.com
 INVOKER=stepwise-vercel@${P}.iam.gserviceaccount.com
 BUILDER=stepwise-build@${P}.iam.gserviceaccount.com
 IMAGE=${REGION}-docker.pkg.dev/${P}/stepwise/api:$(git rev-parse --short=12 HEAD)
+MODEL=${GEMINI_MODEL:-gemini-3.5-flash}
 gcloud services enable run.googleapis.com artifactregistry.googleapis.com cloudbuild.googleapis.com iamcredentials.googleapis.com sts.googleapis.com --project="$P"
 for NAME in stepwise-runtime stepwise-vercel stepwise-build; do
   gcloud iam service-accounts describe "${NAME}@${P}.iam.gserviceaccount.com" --project="$P" >/dev/null 2>&1 || gcloud iam service-accounts create "$NAME" --project="$P"
@@ -39,6 +40,6 @@ assert sum(p['payload']['kind']=='band_statement' and p['payload']['task']=='aca
 print('Frozen official RAG bundle verified:',index['index_id'],index['points'])
 PYVERIFY
 gcloud builds submit . --project="$P" --region="$REGION" --config=deploy/cloudrun/cloudbuild.yaml --substitutions="_IMAGE=$IMAGE" --service-account="projects/$P/serviceAccounts/$BUILDER" --gcs-source-staging-dir="gs://${P}_cloudbuild/source"
-gcloud run deploy stepwise-api --project="$P" --region="$REGION" --image="$IMAGE" --service-account="$RUNTIME" --no-allow-unauthenticated --port=8080 --cpu=1 --memory=2Gi --concurrency=2 --min-instances=0 --max-instances=1 --timeout=300 --set-env-vars="GOOGLE_CLOUD_PROJECT=$P,GOOGLE_CLOUD_LOCATION=global,GEMINI_MODEL=gemini-3.8-flash"
+gcloud run deploy stepwise-api --project="$P" --region="$REGION" --image="$IMAGE" --service-account="$RUNTIME" --no-allow-unauthenticated --port=8080 --cpu=1 --memory=2Gi --concurrency=2 --min-instances=0 --max-instances=1 --timeout=300 --set-env-vars="GOOGLE_CLOUD_PROJECT=$P,GOOGLE_CLOUD_LOCATION=global,GEMINI_MODEL=$MODEL"
 gcloud run services add-iam-policy-binding stepwise-api --project="$P" --region="$REGION" --member="serviceAccount:$INVOKER" --role=roles/run.invoker >/dev/null
 gcloud run services describe stepwise-api --project="$P" --region="$REGION" --format='value(status.url,status.latestReadyRevisionName)'
