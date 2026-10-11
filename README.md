@@ -2,6 +2,12 @@
 
 AC215 Milestone 2. Type or paste an IELTS Academic Writing Task 2 essay, receive real rubric-grounded Google Gemini scores and specific revisions, then generate an essay from your target and ideas and inspect its separately assessed scores.
 
+## Live application
+
+[Open Stepwise](https://stepwise-one.vercel.app) — fixed public URL; no Vercel login is required. The complete application is available on the default `main` branch and on the course delivery branch `milestone2`.
+
+Vercel hosts the UI and a same-origin gateway. A restricted, short-lived OIDC identity invokes the private Cloud Run API, whose service account calls Gemini on Vertex AI. The frozen official RAG index contains 131 points; Google credentials are not embedded in the browser.
+
 ## Run
 
 See [setup instructions](docs/setup.md) for authorized Google Cloud configuration, runtime token refresh and exact commands. With those prerequisites configured:
@@ -51,3 +57,9 @@ Team: Bei Li, Ernest Ferdian, Dimitris Pipinis, Xiahui Huang.
 The cloud run on 11 October 2026 used `stepwise-ac215-20261010` and `gemini-3.8-flash`: 131 indexed points, 40 retrieval cases, 12 live workflow checks and 18 local tests passed. Draft scores were 8.0 for the authored sample and 3.0 for a distinct weak draft; a target-7.0 model essay was separately assessed 9.0. These are integration observations; scoring agreement and target deviation still require evaluation.
 
 [MS2 report](docs/report.md) · [Report PDF](docs/Stepwise_MS2_Report.pdf) · [Eight-slide presentation](docs/slides/Stepwise_MS2_Presentation_Final.pptx) · [Google Docs report](https://docs.google.com/document/d/1zz4xZyHuphKdB_hXu1w4R4tl9ldOu46OoDFS8vkZt5Q/edit)
+
+## Public deployment verification
+
+On 11 October 2026, the fixed Vercel URL completed live draft feedback and model-essay generation with separate assessment. The 273-word sample received 8.0 on all four criteria; a target-7.0 essay was generated at 305 words and separately assessed 9.0. This verifies the deployed workflow and records target overshoot; it is not a calibration benchmark. The deployment uses source commit `95b921c8e19d81280bb7c15d173cdf19c4f841c8` and Cloud Run revision `stepwise-api-00001-pk4`. Twenty-one local tests passed.
+
+[Deployment details](deploy/README.md) · [Deployment receipt](docs/evidence/public-deployment.json) · [Live feedback](docs/evidence/public-feedback.png) · [Live generated essay](docs/evidence/public-model-essay.png)

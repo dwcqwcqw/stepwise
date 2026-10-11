@@ -1,0 +1,63 @@
+{
+  "verified_date": "2026-10-11",
+  "public_url": "https://stepwise-one.vercel.app",
+  "requires_vercel_login": false,
+  "vercel_project": "prj_ZAij8jaoHZ1hHd26E6N45BIvhH6h",
+  "vercel_deployment": "dpl_9U2u8xfR6gEQMzsGeo26UcaZNMdp",
+  "environment": "production",
+  "source_commit": "95b921c8e19d81280bb7c15d173cdf19c4f841c8",
+  "backend": {
+    "url": "https://stepwise-api-t37cje4wva-uc.a.run.app",
+    "revision": "stepwise-api-00001-pk4",
+    "build_id": "d6ed8044-4603-4a91-b822-5b7fa065aa8b",
+    "image_digest": "sha256:a2c2228100fbdac1a4287a28ec941cdc013034057c900470f0a59e977706c045",
+    "source_commit": "95b921c8e19d81280bb7c15d173cdf19c4f841c8",
+    "status": "Ready"
+  },
+  "cloud_run_invoker": "stepwise-vercel@stepwise-ac215-20261010.iam.gserviceaccount.com",
+  "anonymous_cloud_run_invoker": false,
+  "rag": {
+    "index_id": "2da4e8eda6a331b5",
+    "points": 131,
+    "mode": "immutable_export_in_memory_qdrant"
+  },
+  "configured_model": "gemini-3.8-flash",
+  "validation_method": "Manual public browser workflow and Cloud Run HTTP request log readback",
+  "feedback": {
+    "sample_words": 273,
+    "overall_band": 8,
+    "criteria": {
+      "TR": 8,
+      "CC": 8,
+      "LR": 8,
+      "GRA": 8
+    },
+    "http_status": 200,
+    "cloud_run_latency_seconds": 20.072938155,
+    "request_timestamp_utc": "2026-10-11T03:18:29.119610Z"
+  },
+  "model_essay": {
+    "target_band": 7,
+    "word_count": 305,
+    "assessed_band": 9,
+    "criteria": {
+      "TR": 9,
+      "CC": 9,
+      "LR": 9,
+      "GRA": 9
+    },
+    "http_status": 200,
+    "cloud_run_latency_seconds": 21.472961677,
+    "request_timestamp_utc": "2026-10-11T03:19:11.585426Z"
+  },
+  "unit_tests_passed": 21,
+  "git_auto_deployment": false,
+  "code_branches": [
+    "main",
+    "milestone2"
+  ],
+  "screenshots": [
+    "public-feedback.png",
+    "public-model-essay.png"
+  ]
+}

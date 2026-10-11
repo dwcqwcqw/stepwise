@@ -15,7 +15,7 @@ cp -a runtime/model-cache/. .cloudrun-bundle/model-cache/
 python3 - <<'PY'
 import hashlib,json,pathlib
 p=pathlib.Path('.cloudrun-bundle')
-files={str(f.relative_to(p)):hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(p.rglob('*')) if f.is_file()}
+files={str(f.relative_to(p)):hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(p.rglob('*')) if f.is_file() and f != p/'manifest.json'}
 pathlib.Path('.cloudrun-bundle/manifest.json').write_text(json.dumps(files,indent=2)+'\n')
 print('Official RAG bundle exported:',len(files),'files')
 PY

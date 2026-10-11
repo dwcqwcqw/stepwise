@@ -71,17 +71,17 @@ make run
 
 Prerequisites: Docker/Compose, make, Python 3, an authorized gcloud session and an enabled billing/Vertex project. Open localhost:8080 or Cloud Shell Web Preview on port 8080. docs/setup.md contains full configuration and troubleshooting. make verify repeats real model calls; make evidence captures existing outputs/logs; make test runs without Google calls. The Cloud Shell preview is temporary.
 
-## 6. Vercel deployment
+## 6. Public deployment and verification
 
-Frontend preview: [Stepwise on Vercel](https://stepwise-6lbri9nsq-baileys-projects-7e3a3dc4.vercel.app). The deployment reached READY on 11 October 2026 and is protected by Vercel authentication. Its shared UI source and Node gateway were uploaded from commit 2e97c6e20c48ed20a0d6b102508ca044e298c72a; 21 local tests passed. The source-file deployment is linked to that commit in metadata; GitHub automatic deployment is not configured because the Vercel GitHub integration is not installed.
+Live application: [Stepwise](https://stepwise-one.vercel.app) is available at a fixed public Vercel URL without login. Both main and milestone2 contain the complete program. The frontend and private Cloud Run API were deployed from commit 95b921c8e19d81280bb7c15d173cdf19c4f841c8; Cloud Run revision stepwise-api-00001-pk4 is serving traffic. Deployment configuration and exact instructions are in deploy/README.md.
 
-Prepared cloud connection: Vercel → short-lived OIDC identity → private Cloud Run → Vertex AI. The Cloud Run image uses a frozen export of all 131 official rubric vectors and the pinned embedding model. Dedicated runtime, invoker and build identities separate permissions. Google credentials are not placed in frontend code.
+Cloud connection: Vercel → short-lived OIDC identity → private Cloud Run → Vertex AI Gemini. The API loads the frozen 131-point official rubric index and pinned embedding model. Dedicated runtime, invoker and build identities separate permissions. No Google credentials are embedded in frontend code; Cloud Shell can stop without stopping the deployed service.
 
-Current boundary: Cloud Run deployment and its restricted IAM trust await owner approval. Browser verification also awaits Vercel login. The Vercel preview has not yet passed end-to-end model assessment; the earlier Cloud Shell scoring and generation evidence remains valid. Deployment scripts, configuration and checks are in deploy/README.md.
+Verified on 11 October 2026: the public UI assessed the 273-word sample at 8.0 for all four criteria, showing specific revisions and linked official standards. It then generated a 305-word essay from target 7.0 and the learner’s position/ideas, and separately assessed it at 9.0. Target overshoot remains a calibration task. Twenty-one local tests passed; production screenshots and request logs accompany the repository. Vercel Git auto-deployment is not configured; this deployment was uploaded through its API.
 
 ## 7. MS3 development and references
 
-Next: audit reliable Task 2 adaptation data, label provenance and prompt-family leakage; compare prompting, official RAG and an open-model LoRA baseline. Track criterion MAE, within-0.5-band agreement, repeated-run variance, target-band deviation, latency and token cost. Current samples establish integration; high generated scores and target overshoot require held-out calibration. Persistent hosting, production authentication and load evaluation follow in later milestones.
+Next: audit reliable Task 2 adaptation data, label provenance and prompt-family leakage; compare prompting, official RAG and an open-model LoRA baseline. Track criterion MAE, within-0.5-band agreement, repeated-run variance, target-band deviation, latency and token cost. Current samples establish integration; high generated scores and target overshoot require held-out calibration. Open-model deployment, request limits and load evaluation follow in later milestones.
 
 Reference implementations: [cheese-app-v0](https://github.com/dlops-io/cheese-app-v0) informed pipeline separation; [babykev](https://github.com/rahuldave/babykev) informed reproducible environments and explicit checks. Stepwise supplies its own IELTS parsing, retrieval contracts and UI. Team members should understand the entire implementation.
 

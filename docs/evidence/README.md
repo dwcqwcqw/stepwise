@@ -9,3 +9,7 @@ The upgraded implementation uses full official rubrics, actual Gemini assessment
 Implementation commit: `c4522d75b45c2ae32a73b0b5c133ccfcb5e43a71`; model `gemini-3.8-flash`; index `2da4e8eda6a331b5`. `verification.json` records 12 passing workflow checks and actual scores. `rag_verification.json` records all 40 Task 2 criterion-band queries, complete source coverage and zero loaded adaptation candidates. `unit-tests.txt` records 18 local tests. Sample essays are authored demonstration fixtures; do not replace them with private learner submissions. Model response IDs, token usage and latency are retained without authentication tokens.
 
 PNG screenshots show the upgraded running application. Files ending in `-detail.png` are unaltered crops for PDF readability; full images are retained beside them. Historical preview evidence and its placeholder behavior stay under `preview-v1/`.
+
+## Public production deployment
+
+`public-deployment.json` records the verified fixed Vercel URL, source commit, Cloud Run revision/image digest, restricted invoker, official index, observed UI results and production HTTP request logs. `public-feedback.png`, `public-model-essay.png` and `public-model-essay.txt` were captured directly from the live fixed URL on 11 October 2026. The sample received 8.0; the target-7.0 generated essay contained 305 words and was separately assessed 9.0. These results verify the deployed workflow and expose target overshoot; they do not establish grading calibration. `deployment-unit-tests.txt` records 21 passing tests.

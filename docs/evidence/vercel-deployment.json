@@ -1,12 +1,15 @@
 {
-  "deployment_id": "dpl_CQRsxUnVPts4fFW1dbAmVFC9VgAa",
-  "url": "stepwise-6lbri9nsq-baileys-projects-7e3a3dc4.vercel.app",
-  "target": "staging",
-  "state": "READY",
-  "source_commit": "2e97c6e20c48ed20a0d6b102508ca044e298c72a",
-  "backend_status": "awaiting_restricted_IAM_approval",
-  "browser_validation": "awaiting_Vercel_login",
-  "git_auto_deploy": false,
-  "unit_tests_passed": 21,
-  "official_RAG_bundle_files": 19
+  "historical_preview": {
+    "deployment_id": "dpl_CQRsxUnVPts4fFW1dbAmVFC9VgAa",
+    "url": "stepwise-6lbri9nsq-baileys-projects-7e3a3dc4.vercel.app",
+    "target": "staging",
+    "state": "READY",
+    "source_commit": "2e97c6e20c48ed20a0d6b102508ca044e298c72a",
+    "backend_status": "awaiting_restricted_IAM_approval",
+    "browser_validation": "awaiting_Vercel_login",
+    "git_auto_deploy": false,
+    "unit_tests_passed": 21,
+    "official_RAG_bundle_files": 19
+  },
+  "current_deployment_receipt": "public-deployment.json"
 }
