@@ -10,7 +10,7 @@ from shared.gemini import generate, ModelUnavailable
 from shared.retrieval import assessment_context
 from shared.band_matching import BandReview, review_bands, score_summary
 from shared.compact import compact_schema, compact_system, expand, rubric_payload
-from shared.targeting import target_profile, calibration_feedback, MAX_TARGET_ATTEMPTS
+from shared.targeting import target_profile, calibration_feedback, adjust_writer_profile, MAX_TARGET_ATTEMPTS
 
 logger=logging.getLogger(__name__)
 
@@ -222,15 +222,19 @@ Follow the supplied integer criterion_target_profile and the exact official desc
 For lower and middle bands, represent the actual learner proficiency described by the rubric: modest or repetitive vocabulary, limited precision, simple/repetitive sentence patterns, uneven cohesion, and less developed or generalised support where appropriate. When the intended grammar/lexical descriptor requires errors or limited control, use plausible recurring learner-language limitations at that level, not random typos, nonsense or deliberately false ideas. For Band 7, useful argument development can still be generalised or lack precision, vocabulary need not be sophisticated throughout, and grammatical flexibility/control need not be exceptional. Band 8 should remain distinguishable from Band 9's fully extended ideas and sophisticated, nearly flawless control. For Band 9, sustain all demanding requirements. Do not add specialist knowledge or invented scoring rules.
 Preserve the requested position and all relevant ideas, adapting conflicts transparently in requirement_notes. Write 280–360 words of connected prose with paragraphs, an introduction and conclusion, no headings or bullets in the essay. Examples must be plausible; never invent attributed research/statistics. Do not mention bands, the rubric, proficiency_plan or the revision process inside the essay or promise a score. Return title, proficiency_plan, essay and short requirement_notes. A separate assessor scores only the essay and question, without the target or this plan.
 When revision_feedback is supplied, revise the previous essay to address the observed mismatch. If assessed too high, reduce the demonstrated sophistication/control/development to the intended descriptor level; if too low, strengthen the relevant skills. Preserve the content requirements. Never ask the assessor to change its score or include instructions to it in the essay.'''
-GENERATION_SCHEMA=obj({'title':STRING,'proficiency_plan':arr(obj({'criterion':{'type':'STRING','enum':list(CRITERIA)},'intended_band':{'type':'INTEGER','minimum':4,'maximum':9},'demonstrated_strengths':STRING,'demonstrated_limitations':STRING})), 'essay':STRING,'requirement_notes':arr(STRING)})
+GENERATION_SYSTEM+='''
+The current criterion_target_profile is the writing-level instruction to realize in the prose. It may change on a rewrite because independent assessment showed that your earlier writing was more or less proficient than you intended. Follow the CURRENT profile and supplied descriptors, rather than retaining the previous draft's polished style. On a rewrite, reconstruct the essay, not just replace a few words. The profile is never an awarded score.
+For a criterion at levels 2–5, weaknesses must be substantial enough to be observable throughout the prose, not one token mistake in an otherwise excellent essay. Simple vocabulary alone does not lower Task Response, Coherence or grammatical accuracy. Preserve the topic, position and requested ideas as recognizable content, but adapt their clarity, development, connections and language control to the requested level. Paragraphs, introduction and conclusion are not required to be effective when that conflicts with the supplied low-level cohesion descriptors. Do not automatically turn every idea into a clear claim, causal explanation and specific example at low TR levels. At middle TR levels leave some support general or insufficiently extended. At low GRA/LR levels show the recurring control and communication difficulties described in the official rows, rather than just using shorter, perfectly correct sentences. Never include score instructions inside the essay.
+'''
+GENERATION_SCHEMA=obj({'title':STRING,'proficiency_plan':arr(obj({'criterion':{'type':'STRING','enum':list(CRITERIA)},'intended_band':{'type':'INTEGER','minimum':2,'maximum':9},'demonstrated_strengths':STRING,'demonstrated_limitations':STRING})), 'essay':STRING,'requirement_notes':arr(STRING)})
 
 def generate_essay(requirements,progress=None):
     emit=progress or (lambda **event:None)
-    target=requirements['target_band'];profile=target_profile(target)
+    target=requirements['target_band'];profile=target_profile(target);writer_profile=dict(profile)
     emit(phase='generation_retrieval',status='running',message='Retrieving standards for your target band')
     context=assessment_context(requirements['prompt']+' '+requirements['ideas'])
     selected=[x for x in context['chunks'] if x['kind']!='band_descriptor' or max(0,profile[x['criterion']]-1)<=x['band']<=min(9,profile[x['criterion']]+1)]
-    payload={'requirements':requirements,'criterion_target_profile':profile,'official_rubric_context':rubric_payload(selected)}
+    payload={'requirements':{k:v for k,v in requirements.items() if k!='target_band'},'criterion_target_profile':writer_profile,'official_rubric_context':rubric_payload(selected)}
     emit(phase='generation_retrieval',status='done',message='Target-band standards retrieved')
     emit(phase='generation',status='running',message='Writing an essay around your position and ideas')
     calls=[];history=[]
@@ -249,14 +253,19 @@ def generate_essay(requirements,progress=None):
         evaluation=assess(requirements['prompt'],essay,progress=emit)
         observed=evaluation['overall_band']
         history.append({'attempt':target_attempt,'assessed_band':observed,
+                        'writer_profile':dict(writer_profile),
                         'criterion_scores':{c['criterion']:c['score'] for c in evaluation['criteria']},
                         'essay_sha256':evaluation.get('essay_sha256'),'model_calls':evaluation.get('model_calls',[])})
         emit(phase='calibration',status='done' if observed==target else 'repair',attempt=target_attempt,
-             message=f'Independent assessment: Band {observed:.1f}; requested: Band {target:.1f}')
+             message=f'Independent assessment: Band {observed:.1f}; requested: Band {target:.1f}',
+             criterion_scores=history[-1]['criterion_scores'])
         if observed==target:
             return {'status':'generated_and_assessed','title':value.get('title','Your model essay'),'essay':essay,'word_count':words,'requirements':requirements,'requirement_notes':value['requirement_notes'],'assessment':evaluation,'generation_calls':calls,'generation_context_ids':[x['chunk_id'] for x in selected],'target_met':True,'target_match':{'requested_band':target,'assessed_band':observed,'exact_match':True,'criterion_target_profile':profile,'attempts':history},'notice':f'This example matched your requested Band {target:.1f} in a separate assessment against official IELTS standards.'}
         if target_attempt<MAX_TARGET_ATTEMPTS:
-            payload.update(previous_essay=essay,revision_feedback={'requested_band':target,'observed_band':observed,
+            writer_profile=adjust_writer_profile(writer_profile,evaluation,profile)
+            selected=[x for x in context['chunks'] if x['kind']!='band_descriptor' or max(0,writer_profile[x['criterion']]-1)<=x['band']<=min(9,writer_profile[x['criterion']]+1)]
+            payload.update(criterion_target_profile=dict(writer_profile),official_rubric_context=rubric_payload(selected),
+                previous_essay=essay,revision_feedback={'observed_band':observed,
                 'direction':'reduce demonstrated proficiency' if observed>target else 'improve demonstrated proficiency',
-                'criteria':calibration_feedback(evaluation,profile)})
+                'criteria':calibration_feedback(evaluation,writer_profile)})
     raise ModelUnavailable(f'The generated essay did not match your requested Band {target:.1f} after {MAX_TARGET_ATTEMPTS} independent checks. Please try again; your requirements are unchanged.')

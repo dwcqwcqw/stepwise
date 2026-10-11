@@ -21,3 +21,9 @@ def calibration_feedback(assessment, profile):
                               for b in c['band_reviews'] if b['band'] == profile[c['criterion']]
                               for s in b['checks']]}
             for c in assessment['criteria']]
+
+def adjust_writer_profile(current, assessment, desired):
+    """Correct the writer's observed level error; never modify assessor scores."""
+    observed={c['criterion']:c['score'] for c in assessment['criteria']}
+    return {code:max(2,min(9,current[code]+desired[code]-observed[code]))
+            for code in CRITERIA}

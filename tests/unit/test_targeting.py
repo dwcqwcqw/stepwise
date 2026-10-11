@@ -2,7 +2,7 @@
 from copy import deepcopy
 import pytest
 from shared import assessment
-from shared.targeting import target_profile
+from shared.targeting import target_profile, adjust_writer_profile
 from shared.band_matching import score_summary
 from shared.gemini import ModelUnavailable
 from shared.progress import events
@@ -71,3 +71,12 @@ def test_persistent_overshoot_never_returns_wrong_band_as_success(monkeypatch):
     assert len(payloads)==3
     assert not any(e['type']=='result' for e in output)
     assert output[-1]['type']=='error' and 'Band 5.0' in output[-1]['detail']
+
+@pytest.mark.parametrize('current,observed,desired,expected',[
+    (7,9,7,5),(5,6,7,6),(4,6,4,2),(2,9,4,2),(9,5,9,9)])
+def test_writer_control_corrects_observed_error_without_changing_scores(current,observed,desired,expected):
+    original={'criteria':[{'criterion':c,'score':observed} for c in ['TR','CC','LR','GRA']]}
+    saved=deepcopy(original)
+    result=adjust_writer_profile(dict.fromkeys(['TR','CC','LR','GRA'],current),original,
+                                 dict.fromkeys(['TR','CC','LR','GRA'],desired))
+    assert set(result.values())=={expected} and original==saved
