@@ -3,6 +3,8 @@ import time
 from typing import Literal
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field, field_validator
+from fastapi.responses import StreamingResponse
+from shared.progress import events
 from shared.retrieval import active_index, database, retrieve
 from shared.assessment import assess, generate_essay
 from shared.gemini import ModelUnavailable, configuration
@@ -59,3 +61,17 @@ def model_essay(request:ModelEssayRequest):
     try:return generate_essay(request.model_dump())
     except ModelUnavailable as error:raise HTTPException(503,str(error)) from error
     except Exception as error:raise HTTPException(503,'Model essay assessment evidence could not be validated; please retry.') from error
+
+STREAM_HEADERS={'Cache-Control':'no-store, no-transform','X-Accel-Buffering':'no'}
+
+@app.post('/api/feedback/stream')
+def feedback_stream(request:EssayRequest):
+    def operation(progress):
+        started=time.monotonic()
+        result=assess(request.prompt,request.essay,progress=progress)
+        return {'mode':'live_model_assessment',**result,'notice':result['summary'],'latency_ms':round((time.monotonic()-started)*1000)}
+    return StreamingResponse(events(operation),media_type='application/x-ndjson',headers=STREAM_HEADERS)
+
+@app.post('/api/model-essay/stream')
+def model_essay_stream(request:ModelEssayRequest):
+    return StreamingResponse(events(lambda progress:generate_essay(request.model_dump(),progress=progress)),media_type='application/x-ndjson',headers=STREAM_HEADERS)

@@ -4,13 +4,16 @@ const ROUTES = new Map([
   ['ready', { method: 'GET', upstream: '/ready' }],
   ['feedback', { method: 'POST', upstream: '/api/feedback' }],
   ['model-essay', { method: 'POST', upstream: '/api/model-essay' }],
+  ['feedback/stream', { method: 'POST', upstream: '/api/feedback/stream' }],
+  ['model-essay/stream', { method: 'POST', upstream: '/api/model-essay/stream' }],
 ]);
+let cachedIdentity, identityPending;
 async function googleJson(url, options) {
   const response = await fetch(url, { ...options, signal: AbortSignal.timeout(20000) });
   if (!response.ok) throw new Error(`Cloud identity exchange returned ${response.status}`);
   return response.json();
 }
-async function backendToken(audience) {
+async function exchangeIdentity(audience) {
   const subjectToken = await getVercelOidcToken();
   const exchange = await googleJson('https://sts.googleapis.com/v1/token', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -27,7 +30,15 @@ async function backendToken(audience) {
       method: 'POST', headers: { Authorization: `Bearer ${exchange.access_token}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ audience, includeEmail: true }),
     });
+  const expires = JSON.parse(Buffer.from(identity.token.split('.')[1], 'base64url').toString()).exp * 1000;
+  cachedIdentity = { audience, token: identity.token, expires };
   return identity.token;
+}
+async function backendToken(audience) {
+  if (cachedIdentity?.audience === audience && cachedIdentity.expires > Date.now() + 60000)
+    return cachedIdentity.token;
+  if (!identityPending) identityPending = exchangeIdentity(audience).finally(() => { identityPending = undefined; });
+  return identityPending;
 }
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -48,6 +59,22 @@ export default async function handler(req, res) {
       method: route.method, headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
       body, signal: AbortSignal.timeout(270000),
     });
+    if (response.ok && response.headers.get('content-type')?.includes('application/x-ndjson')) {
+      res.statusCode = response.status;
+      res.setHeader('Content-Type', 'application/x-ndjson; charset=utf-8');
+      res.setHeader('Cache-Control', 'no-store, no-transform');
+      res.setHeader('X-Accel-Buffering', 'no');
+      res.flushHeaders();
+      // Forward each backend event immediately, rather than buffering the final JSON.
+      for await (const chunk of response.body) {
+        if (res.destroyed) { await response.body.cancel().catch(() => {}); break; }
+        if (!res.write(chunk)) await new Promise(resolve => {
+          const done = () => { res.off('drain',done); res.off('close',done); resolve(); };
+          res.once('drain',done); res.once('close',done);
+        });
+      }
+      return res.end();
+    }
     if (!response.headers.get('content-type')?.includes('application/json'))
       throw new Error(`Cloud backend returned ${response.status}`);
     const result = await response.json();
@@ -55,6 +82,10 @@ export default async function handler(req, res) {
   } catch (error) {
     // No request bodies, tokens, or private essays enter infrastructure logs.
     console.error('Stepwise gateway:', error.name, error.message);
+    if (res.headersSent) {
+      if (!res.destroyed) res.end(JSON.stringify({type:'error',detail:'The connection was interrupted. Please retry; your text is unchanged.'})+'\n');
+      return;
+    }
     return res.status(503).json({ detail: 'The cloud assessment is temporarily unavailable. Please retry.' });
   }
 }
