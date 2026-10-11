@@ -19,3 +19,9 @@ PNG screenshots show the upgraded running application. Files ending in `-detail.
 `evidence-reference-tests.txt` records 29 passing local tests after the reference-contract repair. The server supplies exact essay spans with short IDs, resolves selected spans without autocorrection, and binds the retrieved awarded/next-band and detail records. Unknown references, missing details and fabricated quotes remain rejected. A retry receives the failed answer and validation reason. Diagnostic logs exclude essay text.
 
 `reference-regression-input.json` is an authored public fixture with deliberate spelling/grammar issues, curly punctuation and doubled spaces, not a private student submission. Production regression receipts and screenshots are kept separately from the earlier Compose and production records so their implementation versions remain explicit.
+
+## Complete band matching — current release
+
+`band-paragraph-audit.json` verifies exact preservation of all 80 cells and 238 PDF paragraphs, including 119 Task 2 standards. `band-matching-tests.txt` records 46 passing unit tests. `band-matching-integration.json` records the 13-call real container run against the 369-point index, with model response IDs, all-criterion coverage and exact arithmetic. It names its v4 source honestly; v4.1 public browser checks are separate.
+
+`band-matching-production-ui.json` records final fixed-URL draft and model-essay checks, source commits, revision and exact source/essay evidence checks. `band-matching-feedback.png` is a legible detail from the live band-specific feedback panel; `band-matching-overview.png` preserves surrounding feedback context. Earlier receipts retain their original source/index versions.

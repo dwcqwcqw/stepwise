@@ -1,0 +1,155 @@
+{
+  "source_commit": "0bdb7c902afb54d505588a97d06a678193016e79",
+  "prompt_version": "official-rubric-v4-complete-band-matches",
+  "verification": {
+    "status": "passed",
+    "checks": [
+      "entire official band PDF indexed",
+      "Task 2 score excludes Task 1",
+      "real Google model scoring and feedback",
+      "20 official subcriteria checked",
+      "verbatim essay excerpts",
+      "validated source IDs and awarded bands",
+      "target-blind assessment",
+      "half-band descriptor retrieval",
+      "complete model essay generated",
+      "model essay independently assessed",
+      "different weak essay scores lower",
+      "invalid input rejected"
+    ],
+    "index_id": "339dcf75a711802b",
+    "vectors": 369,
+    "sample_band": 8,
+    "weak_band": 3.5,
+    "generated_band": 9,
+    "target_band": 7,
+    "model": "gemini-3.8-flash",
+    "model_calls": 13,
+    "feedback_latency_ms": 18781
+  },
+  "index": {
+    "chunk_snapshot": "d7968b11ed657b6f",
+    "model": "BAAI/bge-small-en-v1.5",
+    "weights_sha256": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+    "fastembed": "0.7.3",
+    "dimension": 384,
+    "metric": "cosine",
+    "index_id": "339dcf75a711802b",
+    "collection": "stepwise_339dcf75a711802b",
+    "points": 369,
+    "qdrant_client": "1.15.1"
+  },
+  "cases": [
+    {
+      "file": "feedback_output.json",
+      "scores": {
+        "TR": 8,
+        "CC": 8,
+        "LR": 8,
+        "GRA": 8
+      },
+      "calculation": {
+        "criterion_scores": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "sum": 32,
+        "divisor": 4,
+        "raw_mean": "8.00",
+        "rounded_band": "8.0",
+        "rounding": "nearest_half_band_half_up",
+        "scope": "Task 2 practice estimate"
+      },
+      "statements": 119,
+      "word_count": 273,
+      "criterion_counts": {
+        "TR": 32,
+        "CC": 33,
+        "LR": 28,
+        "GRA": 26
+      },
+      "response_ids": [
+        "MRHLatXrLZezvr0PgKSZyAU",
+        "MRHLapHULZezvr0PgKSZyAU",
+        "MRHLatCHL6v31e8P0qiokAs",
+        "MRHLasXCMOycvr0PlsXmSQ"
+      ]
+    },
+    {
+      "file": "model_essay_output.json",
+      "scores": {
+        "TR": 9,
+        "CC": 9,
+        "LR": 9,
+        "GRA": 9
+      },
+      "calculation": {
+        "criterion_scores": [
+          9,
+          9,
+          9,
+          9
+        ],
+        "sum": 36,
+        "divisor": 4,
+        "raw_mean": "9.00",
+        "rounded_band": "9.0",
+        "rounding": "nearest_half_band_half_up",
+        "scope": "Task 2 practice estimate"
+      },
+      "statements": 119,
+      "word_count": 307,
+      "criterion_counts": {
+        "TR": 32,
+        "CC": 33,
+        "LR": 28,
+        "GRA": 26
+      },
+      "response_ids": [
+        "UhHLau60D-ycvr0PlsXmSQ",
+        "UhHLaqH6EOycvr0PlsXmSQ",
+        "UhHLatGpEuycvr0PlsXmSQ",
+        "UhHLaoHQBav31e8P0qiokAs"
+      ]
+    },
+    {
+      "file": "weak_essay_output.json",
+      "scores": {
+        "TR": 3,
+        "CC": 4,
+        "LR": 3,
+        "GRA": 3
+      },
+      "calculation": {
+        "criterion_scores": [
+          3,
+          4,
+          3,
+          3
+        ],
+        "sum": 13,
+        "divisor": 4,
+        "raw_mean": "3.25",
+        "rounded_band": "3.5",
+        "rounding": "nearest_half_band_half_up",
+        "scope": "Task 2 practice estimate"
+      },
+      "statements": 119,
+      "word_count": 38,
+      "criterion_counts": {
+        "TR": 32,
+        "CC": 33,
+        "LR": 28,
+        "GRA": 26
+      },
+      "response_ids": [
+        "ZRHLat7XGM-_vr0PiZaPuAM",
+        "ZRHLarTbGJCG1e8PypyFwAo",
+        "ZRHLau3sDc-_vr0PiZaPuAM",
+        "ZRHLat3wDKv31e8P0qiokAs"
+      ]
+    }
+  ]
+}

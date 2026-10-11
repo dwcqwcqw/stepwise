@@ -65,13 +65,21 @@ Historical preview evidence is preserved under `docs/evidence/preview-v1/`; it d
 
 Team: Bei Li, Ernest Ferdian, Dimitris Pipinis, Xiahui Huang.
 
-## Verified delivery
+## Current band-matching release
+
+The 369-point official index includes 238 separately indexed PDF paragraph statements, of which 119 apply to Task 2. Four parallel, target-blind criterion calls check every band from 0 to 9, all paragraph requirements and bold limiting features. Current/next-band matches cite the exact Band Descriptors page; generic skill checks remain supplementary. The backend validates coverage and verbatim essay evidence, derives the supported band and shows exact averaging with Decimal half-up conversion.
+
+Forty-six unit tests pass. The real container integration completes 13 model calls, including a weak draft with scores 3, 4, 3, 3: mean 3.25 → 3.5. Its receipt identifies the exercised v4 source. The deployed v4.1 prompt additionally prevents invented specialist-topic prerequisites. These tests verify execution and evidence contracts; score calibration and generation target overshoot remain MS3 evaluation work.
+
+[Paragraph audit](docs/evidence/band-paragraph-audit.json) · [Real integration receipt](docs/evidence/band-matching-integration.json) · [Current public UI checks](docs/evidence/band-matching-production-ui.json) · [Band matching screenshot](docs/evidence/band-matching-feedback.png)
+
+## Earlier verified delivery
 
 The cloud run on 11 October 2026 used `stepwise-ac215-20261010` and `gemini-3.8-flash`: 131 indexed points, 40 retrieval cases, 12 live workflow checks and 18 local tests passed. Draft scores were 8.0 for the authored sample and 3.0 for a distinct weak draft; a target-7.0 model essay was separately assessed 9.0. These are integration observations; scoring agreement and target deviation still require evaluation.
 
 [MS2 report](docs/report.md) · [Report PDF](docs/Stepwise_MS2_Report.pdf) · [Eight-slide presentation](docs/slides/Stepwise_MS2_Presentation_Final.pptx) · [Google Docs report](https://docs.google.com/document/d/1zz4xZyHuphKdB_hXu1w4R4tl9ldOu46OoDFS8vkZt5Q/edit)
 
-## Public deployment verification
+## Earlier public deployment verification
 
 On 11 October 2026, the fixed Vercel URL completed live draft feedback and model-essay generation with separate assessment. The 273-word sample received 8.0 on all four criteria; a target-7.0 essay was generated at 305 words and separately assessed 9.0. This verifies the deployed workflow and records target overshoot; it is not a calibration benchmark. The deployment uses source commit `95b921c8e19d81280bb7c15d173cdf19c4f841c8` and Cloud Run revision `stepwise-api-00001-pk4`. Twenty-one local tests passed.
 

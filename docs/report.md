@@ -16,7 +16,9 @@ MS2 delivers a working Google Gemini application, official-source RAG, a reprodu
 
 GitHub repository: https://github.com/dwcqwcqw/stepwise
 
-MS2 submission branch: https://github.com/dwcqwcqw/stepwise/tree/milestone2
+Current implementation: https://github.com/dwcqwcqw/stepwise/tree/bei-li
+
+MS2 snapshot branch: https://github.com/dwcqwcqw/stepwise/tree/milestone2
 
 Live frontend: https://stepwise-one.vercel.app
 
@@ -32,13 +34,13 @@ Evidence: Figure 1 and docs/evidence/cloud-running.png show the running developm
 
 Implementation: services/{ingest,chunk,index,api,web} each has a Dockerfile, pyproject.toml and uv.lock. compose.yaml orders ingestion → chunking → indexing → API → web, with Qdrant health checks. After the documented environment/auth setup, make run starts the complete pipeline.
 
-Data versions: ingest uses the SHA-256-locked official sources (snapshot 3aea32a1828dd022); chunk produces snapshot 52814016b8103614; index builds 2da4e8eda6a331b5; API/web consume that index through the API. Source/chunk/index manifests record lineage and dependency/model versions.
+Data versions: official source snapshot 3aea32a1828dd022; paragraph chunk snapshot d7968b11ed657b6f; index 339dcf75a711802b. Ingestion, chunking and index manifests record lineage and pinned dependencies; the API consumes the resulting 369-point official corpus.
 
-Evidence: docs/setup.md supplies exact commands; docs/evidence/pipeline.log, sample_input.json, feedback_output.json and verification.json demonstrate input → retrieved context → real Gemini output. Deployment uses the same frozen 131-point index.
+Evidence: docs/setup.md provides exact commands. Historical pipeline/sample receipts remain versioned; docs/evidence/band-paragraph-audit.json and band-matching-integration.json document the new 369-point index and complete live descriptor checks.
 
 ### Requirement 3 — LLM RAG (Objective + Deliverables)
 
-Implementation: services/ingest/main.py collects official PDFs; services/chunk/main.py preserves complete rubric cells and detailed checks; services/index/main.py embeds them into Qdrant. shared/retrieval.py combines mandatory Task 2 rubric coverage with semantic guidance retrieval.
+Implementation: ingestion verifies official PDFs; chunking extracts each PDF paragraph while retaining its criterion, integer band, qualifications, bold limits and parent cell. Indexing embeds all 369 records in Qdrant. Mandatory Task 2 retrieval preserves the complete scoring ladder; semantic retrieval adds teaching guidance.
 
 Evidence: docs/evidence/retrieval_example.json contains the query, filters and returned source text/page links; rag_verification.json checks all 40 Task 2 criterion-band cases. Section 3 explains chunking, embeddings, database integration and the complete retrieval example.
 
@@ -48,13 +50,13 @@ Not applicable to this text-only LLM project. Users type or paste essays. The 8,
 
 ### Requirement 5 — App mock-up and working skeleton (Objective + Deliverable)
 
-Implementation: docs/wireframe.md and Figures 2–5 cover Draft → Feedback → Goals → Model Essay. services/web and services/api implement real UI/backend interaction. MS1 refinements include removing image/OCR input and decorative panels, expanding the 20 official detail checks, and separating target-band generation from target-blind assessment.
+Implementation: docs/wireframe.md and Figures 2–5 cover Draft → Feedback → Goals → Model Essay. services/web and services/api implement real UI/backend interaction. MS1 refinements include removing image/OCR input and decorative panels, adding complete band-by-band paragraph matching alongside 20 official skill checks, and separating target-band generation from target-blind assessment.
 
 Evidence: the public frontend supports real grading, criterion-specific advice/examples, official citations and full essay generation with a separate assessment. Screenshots, model outputs and public request logs are under docs/evidence.
 
 ### Submission and TF presentation
 
-All files are supplied on milestone2. Submit its full final commit hash on Canvas by 10:00 PM ET, October 20; this report does not submit to Canvas. docs/slides/Stepwise_MS2_Presentation_Final.pptx supports the 15-minute TF presentation and Q&A. Every member must understand the code, configurations, infrastructure, tests and design choices.
+The milestone2 branch preserves the earlier course snapshot; bei-li contains the current implementation and revised evidence. Record the full commit actually selected for submission on Canvas by 10:00 PM ET, October 20. This report does not submit to Canvas. The presentation remains under docs/slides; every member should understand the code, infrastructure, tests and design choices.
 ## 2. Architecture and cloud environment
 
 Data: ingest → chunk → embed/index → Qdrant. Application: browser → web gateway → FastAPI → retrieved official context → Vertex AI Gemini → validated feedback. Successful data stages and health checks gate startup.
@@ -65,17 +67,17 @@ Each custom service uses Python 3.12.11 and frozen uv 0.6.4 environments; the Co
 
 Only three official resources enter MS2. Downloads are SHA-256 checked against data/sources.lock.json. Full PDFs and extracted text stay in ignored runtime storage.
 
-- [IELTS Writing Band Descriptors](https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf) (May 2023): all nine pages, both tasks and bands 0–9; 80 criterion-band cells, including the merged Band 0 rule and limiting features.
+- [IELTS Writing Band Descriptors](https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf) (May 2023): all nine pages, both tasks and bands 0–9; 80 parent cells and 238 paragraph statements (119 for Task 2), including the merged Band 0 rule and limiting features.
 
 - [IELTS Writing Key Assessment Criteria](https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf): definitions and 20 detailed checks—Task Response 5; Coherence and Cohesion 5; Lexical Resource 6; Grammatical Range and Accuracy 4.
 
 - [British Council: Answer the Question](https://takeielts.britishcouncil.org/sites/default/files/writing_task_2_-_answer_the_questions.pdf): ten pages of official question-analysis and relevance guidance. This older teaching material supplements the current descriptors.
 
-The index has 131 chunks: 80 band cells, 20 detailed checks, five definitions, seven rating rules, nine descriptor pages and ten teaching pages. Whole cells and bullets preserve qualifications; overlap is zero. Page chunks retain full PDF coverage. Metadata records task, criterion, band, page, source URL/hash and stable chunk ID.
+The index has 369 chunks: 238 paragraph statements, 80 parent band cells, 20 skill checks, five definitions, seven rating rules, nine descriptor pages and ten teaching pages. All 80 cells pass an exact comparison between table text and concatenated paragraphs. Task 2 contributes 119 statements: TR 32, CC 33, LR 28 and GRA 26. Each statement retains its source hash, PDF page and stable parent/child IDs.
 
-Both tasks are indexed for complete source coverage; scoring retrieves only Task 2/shared rules. A mandatory filtered retrieval obtains all 40 Task 2 band cells, all detailed checks and applicable rules. Semantic retrieval adds supplementary teaching context. This prevents top-k search from omitting a criterion or lower band. Generation receives the target-band descriptors; assessment receives the complete band ladder.
+Both tasks are indexed for source coverage; scoring retrieves only Task 2/shared rules. It receives all 40 Task 2 band cells with their 119 statements, definitions and applicable limits. Semantic top-k cannot discard lower bands. Generation receives the requested-band context; each subsequent assessment receives the complete target-blind ladder.
 
-FastEmbed 0.7.3 runs BAAI/bge-small-en-v1.5 as CPU ONNX: 384 dimensions and cosine distance. Qdrant stores collection stepwise_2da4e8eda6a331b5. Source snapshot: 3aea32a1828dd022; chunk snapshot: 52814016b8103614; index: 2da4e8eda6a331b5. The manifest records the actual weight hash and dependency versions; stable UUIDs support idempotent upserts.
+FastEmbed 0.7.3 runs BAAI/bge-small-en-v1.5 as CPU ONNX: 384 dimensions and cosine distance. Qdrant collection: stepwise_339dcf75a711802b. Source snapshot: 3aea32a1828dd022; chunk snapshot: d7968b11ed657b6f. Weight hashes, dependency versions, stable UUIDs and exact point counts make the corpus reproducible.
 
 Retrieval example: POST /api/retrieve with criterion TR, target_band 6.5 and a query about developing examples returns only Task 2 TR descriptors for bands 6 and 7, with text, source/page links and similarity values. The request and complete response are saved in docs/evidence/retrieval_example.json. Similarity selects context; it is not an essay score.
 
@@ -83,20 +85,20 @@ The 8,049 candidate essays are reserved for MS3 fine-tuning. MS2 loads zero cand
 
 ## 4. Real model workflow and application
 
-The verified model is gemini-3.8-flash on Google Vertex AI. The server gives each exact essay span a short evidence ID; the model selects IDs rather than copying text or opaque rubric hashes. The server resolves original passages and attaches the retrieved awarded/next-band descriptors and official detail records. Validation still requires four criteria, all 20 checks, valid rubric IDs, exact excerpts, a rationale, next step and before/after example. One repair attempt receives the prior answer and field-level errors. Diagnostic logs exclude learner text.
+Google Vertex AI gemini-3.8-flash assesses TR, CC, LR and GRA independently in parallel. Each call evaluates all ten integer bands, every paragraph statement and every bold limiting feature, with explanations and exact essay references. The server derives the highest fully supported band subject to applicable limits, and rejects a model score inconsistent with those matches. Missing, duplicate, skipped or cross-band checks and invented excerpts are rejected. One repair is allowed per criterion. Gaps must follow official wording without adding specialist-topic prerequisites.
 
-The assessor sees only the question, essay and official context. The target band is withheld. Four integer criterion scores are equally weighted and rounded to a half-band Task 2 estimate. Detailed checks are qualitative observations, not separately scored bands.
+The target band is withheld from assessment. Four integer criterion scores have equal weight; the exact mean is displayed before half-up conversion to a 0.5 Task 2 practice estimate. For example, (3 + 4 + 3 + 3) / 4 = 3.25 → 3.5. Official descriptor rows are integer bands; neither half-band descriptors nor numerical paragraph sub-scores are invented. The [official .25/.75 explanation](https://ielts.org/take-a-test/your-results/ielts-scoring-in-detail) concerns the overall four-skill IELTS result; Stepwise labels this task-only conversion explicitly.
 
 The four screens are Draft → Feedback → Goals → Model Essay. Generation uses the target, position and requested ideas; a fresh assessment receives only the question and resulting essay. The UI separates target and assessed scores, official citations and idea-coverage notes. Learner text is not persisted by Stepwise; Google receives it for inference. Compose uses short-lived gcloud tokens in a private memory-backed directory. Production uses Vercel OIDC and the Cloud Run runtime identity; it requires no running Cloud Shell token helper.
 
 ## 5. Verification and exact reproduction
 
-Twenty-nine local tests passed after the evidence-reference repair, including preservation of Unicode/spelling errors, bounded exact spans, invalid-reference rejection, repair context and fail-closed behavior. The earlier Compose integration receipt passed 12 real workflow checks; a separate RAG receipt verified 131 points, 80 band cells, 20 detailed checks, all 40 criterion-band retrieval cases and the 6.5 boundary. Historical receipts retain their original implementation version; the production regression evidence is recorded separately.
+Forty-six local tests pass, covering exact evidence, all-band coverage, duplicate/missing/cross-band statements, unsupported scores, bold limits and .25/.75 rounding. The refreshed RAG run verifies 369 points, 80 cells, 238 paragraph vectors, all 119 Task 2 statements and 40 criterion-band retrieval cases. The live container workflow completes 13 model calls across draft feedback, generation, separate assessment and a distinct weak draft. Each assessment checks all 119 statements and 20 supplementary skills.
 
-Observed outputs: the 273-word sample received 8.0; a distinct weak draft received 3.0. The generated essay requested 7.0 and received 9.0 in a separate call. The four-call integration run recorded 22.4 seconds for draft feedback. These are observed outputs, not benchmark accuracy, guaranteed target matching or a latency distribution. Model version, response IDs, token usage and source/index lineage are in docs/evidence.
+Observed container outputs: the 273-word sample received 8.0; the weak draft received TR 3, CC 4, LR 3 and GRA 3, producing 3.25 → 3.5; a target-7.0 model essay was independently assessed 9.0. Draft feedback took 18.8 seconds in this run. These demonstrate complete execution, rather than scoring accuracy or guaranteed target matching; response IDs and calculations are in docs/evidence/band-matching-integration.json.
 
 ```bash
-git clone --branch milestone2 https://github.com/dwcqwcqw/stepwise.git
+git clone --branch bei-li https://github.com/dwcqwcqw/stepwise.git
 cd stepwise
 export GOOGLE_CLOUD_PROJECT=stepwise-ac215-20261010
 export STEPWISE_AUTH_DIR=/dev/shm/stepwise-auth
@@ -108,11 +110,11 @@ Prerequisites: Docker/Compose, make, Python 3, an authorized gcloud session and 
 
 ## 6. Public deployment and verification
 
-Live application: https://stepwise-one.vercel.app is public without login. Bei Li's complete implementation is on the default bei-li branch; milestone2 retains the existing course delivery snapshot. main and the other named member branches have empty starting contents for separate team development. The frontend uses source 95b921c8e19d81280bb7c15d173cdf19c4f841c8; the repaired private API uses b97467fa4dddf9a55e0a7408a5957605f540e766, deployed as stepwise-api-00002-tnt with 100% traffic. deploy/README.md contains production instructions.
+Live application: https://stepwise-one.vercel.app is public without login. The default bei-li branch holds Bei Li's current implementation; milestone2 retains the earlier course snapshot. Other named member branches and main remain empty starting points. Frontend source: 1dd079987b1157ab732c2aeee821162efdf5c056. Backend source: f42bb8ca2d781dd64f7a281cf090bed01e25faba; Cloud Run revision stepwise-api-00004-c9k serves 100% of traffic. Current screenshots and UI checks are in docs/evidence/band-matching-*. Vercel Git auto-deployment is not configured.
 
-Cloud connection: Vercel → short-lived OIDC identity → private Cloud Run → Vertex AI Gemini. The API loads the frozen 131-point official rubric index and pinned embedding model. Dedicated runtime, invoker and build identities separate permissions. No Google credentials are embedded in frontend code; Cloud Shell can stop without stopping the deployed service.
+Cloud connection: Vercel → short-lived OIDC identity → private Cloud Run → Vertex AI Gemini. The API loads the frozen 369-point official rubric index and pinned embedding model. Dedicated runtime, invoker and build identities separate permissions. No Google credentials enter frontend code; the deployed service is independent of Cloud Shell.
 
-Production regression on 11 October 2026: a 271-word authored draft with grammar errors, curly punctuation and doubled spaces returned TR 8, CC 8, LR 8 and GRA 7 (overall 8.0). All 20 detailed-check quotes and four main quotes matched the original. Generation then produced 299 words for target 7.0; a separate assessment returned TR 8, CC 9, LR 9 and GRA 9 (overall 9.0), with all 20 detailed quotes verified. Both requests returned HTTP 200; recorded backend latencies were 16.6 and 14.9 seconds respectively. Twenty-nine local tests passed. See docs/evidence/reference-regression-*. Earlier production and Compose receipts remain versioned separately. Target overshoot still requires calibration. Vercel Git auto-deployment is not configured; frontend files were uploaded through its API.
+Final production verification: the 273-word draft received TR 9, CC 9, LR 8 and GRA 8: mean 8.50 → 8.5. A target-7.0 essay contained 317 words and received TR 9, CC 8, LR 9 and GRA 9: mean 8.75 → 9.0. Browser checks compared all 119 official statements in each assessment with the pinned corpus, confirming exact wording, page links and verbatim essay evidence. docs/evidence/band-matching-production-ui.json records these checks against backend f42bb8c and the final deployment. Earlier receipts retain their original source versions; target overshoot remains a calibration task.
 
 ## 7. MS3 development and references
 
@@ -120,13 +122,13 @@ Next: audit reliable Task 2 adaptation data, label provenance and prompt-family 
 
 Reference implementations: [cheese-app-v0](https://github.com/dlops-io/cheese-app-v0) informed pipeline separation; [babykev](https://github.com/rahuldave/babykev) informed reproducible environments and explicit checks. Stepwise supplies its own IELTS parsing, retrieval contracts and UI. Team members should understand the entire implementation.
 
-Code, receipts and presentation: https://github.com/dwcqwcqw/stepwise/tree/milestone2. Earlier Compose verification: c4522d75b45c2ae32a73b0b5c133ccfcb5e43a71. Production evidence repair: b97467fa4dddf9a55e0a7408a5957605f540e766. The final branch also includes this report and refreshed evidence; obtain its final Canvas hash with git rev-parse HEAD.
+Current code and new receipts: https://github.com/dwcqwcqw/stepwise/tree/bei-li. The milestone2 branch retains the earlier course snapshot; main and the other member branches remain empty starting points. Historical integration commits stay in Git. Obtain the intended final submission hash with git rev-parse HEAD.
 
 ## Figure 1. Running cloud environment
 
 ![cloud-running-detail](evidence/cloud-running-detail.png)
 
-Actual Cloud Shell VM: API, web and Qdrant are healthy; ingest/chunk/index exit 0. The real model integration passes with 131 vectors. Full logs and manifests accompany the repository.
+Actual Cloud Shell VM: API, web and Qdrant are healthy; ingest/chunk/index exit 0. This historical environment screenshot shows the earlier 131-point run. The refreshed 369-point corpus is verified in band-matching-integration.json. Full logs and manifests accompany the repository.
 
 ## Figure 2. Your draft
 
@@ -134,11 +136,11 @@ Actual Cloud Shell VM: API, web and Qdrant are healthy; ingest/chunk/index exit 
 
 One editor accepts a typed or pasted question and essay, with a sample draft and live word count. The decorative panel, initial target sidebar and image/OCR controls are absent.
 
-## Figure 3. Criterion feedback and official detail
+## Figure 3. Criterion feedback and band matching
 
-![app-feedback-detail](evidence/app-feedback-detail.png)
+![band-specific-feedback](evidence/band-matching-feedback.png)
 
-The live sample receives 8.0. Exact essay evidence, a specific revision and an example appear beside official detailed checks and retrieved band descriptors. Source links open the original PDF page.
+Current-band and next-band statements are shown first, with official wording, explicit judgments, exact essay evidence and Band Descriptors page links. Other bands and supplementary skill checks are expandable. Four equally weighted scores, their exact mean and the half-band estimate are displayed above the feedback.
 
 ## Figure 4. Your goals
 
