@@ -61,7 +61,7 @@ def apply_focus_edits(essay,edits,protected_position,focus_criteria):
         changed+=len(before.split())+len(after.split())
     limit=.2 if len(focus_criteria)<=2 else .5
     if changed>len(essay.split())*limit:
-        raise ValueError('Local edits exceed the permitted change budget')
+        raise ValueError(f'Local edits use {changed} before+after words; maximum {int(len(essay.split())*limit)}. Use fewer edits and short word/phrase replacements, not full sentences.')
     spans.sort()
     if any(a[1]>b[0] for a,b in zip(spans,spans[1:])):
         raise ValueError('Replacement spans must not overlap')

@@ -8,7 +8,7 @@ from pathlib import Path
 import httpx
 
 MODEL=os.getenv('GEMINI_MODEL','gemini-3.5-flash')
-PROMPT_VERSION='official-rubric-v4.6-target-matching'
+PROMPT_VERSION='official-rubric-v4.7-target-matching'
 CLIENT=httpx.Client(timeout=240,limits=httpx.Limits(max_connections=12,max_keepalive_connections=8))
 _metadata_token=None
 _token_lock=threading.Lock()

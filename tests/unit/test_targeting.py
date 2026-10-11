@@ -143,3 +143,23 @@ def test_local_edits_preserve_every_unmodified_word_and_the_position():
 def test_invalid_focused_edits_are_rejected(edits):
     essay='My position is clear. '+('ordinary words ' * 100)+'A specific observation matters.'
     with pytest.raises(ValueError):apply_focus_edits(essay,edits,'My position is clear.',['LR'])
+
+
+def test_patch_retry_receives_failed_edits_and_exact_integer_budget(monkeypatch):
+    requirements,payloads,assessed=setup_generation(monkeypatch,[6.5,7],7)
+    original=assessment.generate
+    patch_calls=[]
+    def writer(system,payload,schema,temperature):
+        if schema is assessment.PATCH_SCHEMA:
+            patch_calls.append(deepcopy(payload))
+            if len(patch_calls)==1:
+                return {'edits':[{'before':'invented span','after':'better'}]},{'response_id':'bad-patch'}
+        return original(system,payload,schema,temperature)
+    monkeypatch.setattr(assessment,'generate',writer)
+    result=assessment.generate_essay(requirements)
+    assert result['target_met'] and len(assessed)==2
+    assert len(patch_calls)==2
+    assert patch_calls[0]['patch_constraints']['max_total_words']==int(len(assessed[0].split())*.2)
+    repair=patch_calls[1]['validation_repair']
+    assert repair['previous_edits']==[{'before':'invented span','after':'better'}]
+    assert 'exactly once' in repair['error']
