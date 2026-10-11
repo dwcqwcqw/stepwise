@@ -7,7 +7,7 @@ from pathlib import Path
 import httpx
 
 MODEL=os.getenv('GEMINI_MODEL','gemini-3.8-flash')
-PROMPT_VERSION='official-rubric-v2'
+PROMPT_VERSION='official-rubric-v3-references'
 
 class ModelUnavailable(RuntimeError): pass
 
