@@ -54,7 +54,10 @@ def review_bands(card,essay,context):
             if check['match']=='not_applicable' and not standard.get('conditional'):
                 raise ValueError('Ordinary descriptor requirements cannot be skipped')
             check['official_standard']=standard['text']
-            check['source']={**official,'chunk_id':standard['chunk_id'],'kind':'band_statement','parent_chunk_id':official['chunk_id']}
+            check['source']={k:v for k,v in official.items() if k not in {'statements','limiting_features','characters'}}
+            check['source'].update(chunk_id=standard['chunk_id'],kind='band_statement',
+                parent_chunk_id=official['chunk_id'],statement_id=standard['statement_id'],
+                text=f"IELTS {official['task']} | {official.get('criterion_name',code)} | Band {r['band']} | {standard['statement_id']}\n{standard['text']}")
         for limiter in r['limiters']:
             if limiter['essay_quote'] not in essay:raise ValueError('Limiter evidence excerpt not in essay')
             limiter['official_standard']=limiters[limiter['limiter_id']]['text']

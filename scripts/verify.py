@@ -18,6 +18,9 @@ def check_assessment(result,essay):
     assert len(result['model_calls'])>=1 and result['model_calls'][0]['usage']['totalTokenCount']>0
     assert result['criterion_mean']==sum(c['score'] for c in result['criteria'])/4
     assert sum(len(c['subcriteria']) for c in result['criteria'])==20
+    assert result['descriptor_statements_checked']==119
+    assert sum(len(r['checks']) for c in result['criteria'] for r in c['band_reviews'])==119
+    assert result['score_calculation']['raw_mean']==f"{result['criterion_mean']:.2f}"
     for c in result['criteria']:
         assert type(c['score']) is int and 0<=c['score']<=9
         assert c['essay_quote'] in essay and c['example']['before'] in essay
@@ -25,6 +28,15 @@ def check_assessment(result,essay):
         assert all(r['task'] in {'academic_task_2','shared'} for r in c['rubric'])
         assert c['score'] in {r['band'] for r in c['rubric'] if r['kind']=='band_descriptor'}
         assert all(d['source']['source_id']=='ielts-key-assessment-criteria' for d in c['subcriteria'])
+        assert len(c['band_reviews'])==10 and {r['band'] for r in c['band_reviews']}==set(range(10))
+        assert c['score_decision']['highest_supported_band']==c['score']
+        for band in c['band_reviews']:
+            for d in band['checks']:
+                assert d['essay_quote'] in essay
+                assert d['source']['source_id']=='ielts-writing-band-descriptors-2023'
+                assert d['source']['band']==band['band'] and d['source']['criterion']==c['criterion']
+                assert d['source']['page'] in {7,8,9}
+            assert all(d['essay_quote'] in essay for d in band['limiters'])
 for attempt in range(90):
     try:status=call('/api/ready');break
     except (urllib.error.URLError,TimeoutError,ConnectionError):
