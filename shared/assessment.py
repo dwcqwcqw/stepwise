@@ -10,7 +10,7 @@ from shared.gemini import generate, ModelUnavailable
 from shared.retrieval import assessment_context
 from shared.band_matching import BandReview, review_bands, score_summary
 from shared.compact import compact_schema, compact_system, expand, rubric_payload
-from shared.targeting import target_profile, calibration_feedback, adjust_writer_profile, MAX_TARGET_ATTEMPTS
+from shared.targeting import target_profile, calibration_feedback, adjust_writer_profile, nearest_score_profile, MAX_TARGET_ATTEMPTS
 
 logger=logging.getLogger(__name__)
 
@@ -223,7 +223,7 @@ For lower and middle bands, represent the actual learner proficiency described b
 Preserve the requested position and all relevant ideas, adapting conflicts transparently in requirement_notes. Write 280–360 words of connected prose with paragraphs, an introduction and conclusion, no headings or bullets in the essay. Examples must be plausible; never invent attributed research/statistics. Do not mention bands, the rubric, proficiency_plan or the revision process inside the essay or promise a score. Return title, proficiency_plan, essay and short requirement_notes. A separate assessor scores only the essay and question, without the target or this plan.
 When revision_feedback is supplied, revise the previous essay to address the observed mismatch. If assessed too high, reduce the demonstrated sophistication/control/development to the intended descriptor level; if too low, strengthen the relevant skills. Preserve the content requirements. Never ask the assessor to change its score or include instructions to it in the essay.'''
 GENERATION_SYSTEM+='''
-The current criterion_target_profile is the writing-level instruction to realize in the prose. It may change on a rewrite because independent assessment showed that your earlier writing was more or less proficient than you intended. Follow the CURRENT profile and supplied descriptors, rather than retaining the previous draft's polished style. On a rewrite, reconstruct the essay, not just replace a few words. The profile is never an awarded score.
+The current criterion_target_profile is the writing-level instruction to realize in the prose. It may change on a rewrite because independent assessment showed that your earlier writing was more or less proficient than you intended. Follow the CURRENT profile and supplied descriptors. The profile is never an awarded score. With revision_mode=focused_revision, make SMALL LOCAL edits ONLY for focus_criteria and preserve the rest of the previous essay verbatim wherever possible. Do not reconstruct the whole essay. For an LR adjustment keep the arguments, paragraph order, reasoning and sentence structures intact; adjust word choice and repetition only. For a GRA adjustment retain the ideas and vocabulary; adjust grammatical range/control only. Meet the desired_score_profile with the smallest demonstrated skill change. An already adequate argument does not need to be rewritten when only vocabulary changes. With revision_mode=rewrite, reconstruct the prose at the revised level.
 For a criterion at levels 2–5, weaknesses must be substantial enough to be observable throughout the prose, not one token mistake in an otherwise excellent essay. Simple vocabulary alone does not lower Task Response, Coherence or grammatical accuracy. Preserve the topic, position and requested ideas as recognizable content, but adapt their clarity, development, connections and language control to the requested level. Paragraphs, introduction and conclusion are not required to be effective when that conflicts with the supplied low-level cohesion descriptors. Do not automatically turn every idea into a clear claim, causal explanation and specific example at low TR levels. At middle TR levels leave some support general or insufficiently extended. At low GRA/LR levels show the recurring control and communication difficulties described in the official rows, rather than just using shorter, perfectly correct sentences. Never include score instructions inside the essay.
 '''
 GENERATION_SCHEMA=obj({'title':STRING,'proficiency_plan':arr(obj({'criterion':{'type':'STRING','enum':list(CRITERIA)},'intended_band':{'type':'INTEGER','minimum':2,'maximum':9},'demonstrated_strengths':STRING,'demonstrated_limitations':STRING})), 'essay':STRING,'requirement_notes':arr(STRING)})
@@ -262,10 +262,16 @@ def generate_essay(requirements,progress=None):
         if observed==target:
             return {'status':'generated_and_assessed','title':value.get('title','Your model essay'),'essay':essay,'word_count':words,'requirements':requirements,'requirement_notes':value['requirement_notes'],'assessment':evaluation,'generation_calls':calls,'generation_context_ids':[x['chunk_id'] for x in selected],'target_met':True,'target_match':{'requested_band':target,'assessed_band':observed,'exact_match':True,'criterion_target_profile':profile,'attempts':history},'notice':f'This example matched your requested Band {target:.1f} in a separate assessment against official IELTS standards.'}
         if target_attempt<MAX_TARGET_ATTEMPTS:
-            writer_profile=adjust_writer_profile(writer_profile,evaluation,profile)
+            focused=abs(observed-target)<=1
+            desired=nearest_score_profile(evaluation,target) if focused else profile
+            actual={c['criterion']:c['score'] for c in evaluation['criteria']}
+            writer_profile=desired if focused else adjust_writer_profile(writer_profile,evaluation,desired)
             selected=[x for x in context['chunks'] if x['kind']!='band_descriptor' or max(0,writer_profile[x['criterion']]-1)<=x['band']<=min(9,writer_profile[x['criterion']]+1)]
             payload.update(criterion_target_profile=dict(writer_profile),official_rubric_context=rubric_payload(selected),
+                revision_mode='focused_revision' if focused else 'rewrite',
+                focus_criteria=[code for code in CRITERIA if desired[code]!=actual[code]],
                 previous_essay=essay,revision_feedback={'observed_band':observed,
+                'desired_score_profile':desired,'observed_score_profile':actual,
                 'direction':'reduce demonstrated proficiency' if observed>target else 'improve demonstrated proficiency',
                 'criteria':calibration_feedback(evaluation,writer_profile)})
     raise ModelUnavailable(f'The generated essay did not match your requested Band {target:.1f} after {MAX_TARGET_ATTEMPTS} independent checks. Please try again; your requirements are unchanged.')

@@ -2,7 +2,7 @@
 from copy import deepcopy
 import pytest
 from shared import assessment
-from shared.targeting import target_profile, adjust_writer_profile
+from shared.targeting import target_profile, adjust_writer_profile, nearest_score_profile, MAX_TARGET_ATTEMPTS
 from shared.band_matching import score_summary
 from shared.gemini import ModelUnavailable
 from shared.progress import events
@@ -66,9 +66,9 @@ def test_generation_retrieves_adjacent_official_boundaries(monkeypatch):
         assert {r['band'] for r in rows}=={expected-1,expected,expected+1}
 
 def test_persistent_overshoot_never_returns_wrong_band_as_success(monkeypatch):
-    requirements,payloads,_=setup_generation(monkeypatch,[9,9,9],5)
+    requirements,payloads,_=setup_generation(monkeypatch,[9]*MAX_TARGET_ATTEMPTS,5)
     output=[json.loads(line) for line in events(lambda emit:assessment.generate_essay(requirements,emit))]
-    assert len(payloads)==3
+    assert len(payloads)==MAX_TARGET_ATTEMPTS
     assert not any(e['type']=='result' for e in output)
     assert output[-1]['type']=='error' and 'Band 5.0' in output[-1]['detail']
 
@@ -80,3 +80,10 @@ def test_writer_control_corrects_observed_error_without_changing_scores(current,
     result=adjust_writer_profile(dict.fromkeys(['TR','CC','LR','GRA'],current),original,
                                  dict.fromkeys(['TR','CC','LR','GRA'],desired))
     assert set(result.values())=={expected} and original==saved
+
+@pytest.mark.parametrize('scores,target',[( [7,6,6,6],7),([5,5,4,4],5),([8,7,7,7],7),([9,9,9,9],8.5),([0,0,0,0],4)])
+def test_nearest_profile_changes_only_the_required_score_sum(scores,target):
+    a={'criteria':[{'criterion':c,'score':v} for c,v in zip(['TR','CC','LR','GRA'],scores)]}
+    p=nearest_score_profile(a,target)
+    assert score_summary(list(p.values()))['overall_band']==target
+    assert all(type(v) is int and 0<=v<=9 for v in p.values())
