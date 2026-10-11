@@ -1,0 +1,95 @@
+{
+  "requested_band": 6.5,
+  "passed": true,
+  "assessed_band": 6.5,
+  "scores": [
+    7,
+    7,
+    7,
+    5
+  ],
+  "wall_seconds": 340.743,
+  "source_commit": "c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc",
+  "environment": "cloud_shell_real_vertex",
+  "model": "gemini-3.5-flash",
+  "essay": "Many people thinks government must invest in public transit. Others believe road infrastructure is more better. I believe that governments should prioritize spending on public transport to improve urban life, while still maintaining essential roads to protect rural connections.\n\nFirst, public transport is highly beneficial because it is affordable for everyone. If government invest in bus and train, it make fares affordable for commuters. Commuters can travel to work easily and they access employment opportunities. Many jobs is located in urban areas but people live far away. If no affordable transit, they cannot commute to work. Also, public transport reduces traffic congestion in major cities. Too many cars on road make traffic very bad every day. If people take the bus, traffic is decrease and air quality is improve. But many times bus is delayed and passengers frustrated. This is because government not allocate sufficient funds to purchase modern buses. Many vehicles is outdated and poorly maintained.\n\nSecond, we must also consider road infrastructure. Roads is vital for rural connectivity because countryside areas is different. Residents in rural areas do not have train or subway. They only have roads to travel to urban centers. If government do not maintain roads, rural populations is isolated and disadvantaged. They cannot access healthcare facilities or educational institutions when they are sick. So road is also need funding to repair potholes. But urban residents do not care about rural roads, they only want subway systems. This is not fair because everyone pay taxes to government.\n\nIn conclusion, I believe public transit is essential for cities because it help commuters, facilitates employment, and reduces congestion. But roads is also crucial for rural communities. Government should prioritize funding for public transport but they must not forget roads because both is needed.",
+  "criterion_mean": 6.5,
+  "essay_sha256": "4784c9f4ece5f401da3ef42b6ae23f7c878b453f31278aa718fff7ddfcd9e4ad",
+  "index_id": "339dcf75a711802b",
+  "target_blind": true,
+  "descriptor_statements_checked": 119,
+  "checks": {
+    "unique_statements": 119,
+    "verbatim_evidence": true,
+    "official_pages": [
+      7,
+      8,
+      9
+    ],
+    "official_band_source": true
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "assessed_band": 9,
+      "criterion_scores": {
+        "TR": 9,
+        "CC": 8,
+        "LR": 9,
+        "GRA": 9
+      },
+      "writer_profile": {
+        "TR": 7,
+        "CC": 6,
+        "LR": 7,
+        "GRA": 6
+      },
+      "essay_sha256": "a96e3afa27733123b07caffaf89bb181022e47d3a780e577610c1a6bc60f980b"
+    },
+    {
+      "attempt": 2,
+      "assessed_band": 6,
+      "criterion_scores": {
+        "TR": 7,
+        "CC": 6,
+        "LR": 6,
+        "GRA": 5
+      },
+      "writer_profile": {
+        "TR": 5,
+        "CC": 4,
+        "LR": 5,
+        "GRA": 3
+      },
+      "essay_sha256": "c4e07f9ab9bc2b658341aaa0d1397ab68642a6d7a5b275588619445a62384057"
+    },
+    {
+      "attempt": 3,
+      "assessed_band": 6.5,
+      "criterion_scores": {
+        "TR": 7,
+        "CC": 7,
+        "LR": 7,
+        "GRA": 5
+      },
+      "writer_profile": {
+        "TR": 7,
+        "CC": 6,
+        "LR": 7,
+        "GRA": 5
+      },
+      "essay_sha256": "4784c9f4ece5f401da3ef42b6ae23f7c878b453f31278aa718fff7ddfcd9e4ad"
+    }
+  ],
+  "generation_response_ids": [
+    "cq_Lar6BGPiyvr0PwsuKqAU",
+    "yK_LaoiGMeyavr0P4vvK4Q4",
+    "PLDLaruLGNfR1e8P-qysmAc"
+  ],
+  "assessment_response_ids": [
+    "T7DLasH4Huyavr0P4vvK4Q4",
+    "T7DLaprIK_iyvr0PwsuKqAU",
+    "T7DLaq_NH-yavr0P4vvK4Q4",
+    "VLDLavn8H8-kvr0Pm73NyQY"
+  ]
+}

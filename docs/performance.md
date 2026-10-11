@@ -55,3 +55,7 @@ Both final assessments retain all 119 statement checks. The calls complete witho
 [Raw events, Google usage and response IDs](evidence/speed-and-progress.json) identify backend source `74731a3d206ed243652e1ff0c9c7d238c5765352`, revision `stepwise-api-00005-wez` and the exact inputs. The production frontend source is `acfe076f6680e65025610f6e118214958fb4fa52`.
 
 The public browser test also verified that an unchanged draft reuses its validated result immediately in the same tab, while a new generation opens the writing stage and then independent review. Screenshots: [Review loading](evidence/loading-review.png) and [Generation loading](evidence/loading-generation.png). [Browser observations](evidence/speed-progress-production-ui.json) retain the actual visible stage changes and final source/evidence checks.
+
+## Subsequent target-matching update
+
+The v4.4 update adds independently checked target matching and bounded rewrites. Its latency must be measured separately from the single-candidate timings above. During verification, Gemini 3.8 Flash repeatedly returned HTTP 429; the deployed model was changed to Gemini 3.5 Flash. See [target-band verification](target-bands.md) for the actual candidate counts, timings and model receipts. Earlier measurements remain tied to their original source and model.

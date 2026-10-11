@@ -52,7 +52,7 @@ def review_bands(card,essay,context):
             standard=statements[check['statement_id']]
             if check['essay_quote'] not in essay:raise ValueError('Band evidence excerpt not in essay')
             if check['match']=='not_applicable' and not standard.get('conditional'):
-                raise ValueError('Ordinary descriptor requirements cannot be skipped')
+                raise ValueError(f"Ordinary descriptor requirement {check['statement_id']} at Band {r['band']} cannot be skipped: conditional=false. Re-evaluate it as meets or not_met using the essay; not_applicable is forbidden for this statement.")
             check['official_standard']=standard['text']
             check['source']={k:v for k,v in official.items() if k not in {'statements','limiting_features','characters'}}
             check['source'].update(chunk_id=standard['chunk_id'],kind='band_statement',

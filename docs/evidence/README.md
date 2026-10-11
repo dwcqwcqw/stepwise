@@ -29,3 +29,7 @@ PNG screenshots show the upgraded running application. Files ending in `-detail.
 ## Latency and live progress
 
 `speed-and-progress.json` records before/after Cloud Run timings, model usage, response IDs and every received server event. Both optimized assessments pass all 119 statement checks. `speed-progress-production-ui.json` and `loading-review.png` / `loading-generation.png` record the fixed public URL displaying actual loading steps before completion. Unit coverage is 54 Python tests and five Node tests, including non-buffering gateway forwarding and incomplete-stream rejection. Earlier receipts remain tied to their original revisions.
+
+## Selected-band generation
+
+`target-band-7.json` and `target-band-6.5.json` record real Vertex calls from Cloud Shell using source `c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc`, model `gemini-3.5-flash` and index `339dcf75a711802b`. Both independently match the selected overall band and verify all 119 official Task 2 statements. They retain the actual candidate histories and model response IDs. `target-band-loading.png` shows the fixed public URL displaying the additional target-confirmation stage and automatic rewrite progress. Historical target-7 → score-9 screenshots above predate this fix.

@@ -92,3 +92,7 @@ The cloud run on 11 October 2026 used `stepwise-ac215-20261010` and `gemini-3.8-
 On 11 October 2026, the fixed Vercel URL completed live draft feedback and model-essay generation with separate assessment. The 273-word sample received 8.0 on all four criteria; a target-7.0 essay was generated at 305 words and separately assessed 9.0. This verifies the deployed workflow and records target overshoot; it is not a calibration benchmark. The deployment uses source commit `95b921c8e19d81280bb7c15d173cdf19c4f841c8` and Cloud Run revision `stepwise-api-00001-pk4`. Twenty-one local tests passed.
 
 [Deployment details](deploy/README.md) · [Deployment receipt](docs/evidence/public-deployment.json) · [Live feedback](docs/evidence/public-feedback.png) · [Live generated essay](docs/evidence/public-model-essay.png)
+
+## Selected-band generation update
+
+Generation now returns success only when its fresh target-blind assessment matches the requested overall band. Mismatches trigger actual essay rewrites, with the learner's position preserved; scores are never replaced by the target. Real Vertex checks matched requests for 7.0 and 6.5. See [implementation and current evidence](docs/target-bands.md) for candidate histories, timings and limitations. Current backend source is `c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc`, model `gemini-3.5-flash`; older results above retain their original revisions.

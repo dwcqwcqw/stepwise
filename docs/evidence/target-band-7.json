@@ -1,0 +1,77 @@
+{
+  "requested_band": 7,
+  "passed": true,
+  "assessed_band": 7,
+  "scores": [
+    8,
+    7,
+    6,
+    7
+  ],
+  "wall_seconds": 162.24,
+  "source_commit": "c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc",
+  "environment": "cloud_shell_real_vertex",
+  "model": "gemini-3.5-flash",
+  "essay": "The question of whether governments should spend more money on public transport than roads is very important. I agree that governments should prioritize funding for public transport to improve affordability and reduce congestion, but they must also maintain essential roads to protect rural connections.\n\nFirstly, spending money on public transport is very good because it is cheap for people. Many workers must travel every day and if they use cars it cost a lot of money for petrol. When government make buses and trains cheap, people can save money and this helps their afordability. Secondly, public transport help people to get jobs. If you do not have a car, you can still go to work in the city easily. Also, this can make less traffic on the roads. If many people ride on the bus, there will be fewer cars, so the congestions will decrease in big cities.\n\nOn the other hand, we cannot stop spending money on roads completely. Public transport is good in big cities, but it is not useful in countryside. In rural areas, there are not many trains or buses because it is too expensive to build them. Therefore, people living there must drive cars to go to hospitals or schools. If the government do not maintain the roads, these people will lose their conection and become isolated. Also, big trucks need good roads to carry foods to shops which are important for the country.\n\nIn conclusion, I think goverments should spend more money on public transport because it helps poor people and reduces traffic. But they must also keep roads in good condition to help rural areas.",
+  "criterion_mean": 7,
+  "essay_sha256": "714fb75c6b2f34d9a78d18416a89bea7274a6f896ca5d6d10d0d51b493f9cc6b",
+  "index_id": "339dcf75a711802b",
+  "target_blind": true,
+  "descriptor_statements_checked": 119,
+  "checks": {
+    "unique_statements": 119,
+    "verbatim_evidence": true,
+    "official_pages": [
+      7,
+      8,
+      9
+    ],
+    "official_band_source": true
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "assessed_band": 8.5,
+      "criterion_scores": {
+        "TR": 8,
+        "CC": 8,
+        "LR": 9,
+        "GRA": 9
+      },
+      "writer_profile": {
+        "TR": 7,
+        "CC": 7,
+        "LR": 7,
+        "GRA": 7
+      },
+      "essay_sha256": "ff83a6ae1423da958477f2ed2bc9ab27fe6e43b8a8c3ac60c1b5c46b19fc9af3"
+    },
+    {
+      "attempt": 2,
+      "assessed_band": 7,
+      "criterion_scores": {
+        "TR": 8,
+        "CC": 7,
+        "LR": 6,
+        "GRA": 7
+      },
+      "writer_profile": {
+        "TR": 6,
+        "CC": 6,
+        "LR": 5,
+        "GRA": 5
+      },
+      "essay_sha256": "714fb75c6b2f34d9a78d18416a89bea7274a6f896ca5d6d10d0d51b493f9cc6b"
+    }
+  ],
+  "generation_response_ids": [
+    "0K7LaoaTCc-kvr0Pm73NyQY",
+    "Bq_LaumfO_iyvr0PwsuKqAU"
+  ],
+  "assessment_response_ids": [
+    "Eq_Lavf5I7iG1e8PzdSI8A8",
+    "Eq_Lav3LItfR1e8P-qysmAc",
+    "Eq_LaoTwGNfR1e8P-qysmAc",
+    "Eq_LaszUFo6ovr0P-4UV"
+  ]
+}

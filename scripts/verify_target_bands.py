@@ -11,6 +11,7 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--url',required=True)
     parser.add_argument('--bands',type=float,nargs='+',default=[4,5,6.5,7,8.5,9])
+    parser.add_argument('--workers',type=int,choices=[1,2],default=1)
     parser.add_argument('--output',default='runtime/artifacts/target-band-verification.json')
     args=parser.parse_args()
     root=Path(__file__).resolve().parents[1]
@@ -47,7 +48,7 @@ def main():
         return result
     output=Path(args.output);output.parent.mkdir(parents=True,exist_ok=True)
     rows=[]
-    with ThreadPoolExecutor(max_workers=2) as pool:
+    with ThreadPoolExecutor(max_workers=args.workers) as pool:
         for row in pool.map(check,args.bands):
             rows.append(row);output.write_text(json.dumps(rows,indent=2)+'\n')
     if not all(r['passed'] for r in rows):raise SystemExit(1)

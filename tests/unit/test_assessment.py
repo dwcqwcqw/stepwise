@@ -130,3 +130,9 @@ def test_exact_equal_weight_mean_and_half_up_rounding(scores,mean,band):
     result=score_summary(scores)
     assert result['criterion_mean']==mean and result['overall_band']==band
     assert result['score_calculation']['raw_mean']==f'{mean:.2f}'
+
+def test_skipped_requirement_repair_identifies_exact_statement():
+    value,context=fixture()
+    value['criteria'][0]['band_reviews'][6]['checks'][0]['match']='not_applicable'
+    with pytest.raises(ValueError,match='TR-B6-S1 at Band 6.*conditional=false.*meets or not_met'):
+        validate_assessment(value,ESSAY,context)
