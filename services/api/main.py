@@ -5,6 +5,8 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field, field_validator
 from fastapi.responses import StreamingResponse
 from shared.progress import events
+from shared.continuation import Continuations
+continuations=Continuations()
 from shared.retrieval import active_index, database, retrieve
 from shared.assessment import assess, generate_essay
 from shared.gemini import ModelUnavailable, configuration
@@ -62,6 +64,9 @@ def model_essay(request:ModelEssayRequest):
     except ModelUnavailable as error:raise HTTPException(503,str(error)) from error
     except Exception as error:raise HTTPException(503,'Model essay assessment evidence could not be validated; please retry.') from error
 
+class StreamModelEssayRequest(ModelEssayRequest):
+    continuation_id: str | None=Field(default=None,pattern=r'^[a-f0-9]{64}$')
+
 STREAM_HEADERS={'Cache-Control':'no-store, no-transform','X-Accel-Buffering':'no'}
 
 @app.post('/api/feedback/stream')
@@ -73,5 +78,6 @@ def feedback_stream(request:EssayRequest):
     return StreamingResponse(events(operation),media_type='application/x-ndjson',headers=STREAM_HEADERS)
 
 @app.post('/api/model-essay/stream')
-def model_essay_stream(request:ModelEssayRequest):
-    return StreamingResponse(events(lambda progress:generate_essay(request.model_dump(),progress=progress)),media_type='application/x-ndjson',headers=STREAM_HEADERS)
+def model_essay_stream(request:StreamModelEssayRequest):
+    requirements=request.model_dump(exclude={'continuation_id'})
+    return StreamingResponse(events(lambda progress:continuations.run(requirements,request.continuation_id,generate_essay,progress)),media_type='application/x-ndjson',headers=STREAM_HEADERS)

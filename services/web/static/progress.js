@@ -75,3 +75,17 @@ export function startProgress(kind){
   function stop(){clearInterval(clock);controls.forEach(e=>e.disabled=false);document.body.classList.remove('processing');panel.classList.add('hidden');panel.setAttribute('aria-busy','false');}
   return {update,stop};
 }
+
+// Each candidate gets its own bounded gateway request. Progress remains visible
+// across candidates; an opaque server token resumes the same validated session.
+export async function generatedRequest(value,onEvent){
+  let continuation;
+  for(let attempt=0;attempt<5;attempt++){
+    const result=await streamedRequest('/api/model-essay/stream',
+      continuation?{...value,continuation_id:continuation}:value,onEvent);
+    if(result.status!=='continuation_required')return result;
+    if(!/^[a-f0-9]{64}$/.test(result.continuation_id||''))throw new Error('The writing session could not continue. Please generate again.');
+    continuation=result.continuation_id;
+  }
+  throw new Error('The essay did not match your selected band. Please generate again; your requirements are unchanged.');
+}

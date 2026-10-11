@@ -230,7 +230,7 @@ For a criterion at levels 2–5, weaknesses must be substantial enough to be obs
 '''
 GENERATION_SCHEMA=obj({'title':STRING,'position_sentence':STRING,'proficiency_plan':arr(obj({'criterion':{'type':'STRING','enum':list(CRITERIA)},'intended_band':{'type':'INTEGER','minimum':2,'maximum':9},'demonstrated_strengths':STRING,'demonstrated_limitations':STRING})), 'essay':STRING,'requirement_notes':arr(STRING)})
 
-def generate_essay(requirements,progress=None):
+def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_candidate=False):
     emit=progress or (lambda **event:None)
     target=requirements['target_band'];profile=target_profile(target);writer_profile=dict(profile)
     emit(phase='generation_retrieval',status='running',message='Retrieving standards for your target band')
@@ -239,8 +239,13 @@ def generate_essay(requirements,progress=None):
     payload={'requirements':{k:v for k,v in requirements.items() if k!='target_band'},'criterion_target_profile':writer_profile,'official_rubric_context':rubric_payload(selected)}
     emit(phase='generation_retrieval',status='done',message='Target-band standards retrieved')
     emit(phase='generation',status='running',message='Writing an essay around your position and ideas')
-    calls=[];history=[];protected_position=None
-    for target_attempt in range(1,MAX_TARGET_ATTEMPTS+1):
+    calls=[];history=[];protected_position=None;first_attempt=1
+    if checkpoint is not None:
+        payload=checkpoint['payload'];writer_profile=checkpoint['writer_profile']
+        calls=checkpoint['calls'];history=checkpoint['history']
+        protected_position=checkpoint['protected_position'];first_attempt=checkpoint['next_attempt']
+        selected=[x for x in context['chunks'] if x['kind']!='band_descriptor' or max(0,writer_profile[x['criterion']]-1)<=x['band']<=min(9,writer_profile[x['criterion']]+1)]
+    for target_attempt in range(first_attempt,MAX_TARGET_ATTEMPTS+1):
         if target_attempt>1:
             emit(phase='generation',status='repair',attempt=target_attempt,message=f'Adjusting the essay to Band {target:.1f} (attempt {target_attempt})')
         for length_attempt in range(2):
@@ -281,4 +286,11 @@ def generate_essay(requirements,progress=None):
                 'desired_score_profile':desired,'observed_score_profile':actual,
                 'direction':'reduce demonstrated proficiency' if observed>target else 'improve demonstrated proficiency',
                 'criteria':calibration_feedback(evaluation,writer_profile)})
+            if pause_after_candidate:
+                # The API retains this privately in short-lived memory. Never send
+                # an unchecked candidate or its calibration state to the browser.
+                return {'status':'continuation_required','checkpoint':{
+                    'payload':payload,'writer_profile':writer_profile,'calls':calls,
+                    'history':history,'protected_position':protected_position,
+                    'next_attempt':target_attempt+1}}
     raise ModelUnavailable(f'The generated essay did not match your requested Band {target:.1f} after {MAX_TARGET_ATTEMPTS} independent checks. Please try again; your requirements are unchanged.')

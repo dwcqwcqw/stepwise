@@ -16,7 +16,7 @@ Generation progress now includes “Confirm your selected band”. A rewrite res
 
 Files: `shared/targeting.py`, `shared/assessment.py`, `shared/gemini.py`, `services/web/static/progress.js` and `services/web/static/app.js`.
 
-89 Python tests and five Node tests pass. Regression coverage includes all eleven supported whole/half-band profiles, overshoot and undershoot revisions, fresh target-blind assessment, adjacent official descriptor selection and rejection of repeated Band 9 overshoot without a successful result event.
+93 Python tests and six Node tests pass. Regression coverage includes all eleven supported whole/half-band profiles, overshoot and undershoot revisions, fresh target-blind assessment, adjacent official descriptor selection and rejection of repeated Band 9 overshoot without a successful result event.
 
 Real model verification is separate from these mocked contract tests. Run inside the authorized Cloud Shell after deploying the candidate:
 
@@ -39,3 +39,9 @@ Backend source: `c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc`; model: `gemini-3.5-f
 | 6.5 | 7 / 7 / 7 / 5 | 6.5 | 6.5 | 3 | 340.743 s |
 
 [Band 7 receipt](evidence/target-band-7.json) and [Band 6.5 receipt](evidence/target-band-6.5.json) retain candidate score histories, essay hashes, final essays and Google response IDs. Both verify all 119 Task 2 statements, official Band Descriptors pages 7–9 and verbatim essay evidence. The observed candidate paths were 8.5 → 7.0 and 9.0 → 6.0 → 6.5. These examples verify successful target adjustment; they do not establish a success rate across prompts or agreement with human examiners. Multi-candidate generation took minutes in these observations and remains a latency improvement opportunity.
+
+## Free-tier request duration
+
+The production Vercel Hobby plan rejects `maxDuration=800`; its limit remains 300 seconds. Generation therefore performs one candidate plus fresh independent assessment per streamed request. An opaque, single-use random token resumes subsequent candidates automatically from the same page. The server binds each token to the original requirements, retains unmatched candidates privately in process memory for at most 15 minutes, limits pending sessions to eight and removes state when consumed. No unmatched essay or internal calibration feedback is returned to the browser. The five-candidate limit and original target-blind scoring remain unchanged. This deployment uses one Cloud Run instance/worker; a restart, expiry or changed requirements gives a retry error. Shared durable encrypted storage would be needed before scaling across instances. The gateway retains its 270-second per-request timeout; unusually slow individual model rounds can still fail, while several normal rounds can now exceed five minutes in total without one long gateway invocation.
+
+A public test of source c1ae reached a third candidate but rejected an ordinary Lexical Resource standard marked `not_applicable` twice. The validator still rejects skipped requirements. Its repair message now identifies the exact statement ID and band, and explicitly requires `meets` or `not_met`; it does not alter the model's answer or bypass validation.

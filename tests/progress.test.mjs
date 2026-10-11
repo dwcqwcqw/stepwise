@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readEvents,streamedRequest} from '../services/web/static/progress.js';
+import {readEvents,streamedRequest,generatedRequest} from '../services/web/static/progress.js';
 
 function stream(parts){return new ReadableStream({start(controller){for(const p of parts)controller.enqueue(p);controller.close();}});}
 test('fragmented UTF-8 events preserve order and the final result',async()=>{
@@ -26,5 +26,19 @@ test('only identical verified feedback is reused; changed inputs and generation 
     await streamedRequest('/api/model-essay/stream',{ideas:'one'},()=>{});
     await streamedRequest('/api/model-essay/stream',{ideas:'one'},()=>{});
     assert.equal(calls,4);
+  }finally{globalThis.fetch=original;}
+});
+
+test('generation resumes an opaque checkpoint and returns only the final matched essay',async()=>{
+  const original=globalThis.fetch,requests=[],token='a'.repeat(64);
+  globalThis.fetch=async(path,options)=>{
+    requests.push(JSON.parse(options.body));
+    const result=requests.length===1?{status:'continuation_required',continuation_id:token}:{status:'generated_and_assessed',target_met:true,essay:'Matched essay'};
+    return new Response(JSON.stringify({type:'result',result})+'\n',{headers:{'Content-Type':'application/x-ndjson'}});
+  };
+  try{
+    const result=await generatedRequest({target_band:7,ideas:'Bus access'},()=>{});
+    assert.equal(result.essay,'Matched essay');assert.equal(requests.length,2);
+    assert.equal(requests[1].continuation_id,token);assert.equal(requests[1].target_band,7);
   }finally{globalThis.fetch=original;}
 });

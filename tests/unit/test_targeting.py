@@ -100,3 +100,13 @@ def test_rewrite_cannot_drop_the_protected_position(monkeypatch):
     result=assessment.generate_essay(requirements)
     assert len(payloads)==3 and len(assessed)==2
     assert payloads[-1]['protected_position_sentence'] in result['essay']
+
+def test_single_candidate_continuation_preserves_attempt_history_and_target_blind_scoring(monkeypatch):
+    requirements,payloads,assessed=setup_generation(monkeypatch,[9,7],7)
+    pending=assessment.generate_essay(requirements,pause_after_candidate=True)
+    assert pending['status']=='continuation_required'
+    assert len(assessed)==1 and pending['checkpoint']['next_attempt']==2
+    result=assessment.generate_essay(requirements,checkpoint=pending['checkpoint'],pause_after_candidate=True)
+    assert result['target_met'] and result['assessment']['overall_band']==7
+    assert [x['assessed_band'] for x in result['target_match']['attempts']]==[9,7]
+    assert payloads[1]['protected_position_sentence']=='A learner sentence.'
