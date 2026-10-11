@@ -10,7 +10,7 @@ def call(path,body=None):
 quality=json.loads((ROOT/'runtime/artifacts/data_quality.json').read_text())
 assert quality['descriptor_cells']==80 and quality['task2_descriptor_cells']==40 and quality['subcriteria']==20
 assert quality['training_candidates_loaded']==0
-status=call('/api/ready');assert status['points']==131
+status=call('/api/ready');assert status['points']==369
 traces=[]
 for code in ['TR','CC','LR','GRA']:
     for band in range(10):
@@ -21,6 +21,6 @@ for code in ['TR','CC','LR','GRA']:
         traces.append(dict(criterion=code,band=band,chunk_id=match['chunk_id'],source_url=match['source_url'],page=match['page']))
 half=call('/api/retrieve',dict(query='How can I support my ideas with relevant examples?',criterion='TR',target_band=6.5,top_k=2))
 assert {x['band'] for x in half['matches']}=={6,7}
-summary={'status':'passed','implementation_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'checks':['all 80 cells from complete official band PDF','all 20 official detailed checks','131 indexed official-source chunks','40 live criterion-band queries cover Task 2 bands 0–9','no Task 1 returned','half-band 6.5 returns 6 and 7','zero MS3 training candidate records loaded'],'index_id':status['index_id'],'vectors':status['points'],'traces':traces,'generation_status':'Not exercised by this retrieval-only check; see verification.json for model checks.'}
+summary={'status':'passed','implementation_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'checks':['all 80 cells from complete official band PDF','all 20 official detailed checks','369 indexed official-source chunks, including 238 paragraph statements','40 live criterion-band queries cover Task 2 bands 0–9','no Task 1 returned','half-band 6.5 returns 6 and 7','zero MS3 training candidate records loaded'],'index_id':status['index_id'],'vectors':status['points'],'traces':traces,'generation_status':'Not exercised by this retrieval-only check; see verification.json for model checks.'}
 p=ROOT/'runtime/artifacts/rag_verification.json';temporary=p.with_suffix('.tmp');temporary.write_text(json.dumps(summary,indent=2)+'\n');temporary.replace(p)
 print(json.dumps({k:v for k,v in summary.items() if k!='traces'},indent=2))

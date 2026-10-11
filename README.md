@@ -6,7 +6,7 @@ AC215 Milestone 2. Type or paste an IELTS Academic Writing Task 2 essay, receive
 
 [Open Stepwise](https://stepwise-one.vercel.app) — fixed public URL; no Vercel login is required. Bei Li's complete implementation is on the default `bei-li` branch. `milestone2` retains the existing course delivery snapshot.
 
-Vercel hosts the UI and a same-origin gateway. A restricted, short-lived OIDC identity invokes the private Cloud Run API, whose service account calls Gemini on Vertex AI. The frozen official RAG index contains 131 points; Google credentials are not embedded in the browser.
+Vercel hosts the UI and a same-origin gateway. A restricted, short-lived OIDC identity invokes the private Cloud Run API, whose service account calls Gemini on Vertex AI. The frozen official RAG index contains 369 points; Google credentials are not embedded in the browser.
 
 ## Team branches
 
@@ -36,7 +36,7 @@ make run
 ```mermaid
 flowchart LR
     S[Three official sources] --> I[Ingest: hashes and full rubric coverage]
-    I --> C[Chunk: 131 source records]
+    I --> C[Chunk: 369 rubric chunks]
     C --> V[Index: CPU 384d embeddings]
     V --> Q[(Qdrant)]
     UI[Typed essay UI] --> W[Web gateway]

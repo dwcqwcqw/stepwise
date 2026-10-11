@@ -54,6 +54,7 @@ def assessment_context(query: str) -> dict:
     for code in CRITERIA:
         ladder=[x for x in chunks if x['kind']=='band_descriptor' and x['criterion']==code]
         if {x['band'] for x in ladder}!=set(range(10)): raise ValueError('Full Task 2 band ladder required')
+        if any(not x.get('statements') for x in ladder):raise ValueError('Paragraph-level descriptor index required')
     vector=list(embedder().query_embed(query[:4000]))[0].tolist()
     ranked=db.query_points(collection_name=index['collection'],query=vector,limit=2,query_filter=models.Filter(must=[models.FieldCondition(key='task',match=models.MatchValue(value='academic_task_2')),models.FieldCondition(key='kind',match=models.MatchValue(value='teaching_guidance'))])).points
     chunks.extend({'similarity':p.score,**p.payload} for p in ranked)

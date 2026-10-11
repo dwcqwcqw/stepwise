@@ -5,8 +5,11 @@ mkdir -p .cloudrun-bundle/data/processed .cloudrun-bundle/model-cache
 docker compose exec -T api python - <<'PY' > .cloudrun-bundle/data/processed/points.json
 import json
 from shared.retrieval import database,active_index
-rows,offset=database().scroll(active_index()['collection'],limit=256,with_vectors=True)
-assert offset is None
+rows=[];offset=None
+while True:
+    batch,offset=database().scroll(active_index()['collection'],limit=256,offset=offset,with_vectors=True)
+    rows.extend(batch)
+    if offset is None:break
 assert len(rows)==active_index()['points']
 print(json.dumps([{'id':str(p.id),'vector':p.vector,'payload':p.payload} for p in rows]))
 PY

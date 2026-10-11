@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+  "band_cells": 80,
+  "paragraph_statements": 238,
+  "task2_statements": 119,
+  "total_index_chunks": 369,
+  "task2_by_criterion": {
+    "TR": 32,
+    "CC": 33,
+    "LR": 28,
+    "GRA": 26
+  },
+  "task2_physical_pdf_pages": [
+    7,
+    8,
+    9
+  ],
+  "chunk_snapshot": "fd352d820dd24acb",
+  "checks": [
+    "All 80 PDF cells independently match concatenated paragraph text",
+    "No words lost or imported from adjacent cells",
+    "Each paragraph retains task, criterion, integer band and physical PDF page",
+    "All bold limiting features are exact substrings of their paragraph",
+    "All child points link to their original parent cell"
+  ],
+  "numeric_policy": "Four integer descriptor scores; exact arithmetic mean; half-up to 0.5 for the Task 2 practice estimate. No fabricated half-band descriptor rows or numeric paragraph subscores."
+}

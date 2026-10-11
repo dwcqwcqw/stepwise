@@ -32,6 +32,37 @@ def clean(text):
 def record(source, page, text, task='academic_task_2', criterion='ALL', band=None, kind='assessment_detail', **extra):
     return dict(task=task, criterion=criterion, criterion_name=CRITERIA.get(criterion, 'General assessment rules'), band=band, kind=kind, text=clean(text), source_id=source['id'], source_url=source['url'], source_sha256=source['sha256'], source_title=source['id'].replace('-',' ').title(), page=page, version=source['version'], **extra)
 
+def descriptor_statements(page, bbox, cell_text, task, code, band):
+    """Use the PDF's paragraph blocks, not sentence/token windows.
+
+    Keep qualifications with their positive feature, and retain bold limiters.
+    A centre-in-cell check excludes glyphs protruding from neighbouring rows.
+    The table extractor is an independent, complete-text coverage check.
+    """
+    rect=pymupdf.Rect(bbox); statements=[]
+    for block in page.get_text('dict',clip=rect)['blocks']:
+        lines=[[s for s in line['spans']
+               if rect.y0 <= (s['bbox'][1]+s['bbox'][3])/2 <= rect.y1
+               and rect.x0 <= (s['bbox'][0]+s['bbox'][2])/2 <= rect.x1]
+               for line in block.get('lines',[])]
+        spans=[s for line in lines for s in line]
+        if not any(s['text'].strip() for s in spans): continue
+        text=' '.join(' '.join(''.join(s['text'] for s in line).split()) for line in lines if line)
+        sid=f"{'T2' if task=='academic_task_2' else 'T1'}-{code}-B{band}-S{len(statements)+1}"
+        bold=[]; run=[]
+        for span in spans:
+            if span['flags'] & 16: run.append(span['text'].strip())
+            elif run: bold.append(' '.join(run));run=[]
+        if run: bold.append(' '.join(run))
+        statements.append({'statement_id':sid,'text':text,
+            'conditional':band<=1,
+            'limiting_features':[{'limiter_id':f'{sid}-L{n}','text':feature}
+                                 for n,feature in enumerate(bold,1)]})
+    normalize=lambda text:' '.join(text.split())
+    if not statements or normalize(' '.join(s['text'] for s in statements))!=normalize(cell_text):
+        raise ValueError(f'Paragraph coverage differs from source cell: {task} {code} {band}')
+    return statements
+
 def rubric_cells(path, source):
     records=[]
     with pymupdf.open(path) as document:
@@ -55,13 +86,9 @@ def rubric_cells(path, source):
                         cell_text=row[1] if score=='0' else row[col]
                         if not clean(cell_text): raise ValueError(f'Empty descriptor {task} {score} {code}')
                         bbox=table.rows[row_no].cells[col] or table.rows[row_no].cells[1]
-                        bold=[]
-                        if bbox:
-                            for block in page.get_text('dict',clip=pymupdf.Rect(bbox))['blocks']:
-                                for line in block.get('lines',[]):
-                                    for span in line['spans']:
-                                        if span['flags'] & 16 and span['text'].strip(): bold.append(span['text'])
-                        records.append(record(source,page_no,cell_text,task=task,criterion=code,band=int(score),kind='band_descriptor',limiting_features=bold))
+                        statements=descriptor_statements(page,bbox,cell_text,task,code,int(score))
+                        bold=[l['text'] for s in statements for l in s['limiting_features']]
+                        records.append(record(source,page_no,cell_text,task=task,criterion=code,band=int(score),kind='band_descriptor',limiting_features=bold,statements=statements))
     expected={(task,c,b) for task,codes in [('academic_task_1',['TA','CC','LR','GRA']),('academic_task_2',list(CRITERIA))] for c in codes for b in range(10)}
     observed={(x['task'],x['criterion'],x['band']) for x in records if x['kind']=='band_descriptor'}
     if observed!=expected or sum(x['kind']=='band_descriptor' for x in records)!=80: raise ValueError(f'Incomplete full rubric: {expected-observed}')
@@ -96,7 +123,8 @@ def main():
                     records += [record(source,n,p.get_text(),criterion='TR',kind='teaching_guidance') for n,p in enumerate(d,1)]
     jsonl(DATA/'processed/rubric_cells.jsonl',records)
     receipts=[{k:s[k] for k in ['id','url','sha256','filename','role','version']} for s in sources]
-    manifest={'snapshot_id':digest(json.dumps(receipts,sort_keys=True).encode())[:16],'sources':receipts,'rubric_records':len(records),'descriptor_cells':80,'task2_descriptor_cells':40,'subcriteria':20,'training_candidates_loaded':0,'scope':'All band rules 0–9 for both tasks indexed; scoring constrained to Task 2 and shared rules.'}
+    statement_count=sum(len(x.get('statements',[])) for x in records)
+    manifest={'snapshot_id':digest(json.dumps(receipts,sort_keys=True).encode())[:16],'sources':receipts,'rubric_records':len(records),'descriptor_cells':80,'task2_descriptor_cells':40,'descriptor_statements':statement_count,'task2_descriptor_statements':sum(len(x.get('statements',[])) for x in records if x['task']=='academic_task_2'),'subcriteria':20,'training_candidates_loaded':0,'scope':'All band rules 0–9 for both tasks indexed; scoring constrained to Task 2 and shared rules.'}
     write_json(DATA/'processed/manifest.json',manifest);write_json(ARTIFACTS/'data_quality.json',manifest)
     log('ingest_complete',**manifest)
 
