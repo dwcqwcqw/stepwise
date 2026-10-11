@@ -16,11 +16,11 @@
     8,
     9
   ],
-  "chunk_snapshot": "fd352d820dd24acb",
+  "chunk_snapshot": "d7968b11ed657b6f",
   "checks": [
     "All 80 PDF cells independently match concatenated paragraph text",
     "No words lost or imported from adjacent cells",
-    "Each paragraph retains task, criterion, integer band and physical PDF page",
+    "Every paragraph retains task, criterion, integer band and physical PDF page",
     "All bold limiting features are exact substrings of their paragraph",
     "All child points link to their original parent cell"
   ],
