@@ -1,0 +1,8 @@
+{
+  "phase": "retrieval",
+  "request_elapsed_ms": 6240,
+  "visible_text": "✦\n\nSTEPWISE IS WORKING\n\nAn essay shaped around your ideas.\n\nWe write, assess independently, and adjust if the band differs from your choice.\n\n39s elapsed\n✓\nFind your target-band standards\nComplete\nDone\n✓\nWrite your model essay\nComplete\nDone\n3\nReview all four criteria independently\n0 of 4 criteria checked\nIn progress\n4\nVerify evidence, sources and scores\nWaiting\nWaiting\n5\nConfirm your selected band\nWaiting\nWaiting\nTask response\nWaiting\nCoherence\nWaiting\nVocabulary\nWaiting\nGrammar\nWaiting\n\nRetrieving the official scoring standards\n\nYou can keep this tab open. Your writing stays here if a connection fails.",
+  "backend_source_commit": "bd305502d516cf30bc72d1c99d35a45cf9a97355",
+  "backend_revision": "stepwise-api-00025-gub",
+  "url": "https://stepwise-one.vercel.app/"
+}

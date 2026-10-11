@@ -1,0 +1,10 @@
+2026-10-12 Asia/Shanghai
+Backend source: bd305502d516cf30bc72d1c99d35a45cf9a97355
+
+Python: pytest tests/unit -q
+103 passed, 1 existing Starlette AnyIO deprecation warning.
+
+Node: npm test
+6 tests, 6 passed, 0 failed.
+
+Contract coverage includes all eleven supported target profiles, exact half-up arithmetic, target-blind reassessment, bounded local patches and single-use private continuations. These tests use controlled fixtures; real model/UI evidence is separate.

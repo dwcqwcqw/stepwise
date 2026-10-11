@@ -1,0 +1,36 @@
+{
+  "source_commit": "0a2ce7d5a12c4ba9131a0ca5f0f0854864255bcf",
+  "environment": "Cloud Shell real Vertex calls; not HTTP deployment test",
+  "model": "gemini-3.5-flash",
+  "thinking_level": "MINIMAL",
+  "target": 7,
+  "assessed": 7,
+  "criterion_scores": [
+    7,
+    7,
+    7,
+    7
+  ],
+  "history": [
+    9,
+    6.5,
+    7
+  ],
+  "all_119_quotes_and_official_pages_verified": true,
+  "target_blind": true,
+  "essay_sha256": "35eb59d08e310f9634c5762f6f36eb3c85285f6aa2d10460cbee473f3a121c89",
+  "response_ids": [
+    "M8DLauX2EdfR1e8P-qysmAc",
+    "M8DLapWyBs-kvr0Pm73NyQY",
+    "M8DLavfmEM-kvr0Pm73NyQY",
+    "M8DLavKIB8jgvr0P0PSGsAQ",
+    "S8DLavrqJcjgvr0P0PSGsAQ",
+    "S8DLaquLDMjgvr0P0PSGsAQ",
+    "S8DLatG2DOyavr0P4vvK4Q4",
+    "S8DLapnmGo6ovr0P-4UV",
+    "ZcDLaq2eDviyvr0PwsuKqAU",
+    "ZcDLaoiVDriG1e8PzdSI8A8",
+    "ZcDLavcsyOC-vQ_Q9IawBA",
+    "ZcDLarVQ19HV7w_6rKyYBw"
+  ]
+}

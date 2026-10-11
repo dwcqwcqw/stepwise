@@ -1,0 +1,78 @@
+{
+  "requested_band": 5,
+  "passed": true,
+  "assessed_band": 5,
+  "scores": [
+    5,
+    5,
+    5,
+    4
+  ],
+  "wall_seconds": 573.357,
+  "source_commit": "c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc",
+  "environment": "cloud_shell_real_vertex",
+  "model": "gemini-3.5-flash",
+  "essay": "Many peopel think about transport. Some say bus and train. Some say road. In my opinion, governments should prioritize public transport while maintaining essential roads. This is very big problem for many country. Transport is for move. Move here and move there.\n\nRoad is for car. Car is go fast. But public transport is bus. Bus is cheap. Cheap for commuter. Commuter is peopel go work. Peopel need money. No money for car. Car is very expensive. Very expensive to buy. So public transport is good. But road is also need. Road is for car and truck. Truck bring food. Food is in shop. If no road, no food. This is bad. Road is long.\n\nGoverment must spend money. Money is big. Spend on bus. Train is fast. Train go to job. Job is good for peopel. Peopel work in city. City have many job. But rural is far. Rural is countryside. Countryside have no train. Countryside peopel need road. They drive car. Car go on road. If road is bad, countryside peopel cannot go. They are isolate. Isolate is bad. Rural road is essential.\n\nSo public transport is good for congestion. Congestion is traffic jam. Too many car. Traffic jam make peopel angry. Bus is carry many peopel. One bus, fifty peopel. One car, one peopel. So bus reduce traffic. But road must fix. Fix road is important. Essential road. Goverment must maintain. Maintain is fix. Road must be safe.\n\nIn conclusion, transport is important. Public transport is cheap and good for job. But road is for rural and truck. Goverment must spend money for both. Public transport is first, but road is also. This is my opinion for transport in world. Transport is everywhere.",
+  "criterion_mean": 4.75,
+  "essay_sha256": "22259aa00d08f69f6cd1b3af4ac605e99b03bc33f2c3af5736091354b939b875",
+  "index_id": "339dcf75a711802b",
+  "target_blind": true,
+  "descriptor_statements_checked": 119,
+  "checks": {
+    "unique_statements": 119,
+    "verbatim_evidence": true,
+    "official_pages": [
+      7,
+      8,
+      9
+    ],
+    "official_band_source": true
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "assessed_band": 7.5,
+      "criterion_scores": {
+        "TR": 8,
+        "CC": 7,
+        "LR": 7,
+        "GRA": 8
+      },
+      "writer_profile": {
+        "TR": 5,
+        "CC": 5,
+        "LR": 5,
+        "GRA": 5
+      },
+      "essay_sha256": "1ba31f8ad4e195e73803cfed46c425d8891c0c5538c01e7ce9183f30f9ec7ca4"
+    },
+    {
+      "attempt": 2,
+      "assessed_band": 5,
+      "criterion_scores": {
+        "TR": 5,
+        "CC": 5,
+        "LR": 5,
+        "GRA": 4
+      },
+      "writer_profile": {
+        "TR": 2,
+        "CC": 3,
+        "LR": 3,
+        "GRA": 2
+      },
+      "essay_sha256": "22259aa00d08f69f6cd1b3af4ac605e99b03bc33f2c3af5736091354b939b875"
+    }
+  ],
+  "generation_response_ids": [
+    "x7DLarPHFriG1e8PzdSI8A8",
+    "-LDLareYDPiyvr0PwsuKqAU",
+    "A7LLastEuIbV7w_N1IjwDw"
+  ],
+  "assessment_response_ids": [
+    "drLLas2rCeyavr0P4vvK4Q4",
+    "drLLarnMFcjgvr0P0PSGsAQ",
+    "drLLavSSF9fR1e8P-qysmAc",
+    "drLLapXcCc-kvr0Pm73NyQY"
+  ]
+}

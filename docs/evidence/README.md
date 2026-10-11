@@ -4,7 +4,7 @@
 
 The upgraded implementation uses full official rubrics, actual Gemini assessment/generation and separate target-blind assessment. Fresh runtime receipts are captured with `make run` / `make verify`, then `make evidence`. The `verification.json` receipt, model response IDs/usage, sample outputs, source/index manifests and screenshots identify the implementation actually exercised. No access tokens or raw training corpus should be committed.
 
-## Current verified run
+## Earlier verified container run
 
 Implementation commit: `c4522d75b45c2ae32a73b0b5c133ccfcb5e43a71`; model `gemini-3.8-flash`; index `2da4e8eda6a331b5`. `verification.json` records 12 passing workflow checks and actual scores. `rag_verification.json` records all 40 Task 2 criterion-band queries, complete source coverage and zero loaded adaptation candidates. `unit-tests.txt` records 18 local tests. Sample essays are authored demonstration fixtures; do not replace them with private learner submissions. Model response IDs, token usage and latency are retained without authentication tokens.
 
@@ -32,4 +32,10 @@ PNG screenshots show the upgraded running application. Files ending in `-detail.
 
 ## Selected-band generation
 
-`target-band-7.json` and `target-band-6.5.json` record real Vertex calls from Cloud Shell using source `c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc`, model `gemini-3.5-flash` and index `339dcf75a711802b`. Both independently match the selected overall band and verify all 119 official Task 2 statements. They retain the actual candidate histories and model response IDs. `target-band-loading.png` shows the fixed public URL displaying the additional target-confirmation stage and automatic rewrite progress. Historical target-7 → score-9 screenshots above predate this fix.
+`target-band-5.json`, `target-band-7.json` and `target-band-6.5.json` record real Vertex calls from Cloud Shell using source `c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc`, model `gemini-3.5-flash` and index `339dcf75a711802b`. They independently match their selected overall bands and verify all 119 official Task 2 statements, retaining actual candidate histories and Google response IDs. These are historical host runs, not HTTP checks of a subsequent release.
+
+`target-band-deployment.json` identifies the actual production backend source/revision, frontend deployment and public UI verification status. The frontend automatically resumes one assessed candidate per gateway request using opaque single-use server state; the assessor never receives the target. Current source has 103 passing Python tests and six Node tests. These contract tests do not measure success rates across real prompts.
+
+v4.5 diagnostics showed that prompt-only focused rewrites changed unrelated criteria and exhausted five candidates. v4.6 applies validated exact before/after replacements, preserving every unedited character, paragraph breaks for language-only changes and the learner's protected position. Fresh independent assessment still determines success. The frozen production embedding cache is loaded offline to avoid a verified Hugging Face cold-start rate-limit failure.
+
+The final v4.7 public check succeeded on source `bd305502d516cf30bc72d1c99d35a45cf9a97355`, revision `stepwise-api-00025-gub`, using 3.5 Flash MINIMAL: target 7.0, assessed 7.0, scores 7/8/6/7, 263 words. `target-band-public-ui.json` and `target-band-result.png` preserve the visible result and official page links. `target-band-progress.json` and `target-band-loading.png` record real cross-request progress. `target-band-patch-host.json` is a separate real host success on preceding source 0a2, with 9 → 6.5 → 7 and verified 119 citations/quotes. All historical receipts retain their own source/model versions.

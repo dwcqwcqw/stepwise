@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-10-12 Asia/Shanghai",
+  "application_url": "https://stepwise-one.vercel.app/",
+  "repository_branch": "https://github.com/dwcqwcqw/stepwise/tree/bei-li",
+  "backend_source_commit": "bd305502d516cf30bc72d1c99d35a45cf9a97355",
+  "backend_revision": "stepwise-api-00025-gub",
+  "image": "us-central1-docker.pkg.dev/stepwise-ac215-20261010/stepwise/api:bd305502d516",
+  "model": "gemini-3.5-flash",
+  "index_id": "339dcf75a711802b",
+  "vercel_deployment_id": "dpl_ARUuSP4zNEhfwf96Ji1QcfjkVQet",
+  "vercel_state": "READY",
+  "target_matching": "exact independently assessed overall; no score override",
+  "continuation": "one candidate per gateway request, opaque single-use state, TTL 900s, bounded 8 pending sessions, one Cloud Run instance/worker",
+  "tests": {
+    "python": 103,
+    "node": 6,
+    "frontend_build": "passed"
+  },
+  "real_vertex_receipts": [
+    "target-band-7.json",
+    "target-band-6.5.json",
+    "target-band-5.json"
+  ],
+  "public_ui_status": "passed",
+  "provider_capacity_observation": {
+    "gemini-3.8-flash": "A later small capacity check succeeded in 2283 ms, but two v4.6 public runs received HTTP 429, including one after the first assessed candidate. Production switched to 3.5 Flash MINIMAL.",
+    "response_id": "YrPLasigOcjgvr0P0PSGsAQ"
+  },
+  "public_ui_progress": {
+    "receipt": "target-band-progress.json",
+    "screenshot": "target-band-loading.png",
+    "meaning": "Fresh gateway requests preserve total UI progress and carry private single-use candidate state."
+  },
+  "frontend_source_commit": "4b6b4a52897691dc0dd83bae2c9686ed2ec34493",
+  "prompt_version": "official-rubric-v4.7-target-matching",
+  "image_digest": "sha256:ff058112c88ec43d24ec846dc2f4149d465143c5bdfacea1c8f1b6a55de91e06",
+  "embedding_cache": "Frozen bundled cache, local_files_only=True; real offline query dimension 384",
+  "thinking_level": "MINIMAL",
+  "public_ui_result": {
+    "receipt": "target-band-public-ui.json",
+    "screenshot": "target-band-result.png",
+    "requested_band": 7.0,
+    "assessed_band": 7.0,
+    "criterion_scores": [
+      7,
+      8,
+      6,
+      7
+    ],
+    "mean": 7.0,
+    "word_count": 263,
+    "official_descriptor_page_verified": 7
+  },
+  "additional_real_vertex_receipt": "target-band-patch-host.json"
+}

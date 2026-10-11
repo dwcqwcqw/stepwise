@@ -32,3 +32,7 @@ Failures restore the form with its text intact. Only identical, already validate
 See [performance and reproduction](performance.md) for the compact inference protocol, measurements and test commands.
 
 See [selected-band generation](target-bands.md) for proficiency profiles, the bounded rewrite loop and regression verification.
+
+## Target-band generation
+
+The model-essay screen now waits for a separately assessed exact match to the requested overall band. A mismatch triggers an actual rewrite, preserving the learner's position and carrying forward progress. Each candidate runs in its own streamed request, so the Vercel Hobby request limit applies to one round. Opaque continuation tokens are bound to unchanged requirements and short-lived server memory; they are consumed once and expire after 15 minutes. No unmatched essay is displayed as the final example. A failed or expired session leaves the user's inputs intact for retry.

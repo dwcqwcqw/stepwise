@@ -59,3 +59,11 @@ The public browser test also verified that an unchanged draft reuses its validat
 ## Subsequent target-matching update
 
 The v4.4 update adds independently checked target matching and bounded rewrites. Its latency must be measured separately from the single-candidate timings above. During verification, Gemini 3.8 Flash repeatedly returned HTTP 429; the deployed model was changed to Gemini 3.5 Flash. See [target-band verification](target-bands.md) for the actual candidate counts, timings and model receipts. Earlier measurements remain tied to their original source and model.
+
+A later real 3.8 Flash capacity check succeeded in 2.283 seconds after its earlier 429 failures. The production model override was restored to `gemini-3.8-flash` on revision `stepwise-api-00015-juh`; the image still uses source `4b6b4a52897691dc0dd83bae2c9686ed2ec34493`. A public 3.5 request had timed out while independently assessing the first candidate. The 3.5 host receipts remain valid historical observations, not production timing promises. Model/provider latency and intermittent availability remain separate from the target-matching and per-round continuation logic.
+
+## Cold-start and provider availability follow-up
+
+Production cold starts previously tried Hugging Face metadata/download requests despite a shipped model cache; HTTP 429 delayed retrieval. Bundled retrieval now explicitly uses `local_files_only=True`, verified with a real offline 384-dimensional query. This changes neither the corpus nor embeddings.
+
+Public tests of v4.6 with Gemini 3.8 encountered HTTP 429 before generation and, on a separate retry, after the first assessed candidate. The original inputs were preserved and no unmatched essay was returned. The Gemini client now accepts an operator-configured thinking level (default LOW); MINIMAL reduces optional internal reasoning while retaining the same complete official rubric, schema and strict server validation. Actual production model and final UI outcome are recorded in `evidence/target-band-deployment.json`. These availability failures must not be counted as successful target matches.

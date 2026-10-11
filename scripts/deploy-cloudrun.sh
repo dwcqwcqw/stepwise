@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Single instance/worker is required for short-lived generation continuations.
 # Run in the authorized project's Cloud Shell after reviewing the IAM changes below.
 set -euo pipefail
 P=stepwise-ac215-20261010
