@@ -1,0 +1,141 @@
+{
+  "url": "https://stepwise-one.vercel.app",
+  "implementation": "b97467fa4dddf9a55e0a7408a5957605f540e766",
+  "revision": "stepwise-api-00002-tnt",
+  "word_count": 271,
+  "overall_band": 8,
+  "checks": [
+    {
+      "criterion": "Task Response 8.0",
+      "details": 5,
+      "all_detail_quotes_verbatim": true,
+      "main_quote_verbatim": true,
+      "details_evidence": [
+        {
+          "quote": "I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengthhow fully the candidate responds to the task."
+        },
+        {
+          "quote": "For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengthhow adequately the main ideas are extended and supported."
+        },
+        {
+          "quote": "When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengthhow relevant the candidate’s ideas are to the task."
+        },
+        {
+          "quote": "In conclusion, I support prioritizing public transport in “densely populated” areas because it can improve affordability and reduce congestion.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengthhow clearly the candidate opens the discourse, establishes their position and \nformulates conclusions."
+        },
+        {
+          "quote": "A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengthhow appropriate the format of the response is to the task."
+        }
+      ]
+    },
+    {
+      "criterion": "Coherence and Cohesion 8.0",
+      "details": 5,
+      "all_detail_quotes_verbatim": true,
+      "main_quote_verbatim": true,
+      "details_evidence": [
+        {
+          "quote": "Road spending still has an important role.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengththe coherence of the response via the logical organisation of information \nand/or ideas, or the logical progression of the argument."
+        },
+        {
+          "quote": "The main reason to prioritize public transport is affordability.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengththe appropriate use of paragraphing for topic organisation and presentation."
+        },
+        {
+          "quote": "Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengththe logical sequencing of ideas and/or information within and across \nparagraphs."
+        },
+        {
+          "quote": "This  helps households and businesses at the same time.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengththe flexible use of reference and substitution (e.g. definite articles, pronouns)."
+        },
+        {
+          "quote": "However, new services will attract passengers only if they are frequent and convenient.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3",
+          "standard": "strengththe appropriate use of discourse markers to clearly mark the stages in a \nresponse, e.g. [First of all | In conclusion], and to signal the relationship between \nideas and/or information, e.g. [as a result | similarly]."
+        }
+      ]
+    },
+    {
+      "criterion": "Lexical Resource 8.0",
+      "details": 6,
+      "all_detail_quotes_verbatim": true,
+      "main_quote_verbatim": true,
+      "details_evidence": [
+        {
+          "quote": "Government have to decide how to divide transport budgets between public services and roads.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "strengththe range of general words used (e.g. the use of synonyms to avoid repetition)."
+        },
+        {
+          "quote": "Rural communities often depend on roads because their populations are too small to support frequent public services.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "strengththe adequacy and appropriacy of the vocabulary (e.g. topic-specific items, \nindicators of writer’s attitude)."
+        },
+        {
+          "quote": "Frequent buses gives these workers a practical way to reach more employers.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "strengththe precision of word choice and expression."
+        },
+        {
+          "quote": "Another benefit is that public transport can reduce traffic congestion.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "strengththe control and use of collocations, idiomatic expressions and sophisticated \nphrasing."
+        },
+        {
+          "quote": "Emergency vehicles and deliveries also need a safe road network.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "strengththe density and communicative effect of errors in spelling."
+        },
+        {
+          "quote": "In conclusion, I support prioritizing public transport in “densely populated” areas because it can improve affordability and reduce congestion.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "developthe density and communicative effect of errors in word formation."
+        }
+      ]
+    },
+    {
+      "criterion": "Grammatical Range and Accuracy 7.0",
+      "details": 4,
+      "all_detail_quotes_verbatim": true,
+      "main_quote_verbatim": true,
+      "details_evidence": [
+        {
+          "quote": "I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "strengththe range and appropriacy of structures used in a given response (e.g. simple, \ncompound and complex sentences)."
+        },
+        {
+          "quote": "Frequent buses gives these workers a practical way to reach more employers.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "developthe accuracy of simple, compound and complex sentences."
+        },
+        {
+          "quote": "Many worker can’t afford to own a car, especially when fuel, insurance and parking are considered together.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "developthe density and communicative effect of grammatical errors."
+        },
+        {
+          "quote": "However, new services will attract passengers only if they are frequent and convenient.",
+          "source": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=4",
+          "standard": "strengththe accurate and appropriate use of punctuation."
+        }
+      ]
+    }
+  ]
+}

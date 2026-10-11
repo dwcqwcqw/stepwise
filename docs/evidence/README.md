@@ -13,3 +13,9 @@ PNG screenshots show the upgraded running application. Files ending in `-detail.
 ## Public production deployment
 
 `public-deployment.json` records the verified fixed Vercel URL, source commit, Cloud Run revision/image digest, restricted invoker, official index, observed UI results and production HTTP request logs. `public-feedback.png`, `public-model-essay.png` and `public-model-essay.txt` were captured directly from the live fixed URL on 11 October 2026. The sample received 8.0; the target-7.0 generated essay contained 305 words and was separately assessed 9.0. These results verify the deployed workflow and expose target overshoot; they do not establish grading calibration. `deployment-unit-tests.txt` records 21 passing tests.
+
+## Evidence-reference repair
+
+`evidence-reference-tests.txt` records 29 passing local tests after the reference-contract repair. The server supplies exact essay spans with short IDs, resolves selected spans without autocorrection, and binds the retrieved awarded/next-band and detail records. Unknown references, missing details and fabricated quotes remain rejected. A retry receives the failed answer and validation reason. Diagnostic logs exclude essay text.
+
+`reference-regression-input.json` is an authored public fixture with deliberate spelling/grammar issues, curly punctuation and doubled spaces, not a private student submission. Production regression receipts and screenshots are kept separately from the earlier Compose and production records so their implementation versions remain explicit.

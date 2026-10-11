@@ -1,0 +1,27 @@
+{
+  "word_count": 299,
+  "target_band": 7,
+  "overall_band": 9,
+  "checks": [
+    {
+      "criterion": "Task Response 8.0",
+      "details": 5,
+      "all_detail_quotes_verbatim": true
+    },
+    {
+      "criterion": "Coherence and Cohesion 9.0",
+      "details": 5,
+      "all_detail_quotes_verbatim": true
+    },
+    {
+      "criterion": "Lexical Resource 9.0",
+      "details": 6,
+      "all_detail_quotes_verbatim": true
+    },
+    {
+      "criterion": "Grammatical Range and Accuracy 9.0",
+      "details": 4,
+      "all_detail_quotes_verbatim": true
+    }
+  ]
+}

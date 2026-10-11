@@ -12,19 +12,54 @@ Stepwise helps IELTS Academic Writing Task 2 learners revise argumentative essay
 
 MS2 delivers a working Google Gemini application, official-source RAG, a reproducible container pipeline and real execution evidence. The text-only project follows the LLM track; image upload and OCR are outside scope.
 
-- Environment and containers: an actual Cloud Shell Linux VM; five Dockerfiles and five pyproject.toml/uv.lock pairs; Compose orchestration and make run.
+### Project links
 
-- LLM pipeline: source collection, chunking, embedding, persistent Qdrant integration, logged retrieval and sample input/output artifacts.
+GitHub repository: https://github.com/dwcqwcqw/stepwise
 
-- Application and presentation: a four-screen wireframe, working UI/backend, screenshots and an eight-slide, 15-minute TF walkthrough. Deliverables are on the milestone2 branch; Canvas requires its full commit hash.
+MS2 submission branch: https://github.com/dwcqwcqw/stepwise/tree/milestone2
 
-Requirements: [AC215 Milestone 2](https://harvard-iacs.github.io/2026-AC215/milestone2/).
+Live frontend: https://stepwise-one.vercel.app
 
+Requirements: https://harvard-iacs.github.io/2026-AC215/milestone2/
+
+### Requirement 1 — Virtual environment (Objective + Deliverable)
+
+Implementation: Cloud Shell provides the Linux VM for Docker development; the deployed API runs in a Cloud Run container. docs/setup.md documents prerequisites, authorization, build, startup and troubleshooting.
+
+Evidence: Figure 1 and docs/evidence/cloud-running.png show the running development environment; pipeline.log records healthy API/web/Qdrant and successful data stages. deploy/README.md explains production setup.
+
+### Requirement 2 — End-to-end containers (Objective + Deliverables)
+
+Implementation: services/{ingest,chunk,index,api,web} each has a Dockerfile, pyproject.toml and uv.lock. compose.yaml orders ingestion → chunking → indexing → API → web, with Qdrant health checks. After the documented environment/auth setup, make run starts the complete pipeline.
+
+Data versions: ingest uses the SHA-256-locked official sources (snapshot 3aea32a1828dd022); chunk produces snapshot 52814016b8103614; index builds 2da4e8eda6a331b5; API/web consume that index through the API. Source/chunk/index manifests record lineage and dependency/model versions.
+
+Evidence: docs/setup.md supplies exact commands; docs/evidence/pipeline.log, sample_input.json, feedback_output.json and verification.json demonstrate input → retrieved context → real Gemini output. Deployment uses the same frozen 131-point index.
+
+### Requirement 3 — LLM RAG (Objective + Deliverables)
+
+Implementation: services/ingest/main.py collects official PDFs; services/chunk/main.py preserves complete rubric cells and detailed checks; services/index/main.py embeds them into Qdrant. shared/retrieval.py combines mandatory Task 2 rubric coverage with semantic guidance retrieval.
+
+Evidence: docs/evidence/retrieval_example.json contains the query, filters and returned source text/page links; rag_verification.json checks all 40 Task 2 criterion-band cases. Section 3 explains chunking, embeddings, database integration and the complete retrieval example.
+
+### Requirement 4 — Vision / other modalities
+
+Not applicable to this text-only LLM project. Users type or paste essays. The 8,049 candidate records and open-model adaptation are reserved for MS3; they are excluded from MS2 retrieval.
+
+### Requirement 5 — App mock-up and working skeleton (Objective + Deliverable)
+
+Implementation: docs/wireframe.md and Figures 2–5 cover Draft → Feedback → Goals → Model Essay. services/web and services/api implement real UI/backend interaction. MS1 refinements include removing image/OCR input and decorative panels, expanding the 20 official detail checks, and separating target-band generation from target-blind assessment.
+
+Evidence: the public frontend supports real grading, criterion-specific advice/examples, official citations and full essay generation with a separate assessment. Screenshots, model outputs and public request logs are under docs/evidence.
+
+### Submission and TF presentation
+
+All files are supplied on milestone2. Submit its full final commit hash on Canvas by 10:00 PM ET, October 20; this report does not submit to Canvas. docs/slides/Stepwise_MS2_Presentation_Final.pptx supports the 15-minute TF presentation and Q&A. Every member must understand the code, configurations, infrastructure, tests and design choices.
 ## 2. Architecture and cloud environment
 
 Data: ingest → chunk → embed/index → Qdrant. Application: browser → web gateway → FastAPI → retrieved official context → Vertex AI Gemini → validated feedback. Successful data stages and health checks gate startup.
 
-Each custom service uses Python 3.12.11 and frozen uv 0.6.4 environments; Qdrant uses v1.15.4. API/web bind to loopback; the database has no published host port. The dedicated project stepwise-ac215-20261010 is active under Harvard’s self-paid folder, with billing and Vertex AI enabled. Cloud Shell supplies the temporary development VM and authenticated preview.
+Each custom service uses Python 3.12.11 and frozen uv 0.6.4 environments; the Compose Qdrant server uses v1.15.4. Compose API/web bind to loopback and the database has no published host port. The dedicated project stepwise-ac215-20261010 is active under Harvard’s self-paid folder, with billing and Vertex AI enabled. Cloud Shell supplies the temporary development VM; the stable public application uses Vercel and a private Cloud Run API.
 
 ## 3. Official knowledge and reproducible RAG
 
@@ -48,15 +83,15 @@ The 8,049 candidate essays are reserved for MS3 fine-tuning. MS2 loads zero cand
 
 ## 4. Real model workflow and application
 
-The verified model is gemini-3.8-flash on Google Vertex AI. Structured JSON, bounded retries and server checks require all four criteria, all 20 qualitative checks, known source IDs, awarded/next-band descriptors and exact quotations from the submitted essay. Each criterion includes a rationale, improvement step and before/after example. Failed validation triggers one repair attempt; unchecked results are rejected.
+The verified model is gemini-3.8-flash on Google Vertex AI. The server gives each exact essay span a short evidence ID; the model selects IDs rather than copying text or opaque rubric hashes. The server resolves original passages and attaches the retrieved awarded/next-band descriptors and official detail records. Validation still requires four criteria, all 20 checks, valid rubric IDs, exact excerpts, a rationale, next step and before/after example. One repair attempt receives the prior answer and field-level errors. Diagnostic logs exclude learner text.
 
 The assessor sees only the question, essay and official context. The target band is withheld. Four integer criterion scores are equally weighted and rounded to a half-band Task 2 estimate. Detailed checks are qualitative observations, not separately scored bands.
 
-The four screens are Draft → Feedback → Goals → Model Essay. Generation uses the target, position and requested ideas; a fresh assessment then receives only the question and resulting essay. The UI shows target and assessed score separately, official citations and idea-coverage notes. Screenshots below show the running application. Learner text is not persisted by Stepwise; Google receives it for inference. Runtime authorization uses short-lived gcloud tokens in a private memory-backed directory, mounted read-only to the API.
+The four screens are Draft → Feedback → Goals → Model Essay. Generation uses the target, position and requested ideas; a fresh assessment receives only the question and resulting essay. The UI separates target and assessed scores, official citations and idea-coverage notes. Learner text is not persisted by Stepwise; Google receives it for inference. Compose uses short-lived gcloud tokens in a private memory-backed directory. Production uses Vercel OIDC and the Cloud Run runtime identity; it requires no running Cloud Shell token helper.
 
 ## 5. Verification and exact reproduction
 
-Eighteen local contract/evidence tests passed. The live integration receipt passed 12 workflow checks, including real scoring, all detailed checks, exact excerpts, separate model-essay assessment and invalid-input rejection. A separate RAG check verified 131 points, 80 band cells, 20 detailed checks, all 40 criterion-band retrieval cases and the 6.5 boundary.
+Twenty-nine local tests passed after the evidence-reference repair, including preservation of Unicode/spelling errors, bounded exact spans, invalid-reference rejection, repair context and fail-closed behavior. The earlier Compose integration receipt passed 12 real workflow checks; a separate RAG receipt verified 131 points, 80 band cells, 20 detailed checks, all 40 criterion-band retrieval cases and the 6.5 boundary. Historical receipts retain their original implementation version; the production regression evidence is recorded separately.
 
 Observed outputs: the 273-word sample received 8.0; a distinct weak draft received 3.0. The generated essay requested 7.0 and received 9.0 in a separate call. The four-call integration run recorded 22.4 seconds for draft feedback. These are observed outputs, not benchmark accuracy, guaranteed target matching or a latency distribution. Model version, response IDs, token usage and source/index lineage are in docs/evidence.
 
@@ -73,11 +108,11 @@ Prerequisites: Docker/Compose, make, Python 3, an authorized gcloud session and 
 
 ## 6. Public deployment and verification
 
-Live application: [Stepwise](https://stepwise-one.vercel.app) is available at a fixed public Vercel URL without login. Both main and milestone2 contain the complete program. The frontend and private Cloud Run API were deployed from commit 95b921c8e19d81280bb7c15d173cdf19c4f841c8; Cloud Run revision stepwise-api-00001-pk4 is serving traffic. Deployment configuration and exact instructions are in deploy/README.md.
+Live application: https://stepwise-one.vercel.app is public without login. Both main and milestone2 contain the complete program. The frontend uses source 95b921c8e19d81280bb7c15d173cdf19c4f841c8; the repaired private API uses b97467fa4dddf9a55e0a7408a5957605f540e766, deployed as stepwise-api-00002-tnt with 100% traffic. deploy/README.md contains production instructions.
 
 Cloud connection: Vercel → short-lived OIDC identity → private Cloud Run → Vertex AI Gemini. The API loads the frozen 131-point official rubric index and pinned embedding model. Dedicated runtime, invoker and build identities separate permissions. No Google credentials are embedded in frontend code; Cloud Shell can stop without stopping the deployed service.
 
-Verified on 11 October 2026: the public UI assessed the 273-word sample at 8.0 for all four criteria, showing specific revisions and linked official standards. It then generated a 305-word essay from target 7.0 and the learner’s position/ideas, and separately assessed it at 9.0. Target overshoot remains a calibration task. Twenty-one local tests passed; production screenshots and request logs accompany the repository. Vercel Git auto-deployment is not configured; this deployment was uploaded through its API.
+Production regression on 11 October 2026: a 271-word authored draft with grammar errors, curly punctuation and doubled spaces returned TR 8, CC 8, LR 8 and GRA 7 (overall 8.0). All 20 detailed-check quotes and four main quotes matched the original. Generation then produced 299 words for target 7.0; a separate assessment returned TR 8, CC 9, LR 9 and GRA 9 (overall 9.0), with all 20 detailed quotes verified. Both requests returned HTTP 200; recorded backend latencies were 16.6 and 14.9 seconds respectively. Twenty-nine local tests passed. See docs/evidence/reference-regression-*. Earlier production and Compose receipts remain versioned separately. Target overshoot still requires calibration. Vercel Git auto-deployment is not configured; frontend files were uploaded through its API.
 
 ## 7. MS3 development and references
 
@@ -85,7 +120,7 @@ Next: audit reliable Task 2 adaptation data, label provenance and prompt-family 
 
 Reference implementations: [cheese-app-v0](https://github.com/dlops-io/cheese-app-v0) informed pipeline separation; [babykev](https://github.com/rahuldave/babykev) informed reproducible environments and explicit checks. Stepwise supplies its own IELTS parsing, retrieval contracts and UI. Team members should understand the entire implementation.
 
-Code, receipts and presentation: [Stepwise milestone2 branch](https://github.com/dwcqwcqw/stepwise/tree/milestone2). Verified implementation: c4522d75b45c2ae32a73b0b5c133ccfcb5e43a71. The final branch also includes this report and the refreshed evidence.
+Code, receipts and presentation: https://github.com/dwcqwcqw/stepwise/tree/milestone2. Earlier Compose verification: c4522d75b45c2ae32a73b0b5c133ccfcb5e43a71. Production evidence repair: b97467fa4dddf9a55e0a7408a5957605f540e766. The final branch also includes this report and refreshed evidence; obtain its final Canvas hash with git rev-parse HEAD.
 
 ## Figure 1. Running cloud environment
 

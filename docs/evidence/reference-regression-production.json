@@ -1,0 +1,42 @@
+{
+  "source_commit": "b97467fa4dddf9a55e0a7408a5957605f540e766",
+  "revision": "stepwise-api-00002-tnt",
+  "cloud_build_id": "f36fa895-1c5d-4ba3-bf11-7db108c60143",
+  "image_digest": "sha256:a2f5662f086fc0c3819659ae13a04dd6f0fee8775091caf06ad704b1da11611d",
+  "frontend_url": "https://stepwise-one.vercel.app",
+  "index_id": "2da4e8eda6a331b5",
+  "unit_tests_passed": 29,
+  "feedback": {
+    "input": "reference-regression-input.json",
+    "word_count": 271,
+    "scores": {
+      "TR": 8,
+      "CC": 8,
+      "LR": 8,
+      "GRA": 7
+    },
+    "overall_band": 8,
+    "all_20_detail_quotes_verbatim": true,
+    "http_status": 200,
+    "request_timestamp_utc": "2026-10-11T03:41:22.059048Z",
+    "latency_seconds": 16.597794464
+  },
+  "model_essay": {
+    "word_count": 299,
+    "target_band": 7,
+    "scores": {
+      "TR": 8,
+      "CC": 9,
+      "LR": 9,
+      "GRA": 9
+    },
+    "overall_band": 9,
+    "all_20_detail_quotes_verbatim": true,
+    "http_status": 200,
+    "request_timestamp_utc": "2026-10-11T03:42:20.866864Z",
+    "latency_seconds": 14.897749952
+  },
+  "scope_note": "Authored regression fixtures verify integration/evidence integrity, not grading calibration. The user's original failing essay was not supplied; no exact-input reproduction is claimed.",
+  "evidence_contract": "official-rubric-v3-references",
+  "verified_at": "2026-10-11"
+}
