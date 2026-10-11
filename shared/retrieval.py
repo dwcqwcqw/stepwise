@@ -10,7 +10,10 @@ DIMENSION = 384
 
 @lru_cache
 def embedder():
-    return TextEmbedding(model_name=MODEL, cache_dir=os.getenv('MODEL_CACHE','/cache'), threads=2)
+    # Production images ship a frozen model cache; do not make cold starts
+    # depend on Hugging Face availability or metadata rate limits.
+    return TextEmbedding(model_name=MODEL, cache_dir=os.getenv('MODEL_CACHE','/cache'), threads=2,
+                         local_files_only=os.getenv('QDRANT_MODE') == 'bundled')
 
 @lru_cache
 def database():
