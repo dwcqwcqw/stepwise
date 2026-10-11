@@ -1,6 +1,8 @@
 """Verify full official-rubric coverage and retrieval without calling Gemini."""
 import json
 import subprocess
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -10,7 +12,12 @@ def call(path,body=None):
 quality=json.loads((ROOT/'runtime/artifacts/data_quality.json').read_text())
 assert quality['descriptor_cells']==80 and quality['task2_descriptor_cells']==40 and quality['subcriteria']==20
 assert quality['training_candidates_loaded']==0
-status=call('/api/ready');assert status['points']==369
+for attempt in range(30):
+    try:status=call('/api/ready');break
+    except (urllib.error.URLError,TimeoutError,ConnectionError):
+        if attempt==29:raise
+        time.sleep(2)
+assert status['points']==369
 traces=[]
 for code in ['TR','CC','LR','GRA']:
     for band in range(10):
