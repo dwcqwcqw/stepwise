@@ -108,7 +108,7 @@ Prerequisites: Docker/Compose, make, Python 3, an authorized gcloud session and 
 
 ## 6. Public deployment and verification
 
-Live application: https://stepwise-one.vercel.app is public without login. Both main and milestone2 contain the complete program. The frontend uses source 95b921c8e19d81280bb7c15d173cdf19c4f841c8; the repaired private API uses b97467fa4dddf9a55e0a7408a5957605f540e766, deployed as stepwise-api-00002-tnt with 100% traffic. deploy/README.md contains production instructions.
+Live application: https://stepwise-one.vercel.app is public without login. Bei Li's complete implementation is on the default bei-li branch; milestone2 retains the existing course delivery snapshot. main and the other named member branches have empty starting contents for separate team development. The frontend uses source 95b921c8e19d81280bb7c15d173cdf19c4f841c8; the repaired private API uses b97467fa4dddf9a55e0a7408a5957605f540e766, deployed as stepwise-api-00002-tnt with 100% traffic. deploy/README.md contains production instructions.
 
 Cloud connection: Vercel → short-lived OIDC identity → private Cloud Run → Vertex AI Gemini. The API loads the frozen 131-point official rubric index and pinned embedding model. Dedicated runtime, invoker and build identities separate permissions. No Google credentials are embedded in frontend code; Cloud Shell can stop without stopping the deployed service.
 

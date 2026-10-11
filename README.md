@@ -4,9 +4,22 @@ AC215 Milestone 2. Type or paste an IELTS Academic Writing Task 2 essay, receive
 
 ## Live application
 
-[Open Stepwise](https://stepwise-one.vercel.app) — fixed public URL; no Vercel login is required. The complete application is available on the default `main` branch and on the course delivery branch `milestone2`.
+[Open Stepwise](https://stepwise-one.vercel.app) — fixed public URL; no Vercel login is required. Bei Li's complete implementation is on the default `bei-li` branch. `milestone2` retains the existing course delivery snapshot.
 
 Vercel hosts the UI and a same-origin gateway. A restricted, short-lived OIDC identity invokes the private Cloud Run API, whose service account calls Gemini on Vertex AI. The frozen official RAG index contains 131 points; Google credentials are not embedded in the browser.
+
+## Team branches
+
+| Branch | Owner / purpose | Starting contents |
+| --- | --- | --- |
+| [`bei-li`](https://github.com/dwcqwcqw/stepwise/tree/bei-li) | Bei Li; default view | Complete implementation, report and evidence |
+| [`ernest-ferdian`](https://github.com/dwcqwcqw/stepwise/tree/ernest-ferdian) | Ernest Ferdian | Empty workspace |
+| [`dimitris-pipinis`](https://github.com/dwcqwcqw/stepwise/tree/dimitris-pipinis) | Dimitris Pipinis | Empty workspace |
+| [`xiahui-huang`](https://github.com/dwcqwcqw/stepwise/tree/xiahui-huang) | Xiahui Huang | Empty workspace |
+| [`main`](https://github.com/dwcqwcqw/stepwise/tree/main) | Shared team integration | Empty workspace |
+| [`milestone2`](https://github.com/dwcqwcqw/stepwise/tree/milestone2) | Existing course delivery snapshot | Preserved implementation and submission artifacts |
+
+Member branches provide separate places for development; repository access is managed through GitHub collaborators.
 
 ## Run
 
