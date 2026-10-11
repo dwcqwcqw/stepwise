@@ -1,0 +1,1532 @@
+{
+  "url": "https://stepwise-one.vercel.app/",
+  "backend_source": "74731a3d206ed243652e1ff0c9c7d238c5765352",
+  "frontend_source": "acfe076f6680e65025610f6e118214958fb4fa52",
+  "revision": "stepwise-api-00005-wez",
+  "vercel_deployment": "dpl_4kceTrmATJs8haiLYp9HY1Ge9996",
+  "review_snapshots": [
+    {
+      "received_at": 1791694736321,
+      "state": "- banner:\n  - link \"Stepwise home\":\n    - /url: /\n    - text: stepwise\n  - generic: Writing practice\n  - generic: Official IELTS rubric connected\n- main:\n  - navigation \"Writing steps\":\n    - button \"1 Your draft\" [disabled]:\n      - generic: \"1\"\n      - text: Your draft\n    - button \"2 Feedback\" [disabled]:\n      - generic: \"2\"\n      - text: Feedback\n    - button \"3 Your goals\" [disabled]:\n      - generic: \"3\"\n      - text: Your goals\n    - button \"4 Model essay\" [disabled]:\n      - generic: \"4\"\n      - text: Model essay\n  - region \"Writing review progress\":\n    - generic: ✦\n    - paragraph: Stepwise is working\n    - heading \"A closer look at your writing.\" [level=2]\n    - paragraph: Every official band is checked against your draft.\n    - generic: 0s elapsed\n    - list:\n      - generic: \"1\"\n      - strong: Retrieve the official band standards\n      - generic: Waiting\n      - generic: Waiting\n      - generic: \"2\"\n      - strong: Review all four criteria\n      - generic: TR · CC · Vocabulary · Grammar\n      - generic: Waiting\n      - generic: \"3\"\n      - strong: Verify evidence, sources and scores\n      - generic: Waiting\n      - generic: Waiting\n    - generic \"Criterion review progress\":\n      - text: Task response\n      - generic: Waiting\n      - text: Coherence\n      - generic: Waiting\n      - text: Vocabulary\n      - generic: Waiting\n      - text: Grammar\n      - generic: Waiting\n    - status: Connecting to your writing review…\n    - paragraph: You can keep this tab open. Your writing stays here if a connection fails.\n- contentinfo:\n  - generic: stepwise\n  - paragraph: IELTS writing feedback & model essays\n  - link \"Official IELTS descriptors ↗\":\n    - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf"
+    },
+    {
+      "received_at": 1791694741236,
+      "state": "- banner:\n  - link \"Stepwise home\":\n    - /url: /\n    - text: stepwise\n  - generic: Writing practice\n  - generic: Official IELTS rubric connected\n- main:\n  - navigation \"Writing steps\":\n    - button \"1 Your draft\" [disabled]:\n      - generic: \"1\"\n      - text: Your draft\n    - button \"2 Feedback\" [disabled]:\n      - generic: \"2\"\n      - text: Feedback\n    - button \"3 Your goals\" [disabled]:\n      - generic: \"3\"\n      - text: Your goals\n    - button \"4 Model essay\" [disabled]:\n      - generic: \"4\"\n      - text: Model essay\n  - region \"Writing review progress\":\n    - generic: ✦\n    - paragraph: Stepwise is working\n    - heading \"A closer look at your writing.\" [level=2]\n    - paragraph: Every official band is checked against your draft.\n    - generic: 5s elapsed\n    - list:\n      - generic: ✓\n      - strong: Retrieve the official band standards\n      - generic: Complete\n      - generic: Done\n      - generic: \"2\"\n      - strong: Review all four criteria\n      - generic: 0 of 4 criteria checked\n      - generic: In progress\n      - generic: \"3\"\n      - strong: Verify evidence, sources and scores\n      - generic: Waiting\n      - generic: Waiting\n    - generic \"Criterion review progress\":\n      - text: Task response\n      - generic: Reviewing\n      - text: Coherence\n      - generic: Reviewing\n      - text: Vocabulary\n      - generic: Reviewing\n      - text: Grammar\n      - generic: Reviewing\n    - status: Checking Grammatical Range and Accuracy\n    - paragraph: You can keep this tab open. Your writing stays here if a connection fails.\n- contentinfo:\n  - generic: stepwise\n  - paragraph: IELTS writing feedback & model essays\n  - link \"Official IELTS descriptors ↗\":\n    - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf"
+    },
+    {
+      "received_at": 1791694751826,
+      "state": "- banner:\n  - link \"Stepwise home\":\n    - /url: /\n    - text: stepwise\n  - generic: Writing practice\n  - generic: Official IELTS rubric connected\n- main:\n  - navigation \"Writing steps\":\n    - button \"1 Your draft\" [disabled]:\n      - generic: \"1\"\n      - text: Your draft\n    - button \"2 Feedback\" [disabled]:\n      - generic: \"2\"\n      - text: Feedback\n    - button \"3 Your goals\" [disabled]:\n      - generic: \"3\"\n      - text: Your goals\n    - button \"4 Model essay\" [disabled]:\n      - generic: \"4\"\n      - text: Model essay\n  - region \"Writing review progress\":\n    - generic: ✦\n    - paragraph: Stepwise is working\n    - heading \"A closer look at your writing.\" [level=2]\n    - paragraph: Every official band is checked against your draft.\n    - generic: 15s elapsed\n    - list:\n      - generic: ✓\n      - strong: Retrieve the official band standards\n      - generic: Complete\n      - generic: Done\n      - generic: \"2\"\n      - strong: Review all four criteria\n      - generic: 2 of 4 criteria checked\n      - generic: In progress\n      - generic: \"3\"\n      - strong: Verify evidence, sources and scores\n      - generic: Waiting\n      - generic: Waiting\n    - generic \"Criterion review progress\":\n      - text: Task response\n      - generic: Reviewing\n      - text: Coherence\n      - generic: Reviewing\n      - text: Vocabulary\n      - generic: Checked\n      - text: Grammar\n      - generic: Checked\n    - status: Lexical Resource checked\n    - paragraph: You can keep this tab open. Your writing stays here if a connection fails.\n- contentinfo:\n  - generic: stepwise\n  - paragraph: IELTS writing feedback & model essays\n  - link \"Official IELTS descriptors ↗\":\n    - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf"
+    },
+    {
+      "received_at": 1791694759439,
+      "state": "- banner:\n  - link \"Stepwise home\":\n    - /url: /\n    - text: stepwise\n  - generic: Writing practice\n  - generic: Official IELTS rubric connected\n- main:\n  - navigation \"Writing steps\":\n    - button \"1 Your draft\":\n      - generic: \"1\"\n      - text: Your draft\n    - button \"2 Feedback\":\n      - generic: \"2\"\n      - text: Feedback\n    - button \"3 Your goals\":\n      - generic: \"3\"\n      - text: Your goals\n    - button \"4 Model essay\":\n      - generic: \"4\"\n      - text: Model essay\n  - paragraph: From draft to direction\n  - heading \"Your writing, in focus.\" [level=1]\n  - paragraph: Explore each criterion and the standard behind it.\n  - paragraph: Each criterion was checked against every official band descriptor. Review the matched evidence and next-band gaps below.\n  - generic: Estimated Task 2 band\n  - strong: \"8.5\"\n  - paragraph:\n    - text: 273 words · Four equally weighted criteria\n    - text: Assessed with Google Gemini and official IELTS standards\n  - strong: How your score is calculated\n  - paragraph: (8.0 + 8.0 + 8.0 + 9.0) ÷ 4 = 8.25 → 8.5\n  - generic: \"Each criterion has equal weight. The exact mean is converted to a half-band practice estimate: .25 rounds to .5; .75 rounds to the next whole band. Official descriptor rows use whole bands.\"\n  - button \"Task Response 8.0\":\n    - strong: Task Response\n    - text: \"8.0\"\n  - button \"Coherence and Cohesion 8.0\":\n    - strong: Coherence and Cohesion\n    - text: \"8.0\"\n  - button \"Lexical Resource 8.0\":\n    - strong: Lexical Resource\n    - text: \"8.0\"\n  - button \"Grammatical Range and Accuracy 9.0\":\n    - strong: Grammatical Range and Accuracy\n    - text: \"9.0\"\n  - article:\n    - paragraph: Task Response · Band 8.0\n    - heading \"Deepen supporting reasoning\" [level=2]\n    - paragraph: The essay appropriately and sufficiently addresses all parts of the prompt, establishing a well-developed, balanced position that public transport should take priority in urban areas while maintaining vital road networks. Each body paragraph presents relevant, extended arguments with concrete supporting examples. It meets all criteria for Band 8 without significant gaps in content or logic.\n    - blockquote: “I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”\n    - heading \"Your next step\" [level=3]\n    - paragraph: Elaborate further on the comparative budgetary trade-offs or long-term implications to ensure the topic is explored in full depth.\n    - heading \"A revision of your writing\" [level=3]\n    - generic: Your original\n    - text: Rural communities often depend on roads because their populations are too small to support frequent public services.\n    - generic: Suggested revision\n    - text: Rural communities often depend exclusively on roads because their low population density cannot economically justify rail lines or frequent bus networks, meaning underfunding them risks geographic isolation.\n    - heading \"The next band\" [level=3]\n    - paragraph: To reach Band 9, the essay must explore the prompt in greater depth across all points; for example, the concession on road infrastructure and rural access remains somewhat concise compared to a fully extended exploration.\n  - complementary:\n    - paragraph: Official assessment context\n    - heading \"Your writing against the band descriptors\" [level=2]\n    - paragraph: Every official band was checked against your writing. Start with your assessed band and the requirements for the next one.\n    - generic \"Band 8.0 Your assessed band 4 official statements\":\n      - generic: Band 8.0\n      - strong: Your assessed band\n      - generic: 4 official statements\n    - generic: Meets threshold\n    - generic: S1\n    - paragraph: The prompt is appropriately and sufficiently addressed.\n    - paragraph: The prompt is sufficiently and appropriately addressed across all paragraphs.\n    - blockquote: “I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic: Meets threshold\n    - generic: S2\n    - paragraph: A clear and well-developed position is presented in response to the question/s.\n    - paragraph: A clear, well-developed position is sustained in response to the question.\n    - blockquote: “In conclusion, I support prioritizing public transport in densely populated areas because it can improve affordability and reduce congestion.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic: Meets threshold\n    - generic: S3\n    - paragraph: Ideas are relevant, well extended and supported.\n    - paragraph: Arguments regarding affordability, transit usability, and roads are well extended.\n    - blockquote: “Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic: Meets threshold\n    - generic: S4\n    - paragraph: There may be occasional omissions or lapses in content.\n    - paragraph: Omissions or lapses in content are minimal or occasional.\n    - blockquote: “Emergency vehicles and deliveries also need a safe road network.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic \"Band 9.0 What the next band requires 4 official statements\":\n      - generic: Band 9.0\n      - strong: What the next band requires\n      - generic: 4 official statements\n    - generic: Not yet met\n    - generic: S1\n    - paragraph: The prompt is appropriately addressed and explored in depth.\n    - paragraph: While well-argued, the comparative analysis is not explored in full depth across every section.\n    - blockquote: “Rural communities often depend on roads because their populations are too small to support frequent public services.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic: Meets threshold\n    - generic: S2\n    - paragraph: A clear and fully developed position is presented which directly answers the question/s.\n    - paragraph: The position directly answers the question with clear reasoning.\n    - blockquote: “I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic: Not yet met\n    - generic: S3\n    - paragraph: Ideas are relevant, fully extended and well supported.\n    - paragraph: The justification for road expenditure in paragraph 4 is valid but not fully extended.\n    - blockquote: “Emergency vehicles and deliveries also need a safe road network.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic: Meets threshold\n    - generic: S4\n    - paragraph: Any lapses in content or support are extremely rare.\n    - paragraph: Lapses in support or logic are virtually absent.\n    - blockquote: “This would help households and businesses at the same time.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic \"View all other bands (0–9)\"\n    - generic \"Additional skill checks · 5 details\"\n  - button \"Revise my draft\"\n  - button \"Create a model essay\":\n    - text: Create a model essay\n    - generic: →\n- contentinfo:\n  - generic: stepwise\n  - paragraph: IELTS writing feedback & model essays\n  - link \"Official IELTS descriptors ↗\":\n    - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf"
+    }
+  ],
+  "review_checks": [
+    {
+      "checks": [
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B8-S1",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "The prompt is appropriately and sufficiently addressed."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B8-S2",
+          "quote": "“In conclusion, I support prioritizing public transport in densely populated areas because it can improve affordability and reduce congestion.”",
+          "text": "A clear and well-developed position is presented in response to the question/s."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B8-S3",
+          "quote": "“Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.”",
+          "text": "Ideas are relevant, well extended and supported."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B8-S4",
+          "quote": "“Emergency vehicles and deliveries also need a safe road network.”",
+          "text": "There may be occasional omissions or lapses in content."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B9-S1",
+          "quote": "“Rural communities often depend on roads because their populations are too small to support frequent public services.”",
+          "text": "The prompt is appropriately addressed and explored in depth."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B9-S2",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "A clear and fully developed position is presented which directly answers the question/s."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B9-S3",
+          "quote": "“Emergency vehicles and deliveries also need a safe road network.”",
+          "text": "Ideas are relevant, fully extended and well supported."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B9-S4",
+          "quote": "“This would help households and businesses at the same time.”",
+          "text": "Any lapses in content or support are extremely rare."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B7-S1",
+          "quote": "“Governments should therefore repair damaged roads even when urban public transport receives the larger share of new investment.”",
+          "text": "The main parts of the prompt are appropriately addressed."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B7-S2",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "A clear and developed position is presented."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-TR-B7-S3",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "Main ideas are extended and supported but there may be a tendency to over-generalise or there may be a lack of focus and precision in supporting ideas/material."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-TR-B6-S1",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-TR-B6-S2",
+          "quote": "“In conclusion, I support prioritizing public transport in densely populated areas because it can improve affordability and reduce congestion.”",
+          "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-TR-B6-S3",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-TR-B5-S1",
+          "quote": "“Governments should therefore repair damaged roads even when urban public transport receives the larger share of new investment.”",
+          "text": "The main parts of the prompt are incompletely addressed. The format may be inappropriate in places."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-TR-B5-S2",
+          "quote": "“In conclusion, I support prioritizing public transport in densely populated areas because it can improve affordability and reduce congestion.”",
+          "text": "The writer expresses a position, but the development is not always clear."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-TR-B5-S3",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "Some main ideas are put forward, but they are limited and are not sufficiently developed and/or there may be irrelevant detail."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-TR-B5-S4",
+          "quote": "“Road spending still has an important role.”",
+          "text": "There may be some repetition."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B4-S1",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "The prompt is tackled in a minimal way, or the answer is tangential, possibly due to some misunderstanding of the prompt. The format may be inappropriate."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B4-S2",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "A position is discernible, but the reader has to read carefully to find it."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B4-S3",
+          "quote": "“Many workers cannot afford to own a car, especially when fuel, insurance and parking are considered together.”",
+          "text": "Main ideas are difficult to identify and such ideas that are identifiable may lack relevance, clarity and/or support."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B4-S4",
+          "quote": "“Another benefit is that public transport can reduce traffic congestion.”",
+          "text": "Large parts of the response may be repetitive."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B3-S1",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "No part of the prompt is adequately addressed, or the prompt has been misunderstood."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B3-S2",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "No relevant position can be identified, and/or there is little direct response to the question/s."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B3-S3",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "There are few ideas, and these may be irrelevant or insufficiently developed."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B2-S1",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "The content is barely related to the prompt."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B2-S2",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "No position can be identified."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B2-S3",
+          "quote": "“Frequent buses would give these workers a practical way to reach more employers.”",
+          "text": "There may be glimpses of one or two ideas without development."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B1-S1",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "Responses of 20 words or fewer are rated at Band 1."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B1-S2",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "The content is wholly unrelated to the prompt."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B1-S3",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "Any copied rubric must be discounted."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-TR-B0-S1",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "Should only be used where a candidate did not attend or attempt the question in any way, used a language other than English throughout, or where there is proof that a candidate’s answer has been totally memorised."
+        }
+      ],
+      "criterion": "Task Response8.0"
+    },
+    {
+      "checks": [
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B8-S1",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "The message can be followed with ease."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B8-S2",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "Information and ideas are logically sequenced, and cohesion is well managed."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B8-S3",
+          "quote": "“Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.”",
+          "text": "Occasional lapses in coherence and cohesion may occur."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B8-S4",
+          "quote": "“Road spending still has an important role.”",
+          "text": "Paragraphing is used sufficiently and appropriately."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B9-S1",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "The message can be followed effortlessly."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B9-S2",
+          "quote": "“Another benefit is that public transport can reduce traffic congestion.”",
+          "text": "Cohesion is used in such a way that it very rarely attracts attention."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B9-S3",
+          "quote": "“Governments should therefore repair damaged roads even when urban public transport receives the larger share of new investment.”",
+          "text": "Any lapses in coherence or cohesion are minimal."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B9-S4",
+          "quote": "“Road spending still has an important role.”",
+          "text": "Paragraphing is skilfully managed."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B7-S1",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "Information and ideas are logically organised, and there is a clear progression throughout the response. (A few lapses may occur, but these are minor.)"
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B7-S2",
+          "quote": "“Frequent buses would give these workers a practical way to reach more employers.”",
+          "text": "A range of cohesive devices including reference and substitution is used flexibly but with some inaccuracies or some over/under use."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-CC-B7-S3",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "Paragraphing is generally used effectively to support overall coherence, and the sequencing of ideas within a paragraph is generally logical."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-CC-B6-S1",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "Information and ideas are generally arranged coherently and there is a clear overall progression."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-CC-B6-S2",
+          "quote": "“However, new services will attract passengers only if they are frequent and convenient.”",
+          "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-CC-B6-S3",
+          "quote": "“This policy should be combined with essential road maintenance and attention to rural access.”",
+          "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-CC-B6-S4",
+          "quote": "“The main reason to prioritize public transport is affordability.”",
+          "text": "Paragraphing may not always be logical and/or the central topic may not always be clear."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-CC-B5-S1",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "Organisation is evident but is not wholly logical and there may be a lack of overall progression. Nevertheless, there is a sense of underlying coherence to the response."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-CC-B5-S2",
+          "quote": "“Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.”",
+          "text": "The relationship of ideas can be followed but the sentences are not fluently linked to each other."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-CC-B5-S3",
+          "quote": "“Governments should therefore repair damaged roads even when urban public transport receives the larger share of new investment.”",
+          "text": "There may be limited/overuse of cohesive devices with some inaccuracy."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-CC-B5-S4",
+          "quote": "“Rural communities often depend on roads because their populations are too small to support frequent public services.”",
+          "text": "The writing may be repetitive due to inadequate and/or inaccurate use of reference and substitution."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-CC-B5-S5",
+          "quote": "“In conclusion, I support prioritizing public transport in densely populated areas because it can improve affordability and reduce congestion.”",
+          "text": "Paragraphing may be inadequate or missing."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B4-S1",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "Information and ideas are evident but not arranged coherently and there is no clear progression within the response."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B4-S2",
+          "quote": "“However, new services will attract passengers only if they are frequent and convenient.”",
+          "text": "Relationships between ideas can be unclear and/or inadequately marked. There is some use of basic cohesive devices, which may be inaccurate or repetitive."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B4-S3",
+          "quote": "“This would help households and businesses at the same time.”",
+          "text": "There is inaccurate use or a lack of substitution or referencing."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B4-S4",
+          "quote": "“Another benefit is that public transport can reduce traffic congestion.”",
+          "text": "There may be no paragraphing and/or no clear main topic within paragraphs."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B3-S1",
+          "quote": "“The main reason to prioritize public transport is affordability.”",
+          "text": "There is no apparent logical organisation. Ideas are discernible but difficult to relate to each other."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B3-S2",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "There is minimal use of sequencers or cohesive devices. Those used do not necessarily indicate a logical relationship between ideas."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B3-S3",
+          "quote": "“Frequent buses would give these workers a practical way to reach more employers.”",
+          "text": "There is difficulty in identifying referencing."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B3-S4",
+          "quote": "“Road spending still has an important role.”",
+          "text": "Any attempts at paragraphing are unhelpful."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B2-S1",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "There is little relevant message, or the entire response may be off-topic."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B2-S2",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "There is little evidence of control of organisational features."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B1-S1",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "Responses of 20 words or fewer are rated at Band 1."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B1-S2",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "The writing fails to communicate any message and appears to be by a virtual non-writer."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-CC-B0-S1",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "Should only be used where a candidate did not attend or attempt the question in any way, used a language other than English throughout, or where there is proof that a candidate’s answer has been totally memorised."
+        }
+      ],
+      "criterion": "Coherence and Cohesion8.0"
+    },
+    {
+      "checks": [
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B8-S1",
+          "quote": "“In conclusion, I support prioritizing public transport in densely populated areas because it can improve affordability and reduce congestion.”",
+          "text": "A wide resource is fluently and flexibly used to convey precise meanings."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B8-S2",
+          "quote": "“Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.”",
+          "text": "There is skilful use of uncommon and/or idiomatic items when appropriate, despite occasional inaccuracies in word choice and collocation."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B8-S3",
+          "quote": "“Many workers cannot afford to own a car, especially when fuel, insurance and parking are considered together.”",
+          "text": "Occasional errors in spelling and/or word formation may occur, but have minimal impact on communication."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B9-S1",
+          "quote": "“This would help households and businesses at the same time.”",
+          "text": "Full flexibility and precise use are widely evident."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B9-S2",
+          "quote": "“Road spending still has an important role.”",
+          "text": "A wide range of vocabulary is used accurately and appropriately with very natural and sophisticated control of lexical features."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B9-S3",
+          "quote": "“This policy should be combined with essential road maintenance and attention to rural access.”",
+          "text": "Minor errors in spelling and word formation are extremely rare and have minimal impact on communication."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B7-S1",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "The resource is sufficient to allow some flexibility and precision."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B7-S2",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "There is some ability to use less common and/or idiomatic items."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B7-S3",
+          "quote": "“Governments should therefore repair damaged roads even when urban public transport receives the larger share of new investment.”",
+          "text": "An awareness of style and collocation is evident, though inappropriacies occur."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-LR-B7-S4",
+          "quote": "“Emergency vehicles and deliveries also need a safe road network.”",
+          "text": "There are only a few errors in spelling and/or word formation and they do not detract from overall clarity."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-LR-B6-S1",
+          "quote": "“Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.”",
+          "text": "The resource is generally adequate and appropriate for the task."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-LR-B6-S2",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-LR-B6-S3",
+          "quote": "“In conclusion, I support prioritizing public transport in densely populated areas because it can improve affordability and reduce congestion.”",
+          "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-LR-B6-S4",
+          "quote": "“This policy should be combined with essential road maintenance and attention to rural access.”",
+          "text": "There are some errors in spelling and/or word formation, but these do not impede communication."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-LR-B5-S1",
+          "quote": "“Rural communities often depend on roads because their populations are too small to support frequent public services.”",
+          "text": "The resource is limited but minimally adequate for the task."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-LR-B5-S2",
+          "quote": "“The main reason to prioritize public transport is affordability.”",
+          "text": "Simple vocabulary may be used accurately but the range does not permit much variation in expression."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-LR-B5-S3",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "There may be frequent lapses in the appropriacy of word choice and a lack of flexibility is apparent in frequent simplifications and/or repetitions."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-LR-B5-S4",
+          "quote": "“Governments should therefore repair damaged roads even when urban public transport receives the larger share of new investment.”",
+          "text": "Errors in spelling and/or word formation may be noticeable and may cause some difficulty for the reader."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B4-S1",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "The resource is limited and inadequate for or unrelated to the task. Vocabulary is basic and may be used repetitively."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B4-S2",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "There may be inappropriate use of lexical chunks (e.g. memorised phrases, formulaic language and/or language from the input material)."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B4-S3",
+          "quote": "“However, new services will attract passengers only if they are frequent and convenient.”",
+          "text": "Inappropriate word choice and/or errors in word formation and/or in spelling may impede meaning."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B3-S1",
+          "quote": "“Many workers cannot afford to own a car, especially when fuel, insurance and parking are considered together.”",
+          "text": "The resource is inadequate (which may be due to the response being significantly underlength). Possible over-dependence on input material or memorised language."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B3-S2",
+          "quote": "“Another benefit is that public transport can reduce traffic congestion.”",
+          "text": "Control of word choice and/or spelling is very limited, and errors predominate. These errors may severely impede meaning."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B2-S1",
+          "quote": "“Frequent buses would give these workers a practical way to reach more employers.”",
+          "text": "The resource is extremely limited with few recognisable strings, apart from memorised phrases."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B2-S2",
+          "quote": "“Emergency vehicles and deliveries also need a safe road network.”",
+          "text": "There is no apparent control of word formation and/or spelling."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B1-S1",
+          "quote": "“This policy should be combined with essential road maintenance and attention to rural access.”",
+          "text": "Responses of 20 words or fewer are rated at Band 1."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B1-S2",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "No resource is apparent, except for a few isolated words."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-LR-B0-S1",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "Should only be used where a candidate did not attend or attempt the question in any way, used a language other than English throughout, or where there is proof that a candidate’s answer has been totally memorised."
+        }
+      ],
+      "criterion": "Lexical Resource8.0"
+    },
+    {
+      "checks": [
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-GRA-B9-S1",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "A wide range of structures is used with full flexibility and control."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-GRA-B9-S2",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "Punctuation and grammar are used appropriately throughout."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-GRA-B9-S3",
+          "quote": "“Governments should therefore repair damaged roads even when urban public transport receives the larger share of new investment.”",
+          "text": "Minor errors are extremely rare and have minimal impact on communication."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-GRA-B8-S1",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "A wide range of structures is flexibly and accurately used."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-GRA-B8-S2",
+          "quote": "“Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.”",
+          "text": "The majority of sentences are error-free, and punctuation is well managed."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-GRA-B8-S3",
+          "quote": "“In conclusion, I support prioritizing public transport in densely populated areas because it can improve affordability and reduce congestion.”",
+          "text": "Occasional, non-systematic errors and inappropriacies occur, but have minimal impact on communication."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-GRA-B7-S1",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "A variety of complex structures is used with some flexibility and accuracy."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-GRA-B7-S2",
+          "quote": "“Rural communities often depend on roads because their populations are too small to support frequent public services.”",
+          "text": "Grammar and punctuation are generally well controlled, and error-free sentences are frequent."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+          "id": "T2-GRA-B7-S3",
+          "quote": "“Governments should therefore repair damaged roads even when urban public transport receives the larger share of new investment.”",
+          "text": "A few errors in grammar may persist, but these do not impede communication."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-GRA-B6-S1",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "A mix of simple and complex sentence forms is used but flexibility is limited."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-GRA-B6-S2",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "Examples of more complex structures are not marked by the same level of accuracy as in simple structures."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-GRA-B6-S3",
+          "quote": "“Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.”",
+          "text": "Errors in grammar and punctuation occur, but rarely impede communication."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-GRA-B5-S1",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "The range of structures is limited and rather repetitive."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-GRA-B5-S2",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "Although complex sentences are attempted, they tend to be faulty, and the greatest accuracy is achieved on simple sentences."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-GRA-B5-S3",
+          "quote": "“Rural communities often depend on roads because their populations are too small to support frequent public services.”",
+          "text": "Grammatical errors may be frequent and cause some difficulty for the reader."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+          "id": "T2-GRA-B5-S4",
+          "quote": "“Governments should therefore repair damaged roads even when urban public transport receives the larger share of new investment.”",
+          "text": "Punctuation may be faulty."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B4-S1",
+          "quote": "“When a reliable train carries hundreds of passengers, some journeys that would otherwise be made by car can be avoided.”",
+          "text": "A very limited range of structures is used."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B4-S2",
+          "quote": "“However, new services will attract passengers only if they are frequent and convenient.”",
+          "text": "Subordinate clauses are rare and simple sentences predominate."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B4-S3",
+          "quote": "“Building a railway without useful connections may waste money, so investment should include bus links and simple ticketing.”",
+          "text": "Some structures are produced accurately but grammatical errors are frequent and may impede meaning."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B4-S4",
+          "quote": "“Rural communities often depend on roads because their populations are too small to support frequent public services.”",
+          "text": "Punctuation is often faulty or inadequate."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B3-S1",
+          "quote": "“Many workers cannot afford to own a car, especially when fuel, insurance and parking are considered together.”",
+          "text": "Sentence forms are attempted, but errors in grammar and punctuation predominate (except in memorised phrases or those taken from the input material). This prevents most meaning from coming through."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B3-S2",
+          "quote": "“For example, a bus route linking an outer suburb to a business district could allow residents to apply for jobs that were previously too far away.”",
+          "text": "Length may be insufficient to provide evidence of control of sentence forms."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B2-S1",
+          "quote": "“A balanced policy can improve access to work while meeting the needs of people who cannot use a bus or train.”",
+          "text": "There is little or no evidence of sentence forms (except in memorised phrases)."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B1-S1",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "Responses of 20 words or fewer are rated at Band 1."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B1-S2",
+          "quote": "“I believe that public transport should receive greater investment in cities, although maintaining safe roads remains necessary.”",
+          "text": "No rateable language is evident."
+        },
+        {
+          "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+          "id": "T2-GRA-B0-S1",
+          "quote": "“Governments have to decide how to divide transport budgets between public services and roads.”",
+          "text": "Should only be used where a candidate did not attend or attempt the question in any way, used a language other than English throughout, or where there is proof that a candidate’s answer has been totally memorised."
+        }
+      ],
+      "criterion": "Grammatical Range and Accuracy9.0"
+    }
+  ],
+  "review_assertions": {
+    "statements": 119,
+    "all_standards_exact": true,
+    "all_pages_exact": true,
+    "all_quotes_exact": true
+  },
+  "cached_review": {
+    "elapsed_observed_ms": 351,
+    "notice": "Each criterion was checked against every official band descriptor. Review the matched evidence and next-band gaps below. Showing your verified review from this tab."
+  },
+  "generation_snapshots": [
+    {
+      "received_at": 1791694777739,
+      "state": "- banner:\n  - link \"Stepwise home\":\n    - /url: /\n    - text: stepwise\n  - generic: Writing practice\n  - generic: Official IELTS rubric connected\n- main:\n  - navigation \"Writing steps\":\n    - button \"1 Your draft\" [disabled]:\n      - generic: \"1\"\n      - text: Your draft\n    - button \"2 Feedback\" [disabled]:\n      - generic: \"2\"\n      - text: Feedback\n    - button \"3 Your goals\" [disabled]:\n      - generic: \"3\"\n      - text: Your goals\n    - button \"4 Model essay\" [disabled]:\n      - generic: \"4\"\n      - text: Model essay\n  - region \"Writing review progress\":\n    - generic: ✦\n    - paragraph: Stepwise is working\n    - heading \"An essay shaped around your ideas.\" [level=2]\n    - paragraph: First we write. Then we assess the essay independently.\n    - generic: 0s elapsed\n    - list:\n      - generic: \"1\"\n      - strong: Find your target-band standards\n      - generic: Waiting\n      - generic: Waiting\n      - generic: \"2\"\n      - strong: Write your model essay\n      - generic: Waiting\n      - generic: Waiting\n      - generic: \"3\"\n      - strong: Review all four criteria independently\n      - generic: TR · CC · Vocabulary · Grammar\n      - generic: Waiting\n      - generic: \"4\"\n      - strong: Verify evidence, sources and scores\n      - generic: Waiting\n      - generic: Waiting\n    - generic \"Criterion review progress\":\n      - text: Task response\n      - generic: Waiting\n      - text: Coherence\n      - generic: Waiting\n      - text: Vocabulary\n      - generic: Waiting\n      - text: Grammar\n      - generic: Waiting\n    - status: Connecting to your writing review…\n    - paragraph: You can keep this tab open. Your writing stays here if a connection fails.\n- contentinfo:\n  - generic: stepwise\n  - paragraph: IELTS writing feedback & model essays\n  - link \"Official IELTS descriptors ↗\":\n    - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf"
+    },
+    {
+      "received_at": 1791694782980,
+      "state": "- banner:\n  - link \"Stepwise home\":\n    - /url: /\n    - text: stepwise\n  - generic: Writing practice\n  - generic: Official IELTS rubric connected\n- main:\n  - navigation \"Writing steps\":\n    - button \"1 Your draft\" [disabled]:\n      - generic: \"1\"\n      - text: Your draft\n    - button \"2 Feedback\" [disabled]:\n      - generic: \"2\"\n      - text: Feedback\n    - button \"3 Your goals\" [disabled]:\n      - generic: \"3\"\n      - text: Your goals\n    - button \"4 Model essay\" [disabled]:\n      - generic: \"4\"\n      - text: Model essay\n  - region \"Writing review progress\":\n    - generic: ✦\n    - paragraph: Stepwise is working\n    - heading \"An essay shaped around your ideas.\" [level=2]\n    - paragraph: First we write. Then we assess the essay independently.\n    - generic: 5s elapsed\n    - list:\n      - generic: ✓\n      - strong: Find your target-band standards\n      - generic: Complete\n      - generic: Done\n      - generic: \"2\"\n      - strong: Write your model essay\n      - generic: Writing an essay around your position and ideas\n      - generic: In progress\n      - generic: \"3\"\n      - strong: Review all four criteria independently\n      - generic: TR · CC · Vocabulary · Grammar\n      - generic: Waiting\n      - generic: \"4\"\n      - strong: Verify evidence, sources and scores\n      - generic: Waiting\n      - generic: Waiting\n    - generic \"Criterion review progress\":\n      - text: Task response\n      - generic: Waiting\n      - text: Coherence\n      - generic: Waiting\n      - text: Vocabulary\n      - generic: Waiting\n      - text: Grammar\n      - generic: Waiting\n    - status: Writing an essay around your position and ideas\n    - paragraph: You can keep this tab open. Your writing stays here if a connection fails.\n- contentinfo:\n  - generic: stepwise\n  - paragraph: IELTS writing feedback & model essays\n  - link \"Official IELTS descriptors ↗\":\n    - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf"
+    },
+    {
+      "received_at": 1791694803215,
+      "state": "- banner:\n  - link \"Stepwise home\":\n    - /url: /\n    - text: stepwise\n  - generic: Writing practice\n  - generic: Official IELTS rubric connected\n- main:\n  - navigation \"Writing steps\":\n    - button \"1 Your draft\":\n      - generic: \"1\"\n      - text: Your draft\n    - button \"2 Feedback\":\n      - generic: \"2\"\n      - text: Feedback\n    - button \"3 Your goals\":\n      - generic: \"3\"\n      - text: Your goals\n    - button \"4 Model essay\":\n      - generic: \"4\"\n      - text: Model essay\n  - paragraph: Your next essay\n  - heading \"Your ideas. A complete model essay.\" [level=1]:\n    - text: Your ideas.\n    - text: A complete model essay.\n  - paragraph: Read the essay, explore its scores, and see the standards behind each judgment.\n  - paragraph: The essay was generated from your requirements, then assessed in a separate call against retrieved official IELTS standards.\n  - article:\n    - paragraph: 315 words · Target band 7.0\n    - heading \"Balancing Public Transit and Road Infrastructure\" [level=2]\n    - paragraph: It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance. In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.\n    - paragraph: Directing substantial investment into public transport offers significant economic and lifestyle advantages for ordinary citizens. Foremost among these is affordability for commuters. Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative. Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas. Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones. When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.\n    - paragraph: Nevertheless, this does not mean that expenditure on roadway infrastructure should be entirely neglected. Sustained capital must still be reserved to maintain essential highways, bridges, and local routes. In particular, it is vital to protect rural connections. Many outlying towns and farming communities lack the high population density required to justify expensive rail lines or metro systems. In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets. Additionally, emergency vehicles, such as ambulances and fire engines, inevitably depend on smooth and safe surfaces to respond promptly to crises.\n    - paragraph: In conclusion, I largely agree that public transport should receive the lion’s share of state funding to relieve traffic jams, provide cheaper commuting options, and widen employment opportunities. However, governments must strike a prudent balance by continuing to finance essential road maintenance, especially to safeguard isolated rural communities.\n    - generic \"How your ideas were included\"\n  - complementary:\n    - paragraph: Separate assessment\n    - generic: Estimated Task 2 band\n    - strong: \"9.0\"\n    - strong: How your score is calculated\n    - paragraph: (9.0 + 9.0 + 9.0 + 9.0) ÷ 4 = 9.00 → 9.0\n    - generic: \"Each criterion has equal weight. The exact mean is converted to a half-band practice estimate: .25 rounds to .5; .75 rounds to the next whole band. Official descriptor rows use whole bands.\"\n    - paragraph: Each criterion was checked against every official band descriptor. Review the matched evidence and next-band gaps below.\n    - paragraph: Target 7.0 · Assessed 9.0. The assessment meets or exceeds your target.\n    - button \"Task Response 9.0\":\n      - strong: Task Response\n      - text: \"9.0\"\n    - button \"Coherence and Cohesion 9.0\":\n      - strong: Coherence and Cohesion\n      - text: \"9.0\"\n    - button \"Lexical Resource 9.0\":\n      - strong: Lexical Resource\n      - text: \"9.0\"\n    - button \"Grammatical Range and Accuracy 9.0\":\n      - strong: Grammatical Range and Accuracy\n      - text: \"9.0\"\n    - paragraph: Task Response · Band 9.0\n    - heading \"Task Response\" [level=2]\n    - paragraph: The prompt is addressed and explored in depth by contrasting the societal and environmental benefits of transit investment against the ongoing infrastructural necessity of roads. The candidate maintains an unambiguous, fully developed position throughout that directly answers 'to what extent'. Ideas on both urban transit and rural/emergency road needs are relevant, fully extended, and supported without content lapses.\n    - blockquote: “In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”\n    - heading \"Your next step\" [level=3]\n    - paragraph: Sustain this exceptional depth and balanced extension across various complex Task 2 essay types.\n    - heading \"A revision of your writing\" [level=3]\n    - generic: Your original\n    - text: Additionally, emergency vehicles, such as ambulances and fire engines, inevitably depend on smooth and safe surfaces to respond promptly to crises.\n    - generic: Suggested revision\n    - text: Additionally, emergency services such as ambulances and fire engines depend wholly on resilient roadway conditions to maintain rapid response times during life-threatening crises.\n    - heading \"The next band\" [level=3]\n    - paragraph: Band 9 is sustained across all descriptors; the essay fully explores the issue with depth, clarity, and tightly woven reasoning.\n    - heading \"Your essay against the band descriptors\" [level=3]\n    - paragraph: Every official band was checked against your writing. Start with your assessed band and the requirements for the next one.\n    - generic \"Band 9.0 Your assessed band 4 official statements\":\n      - generic: Band 9.0\n      - strong: Your assessed band\n      - generic: 4 official statements\n    - generic: Meets threshold\n    - generic: S1\n    - paragraph: The prompt is appropriately addressed and explored in depth.\n    - paragraph: The prompt is explored in depth by balancing transit investment with necessary road expenditures.\n    - blockquote: “In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic: Meets threshold\n    - generic: S2\n    - paragraph: A clear and fully developed position is presented which directly answers the question/s.\n    - paragraph: A fully developed position is consistently held throughout the essay.\n    - blockquote: “However, governments must strike a prudent balance by continuing to finance essential road maintenance, especially to safeguard isolated rural communities.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic: Meets threshold\n    - generic: S3\n    - paragraph: Ideas are relevant, fully extended and well supported.\n    - paragraph: The ideas presented are fully extended with compelling justification.\n    - blockquote: “In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic: Meets threshold\n    - generic: S4\n    - paragraph: Any lapses in content or support are extremely rare.\n    - paragraph: There are no lapses in content or supporting evidence.\n    - blockquote: “When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”\n    - link \"IELTS Writing Band Descriptors · Page 7 ↗\":\n      - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7\n    - generic \"View all other bands (0–9)\"\n    - generic \"Additional skill checks · 5 details\"\n  - button \"Edit my requirements\"\n  - button \"Download essay & feedback\"\n- contentinfo:\n  - generic: stepwise\n  - paragraph: IELTS writing feedback & model essays\n  - link \"Official IELTS descriptors ↗\":\n    - /url: https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf"
+    }
+  ],
+  "generated": {
+    "essay": "It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance. In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.\n\nDirecting substantial investment into public transport offers significant economic and lifestyle advantages for ordinary citizens. Foremost among these is affordability for commuters. Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative. Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas. Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones. When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.\n\nNevertheless, this does not mean that expenditure on roadway infrastructure should be entirely neglected. Sustained capital must still be reserved to maintain essential highways, bridges, and local routes. In particular, it is vital to protect rural connections. Many outlying towns and farming communities lack the high population density required to justify expensive rail lines or metro systems. In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets. Additionally, emergency vehicles, such as ambulances and fire engines, inevitably depend on smooth and safe surfaces to respond promptly to crises.\n\nIn conclusion, I largely agree that public transport should receive the lion’s share of state funding to relieve traffic jams, provide cheaper commuting options, and widen employment opportunities. However, governments must strike a prudent balance by continuing to finance essential road maintenance, especially to safeguard isolated rural communities.",
+    "formula": "How your score is calculated\n\n(9.0 + 9.0 + 9.0 + 9.0) ÷ 4 = 9.00 → 9.0\n\nEach criterion has equal weight. The exact mean is converted to a half-band practice estimate: .25 rounds to .5; .75 rounds to the next whole band. Official descriptor rows use whole bands.",
+    "criteria": [
+      {
+        "checks": [
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B9-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The prompt is appropriately addressed and explored in depth."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B9-S2",
+            "quote": "“However, governments must strike a prudent balance by continuing to finance essential road maintenance, especially to safeguard isolated rural communities.”",
+            "text": "A clear and fully developed position is presented which directly answers the question/s."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B9-S3",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "Ideas are relevant, fully extended and well supported."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B9-S4",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "Any lapses in content or support are extremely rare."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B8-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The prompt is appropriately and sufficiently addressed."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B8-S2",
+            "quote": "“In conclusion, I largely agree that public transport should receive the lion’s share of state funding to relieve traffic jams, provide cheaper commuting options, and widen employment opportunities.”",
+            "text": "A clear and well-developed position is presented in response to the question/s."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B8-S3",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "Ideas are relevant, well extended and supported."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B8-S4",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "There may be occasional omissions or lapses in content."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B7-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The main parts of the prompt are appropriately addressed."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B7-S2",
+            "quote": "“However, governments must strike a prudent balance by continuing to finance essential road maintenance, especially to safeguard isolated rural communities.”",
+            "text": "A clear and developed position is presented."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-TR-B7-S3",
+            "quote": "“Many outlying towns and farming communities lack the high population density required to justify expensive rail lines or metro systems.”",
+            "text": "Main ideas are extended and supported but there may be a tendency to over-generalise or there may be a lack of focus and precision in supporting ideas/material."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-TR-B6-S1",
+            "quote": "“Nevertheless, this does not mean that expenditure on roadway infrastructure should be entirely neglected.”",
+            "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-TR-B6-S2",
+            "quote": "“In conclusion, I largely agree that public transport should receive the lion’s share of state funding to relieve traffic jams, provide cheaper commuting options, and widen employment opportunities.”",
+            "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-TR-B6-S3",
+            "quote": "“Additionally, emergency vehicles, such as ambulances and fire engines, inevitably depend on smooth and safe surfaces to respond promptly to crises.”",
+            "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-TR-B5-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The main parts of the prompt are incompletely addressed. The format may be inappropriate in places."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-TR-B5-S2",
+            "quote": "“However, governments must strike a prudent balance by continuing to finance essential road maintenance, especially to safeguard isolated rural communities.”",
+            "text": "The writer expresses a position, but the development is not always clear."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-TR-B5-S3",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "Some main ideas are put forward, but they are limited and are not sufficiently developed and/or there may be irrelevant detail."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-TR-B5-S4",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "There may be some repetition."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B4-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The prompt is tackled in a minimal way, or the answer is tangential, possibly due to some misunderstanding of the prompt. The format may be inappropriate."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B4-S2",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "A position is discernible, but the reader has to read carefully to find it."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B4-S3",
+            "quote": "“Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas.”",
+            "text": "Main ideas are difficult to identify and such ideas that are identifiable may lack relevance, clarity and/or support."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B4-S4",
+            "quote": "“Sustained capital must still be reserved to maintain essential highways, bridges, and local routes.”",
+            "text": "Large parts of the response may be repetitive."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B3-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "No part of the prompt is adequately addressed, or the prompt has been misunderstood."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B3-S2",
+            "quote": "“In conclusion, I largely agree that public transport should receive the lion’s share of state funding to relieve traffic jams, provide cheaper commuting options, and widen employment opportunities.”",
+            "text": "No relevant position can be identified, and/or there is little direct response to the question/s."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B3-S3",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "There are few ideas, and these may be irrelevant or insufficiently developed."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B2-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The content is barely related to the prompt."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B2-S2",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "No position can be identified."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B2-S3",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "There may be glimpses of one or two ideas without development."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B1-S1",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "Responses of 20 words or fewer are rated at Band 1."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B1-S2",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The content is wholly unrelated to the prompt."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B1-S3",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "Any copied rubric must be discounted."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-TR-B0-S1",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "Should only be used where a candidate did not attend or attempt the question in any way, used a language other than English throughout, or where there is proof that a candidate’s answer has been totally memorised."
+          }
+        ],
+        "criterion": "Task Response9.0"
+      },
+      {
+        "checks": [
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B9-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The message can be followed effortlessly."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B9-S2",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "Cohesion is used in such a way that it very rarely attracts attention."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B9-S3",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "Any lapses in coherence or cohesion are minimal."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B9-S4",
+            "quote": "“Directing substantial investment into public transport offers significant economic and lifestyle advantages for ordinary citizens.”",
+            "text": "Paragraphing is skilfully managed."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B8-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The message can be followed with ease."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B8-S2",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "Information and ideas are logically sequenced, and cohesion is well managed."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B8-S3",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "Occasional lapses in coherence and cohesion may occur."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B8-S4",
+            "quote": "“Nevertheless, this does not mean that expenditure on roadway infrastructure should be entirely neglected.”",
+            "text": "Paragraphing is used sufficiently and appropriately."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B7-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "Information and ideas are logically organised, and there is a clear progression throughout the response. (A few lapses may occur, but these are minor.)"
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B7-S2",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "A range of cohesive devices including reference and substitution is used flexibly but with some inaccuracies or some over/under use."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-CC-B7-S3",
+            "quote": "“Many outlying towns and farming communities lack the high population density required to justify expensive rail lines or metro systems.”",
+            "text": "Paragraphing is generally used effectively to support overall coherence, and the sequencing of ideas within a paragraph is generally logical."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-CC-B6-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "Information and ideas are generally arranged coherently and there is a clear overall progression."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-CC-B6-S2",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-CC-B6-S3",
+            "quote": "“Foremost among these is affordability for commuters.”",
+            "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-CC-B6-S4",
+            "quote": "“Directing substantial investment into public transport offers significant economic and lifestyle advantages for ordinary citizens.”",
+            "text": "Paragraphing may not always be logical and/or the central topic may not always be clear."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-CC-B5-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "Organisation is evident but is not wholly logical and there may be a lack of overall progression. Nevertheless, there is a sense of underlying coherence to the response."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-CC-B5-S2",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "The relationship of ideas can be followed but the sentences are not fluently linked to each other."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-CC-B5-S3",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "There may be limited/overuse of cohesive devices with some inaccuracy."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-CC-B5-S4",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "The writing may be repetitive due to inadequate and/or inaccurate use of reference and substitution."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-CC-B5-S5",
+            "quote": "“Nevertheless, this does not mean that expenditure on roadway infrastructure should be entirely neglected.”",
+            "text": "Paragraphing may be inadequate or missing."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B4-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "Information and ideas are evident but not arranged coherently and there is no clear progression within the response."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B4-S2",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "Relationships between ideas can be unclear and/or inadequately marked. There is some use of basic cohesive devices, which may be inaccurate or repetitive."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B4-S3",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "There is inaccurate use or a lack of substitution or referencing."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B4-S4",
+            "quote": "“Directing substantial investment into public transport offers significant economic and lifestyle advantages for ordinary citizens.”",
+            "text": "There may be no paragraphing and/or no clear main topic within paragraphs."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B3-S1",
+            "quote": "“Directing substantial investment into public transport offers significant economic and lifestyle advantages for ordinary citizens.”",
+            "text": "There is no apparent logical organisation. Ideas are discernible but difficult to relate to each other."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B3-S2",
+            "quote": "“Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas.”",
+            "text": "There is minimal use of sequencers or cohesive devices. Those used do not necessarily indicate a logical relationship between ideas."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B3-S3",
+            "quote": "“Foremost among these is affordability for commuters.”",
+            "text": "There is difficulty in identifying referencing."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B3-S4",
+            "quote": "“Nevertheless, this does not mean that expenditure on roadway infrastructure should be entirely neglected.”",
+            "text": "Any attempts at paragraphing are unhelpful."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B2-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "There is little relevant message, or the entire response may be off-topic."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B2-S2",
+            "quote": "“Directing substantial investment into public transport offers significant economic and lifestyle advantages for ordinary citizens.”",
+            "text": "There is little evidence of control of organisational features."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B1-S1",
+            "quote": "“In conclusion, I largely agree that public transport should receive the lion’s share of state funding to relieve traffic jams, provide cheaper commuting options, and widen employment opportunities.”",
+            "text": "Responses of 20 words or fewer are rated at Band 1."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B1-S2",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The writing fails to communicate any message and appears to be by a virtual non-writer."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-CC-B0-S1",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "Should only be used where a candidate did not attend or attempt the question in any way, used a language other than English throughout, or where there is proof that a candidate’s answer has been totally memorised."
+          }
+        ],
+        "criterion": "Coherence and Cohesion9.0"
+      },
+      {
+        "checks": [
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B9-S1",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "Full flexibility and precise use are widely evident."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B9-S2",
+            "quote": "“Sustained capital must still be reserved to maintain essential highways, bridges, and local routes.”",
+            "text": "A wide range of vocabulary is used accurately and appropriately with very natural and sophisticated control of lexical features."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B9-S3",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "Minor errors in spelling and word formation are extremely rare and have minimal impact on communication."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B8-S1",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "A wide resource is fluently and flexibly used to convey precise meanings."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B8-S2",
+            "quote": "“However, governments must strike a prudent balance by continuing to finance essential road maintenance, especially to safeguard isolated rural communities.”",
+            "text": "There is skilful use of uncommon and/or idiomatic items when appropriate, despite occasional inaccuracies in word choice and collocation."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B8-S3",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "Occasional errors in spelling and/or word formation may occur, but have minimal impact on communication."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B7-S1",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "The resource is sufficient to allow some flexibility and precision."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B7-S2",
+            "quote": "“In conclusion, I largely agree that public transport should receive the lion’s share of state funding to relieve traffic jams, provide cheaper commuting options, and widen employment opportunities.”",
+            "text": "There is some ability to use less common and/or idiomatic items."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B7-S3",
+            "quote": "“Sustained capital must still be reserved to maintain essential highways, bridges, and local routes.”",
+            "text": "An awareness of style and collocation is evident, though inappropriacies occur."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-LR-B7-S4",
+            "quote": "“Additionally, emergency vehicles, such as ambulances and fire engines, inevitably depend on smooth and safe surfaces to respond promptly to crises.”",
+            "text": "There are only a few errors in spelling and/or word formation and they do not detract from overall clarity."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-LR-B6-S1",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "The resource is generally adequate and appropriate for the task."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-LR-B6-S2",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-LR-B6-S3",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-LR-B6-S4",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "There are some errors in spelling and/or word formation, but these do not impede communication."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-LR-B5-S1",
+            "quote": "“Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas.”",
+            "text": "The resource is limited but minimally adequate for the task."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-LR-B5-S2",
+            "quote": "“Beyond personal finances, robust public transport systems are vital for mitigating traffic congestion in major metropolitan zones.”",
+            "text": "Simple vocabulary may be used accurately but the range does not permit much variation in expression."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-LR-B5-S3",
+            "quote": "“Many outlying towns and farming communities lack the high population density required to justify expensive rail lines or metro systems.”",
+            "text": "There may be frequent lapses in the appropriacy of word choice and a lack of flexibility is apparent in frequent simplifications and/or repetitions."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-LR-B5-S4",
+            "quote": "“Additionally, emergency vehicles, such as ambulances and fire engines, inevitably depend on smooth and safe surfaces to respond promptly to crises.”",
+            "text": "Errors in spelling and/or word formation may be noticeable and may cause some difficulty for the reader."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B4-S1",
+            "quote": "“Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas.”",
+            "text": "The resource is limited and inadequate for or unrelated to the task. Vocabulary is basic and may be used repetitively."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B4-S2",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "There may be inappropriate use of lexical chunks (e.g. memorised phrases, formulaic language and/or language from the input material)."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B4-S3",
+            "quote": "“Sustained capital must still be reserved to maintain essential highways, bridges, and local routes.”",
+            "text": "Inappropriate word choice and/or errors in word formation and/or in spelling may impede meaning."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B3-S1",
+            "quote": "“Directing substantial investment into public transport offers significant economic and lifestyle advantages for ordinary citizens.”",
+            "text": "The resource is inadequate (which may be due to the response being significantly underlength). Possible over-dependence on input material or memorised language."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B3-S2",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "Control of word choice and/or spelling is very limited, and errors predominate. These errors may severely impede meaning."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B2-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "The resource is extremely limited with few recognisable strings, apart from memorised phrases."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B2-S2",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "There is no apparent control of word formation and/or spelling."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B1-S1",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "Responses of 20 words or fewer are rated at Band 1."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B1-S2",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "No resource is apparent, except for a few isolated words."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-LR-B0-S1",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "Should only be used where a candidate did not attend or attempt the question in any way, used a language other than English throughout, or where there is proof that a candidate’s answer has been totally memorised."
+          }
+        ],
+        "criterion": "Lexical Resource9.0"
+      },
+      {
+        "checks": [
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-GRA-B9-S1",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "A wide range of structures is used with full flexibility and control."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-GRA-B9-S2",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "Punctuation and grammar are used appropriately throughout."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-GRA-B9-S3",
+            "quote": "“However, governments must strike a prudent balance by continuing to finance essential road maintenance, especially to safeguard isolated rural communities.”",
+            "text": "Minor errors are extremely rare and have minimal impact on communication."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-GRA-B8-S1",
+            "quote": "“Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas.”",
+            "text": "A wide range of structures is flexibly and accurately used."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-GRA-B8-S2",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "The majority of sentences are error-free, and punctuation is well managed."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-GRA-B8-S3",
+            "quote": "“Sustained capital must still be reserved to maintain essential highways, bridges, and local routes.”",
+            "text": "Occasional, non-systematic errors and inappropriacies occur, but have minimal impact on communication."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-GRA-B7-S1",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "A variety of complex structures is used with some flexibility and accuracy."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-GRA-B7-S2",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "Grammar and punctuation are generally well controlled, and error-free sentences are frequent."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+            "id": "T2-GRA-B7-S3",
+            "quote": "“In conclusion, I largely agree that public transport should receive the lion’s share of state funding to relieve traffic jams, provide cheaper commuting options, and widen employment opportunities.”",
+            "text": "A few errors in grammar may persist, but these do not impede communication."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-GRA-B6-S1",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "A mix of simple and complex sentence forms is used but flexibility is limited."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-GRA-B6-S2",
+            "quote": "“Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas.”",
+            "text": "Examples of more complex structures are not marked by the same level of accuracy as in simple structures."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-GRA-B6-S3",
+            "quote": "“Nevertheless, this does not mean that expenditure on roadway infrastructure should be entirely neglected.”",
+            "text": "Errors in grammar and punctuation occur, but rarely impede communication."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-GRA-B5-S1",
+            "quote": "“Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas.”",
+            "text": "The range of structures is limited and rather repetitive."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-GRA-B5-S2",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "Although complex sentences are attempted, they tend to be faulty, and the greatest accuracy is achieved on simple sentences."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-GRA-B5-S3",
+            "quote": "“Many outlying towns and farming communities lack the high population density required to justify expensive rail lines or metro systems.”",
+            "text": "Grammatical errors may be frequent and cause some difficulty for the reader."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8",
+            "id": "T2-GRA-B5-S4",
+            "quote": "“Additionally, emergency vehicles, such as ambulances and fire engines, inevitably depend on smooth and safe surfaces to respond promptly to crises.”",
+            "text": "Punctuation may be faulty."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B4-S1",
+            "quote": "“When subways, trams, and rapid bus lines operate with high frequency and punctuality, millions of drivers leave their cars at home, resulting in clearer roads and lower vehicle emissions.”",
+            "text": "A very limited range of structures is used."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B4-S2",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "Subordinate clauses are rare and simple sentences predominate."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B4-S3",
+            "quote": "“In these regions, properly maintained roads are indispensable for residents to access regional services, and for farmers to transport agricultural goods to urban markets.”",
+            "text": "Some structures are produced accurately but grammatical errors are frequent and may impede meaning."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B4-S4",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "Punctuation is often faulty or inadequate."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B3-S1",
+            "quote": "“Furthermore, reliable transit routes expand access to jobs for individuals who cannot afford an automobile, enabling them to reach commercial hubs and industrial areas.”",
+            "text": "Sentence forms are attempted, but errors in grammar and punctuation predominate (except in memorised phrases or those taken from the input material). This prevents most meaning from coming through."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B3-S2",
+            "quote": "“Directing substantial investment into public transport offers significant economic and lifestyle advantages for ordinary citizens.”",
+            "text": "Length may be insufficient to provide evidence of control of sentence forms."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B2-S1",
+            "quote": "“Relying on private vehicles incurs steep costs, including fuel, insurance, and parking, whereas comprehensive bus and rail networks provide an economical alternative.”",
+            "text": "There is little or no evidence of sentence forms (except in memorised phrases)."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B1-S1",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "Responses of 20 words or fewer are rated at Band 1."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B1-S2",
+            "quote": "“In my opinion, while public transport deserves primary financial support because of its immense social and environmental benefits, governments must continue to maintain crucial road networks.”",
+            "text": "No rateable language is evident."
+          },
+          {
+            "href": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=9",
+            "id": "T2-GRA-B0-S1",
+            "quote": "“It is often argued that authorities should allocate a greater share of their budgets to mass transit systems rather than to road construction and maintenance.”",
+            "text": "Should only be used where a candidate did not attend or attempt the question in any way, used a language other than English throughout, or where there is proof that a candidate’s answer has been totally memorised."
+          }
+        ],
+        "criterion": "Grammatical Range and Accuracy9.0"
+      }
+    ],
+    "assertions": {
+      "statements": 119,
+      "all_standards_exact": true,
+      "all_pages_exact": true,
+      "all_quotes_exact": true
+    }
+  },
+  "verified_at": "2026-10-11T05:00:12.431Z"
+}

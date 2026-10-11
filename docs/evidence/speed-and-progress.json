@@ -1,0 +1,830 @@
+{
+  "before": [
+    {
+      "route": "feedback",
+      "wall_seconds": 19.668,
+      "statements": 119,
+      "scores": [
+        8,
+        9,
+        8,
+        8
+      ],
+      "calls": [
+        {
+          "criterion": "TR",
+          "latency_ms": 17933,
+          "usage": {
+            "promptTokenCount": 16488,
+            "candidatesTokenCount": 3442,
+            "totalTokenCount": 19930,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 16488
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 3442
+              }
+            ]
+          },
+          "response_id": "aRXLasjNMdWJxNEPyc-ciAo",
+          "prompt_version": "official-rubric-v4.1-band-depth"
+        },
+        {
+          "criterion": "CC",
+          "latency_ms": 16390,
+          "usage": {
+            "promptTokenCount": 15686,
+            "candidatesTokenCount": 3331,
+            "totalTokenCount": 19017,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 15686
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 3331
+              }
+            ]
+          },
+          "response_id": "aRXLavGGMZeRmecPqOiiqAU",
+          "prompt_version": "official-rubric-v4.1-band-depth"
+        },
+        {
+          "criterion": "LR",
+          "latency_ms": 16380,
+          "usage": {
+            "promptTokenCount": 15176,
+            "candidatesTokenCount": 3078,
+            "totalTokenCount": 18254,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 15176
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 3078
+              }
+            ]
+          },
+          "response_id": "aRXLatHIMffy7bEPsoKMiAU",
+          "prompt_version": "official-rubric-v4.1-band-depth"
+        },
+        {
+          "criterion": "GRA",
+          "latency_ms": 15673,
+          "usage": {
+            "promptTokenCount": 14091,
+            "candidatesTokenCount": 2925,
+            "totalTokenCount": 17016,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 14091
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2925
+              }
+            ]
+          },
+          "response_id": "aRXLav-cMaKJ5usPlOut-AE",
+          "prompt_version": "official-rubric-v4.1-band-depth"
+        }
+      ]
+    },
+    {
+      "route": "model-essay",
+      "wall_seconds": 25.685,
+      "statements": 119,
+      "scores": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "calls": [
+        {
+          "criterion": "TR",
+          "latency_ms": 13823,
+          "usage": {
+            "promptTokenCount": 16388,
+            "candidatesTokenCount": 2813,
+            "totalTokenCount": 19201,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 16388
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2813
+              }
+            ]
+          },
+          "response_id": "hBXLavj3Aba95usPsKnHgAo",
+          "prompt_version": "official-rubric-v4.1-band-depth"
+        },
+        {
+          "criterion": "CC",
+          "latency_ms": 16045,
+          "usage": {
+            "promptTokenCount": 15586,
+            "candidatesTokenCount": 3380,
+            "totalTokenCount": 18966,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 15586
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 3380
+              }
+            ]
+          },
+          "response_id": "hBXLaqYlqvztsQ-l68qRAQ",
+          "prompt_version": "official-rubric-v4.1-band-depth"
+        },
+        {
+          "criterion": "LR",
+          "latency_ms": 16472,
+          "usage": {
+            "promptTokenCount": 15076,
+            "candidatesTokenCount": 3122,
+            "totalTokenCount": 18198,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 15076
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 3122
+              }
+            ]
+          },
+          "response_id": "hBXLatKSAYePmecPt9f06Q0",
+          "prompt_version": "official-rubric-v4.1-band-depth"
+        },
+        {
+          "criterion": "GRA",
+          "latency_ms": 12622,
+          "usage": {
+            "promptTokenCount": 13991,
+            "candidatesTokenCount": 2444,
+            "totalTokenCount": 16435,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 13991
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2444
+              }
+            ]
+          },
+          "response_id": "hBXLatOhAdS25usP5P6N-AY",
+          "prompt_version": "official-rubric-v4.1-band-depth"
+        },
+        {
+          "criterion": null,
+          "latency_ms": 6348,
+          "usage": {
+            "promptTokenCount": 14348,
+            "candidatesTokenCount": 528,
+            "totalTokenCount": 14876,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 14348
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 528
+              }
+            ]
+          },
+          "response_id": "fBXLaryNIdiIxNEPsJK04QI",
+          "prompt_version": "official-rubric-v4.1-band-depth"
+        }
+      ]
+    }
+  ],
+  "after": [
+    {
+      "route": "feedback",
+      "wall_seconds": 18.647,
+      "first_event_seconds": 1.139,
+      "statements": 119,
+      "scores": [
+        8,
+        9,
+        8,
+        9
+      ],
+      "score_calculation": {
+        "criterion_scores": [
+          8,
+          9,
+          8,
+          9
+        ],
+        "sum": 34,
+        "divisor": 4,
+        "raw_mean": "8.50",
+        "rounded_band": "8.5",
+        "rounding": "nearest_half_band_half_up",
+        "scope": "Task 2 practice estimate"
+      },
+      "events": [
+        {
+          "type": "progress",
+          "phase": "accepted",
+          "status": "done",
+          "message": "Request received; preparing your writing",
+          "elapsed_ms": 0,
+          "received_seconds": 1.139
+        },
+        {
+          "type": "progress",
+          "phase": "retrieval",
+          "status": "running",
+          "message": "Retrieving the official scoring standards",
+          "elapsed_ms": 1,
+          "received_seconds": 1.139
+        },
+        {
+          "type": "progress",
+          "phase": "retrieval",
+          "status": "done",
+          "message": "All 119 Task 2 standards retrieved",
+          "statements": 119,
+          "elapsed_ms": 3010,
+          "received_seconds": 4.144
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "message": "Checking four criteria in parallel",
+          "elapsed_ms": 3010,
+          "received_seconds": 4.147
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "TR",
+          "message": "Checking Task Response",
+          "elapsed_ms": 3012,
+          "received_seconds": 4.147
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "CC",
+          "message": "Checking Coherence and Cohesion",
+          "elapsed_ms": 3014,
+          "received_seconds": 4.148
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "LR",
+          "message": "Checking Lexical Resource",
+          "elapsed_ms": 3016,
+          "received_seconds": 4.15
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "GRA",
+          "message": "Checking Grammatical Range and Accuracy",
+          "elapsed_ms": 3017,
+          "received_seconds": 4.151
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "GRA",
+          "message": "Grammatical Range and Accuracy checked",
+          "statements": 26,
+          "elapsed_ms": 12722,
+          "received_seconds": 13.857
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "TR",
+          "message": "Task Response checked",
+          "statements": 32,
+          "elapsed_ms": 14340,
+          "received_seconds": 15.474
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "LR",
+          "message": "Lexical Resource checked",
+          "statements": 28,
+          "elapsed_ms": 16790,
+          "received_seconds": 17.924
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "CC",
+          "message": "Coherence and Cohesion checked",
+          "statements": 33,
+          "elapsed_ms": 16850,
+          "received_seconds": 17.985
+        },
+        {
+          "type": "progress",
+          "phase": "validation",
+          "status": "running",
+          "message": "Verifying all evidence, citations and score arithmetic",
+          "elapsed_ms": 16851,
+          "received_seconds": 17.988
+        },
+        {
+          "type": "progress",
+          "phase": "validation",
+          "status": "done",
+          "message": "All 119 matches and the four-score average verified",
+          "elapsed_ms": 16854,
+          "received_seconds": 17.988
+        }
+      ],
+      "calls": [
+        {
+          "criterion": "TR",
+          "latency_ms": 11214,
+          "usage": {
+            "promptTokenCount": 7398,
+            "candidatesTokenCount": 1992,
+            "totalTokenCount": 9390,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 7398
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1992
+              }
+            ]
+          },
+          "response_id": "1RbLarXpI7a95usPsKnHgAo",
+          "prompt_version": "official-rubric-v4.2-compact-stream"
+        },
+        {
+          "criterion": "CC",
+          "latency_ms": 13724,
+          "usage": {
+            "promptTokenCount": 7119,
+            "candidatesTokenCount": 2483,
+            "totalTokenCount": 9602,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 7119
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2483
+              }
+            ]
+          },
+          "response_id": "1RbLarCTJIePmecPt9f06Q0",
+          "prompt_version": "official-rubric-v4.2-compact-stream"
+        },
+        {
+          "criterion": "LR",
+          "latency_ms": 13662,
+          "usage": {
+            "promptTokenCount": 6766,
+            "candidatesTokenCount": 2818,
+            "totalTokenCount": 9584,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6766
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2818
+              }
+            ]
+          },
+          "response_id": "1RbLapqkJNWJxNEPyc-ciAo",
+          "prompt_version": "official-rubric-v4.2-compact-stream"
+        },
+        {
+          "criterion": "GRA",
+          "latency_ms": 9591,
+          "usage": {
+            "promptTokenCount": 6427,
+            "candidatesTokenCount": 1652,
+            "totalTokenCount": 8079,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6427
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1652
+              }
+            ]
+          },
+          "response_id": "1RbLatGwJNuplb4P-KbTSA",
+          "prompt_version": "official-rubric-v4.2-compact-stream"
+        }
+      ]
+    },
+    {
+      "route": "model-essay",
+      "wall_seconds": 23.031,
+      "first_event_seconds": 0.195,
+      "statements": 119,
+      "scores": [
+        9,
+        8,
+        9,
+        9
+      ],
+      "score_calculation": {
+        "criterion_scores": [
+          9,
+          8,
+          9,
+          9
+        ],
+        "sum": 35,
+        "divisor": 4,
+        "raw_mean": "8.75",
+        "rounded_band": "9.0",
+        "rounding": "nearest_half_band_half_up",
+        "scope": "Task 2 practice estimate"
+      },
+      "events": [
+        {
+          "type": "progress",
+          "phase": "accepted",
+          "status": "done",
+          "message": "Request received; preparing your writing",
+          "elapsed_ms": 0,
+          "received_seconds": 0.195
+        },
+        {
+          "type": "progress",
+          "phase": "generation_retrieval",
+          "status": "running",
+          "message": "Retrieving standards for your target band",
+          "elapsed_ms": 1,
+          "received_seconds": 0.201
+        },
+        {
+          "type": "progress",
+          "phase": "generation_retrieval",
+          "status": "done",
+          "message": "Target-band standards retrieved",
+          "elapsed_ms": 94,
+          "received_seconds": 0.289
+        },
+        {
+          "type": "progress",
+          "phase": "generation",
+          "status": "running",
+          "message": "Writing an essay around your position and ideas",
+          "elapsed_ms": 94,
+          "received_seconds": 0.29
+        },
+        {
+          "type": "progress",
+          "phase": "generation",
+          "status": "done",
+          "message": "309-word essay written; starting a separate assessment",
+          "word_count": 309,
+          "elapsed_ms": 5677,
+          "received_seconds": 5.873
+        },
+        {
+          "type": "progress",
+          "phase": "retrieval",
+          "status": "running",
+          "message": "Retrieving the official scoring standards",
+          "elapsed_ms": 5677,
+          "received_seconds": 5.881
+        },
+        {
+          "type": "progress",
+          "phase": "retrieval",
+          "status": "done",
+          "message": "All 119 Task 2 standards retrieved",
+          "statements": 119,
+          "elapsed_ms": 6028,
+          "received_seconds": 6.292
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "message": "Checking four criteria in parallel",
+          "elapsed_ms": 6028,
+          "received_seconds": 6.297
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "TR",
+          "message": "Checking Task Response",
+          "elapsed_ms": 6090,
+          "received_seconds": 6.297
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "CC",
+          "message": "Checking Coherence and Cohesion",
+          "elapsed_ms": 6094,
+          "received_seconds": 6.297
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "LR",
+          "message": "Checking Lexical Resource",
+          "elapsed_ms": 6098,
+          "received_seconds": 6.297
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "GRA",
+          "message": "Checking Grammatical Range and Accuracy",
+          "elapsed_ms": 6101,
+          "received_seconds": 6.297
+        },
+        {
+          "type": "heartbeat",
+          "elapsed_ms": 16105,
+          "received_seconds": 16.3
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "LR",
+          "message": "Lexical Resource checked",
+          "statements": 28,
+          "elapsed_ms": 16718,
+          "received_seconds": 16.912
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "TR",
+          "message": "Task Response checked",
+          "statements": 32,
+          "elapsed_ms": 16770,
+          "received_seconds": 16.965
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "GRA",
+          "message": "Grammatical Range and Accuracy checked",
+          "statements": 26,
+          "elapsed_ms": 18851,
+          "received_seconds": 19.046
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "CC",
+          "message": "Coherence and Cohesion checked",
+          "statements": 33,
+          "elapsed_ms": 21941,
+          "received_seconds": 22.135
+        },
+        {
+          "type": "progress",
+          "phase": "validation",
+          "status": "running",
+          "message": "Verifying all evidence, citations and score arithmetic",
+          "elapsed_ms": 21942,
+          "received_seconds": 22.138
+        },
+        {
+          "type": "progress",
+          "phase": "validation",
+          "status": "done",
+          "message": "All 119 matches and the four-score average verified",
+          "elapsed_ms": 21944,
+          "received_seconds": 22.138
+        }
+      ],
+      "calls": [
+        {
+          "criterion": "TR",
+          "latency_ms": 10678,
+          "usage": {
+            "promptTokenCount": 7427,
+            "candidatesTokenCount": 1913,
+            "totalTokenCount": 9340,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 7427
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1913
+              }
+            ]
+          },
+          "response_id": "6hbLau-pDtWJxNEPyc-ciAo",
+          "prompt_version": "official-rubric-v4.2-compact-stream"
+        },
+        {
+          "criterion": "CC",
+          "latency_ms": 15845,
+          "usage": {
+            "promptTokenCount": 7148,
+            "candidatesTokenCount": 3147,
+            "totalTokenCount": 10295,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 7148
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 3147
+              }
+            ]
+          },
+          "response_id": "6hbLauTqEI-hmecPhOKu4A8",
+          "prompt_version": "official-rubric-v4.2-compact-stream"
+        },
+        {
+          "criterion": "LR",
+          "latency_ms": 10618,
+          "usage": {
+            "promptTokenCount": 6795,
+            "candidatesTokenCount": 1759,
+            "totalTokenCount": 8554,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6795
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1759
+              }
+            ]
+          },
+          "response_id": "6hbLasiwENzl-O4P7PGPqQI",
+          "prompt_version": "official-rubric-v4.2-compact-stream"
+        },
+        {
+          "criterion": "GRA",
+          "latency_ms": 12748,
+          "usage": {
+            "promptTokenCount": 6456,
+            "candidatesTokenCount": 2616,
+            "totalTokenCount": 9072,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6456
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2616
+              }
+            ]
+          },
+          "response_id": "6hbLap7TD9iIxNEPsJK04QI",
+          "prompt_version": "official-rubric-v4.2-compact-stream"
+        },
+        {
+          "criterion": null,
+          "latency_ms": 5583,
+          "usage": {
+            "promptTokenCount": 4015,
+            "candidatesTokenCount": 569,
+            "totalTokenCount": 4584,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 4015
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 569
+              }
+            ]
+          },
+          "response_id": "5BbLauL2D9iIxNEPsJK04QI",
+          "prompt_version": "official-rubric-v4.2-compact-stream"
+        }
+      ]
+    }
+  ],
+  "backend_source": "74731a3d206ed243652e1ff0c9c7d238c5765352",
+  "previous_backend_source": "f42bb8ca2d781dd64f7a281cf090bed01e25faba",
+  "revision": "stepwise-api-00005-wez",
+  "build_id": "4755b1b9-bc61-4c73-8368-77db5f9d11a5",
+  "sample": "data/sample_essay.json",
+  "note": "One sequential before/after pair; elapsed time can vary with cold starts, provider load and retries.",
+  "frontend_source": "acfe076f6680e65025610f6e118214958fb4fa52",
+  "vercel_deployment": "dpl_4kceTrmATJs8haiLYp9HY1Ge9996",
+  "public_url": "https://stepwise-one.vercel.app",
+  "tests": {
+    "python_passed": 54,
+    "node_passed": 5,
+    "commands": [
+      "uv run --directory services/api --group dev pytest ../../tests/unit -q",
+      "npm test",
+      "npm run build"
+    ]
+  }
+}

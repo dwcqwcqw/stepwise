@@ -65,7 +65,15 @@ Historical preview evidence is preserved under `docs/evidence/preview-v1/`; it d
 
 Team: Bei Li, Ernest Ferdian, Dimitris Pipinis, Xiahui Huang.
 
-## Current band-matching release
+## Faster calls and live processing progress
+
+Review and Generate now show real server stages and individual criterion completion events. Compact model transport retains every standard and evidence check, while pooled connections and expiring identity reuse reduce overhead. Identical verified feedback is reused only within the current tab; generation always runs anew.
+
+One real before/after pair measured draft review at 19.7 → 18.6 seconds and generation plus independent scoring at 25.7 → 23.0 seconds. Input tokens fell by 55–58%; these are sample observations, not guaranteed latency. All 119 Task 2 checks remain.
+
+[Performance details and reproduction](docs/performance.md) · [Actual events and model usage](docs/evidence/speed-and-progress.json)
+
+## Complete band-matching release
 
 The 369-point official index includes 238 separately indexed PDF paragraph statements, of which 119 apply to Task 2. Four parallel, target-blind criterion calls check every band from 0 to 9, all paragraph requirements and bold limiting features. Current/next-band matches cite the exact Band Descriptors page; generic skill checks remain supplementary. The backend validates coverage and verbatim essay evidence, derives the supported band and shows exact averaging with Decimal half-up conversion.
 

@@ -25,3 +25,7 @@ PNG screenshots show the upgraded running application. Files ending in `-detail.
 `band-paragraph-audit.json` verifies exact preservation of all 80 cells and 238 PDF paragraphs, including 119 Task 2 standards. `band-matching-tests.txt` records 46 passing unit tests. `band-matching-integration.json` records the 13-call real container run against the 369-point index, with model response IDs, all-criterion coverage and exact arithmetic. It names its v4 source honestly; v4.1 public browser checks are separate.
 
 `band-matching-production-ui.json` records final fixed-URL draft and model-essay checks, source commits, revision and exact source/essay evidence checks. `band-matching-feedback.png` is a legible detail from the live band-specific feedback panel; `band-matching-overview.png` preserves surrounding feedback context. Earlier receipts retain their original source/index versions.
+
+## Latency and live progress
+
+`speed-and-progress.json` records before/after Cloud Run timings, model usage, response IDs and every received server event. Both optimized assessments pass all 119 statement checks. `speed-progress-production-ui.json` and `loading-review.png` / `loading-generation.png` record the fixed public URL displaying actual loading steps before completion. Unit coverage is 54 Python tests and five Node tests, including non-buffering gateway forwarding and incomplete-stream rejection. Earlier receipts remain tied to their original revisions.
