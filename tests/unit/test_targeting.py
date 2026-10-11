@@ -110,3 +110,16 @@ def test_single_candidate_continuation_preserves_attempt_history_and_target_blin
     assert result['target_met'] and result['assessment']['overall_band']==7
     assert [x['assessed_band'] for x in result['target_match']['attempts']]==[9,7]
     assert payloads[1]['protected_position_sentence']=='A learner sentence.'
+
+def test_focused_revision_keeps_calibrated_control_levels_for_unchanged_skills(monkeypatch):
+    requirements,payloads,_=setup_generation(monkeypatch,[9,6.5,7],7)
+    result=assessment.generate_essay(requirements)
+    assert result['target_met']
+    second=payloads[1]['criterion_target_profile']
+    third=payloads[2]['criterion_target_profile']
+    assert second=={'TR':5,'CC':5,'LR':5,'GRA':5}
+    assert payloads[2]['revision_mode']=='focused_revision'
+    assert payloads[2]['focus_criteria']==['LR']
+    assert third=={'TR':5,'CC':5,'LR':6,'GRA':5}
+    # Do not reset TR/CC/GRA to the observed scores (7/6/6), which rewrites
+    # already calibrated skills and causes oscillation back to higher bands.

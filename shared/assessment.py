@@ -264,6 +264,7 @@ def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_cand
         # A fresh assessor sees only the question and essay, never target/plan/feedback.
         evaluation=assess(requirements['prompt'],essay,progress=emit)
         observed=evaluation['overall_band']
+        logger.info('target_calibration target=%s observed=%s attempt=%s scores=%s',target,observed,target_attempt,{c['criterion']:c['score'] for c in evaluation['criteria']})
         history.append({'attempt':target_attempt,'assessed_band':observed,
                         'writer_profile':dict(writer_profile),
                         'criterion_scores':{c['criterion']:c['score'] for c in evaluation['criteria']},
@@ -277,7 +278,7 @@ def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_cand
             focused=abs(observed-target)<=1
             desired=nearest_score_profile(evaluation,target) if focused else profile
             actual={c['criterion']:c['score'] for c in evaluation['criteria']}
-            writer_profile=desired if focused else adjust_writer_profile(writer_profile,evaluation,desired)
+            writer_profile=adjust_writer_profile(writer_profile,evaluation,desired)
             selected=[x for x in context['chunks'] if x['kind']!='band_descriptor' or max(0,writer_profile[x['criterion']]-1)<=x['band']<=min(9,writer_profile[x['criterion']]+1)]
             payload.update(criterion_target_profile=dict(writer_profile),official_rubric_context=rubric_payload(selected),
                 revision_mode='focused_revision' if focused else 'rewrite',
