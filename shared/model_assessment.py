@@ -27,11 +27,17 @@ def ordered_records(context,code):
 
 def model_schema(evidence,context):
     base=reference_schema(evidence)['properties']['criteria']['items']['properties']
-    ref={'type':'STRING','enum':[e['evidence_id'] for e in evidence]}
+    # Repeated evidence-ID enums across four cards can exceed Vertex schema
+    # complexity limits on essays with many sentences. Exact IDs are still
+    # supplied in the prompt and checked by resolve_references on the server.
+    ref={'type':'STRING'}
     cards={}
     for code in CRITERIA:
         _,statements,limiters=ordered_records(context,code)
         props=deepcopy(base);props.pop('criterion')
+        props['essay_evidence_id']=ref
+        props['example']['properties']['before_evidence_id']=ref
+        props['subcriteria']['items']['properties']['essay_evidence_id']=ref
         detail_ids=[c['subcriterion_id'] for c in context['chunks'] if c['kind']=='subcriterion' and c['criterion']==code]
         props['subcriteria']['items']['properties']['subcriterion_id']={'type':'STRING','enum':detail_ids}
         props['subcriteria'].update(minItems=len(detail_ids),maxItems=len(detail_ids))
@@ -40,8 +46,8 @@ def model_schema(evidence,context):
             evidence_ids=fixed(ref,len(statements)),
             limiter_flags=fixed({'type':'BOOLEAN'},len(limiters)),
             limiter_evidence_ids=fixed(ref,len(limiters)),
-            focus_explanations=arr(obj({'statement_id':{'type':'STRING','enum':[s['statement_id'] for s in statements]},'explanation':STRING})),
-            limiter_explanations=arr(obj({'limiter_id':{'type':'STRING','enum':[l['limiter_id'] for l in limiters] or ['NONE']},'explanation':STRING})))
+            focus_explanations=arr(obj({'statement_id':STRING,'explanation':STRING})),
+            limiter_explanations=arr(obj({'limiter_id':STRING,'explanation':STRING})))
         cards[code]=obj(props)
     return compact_schema(obj({'summary':STRING,'criteria':obj(cards)}))
 

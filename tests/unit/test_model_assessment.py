@@ -88,3 +88,15 @@ def test_repeated_combined_failure_returns_no_score(monkeypatch):
     monkeypatch.setattr(fast,'assessment_context',lambda _:context)
     monkeypatch.setattr(fast,'generate',lambda *a,**kw:(rename(value),{}))
     with pytest.raises(fast.ModelUnavailable):fast.assess_model_essay('Should governments fund buses?',ESSAY)
+
+
+def test_many_sentence_evidence_does_not_expand_provider_schema_enums():
+    import json
+    _,context,_=compact_fixture()
+    small=fast.model_schema([{'evidence_id':'E001'}],context)
+    large=fast.model_schema([{'evidence_id':f'E{n:03d}'} for n in range(1,101)],context)
+    assert json.dumps(small)==json.dumps(large)
+    # Unrecognized IDs are still rejected by the actual server evidence gate.
+    value,context,evidence=compact_fixture();value['criteria']['TR']['evidence_ids'][6]='E999'
+    with pytest.raises(ValueError,match='Unknown essay evidence ID'):
+        resolve_references(fast.unpack_matches(value,context),evidence,context)
