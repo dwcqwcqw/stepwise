@@ -4,14 +4,35 @@ import os
 import re
 import time
 import threading
+import logging
+import random
+from contextlib import contextmanager
+from contextvars import ContextVar
 from pathlib import Path
 import httpx
 
 MODEL=os.getenv('GEMINI_MODEL','gemini-3.5-flash')
 PROMPT_VERSION='official-rubric-v4.7-target-matching'
-CLIENT=httpx.Client(timeout=240,limits=httpx.Limits(max_connections=12,max_keepalive_connections=8))
+CLIENT=httpx.Client(timeout=httpx.Timeout(75,connect=10,pool=5,write=15),limits=httpx.Limits(max_connections=12,max_keepalive_connections=8))
 _metadata_token=None
 _token_lock=threading.Lock()
+logger=logging.getLogger(__name__)
+_request_deadline=ContextVar('vertex_request_deadline',default=None)
+_request_progress=ContextVar('vertex_request_progress',default=None)
+
+@contextmanager
+def request_budget(progress=None,seconds=235):
+    """Leave time for a checked error before the 270-second gateway limit."""
+    deadline=_request_deadline.get()
+    token=_request_deadline.set(min(deadline,time.monotonic()+seconds) if deadline else time.monotonic()+seconds)
+    callback=_request_progress.set(progress)
+    try:yield
+    finally:
+        _request_progress.reset(callback);_request_deadline.reset(token)
+
+def request_remaining(call_deadline):
+    deadline=_request_deadline.get()
+    return min(call_deadline,deadline if deadline is not None else call_deadline)-time.monotonic()
 
 class ModelUnavailable(RuntimeError): pass
 
@@ -50,15 +71,33 @@ def generate(system, payload, schema, temperature=0.1):
         body['generationConfig']['thinkingConfig']={'thinkingLevel':level}
     else: body['generationConfig']['thinkingConfig']={'thinkingBudget':1024}
     started=time.monotonic()
+    call_deadline=started+180
     for attempt in range(3):
+        remaining=request_remaining(call_deadline)
+        if remaining<=1:
+            raise ModelUnavailable('Google model response timed out. Please try again; your writing is unchanged.')
+        # Bound each attempt so a read timeout leaves room for a real retry.
+        attempt_timeout=httpx.Timeout(min(75,remaining),connect=min(10,remaining),pool=min(5,remaining),write=min(15,remaining))
+        retry_reason=None
         try:
-            response=CLIENT.post(url,json=body,headers={'Authorization':f'Bearer {token}'})
-        except (httpx.ConnectError,httpx.RemoteProtocolError) as error:
-            if attempt<2:time.sleep(2**attempt);continue
-            raise ModelUnavailable('Google model request could not complete; please retry.') from error
-        except httpx.HTTPError as error:raise ModelUnavailable('Google model request could not complete; please retry.') from error
-        if response.status_code in {429,500,502,503} and attempt<2:
-            time.sleep(2**attempt);continue
+            response=CLIENT.post(url,json=body,headers={'Authorization':f'Bearer {token}'},timeout=attempt_timeout)
+        except (httpx.TimeoutException,httpx.NetworkError,httpx.RemoteProtocolError) as error:
+            retry_reason=type(error).__name__
+            logger.warning('vertex_transport_failure model=%s attempt=%s kind=%s elapsed_ms=%s',MODEL,attempt+1,retry_reason,round((time.monotonic()-started)*1000))
+            if attempt==2 or request_remaining(call_deadline)<=2:
+                message='Google model response timed out' if isinstance(error,httpx.TimeoutException) else 'The connection to Google was interrupted'
+                raise ModelUnavailable(message+'. Please try again; your writing is unchanged.') from error
+        except httpx.HTTPError as error:
+            logger.warning('vertex_transport_failure model=%s kind=%s',MODEL,type(error).__name__)
+            raise ModelUnavailable('The connection to Google could not complete. Please try again; your writing is unchanged.') from error
+        if retry_reason is None and response.status_code in {408,429,500,502,503,504} and attempt<2:
+            retry_reason='HTTP_'+str(response.status_code)
+        if retry_reason:
+            delay=min(2**attempt+random.uniform(0,.5),max(0,request_remaining(call_deadline)-1))
+            logger.warning('vertex_request_retry model=%s attempt=%s reason=%s',MODEL,attempt+1,retry_reason)
+            emit=_request_progress.get()
+            if emit:emit(phase='model_retry',status='repair',message=f'Google request delayed; retrying automatically ({attempt+2} of 3)')
+            time.sleep(delay);continue
         if response.status_code>=400:
             try: message=response.json().get('error',{}).get('message','')[:700]
             except ValueError: message=''
@@ -69,5 +108,5 @@ def generate(system, payload, schema, temperature=0.1):
         text=''.join(p.get('text','') for p in candidates[0].get('content',{}).get('parts',[]) if not p.get('thought'))
         try: value=json.loads(text)
         except ValueError as error: raise ModelUnavailable('Google returned invalid structured output; please retry.') from error
-        return value,{'provider':'Google Vertex AI','model':MODEL,'model_version':result.get('modelVersion',MODEL),'response_id':result.get('responseId'),'usage':result.get('usageMetadata',{}),'latency_ms':round((time.monotonic()-started)*1000),'prompt_version':PROMPT_VERSION,'temperature':temperature}
+        return value,{'provider':'Google Vertex AI','model':MODEL,'model_version':result.get('modelVersion',MODEL),'response_id':result.get('responseId'),'usage':result.get('usageMetadata',{}),'latency_ms':round((time.monotonic()-started)*1000),'prompt_version':PROMPT_VERSION,'temperature':temperature,'transport_attempts':attempt+1}
     raise ModelUnavailable('Google model temporarily unavailable.')

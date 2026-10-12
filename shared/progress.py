@@ -4,7 +4,7 @@ import logging
 import queue
 import threading
 import time
-from shared.gemini import ModelUnavailable
+from shared.gemini import ModelUnavailable, request_budget
 
 logger=logging.getLogger(__name__)
 
@@ -16,7 +16,7 @@ def events(operation, heartbeat_seconds=10):
         if not disconnected.is_set():updates.put({'type':'progress',**event,'elapsed_ms':round((time.monotonic()-started)*1000)})
     def work():
         try:
-            result=operation(emit)
+            with request_budget(emit):result=operation(emit)
             if not disconnected.is_set():updates.put({'type':'result','result':result,'elapsed_ms':round((time.monotonic()-started)*1000)})
         except ModelUnavailable as error:
             if not disconnected.is_set():updates.put({'type':'error','detail':str(error)})

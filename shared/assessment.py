@@ -2,6 +2,7 @@
 import logging
 import re
 from copy import deepcopy
+from contextvars import copy_context
 from concurrent.futures import ThreadPoolExecutor
 from typing import Literal
 from pydantic import BaseModel, Field
@@ -207,7 +208,9 @@ def assess(prompt,essay,progress=None):
                 payload['validation_repair']=reason;payload['previous_assessment']=wire
         raise ModelUnavailable('Assessment could not verify all band matches. Please try again; your draft is unchanged.')
     with ThreadPoolExecutor(max_workers=4) as pool:
-        completed=list(pool.map(assess_criterion,CRITERIA))
+        # Executor threads otherwise lose the request's deadline/progress context.
+        jobs=[pool.submit(copy_context().run,assess_criterion,code) for code in CRITERIA]
+        completed=[job.result() for job in jobs]
     value={'summary':'Each criterion was checked against every official band descriptor. Review the matched evidence and next-band gaps below.',
         'criteria':[x[0] for x in completed]}
     emit(phase='validation',status='running',message='Verifying all evidence, citations and score arithmetic')
