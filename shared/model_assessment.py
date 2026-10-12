@@ -40,12 +40,12 @@ def model_schema(evidence,context):
         props['subcriteria']['items']['properties']['essay_evidence_id']=ref
         detail_ids=[c['subcriterion_id'] for c in context['chunks'] if c['kind']=='subcriterion' and c['criterion']==code]
         props['subcriteria']['items']['properties']['subcriterion_id']={'type':'STRING','enum':detail_ids}
-        props['subcriteria'].update(minItems=len(detail_ids),maxItems=len(detail_ids))
-        def fixed(item,n):return {**arr(item),'minItems':n,'maxItems':n}
-        props.update(matches=fixed({'type':'STRING','enum':['M','N','A']},len(statements)),
-            evidence_ids=fixed(ref,len(statements)),
-            limiter_flags=fixed({'type':'BOOLEAN'},len(limiters)),
-            limiter_evidence_ids=fixed(ref,len(limiters)),
+        # Exact collection lengths are enforced by the server, not the provider
+        # grammar: large fixed arrays can overflow structured-output complexity.
+        props.update(matches=arr({'type':'STRING','enum':['M','N','A']}),
+            evidence_ids=arr(ref),
+            limiter_flags=arr({'type':'BOOLEAN'}),
+            limiter_evidence_ids=arr(ref),
             focus_explanations=arr(obj({'statement_id':STRING,'explanation':STRING})),
             limiter_explanations=arr(obj({'limiter_id':STRING,'explanation':STRING})))
         cards[code]=obj(props)

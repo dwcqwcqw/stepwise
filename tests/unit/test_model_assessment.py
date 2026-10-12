@@ -28,7 +28,7 @@ def test_one_target_blind_call_validates_every_statement_and_all_details(monkeyp
         assert set(payload)=={'question','essay','essay_evidence','word_count','official_assessment_context','decision_order'}
         for code in ['TR','CC','LR','GRA']:
             assert len(payload['decision_order'][code]['statement_ids'])==10
-            assert schema['properties']['criteria']['properties'][code]['properties']['matches']['minItems']==10
+            assert schema['properties']['criteria']['properties'][code]['properties']['matches']['items']['enum']==['M','N','A']
         return rename(value),{'response_id':'combined'}
     monkeypatch.setattr(fast,'generate',model)
     result=fast.assess_model_essay('Should governments fund buses?',ESSAY,progress=lambda **e:updates.append(e))
@@ -96,6 +96,7 @@ def test_many_sentence_evidence_does_not_expand_provider_schema_enums():
     small=fast.model_schema([{'evidence_id':'E001'}],context)
     large=fast.model_schema([{'evidence_id':f'E{n:03d}'} for n in range(1,101)],context)
     assert json.dumps(small)==json.dumps(large)
+    assert 'minItems' not in json.dumps(large) and 'maxItems' not in json.dumps(large)
     # Unrecognized IDs are still rejected by the actual server evidence gate.
     value,context,evidence=compact_fixture();value['criteria']['TR']['evidence_ids'][6]='E999'
     with pytest.raises(ValueError,match='Unknown essay evidence ID'):
