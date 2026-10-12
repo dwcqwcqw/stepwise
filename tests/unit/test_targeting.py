@@ -43,7 +43,7 @@ def setup_generation(monkeypatch, bands, target=7):
                              'higher_band_gap':'Observed gap from the next descriptor.','band_reviews':[]}
                             for c,v in target_profile(band).items()]}
     monkeypatch.setattr(assessment,'generate',model)
-    monkeypatch.setattr(assessment,'assess',independent)
+    monkeypatch.setattr(assessment,'assess_model_essay',independent)
     return requirements,payloads,assessed
 
 @pytest.mark.parametrize('target,observed',[(5,[9,6,5]),(6.5,[9,6.5]),(7,[6,7]),(9,[9])])
