@@ -1,5 +1,6 @@
 """Two target-blind parallel pairs with full matching and focused explanations."""
 import logging
+import re
 from copy import deepcopy
 from concurrent.futures import ThreadPoolExecutor
 from contextvars import copy_context
@@ -30,7 +31,10 @@ def ordered_records(context,code):
     return cells,statements,limiters
 
 
-def model_schema(evidence,context,codes=None):
+DECISION_FIELDS={'matches','evidence_ids','limiter_flags','limiter_evidence_ids'}
+
+
+def model_schema(evidence,context,codes=None,repair_scores=None):
     base=reference_schema(evidence)['properties']['criteria']['items']['properties']
     # The paired schema can constrain exact evidence IDs without expanding
     # large fixed-length arrays. Server verification remains mandatory.
@@ -52,6 +56,9 @@ def model_schema(evidence,context,codes=None):
             limiter_evidence_ids=arr(ref),
             focus_explanations=arr(obj({'statement_id':STRING,'explanation':STRING})),
             limiter_explanations=arr(obj({'limiter_id':STRING,'explanation':STRING})))
+        if repair_scores and code in repair_scores:
+            props['score']={'type':'INTEGER','minimum':repair_scores[code],'maximum':repair_scores[code]}
+            for field in DECISION_FIELDS:props.pop(field)
         cards[code]=obj(props)
     return compact_schema(obj({'summary':STRING,'criteria':obj(cards)}))
 
@@ -108,22 +115,35 @@ def assess_model_essay(prompt,essay,progress=None):
         'official_assessment_context':rubric_payload(context['chunks']),'decision_order':order}
     calls=[]
     emit(phase='assessment',status='running',message='Reviewing two pairs of criteria in parallel')
+    repair_scores={};base_value=None;groups_to_run=[('TR','CC'),('LR','GRA')]
     for attempt in range(2):
         def group(codes):
             selected={**payload,'requested_criteria':list(codes),
                 'official_assessment_context':[c for c in payload['official_assessment_context'] if c.get('criterion') in codes],
                 'decision_order':{k:v for k,v in order.items() if k in codes}}
-            wire,receipt=generate(compact_system(FAST_SYSTEM),selected,model_schema(evidence,context,codes),temperature=.1)
+            system=FAST_SYSTEM
+            if repair_scores:
+                selected['feedback_repair']={'derived_scores':repair_scores,'instruction':'Correct only the requested criterion feedback and numeric score. The existing descriptor decisions in previous_assessment are immutable; do not return decision arrays or reinterpret them. Explain every statement at the derived score and next band, and all required limiters. The derived scores come from the checked descriptor decisions, never a requested learner target.'}
+                system+='\nFor feedback_repair return only the requested feedback fields, required focus/limiter explanations and the fixed derived score. Do NOT return matches, evidence_ids, limiter_flags or limiter_evidence_ids; the server preserves the original checked decisions.'
+            wire,receipt=generate(compact_system(system),selected,model_schema(evidence,context,codes,repair_scores),temperature=.1)
             value=expand(wire)
             if not isinstance(value.get('criteria'),dict) or set(value['criteria'])!=set(codes):
                 raise ModelUnavailable('The assessment returned incomplete criterion groups; please retry.')
-            return value,{**receipt,'criteria':list(codes)}
+            if repair_scores and any(DECISION_FIELDS.intersection(card) for card in value['criteria'].values()):
+                raise ModelUnavailable('Feedback repair attempted to change immutable descriptor decisions.')
+            return value,{**receipt,'criteria':list(codes),'feedback_only_repair':bool(repair_scores)}
         with ThreadPoolExecutor(max_workers=2) as pool:
-            jobs=[pool.submit(copy_context().run,group,codes) for codes in [('TR','CC'),('LR','GRA')]]
+            jobs=[pool.submit(copy_context().run,group,codes) for codes in groups_to_run]
             groups=[job.result() for job in jobs]
         calls.extend(receipt for _,receipt in groups)
-        combined={'summary':' '.join(value['summary'] for value,_ in groups),
-            'criteria':{k:v for value,_ in groups for k,v in value['criteria'].items()}}
+        if base_value is None:
+            combined={'summary':' '.join(value['summary'] for value,_ in groups),
+                'criteria':{k:v for value,_ in groups for k,v in value['criteria'].items()}}
+        else:
+            combined=deepcopy(base_value)
+            combined['summary']='Scores follow the complete official descriptor matches; criterion explanations and next-band gaps are shown below.'
+            for value,_ in groups:
+                for code,card in value['criteria'].items():combined['criteria'][code].update(card)
         wire=combined
         emit(phase='validation',status='running',message='Checking all band decisions, quotes and exact score arithmetic')
         try:
@@ -134,6 +154,10 @@ def assess_model_essay(prompt,essay,progress=None):
             reason=repair_reason(error)
             logger.warning('compact_assessment_validation_retry attempt=%s reason=%s',attempt+1,reason.split('; received IDs:')[0])
             payload['validation_repair']=reason;payload['previous_assessment']=wire
+            mismatch=re.fullmatch(r'Criterion (TR|CC|LR|GRA) score inconsistent with complete descriptor matches: expected ([0-9])',reason)
+            if mismatch and attempt==0:
+                code,score=mismatch.groups();repair_scores={code:int(score)}
+                base_value=deepcopy(combined);groups_to_run=[(code,)]
             emit(phase='assessment',status='repair',message='Rechecking the combined assessment evidence')
             continue
         for c in result['criteria']:

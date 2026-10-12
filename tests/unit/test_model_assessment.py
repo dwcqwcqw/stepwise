@@ -116,3 +116,34 @@ def test_optional_limiter_explanations_keep_all_required_evidence_gates(extra):
         assert result['overall_band']==6
     else:
         with pytest.raises(ValueError):fast.unpack_matches(value,context)
+
+
+@pytest.mark.parametrize('change_decisions',[False,True])
+def test_numeric_mismatch_repairs_only_feedback_and_preserves_all_matches(monkeypatch,change_decisions):
+    value,context,_=compact_fixture();requests=[]
+    monkeypatch.setattr(fast,'assessment_context',lambda _:context)
+    def model(system,payload,schema,temperature):
+        requests.append(deepcopy(payload));codes=payload['requested_criteria'];v=deepcopy(value)
+        if 'feedback_repair' not in payload:
+            v['criteria']['TR']['score']=7
+            v['criteria']['TR']['focus_explanations']=[{'statement_id':f'TR-B{b}-S1','explanation':'The essay demonstrates this official threshold.'} for b in [7,8]]
+        else:
+            assert codes==['TR'] and payload['feedback_repair']['derived_scores']=={'TR':6}
+            fields=schema['properties']['criteria']['properties']['TR']['properties']
+            assert fields['score']=={'type':'INTEGER','minimum':6,'maximum':6}
+            assert not fast.DECISION_FIELDS.intersection(fields)
+            assert 'target_band' not in payload and 'criterion_target_profile' not in payload
+            for field in fast.DECISION_FIELDS:v['criteria']['TR'].pop(field)
+            if change_decisions:v['criteria']['TR']['matches']=['M']*10
+        return rename({**v,'criteria':{k:c for k,c in v['criteria'].items() if k in codes}}),{}
+    monkeypatch.setattr(fast,'generate',model)
+    if change_decisions:
+        with pytest.raises(fast.ModelUnavailable,match='immutable'):fast.assess_model_essay('Should governments fund buses?',ESSAY)
+    else:
+        result=fast.assess_model_essay('Should governments fund buses?',ESSAY)
+        assert [c['score'] for c in result['criteria']]==[6,6,6,6]
+        assert result['descriptor_statements_checked']==40
+        assert len(result['model_calls'])==3 and result['model_calls'][-1]['criteria']==['TR']
+        checks=result['criteria'][0]['band_reviews']
+        assert [s['match'] for b in checks for s in b['checks']]==[{'M':'meets','N':'not_met','A':'not_applicable'}[m] for m in value['criteria']['TR']['matches']]
+    assert len(requests)==3
