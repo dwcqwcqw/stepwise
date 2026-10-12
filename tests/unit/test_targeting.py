@@ -163,3 +163,43 @@ def test_patch_retry_receives_failed_edits_and_exact_integer_budget(monkeypatch)
     repair=patch_calls[1]['validation_repair']
     assert repair['previous_edits']==[{'before':'invented span','after':'better'}]
     assert 'exactly once' in repair['error']
+
+
+def test_length_repair_receives_failed_candidate_and_measured_count(monkeypatch):
+    requirements,payloads,assessed=setup_generation(monkeypatch,[7],7)
+    original=assessment.generate
+    def writer(*args,**kwargs):
+        value,receipt=original(*args,**kwargs)
+        if len(payloads)==1:value['essay']='A learner sentence. '*70
+        return value,receipt
+    monkeypatch.setattr(assessment,'generate',writer)
+    result=assessment.generate_essay(requirements)
+    repair=payloads[1]['validation_repair']
+    assert repair['actual_word_count']==210
+    assert repair['previous_invalid_candidate']['essay']=='A learner sentence. '*70
+    assert 'SAME requested proficiency' in repair['instruction']
+    assert payloads[1]['criterion_target_profile']==payloads[0]['criterion_target_profile']
+    assert len(assessed)==1 and result['target_met']
+
+
+def test_focused_patch_length_repair_still_requests_edits_against_original(monkeypatch):
+    requirements,payloads,assessed=setup_generation(monkeypatch,[6.5,7],7)
+    original=assessment.generate;patches=[]
+    tail=' '.join('token'+str(n) for n in range(21))
+    essay='A learner sentence. '*76+tail+' 1'  # 250 words
+    def writer(system,payload,schema,temperature):
+        if schema is assessment.PATCH_SCHEMA:
+            patches.append(deepcopy(payload))
+            if len(patches)==1:
+                return {'edits':[{'before':tail,'after':''}]},{'response_id':'short-patch'}
+        value,receipt=original(system,payload,schema,temperature)
+        if len(payloads)==1:value['essay']=essay
+        return value,receipt
+    monkeypatch.setattr(assessment,'generate',writer)
+    result=assessment.generate_essay(requirements)
+    repair=patches[1]['validation_repair']
+    assert repair['actual_word_count']==229
+    assert repair['previous_edits']==[{'before':tail,'after':''}]
+    assert 'ORIGINAL previous_essay' in repair['instruction']
+    assert patches[1]['previous_essay']==essay
+    assert len(assessed)==2 and result['target_met']

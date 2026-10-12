@@ -261,6 +261,7 @@ def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_cand
                 try:
                     patched=apply_focus_edits(payload['previous_essay'],edits.get('edits'),protected_position,payload['focus_criteria'])
                 except (ValueError,TypeError,AttributeError) as error:
+                    logger.warning('writer_patch_retry attempt=%s reason=%s',length_attempt+1,str(error))
                     payload['validation_repair']={'error':str(error),'previous_edits':edits.get('edits'),
                         'instruction':'Correct the previous edits. Keep total before+after words within patch_constraints.max_total_words. Prefer 2–4 replacements of 1–3 words each.'}
                     emit(phase='generation',status='repair',message='Checking the size and exact spans of the local edits')
@@ -276,7 +277,13 @@ def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_cand
                 protected_position=position;payload['protected_position_sentence']=position
                 break
             emit(phase='generation',status='repair',message='Adjusting essay length' if position_ok else 'Restoring your requested position')
-            payload['validation_repair']='Return a complete 280–360 word essay with a verbatim position_sentence expressing the requested stance. Retain protected_position_sentence exactly when supplied.'
+            logger.warning('writer_content_retry mode=%s attempt=%s words=%s position_ok=%s',payload.get('revision_mode','initial'),length_attempt+1,words,position_ok)
+            payload['validation_repair']={'actual_word_count':words,'required_word_count':'280–360',
+                'previous_invalid_candidate':value,
+                'previous_edits':edits.get('edits') if payload.get('revision_mode')=='focused_revision' else None,
+                'instruction':('Correct your previous edits so the final essay remains 280–360 words. Return edits against the ORIGINAL previous_essay; obey the same patch budget and protected position.'
+                    if payload.get('revision_mode')=='focused_revision' else
+                    'Repair previous_invalid_candidate into a complete 280–360 word essay. Expand or shorten it at the SAME requested proficiency; do not improve its sophistication. Return a verbatim position_sentence expressing the requested stance and retain protected_position_sentence exactly when supplied.')}
         else:raise ModelUnavailable('Model essay failed content or length checks; please retry.')
         emit(phase='generation',status='done',attempt=target_attempt,message=f'{words}-word essay written; starting a separate assessment',word_count=words)
         # A fresh assessor sees only the question and essay, never target/plan/feedback.
