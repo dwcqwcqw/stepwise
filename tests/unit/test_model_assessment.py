@@ -100,3 +100,19 @@ def test_provider_schema_constrains_evidence_without_fixed_array_expansion():
     value,context,evidence=compact_fixture();value['criteria']['TR']['evidence_ids'][6]='E999'
     with pytest.raises(ValueError,match='Unknown essay evidence ID'):
         resolve_references(fast.unpack_matches(value,context),evidence,context)
+
+
+@pytest.mark.parametrize('extra',['valid_absent','unknown','duplicate'])
+def test_optional_limiter_explanations_keep_all_required_evidence_gates(extra):
+    value,context,evidence=compact_fixture();c=value['criteria']['TR']
+    row=next(x for x in context['chunks'] if x['chunk_id']=='TR-band-2')
+    row['statements'][0]['limiting_features']=[{'limiter_id':'TR-B2-S1-L1','text':'No clear position can be identified.'}]
+    c['limiter_flags']=[False];c['limiter_evidence_ids']=['E001']
+    c['limiter_explanations']=[{'limiter_id':'TR-B2-S1-L1','explanation':'The essay states a clear position, so this cap is absent.'}]
+    if extra=='unknown':c['limiter_explanations'][0]['limiter_id']='FAKE'
+    if extra=='duplicate':c['limiter_explanations']*=2
+    if extra=='valid_absent':
+        result=validate_assessment(resolve_references(fast.unpack_matches(value,context),evidence,context),ESSAY,context)
+        assert result['overall_band']==6
+    else:
+        with pytest.raises(ValueError):fast.unpack_matches(value,context)

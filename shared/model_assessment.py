@@ -1,4 +1,5 @@
 """Two target-blind parallel pairs with full matching and focused explanations."""
+import logging
 from copy import deepcopy
 from concurrent.futures import ThreadPoolExecutor
 from contextvars import copy_context
@@ -8,6 +9,8 @@ from shared.gemini import generate, ModelUnavailable
 from shared.retrieval import assessment_context
 from shared.assessment import (REFERENCE_SYSTEM, STRING, obj, arr, reference_schema,
     essay_evidence, resolve_references, validate_assessment, repair_reason)
+
+logger=logging.getLogger(__name__)
 
 FAST_SYSTEM=REFERENCE_SYSTEM+'''
 Return ONLY the supplied requested_criteria as a keyed object. Each request assesses two criteria; the server combines both independent groups. This is a compact independent assessment, with the same complete official band ladder and limiting rules.
@@ -80,7 +83,8 @@ def unpack_matches(value,context):
         needed_limiters={l['limiter_id'] for c in cells if c['band'] in focus for s in c['statements'] for l in s['limiting_features']}
         needed_limiters.update(l['limiter_id'] for l,present in zip(limiters,flags) if present)
         reasons=card.pop('limiter_explanations');limiter_reasons={x['limiter_id']:x['explanation'] for x in reasons}
-        if len(reasons)!=len(needed_limiters) or set(limiter_reasons)!=needed_limiters:
+        allowed_limiters={l['limiter_id'] for l in limiters}
+        if len(reasons)!=len(limiter_reasons) or not needed_limiters.issubset(limiter_reasons) or not set(limiter_reasons).issubset(allowed_limiters):
             raise ValueError(f'{code} must explain assessed/next-band and present limiters exactly once; required IDs: {sorted(needed_limiters)}')
         decisions={s['statement_id']:{'statement_id':s['statement_id'],'match':{'M':'meets','N':'not_met','A':'not_applicable'}[m],
             'essay_evidence_id':q,'explanation':byid.get(s['statement_id'],labels[m])} for s,m,q in zip(statements,matches,quotes)}
@@ -127,7 +131,9 @@ def assess_model_essay(prompt,essay,progress=None):
             resolved=resolve_references(canonical,evidence,context)
             result=validate_assessment(resolved,essay,context)
         except (ValueError,KeyError,TypeError) as error:
-            payload['validation_repair']=repair_reason(error);payload['previous_assessment']=wire
+            reason=repair_reason(error)
+            logger.warning('compact_assessment_validation_retry attempt=%s reason=%s',attempt+1,reason.split('; received IDs:')[0])
+            payload['validation_repair']=reason;payload['previous_assessment']=wire
             emit(phase='assessment',status='repair',message='Rechecking the combined assessment evidence')
             continue
         for c in result['criteria']:
