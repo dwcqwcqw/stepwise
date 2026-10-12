@@ -20,22 +20,22 @@ def compact_fixture():
     return {'summary':value['summary'],'criteria':cards},context,evidence
 
 
-def test_one_target_blind_call_validates_every_statement_and_all_details(monkeypatch):
+def test_two_target_blind_calls_validate_every_statement_and_all_details(monkeypatch):
     value,context,evidence=compact_fixture();calls=[];updates=[]
     monkeypatch.setattr(fast,'assessment_context',lambda _:context)
     def model(system,payload,schema,temperature):
         calls.append(deepcopy(payload))
-        assert set(payload)=={'question','essay','essay_evidence','word_count','official_assessment_context','decision_order'}
-        for code in ['TR','CC','LR','GRA']:
+        assert set(payload)=={'question','essay','essay_evidence','word_count','official_assessment_context','decision_order','requested_criteria'}
+        for code in payload['requested_criteria']:
             assert len(payload['decision_order'][code]['statement_ids'])==10
             assert schema['properties']['criteria']['properties'][code]['properties']['matches']['items']['enum']==['M','N','A']
-        return rename(value),{'response_id':'combined'}
+        return rename({**value,'criteria':{k:v for k,v in value['criteria'].items() if k in payload['requested_criteria']}}),{'response_id':'combined'}
     monkeypatch.setattr(fast,'generate',model)
     result=fast.assess_model_essay('Should governments fund buses?',ESSAY,progress=lambda **e:updates.append(e))
-    assert len(calls)==1 and result['overall_band']==6 and result['target_blind']
+    assert len(calls)==2 and result['overall_band']==6 and result['target_blind']
     assert result['descriptor_statements_checked']==40  # full compact unit fixture
     assert sum(len(c['subcriteria']) for c in result['criteria'])==20
-    assert result['assessment_mode']=='compact_four_criteria'
+    assert result['assessment_mode']=='compact_parallel_pairs'
     assert {e['criterion'] for e in updates if e.get('criterion')}=={'TR','CC','LR','GRA'}
     assert all(s['essay_quote'] in ESSAY for c in result['criteria'] for b in c['band_reviews'] for s in b['checks'])
     assert result['criteria'][0]['band_reviews'][5]['checks'][0]['explanation']=='Assessment decision: threshold met.'
@@ -75,18 +75,18 @@ def test_combined_repair_receives_exact_failure_and_previous_answer(monkeypatch)
     monkeypatch.setattr(fast,'assessment_context',lambda _:context)
     def model(system,payload,schema,temperature):
         requests.append(deepcopy(payload));v=deepcopy(value)
-        if len(requests)==1:v['criteria']['LR']['evidence_ids'][6]='E999'
-        return rename(v),{}
+        if 'LR' in payload['requested_criteria'] and 'validation_repair' not in payload:v['criteria']['LR']['evidence_ids'][6]='E999'
+        return rename({**v,'criteria':{k:c for k,c in v['criteria'].items() if k in payload['requested_criteria']}}),{}
     monkeypatch.setattr(fast,'generate',model)
     result=fast.assess_model_essay('Should governments fund buses?',ESSAY)
-    assert len(requests)==2 and requests[1]['validation_repair']=='Unknown essay evidence ID'
-    assert 'previous_assessment' in requests[1] and result['target_blind']
+    assert len(requests)==4 and requests[2]['validation_repair']=='Unknown essay evidence ID'
+    assert 'previous_assessment' in requests[2] and result['target_blind']
 
 
 def test_repeated_combined_failure_returns_no_score(monkeypatch):
     value,context,_=compact_fixture();value['criteria']['LR']['evidence_ids'][6]='E999'
     monkeypatch.setattr(fast,'assessment_context',lambda _:context)
-    monkeypatch.setattr(fast,'generate',lambda *a,**kw:(rename(value),{}))
+    monkeypatch.setattr(fast,'generate',lambda system,payload,*a,**kw:(rename({**value,'criteria':{k:v for k,v in value['criteria'].items() if k in payload['requested_criteria']}}),{}))
     with pytest.raises(fast.ModelUnavailable):fast.assess_model_essay('Should governments fund buses?',ESSAY)
 
 

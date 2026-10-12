@@ -1,5 +1,7 @@
 """One target-blind call: all official matches, focused explanations for the UI."""
 from copy import deepcopy
+from concurrent.futures import ThreadPoolExecutor
+from contextvars import copy_context
 from shared.common import CRITERIA
 from shared.compact import compact_schema, compact_system, expand, rubric_payload
 from shared.gemini import generate, ModelUnavailable
@@ -8,7 +10,7 @@ from shared.assessment import (REFERENCE_SYSTEM, STRING, obj, arr, reference_sch
     essay_evidence, resolve_references, validate_assessment, repair_reason)
 
 FAST_SYSTEM=REFERENCE_SYSTEM+'''
-Return all four criteria together as the keyed object TR, CC, LR, GRA. This is a compact independent assessment, with the same complete official band ladder and limiting rules.
+Return ONLY the supplied requested_criteria as a keyed object. Each request assesses two criteria; the server combines both independent groups. This is a compact independent assessment, with the same complete official band ladder and limiting rules.
 For each criterion, compare EVERY supplied statement in decision_order.statement_ids, in EXACT order. Return matches as M (meets), N (not_met), or A (not_applicable), and one evidence_ids entry per statement in that same order. Ordinary positive requirements cannot be skipped. A is only for an inapplicable conditional special rule. A lower threshold may be met by stronger writing; tolerated weaknesses are allowances, not weaknesses the essay must exhibit. Band 0 requires evidence of its special eligibility condition, never a speculative plagiarism/memorisation allegation.
 Return limiter_flags and limiter_evidence_ids in the exact decision_order.limiter_ids order. A present limiting condition caps the criterion at that band's level. Apply the 20-word rule, positive thresholds and actual limiting features. The score must equal the highest fully supported integer band after applicable caps; no half-band criterion scores.
 Do not write 119 repetitive explanations. In focus_explanations explain EVERY statement at the assessed band and next band (only Band 9 when score=9), using its exact statement_id and one concise explanation. For limiter_explanations explain every limiter at those two bands, plus every limiter flagged present anywhere. Other bands still require a match and real evidence selection; their hidden explanations are replaced by explicit server decision labels, never invented model reasoning. The next band must have a concrete unmet requirement unless an actual limiting cap explains the score. Do not invent topic-specific prerequisites such as specialist knowledge or citations.
@@ -25,14 +27,14 @@ def ordered_records(context,code):
     return cells,statements,limiters
 
 
-def model_schema(evidence,context):
+def model_schema(evidence,context,codes=None):
     base=reference_schema(evidence)['properties']['criteria']['items']['properties']
     # Repeated evidence-ID enums across four cards can exceed Vertex schema
     # complexity limits on essays with many sentences. Exact IDs are still
     # supplied in the prompt and checked by resolve_references on the server.
     ref={'type':'STRING'}
     cards={}
-    for code in CRITERIA:
+    for code in (codes or CRITERIA):
         _,statements,limiters=ordered_records(context,code)
         props=deepcopy(base);props.pop('criterion')
         props['essay_evidence_id']=ref
@@ -101,14 +103,28 @@ def assess_model_essay(prompt,essay,progress=None):
     emit(phase='retrieval',status='done',message=f'All {count} Task 2 standards retrieved',statements=count)
     payload={'question':prompt,'essay':essay,'essay_evidence':evidence,'word_count':len(essay.split()),
         'official_assessment_context':rubric_payload(context['chunks']),'decision_order':order}
-    schema=model_schema(evidence,context);calls=[]
-    emit(phase='assessment',status='running',message='Reviewing all four criteria together')
+    calls=[]
+    emit(phase='assessment',status='running',message='Reviewing two pairs of criteria in parallel')
     for attempt in range(2):
-        wire,receipt=generate(compact_system(FAST_SYSTEM),payload,schema,temperature=.1)
-        calls.append({**receipt,'criteria':list(CRITERIA)})
+        def group(codes):
+            selected={**payload,'requested_criteria':list(codes),
+                'official_assessment_context':[c for c in payload['official_assessment_context'] if c.get('criterion') in codes],
+                'decision_order':{k:v for k,v in order.items() if k in codes}}
+            wire,receipt=generate(compact_system(FAST_SYSTEM),selected,model_schema(evidence,context,codes),temperature=.1)
+            value=expand(wire)
+            if not isinstance(value.get('criteria'),dict) or set(value['criteria'])!=set(codes):
+                raise ModelUnavailable('The assessment returned incomplete criterion groups; please retry.')
+            return value,{**receipt,'criteria':list(codes)}
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            jobs=[pool.submit(copy_context().run,group,codes) for codes in [('TR','CC'),('LR','GRA')]]
+            groups=[job.result() for job in jobs]
+        calls.extend(receipt for _,receipt in groups)
+        combined={'summary':' '.join(value['summary'] for value,_ in groups),
+            'criteria':{k:v for value,_ in groups for k,v in value['criteria'].items()}}
+        wire=combined
         emit(phase='validation',status='running',message='Checking all band decisions, quotes and exact score arithmetic')
         try:
-            canonical=unpack_matches(expand(wire),context)
+            canonical=unpack_matches(combined,context)
             resolved=resolve_references(canonical,evidence,context)
             result=validate_assessment(resolved,essay,context)
         except (ValueError,KeyError,TypeError) as error:
@@ -118,9 +134,9 @@ def assess_model_essay(prompt,essay,progress=None):
         for c in result['criteria']:
             emit(phase='assessment',status='done',criterion=c['criterion'],message=f"{CRITERIA[c['criterion']]} checked")
         result.update(model_calls=calls,descriptor_statements_checked=count,
-            evidence_strategy='all_band_matches_one_call_with_assessed_and_next_band_explanations',
+            evidence_strategy='all_band_matches_two_parallel_pairs_with_assessed_and_next_band_explanations',
             explanation_scope='Assessed and next band plus present limiters; other bands retain explicit decision labels and exact evidence.',
-            assessment_mode='compact_four_criteria')
+            assessment_mode='compact_parallel_pairs')
         emit(phase='validation',status='done',message='Official matches, evidence and four-score average verified')
         return result
     raise ModelUnavailable('The combined assessment could not verify its evidence. Please try again; your writing is unchanged.')
