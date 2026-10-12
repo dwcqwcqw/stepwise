@@ -90,12 +90,11 @@ def test_repeated_combined_failure_returns_no_score(monkeypatch):
     with pytest.raises(fast.ModelUnavailable):fast.assess_model_essay('Should governments fund buses?',ESSAY)
 
 
-def test_many_sentence_evidence_does_not_expand_provider_schema_enums():
+def test_provider_schema_constrains_evidence_without_fixed_array_expansion():
     import json
     _,context,_=compact_fixture()
-    small=fast.model_schema([{'evidence_id':'E001'}],context)
     large=fast.model_schema([{'evidence_id':f'E{n:03d}'} for n in range(1,101)],context)
-    assert json.dumps(small)==json.dumps(large)
+    assert large['properties']['criteria']['properties']['TR']['properties']['e']['enum']==[f'E{n:03d}' for n in range(1,101)]
     assert 'minItems' not in json.dumps(large) and 'maxItems' not in json.dumps(large)
     # Unrecognized IDs are still rejected by the actual server evidence gate.
     value,context,evidence=compact_fixture();value['criteria']['TR']['evidence_ids'][6]='E999'

@@ -1,4 +1,4 @@
-"""One target-blind call: all official matches, focused explanations for the UI."""
+"""Two target-blind parallel pairs with full matching and focused explanations."""
 from copy import deepcopy
 from concurrent.futures import ThreadPoolExecutor
 from contextvars import copy_context
@@ -29,10 +29,9 @@ def ordered_records(context,code):
 
 def model_schema(evidence,context,codes=None):
     base=reference_schema(evidence)['properties']['criteria']['items']['properties']
-    # Repeated evidence-ID enums across four cards can exceed Vertex schema
-    # complexity limits on essays with many sentences. Exact IDs are still
-    # supplied in the prompt and checked by resolve_references on the server.
-    ref={'type':'STRING'}
+    # The paired schema can constrain exact evidence IDs without expanding
+    # large fixed-length arrays. Server verification remains mandatory.
+    ref={'type':'STRING','enum':[x['evidence_id'] for x in evidence]}
     cards={}
     for code in (codes or CRITERIA):
         _,statements,limiters=ordered_records(context,code)
