@@ -1,0 +1,66 @@
+{
+  "normal": [
+    {
+      "mode": "compact-schema-fixed",
+      "passed": true,
+      "source_commit": "e1d678229d1a337f3acdd8995943c028aa2b6a6c",
+      "wall_seconds": 21.687,
+      "scores": [
+        7,
+        7,
+        6,
+        6
+      ],
+      "overall": 6.5,
+      "essay_sha256": "714fb75c6b2f34d9a78d18416a89bea7274a6f896ca5d6d10d0d51b493f9cc6b",
+      "index_id": "339dcf75a711802b",
+      "target_blind": true,
+      "statements": 119,
+      "model_calls": [
+        {
+          "provider": "Google Vertex AI",
+          "model": "gemini-3.5-flash",
+          "model_version": "gemini-3.5-flash",
+          "response_id": "HNrMaoP2NriG1e8PzdSI8A8",
+          "usage": {
+            "promptTokenCount": 16440,
+            "candidatesTokenCount": 5186,
+            "totalTokenCount": 21626,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 16440
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 5186
+              }
+            ]
+          },
+          "latency_ms": 21013,
+          "prompt_version": "official-rubric-v4.10-compact-model-assessment",
+          "temperature": 0.1,
+          "transport_attempts": 1,
+          "criteria": [
+            "TR",
+            "CC",
+            "LR",
+            "GRA"
+          ]
+        }
+      ]
+    }
+  ],
+  "stress": [
+    {
+      "mode": "compact-many-sentences",
+      "passed": false,
+      "error": "The combined assessment could not verify its evidence. Please try again; your writing is unchanged.",
+      "wall_seconds": 101.065,
+      "source_commit": "e1d678229d1a337f3acdd8995943c028aa2b6a6c"
+    }
+  ]
+}

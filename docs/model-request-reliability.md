@@ -4,7 +4,7 @@
 
 The public app displayed `Google model request could not complete; please retry.` while generating a target-5.5 essay. The selected target and requirements remained in the page. Vercel's runtime-error query for the recent one-hour window returned no errors.
 
-In the deployed v4.7 client, that message is raised for HTTPX transport errors, including a read timeout. HTTP status errors such as Google HTTP 429 use a different message. The precise historical transport subtype is not yet established: the existing client did not log that subtype, and the Google Cloud session currently requires HarvardKey sign-in before backend logs can be inspected. Do not label this specific incident as a confirmed 429 or a confirmed read timeout without further evidence.
+In the deployed v4.7 client, that message is raised for HTTPX transport errors, including a read timeout. HTTP status errors such as Google HTTP 429 use a different message. The precise historical transport subtype is not yet established: the existing client did not log that subtype. After sign-in was restored, Cloud Run showed consecutive model-essay stream requests of 59.230248373 and 244.054112633 seconds on revision `stepwise-api-00025-gub`. The latter is consistent with the old 240-second read timeout plus surrounding work, but the log does not expose the exception subtype. Do not label this specific incident as a confirmed 429 or a confirmed read timeout without further evidence.
 
 ## Patch
 
@@ -20,8 +20,16 @@ This follows Google's guidance to retry transient inference errors with exponent
 
 ## Verification boundary
 
-118 Python unit tests pass, including 15 new transport/context regression cases. Coverage includes read/write timeout recovery, bounded retry exhaustion, HTTP 504, non-retryable 403, deadline expiry, deadline propagation to all four criteria, progress events and private-data exclusion from logs. One existing Starlette AnyIO deprecation warning remains.
+120 Python unit tests pass, including 15 new transport/context cases and two length-repair regression cases. Coverage includes read/write timeout recovery, bounded retry exhaustion, HTTP 504, non-retryable 403, deadline expiry, deadline propagation to all four criteria, progress events and private-data exclusion from logs. One existing Starlette AnyIO deprecation warning remains.
 
 The new parallel-criterion test uses the complete 40-statement compact **unit fixture**, not the 119-statement production corpus. It verifies unchanged validation of that fixture; the production rubric pipeline remains unchanged.
 
-**Deployment and real target-5.5 browser retest are pending Google Cloud sign-in.** Earlier target-7.0 success screenshots verify the earlier deployed source, not this transport patch. Do not replace their original source/revision metadata or count unit fixtures as real Google calls.
+Harvard sign-in was restored and the transport/length patches were deployed. A real public retry recovered to a subsequent candidate; browser control detached before the final outcome, so that run is not counted as a successful generation. Earlier target-7.0 success screenshots verify the earlier deployed source, not this transport patch. Do not replace their original source/revision metadata or count unit fixtures as real Google calls.
+
+## Real diagnostic follow-up
+
+A real Cloud Shell diagnostic on source `79335148cf39e83aa1dfd5886f0c5a3f61926198` captured `ReadTimeout` after 75,077 ms, emitted an automatic retry, and then received a writer response. This verifies a real timeout/retry recovery on that source, separately from the controlled unit failures. The writer returned a 218-word revised essay; the old generic length retry produced only 223 words and failed. This exposed a separate, reproducible length-repair problem.
+
+The length repair now receives the measured word count and the failed candidate, preserves the requested proficiency and stance, and asks focused editors for edits against their original base rather than a whole-essay response. Safe logs record mode, count and position-check status. Public verification of this subsequent source is recorded separately.
+
+The subsequent compact-assessment rollout on revision `stepwise-api-00034-wew` passed a real host assessment with all 119 exact-evidence checks but its first public target-5.5 generation exhausted transport retries during combined assessment. A bounded timeout was displayed and requirements stayed intact. Therefore retry recovery is verified in earlier runs, while this specific public attempt remains a failure. See the compact grading report and deployment receipt for version-specific outcomes.

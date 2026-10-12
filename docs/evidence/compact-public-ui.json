@@ -1,0 +1,40 @@
+{
+  "url": "https://stepwise-one.vercel.app/",
+  "question_fixture": "data/sample_essay.json",
+  "target_band": 5.5,
+  "position": "Prioritize public transport while maintaining essential roads.",
+  "ideas": "Affordability for commuters; access to jobs; lower congestion; protect rural connections.",
+  "attempts": [
+    {
+      "source_commit": "fedc783294e1361f9c258e34b6d385b59695913f",
+      "revision": "stepwise-api-00031-has",
+      "outcome": "Google HTTP 400 during combined assessment; rolled back."
+    },
+    {
+      "source_commit": "e1d678229d1a337f3acdd8995943c028aa2b6a6c",
+      "revision": "stepwise-api-00034-wew",
+      "outcome": "Two separate public generation runs exhausted transport retries during assessment; no scores displayed."
+    },
+    {
+      "source_commit": "dba036f1add398baa0b3009074eb04f8881762ba",
+      "revision": "stepwise-api-00037-zek",
+      "outcome": "Paired responses returned but evidence validation failed after repair; exact failing rule was not logged by this version.",
+      "message": "The combined assessment could not verify its evidence. Please try again; your writing is unchanged."
+    },
+    {
+      "source_commit": "c46e4ebfc340887c106c7cda1527facd39115e71",
+      "revision": "stepwise-api-00039-put",
+      "outcome": "Earlier candidate assessments progressed to later calibration requests; a later candidate failed the same LR numeric consistency rule twice. No unchecked final essay was displayed.",
+      "logged_rules": [
+        "Criterion LR score inconsistent with complete descriptor matches: expected 5",
+        "Criterion LR score inconsistent with complete descriptor matches: expected 5"
+      ]
+    }
+  ],
+  "current_candidate": {
+    "source_commit": "0af30800589d1a224ab9d37686aa1c274aa39620",
+    "prompt_version": "official-rubric-v4.13-targeted-feedback-repair",
+    "python_tests": 139,
+    "status": "deployment pending final public validation"
+  }
+}

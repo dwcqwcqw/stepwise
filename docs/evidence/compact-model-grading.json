@@ -1,0 +1,190 @@
+[
+  {
+    "mode": "compact",
+    "passed": true,
+    "source_commit": "fedc783294e1361f9c258e34b6d385b59695913f",
+    "wall_seconds": 24.159,
+    "scores": [
+      7,
+      7,
+      6,
+      6
+    ],
+    "overall": 6.5,
+    "essay_sha256": "714fb75c6b2f34d9a78d18416a89bea7274a6f896ca5d6d10d0d51b493f9cc6b",
+    "index_id": "339dcf75a711802b",
+    "target_blind": true,
+    "statements": 119,
+    "model_calls": [
+      {
+        "provider": "Google Vertex AI",
+        "model": "gemini-3.5-flash",
+        "model_version": "gemini-3.5-flash",
+        "response_id": "SNfMatiWEI6ovr0P-4UV",
+        "usage": {
+          "promptTokenCount": 20664,
+          "candidatesTokenCount": 4826,
+          "totalTokenCount": 25490,
+          "trafficType": "ON_DEMAND",
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 20664
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4826
+            }
+          ]
+        },
+        "latency_ms": 23459,
+        "prompt_version": "official-rubric-v4.9-compact-model-assessment",
+        "temperature": 0.1,
+        "transport_attempts": 1,
+        "criteria": [
+          "TR",
+          "CC",
+          "LR",
+          "GRA"
+        ]
+      }
+    ]
+  },
+  {
+    "mode": "parallel",
+    "passed": true,
+    "source_commit": "fedc783294e1361f9c258e34b6d385b59695913f",
+    "wall_seconds": 28.398,
+    "scores": [
+      7,
+      7,
+      6,
+      6
+    ],
+    "overall": 6.5,
+    "essay_sha256": "714fb75c6b2f34d9a78d18416a89bea7274a6f896ca5d6d10d0d51b493f9cc6b",
+    "index_id": "339dcf75a711802b",
+    "target_blind": true,
+    "statements": 119,
+    "model_calls": [
+      {
+        "provider": "Google Vertex AI",
+        "model": "gemini-3.5-flash",
+        "model_version": "gemini-3.5-flash",
+        "response_id": "X9fMavj8NM-kvr0Pm73NyQY",
+        "usage": {
+          "promptTokenCount": 7407,
+          "candidatesTokenCount": 3117,
+          "totalTokenCount": 10524,
+          "trafficType": "ON_DEMAND",
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7407
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 3117
+            }
+          ]
+        },
+        "latency_ms": 22922,
+        "prompt_version": "official-rubric-v4.9-compact-model-assessment",
+        "temperature": 0.1,
+        "transport_attempts": 1,
+        "criterion": "TR"
+      },
+      {
+        "provider": "Google Vertex AI",
+        "model": "gemini-3.5-flash",
+        "model_version": "gemini-3.5-flash",
+        "response_id": "X9fMatnzN7iG1e8PzdSI8A8",
+        "usage": {
+          "promptTokenCount": 7128,
+          "candidatesTokenCount": 3143,
+          "totalTokenCount": 10271,
+          "trafficType": "ON_DEMAND",
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7128
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 3143
+            }
+          ]
+        },
+        "latency_ms": 12484,
+        "prompt_version": "official-rubric-v4.9-compact-model-assessment",
+        "temperature": 0.1,
+        "transport_attempts": 1,
+        "criterion": "CC"
+      },
+      {
+        "provider": "Google Vertex AI",
+        "model": "gemini-3.5-flash",
+        "model_version": "gemini-3.5-flash",
+        "response_id": "X9fMat3QK-yavr0P4vvK4Q4",
+        "usage": {
+          "promptTokenCount": 6775,
+          "candidatesTokenCount": 2849,
+          "totalTokenCount": 9624,
+          "trafficType": "ON_DEMAND",
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6775
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2849
+            }
+          ]
+        },
+        "latency_ms": 28202,
+        "prompt_version": "official-rubric-v4.9-compact-model-assessment",
+        "temperature": 0.1,
+        "transport_attempts": 1,
+        "criterion": "LR"
+      },
+      {
+        "provider": "Google Vertex AI",
+        "model": "gemini-3.5-flash",
+        "model_version": "gemini-3.5-flash",
+        "response_id": "X9fMasmuK8-kvr0Pm73NyQY",
+        "usage": {
+          "promptTokenCount": 6436,
+          "candidatesTokenCount": 2677,
+          "totalTokenCount": 9113,
+          "trafficType": "ON_DEMAND",
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6436
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 2677
+            }
+          ]
+        },
+        "latency_ms": 13053,
+        "prompt_version": "official-rubric-v4.9-compact-model-assessment",
+        "temperature": 0.1,
+        "transport_attempts": 1,
+        "criterion": "GRA"
+      }
+    ]
+  }
+]

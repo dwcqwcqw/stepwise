@@ -1,0 +1,78 @@
+{
+  "checked_at": "2026-10-12 Asia/Shanghai",
+  "reported_target": 5.5,
+  "old_backend_revision": "stepwise-api-00025-gub",
+  "old_message": "Google model request could not complete; please retry.",
+  "old_client_read_timeout_seconds": 240,
+  "cloud_run_requests": [
+    {
+      "timestamp": "2026-10-12T12:03:37.349890Z",
+      "status": 200,
+      "latency_seconds": 59.230248373
+    },
+    {
+      "timestamp": "2026-10-12T12:04:37.355660Z",
+      "status": 200,
+      "latency_seconds": 244.054112633
+    }
+  ],
+  "interpretation": "The 244-second request is consistent with the old 240-second read timeout, but the old client did not log the exact transport exception subtype. A streamed application error can still have HTTP 200.",
+  "source_commit": "c46e4ebfc340887c106c7cda1527facd39115e71",
+  "python_tests": 139,
+  "public_retest_status": "Revision 00039 failed a later candidate on repeated LR score inconsistency; targeted feedback-only repair source 0af3080 is being deployed.",
+  "backend_revision": "stepwise-api-00039-put",
+  "image": "us-central1-docker.pkg.dev/stepwise-ac215-20261010/stepwise/api:c46e4ebfc340",
+  "image_digest": "sha256:d9a4f34504a0172c560e5d4c4d115517576a80e6864d74145f8c42eefb8612e7",
+  "model": "gemini-3.5-flash",
+  "thinking_level": "MINIMAL",
+  "traffic_percent": 100,
+  "real_timeout_recovery": {
+    "source_commit": "79335148cf39e83aa1dfd5886f0c5a3f61926198",
+    "environment": "Cloud Shell real Vertex calls, separate from public UI",
+    "kind": "ReadTimeout",
+    "elapsed_ms": 75077,
+    "retry_observed": true,
+    "subsequent_writer_response_received": true,
+    "subsequent_writer_word_count": 218,
+    "length_attempt_word_counts": [
+      218,
+      223
+    ],
+    "subsequent_error": "Model essay failed content or length checks; please retry."
+  },
+  "subsequent_length_patch_source": "3df6b2c43b815ad46407209c9dcf6a73c545f234",
+  "prompt_version": "official-rubric-v4.12-compact-parallel-pairs",
+  "public_retry_observed": {
+    "source_commit": "3df6b2c43b815ad46407209c9dcf6a73c545f234",
+    "backend_revision": "stepwise-api-00029-nin",
+    "kind": "ReadTimeout",
+    "elapsed_ms": 75070,
+    "retry_message": "Google request delayed; retrying automatically (2 of 3)",
+    "recovered_to_next_candidate": true,
+    "final_ui_outcome": "Browser control detached after the third candidate began; not counted as a successful final generation.",
+    "screenshot": "model-request-retry.png"
+  },
+  "compact_rollout": {
+    "first_source": "fedc783294e1361f9c258e34b6d385b59695913f",
+    "first_revision": "stepwise-api-00031-has",
+    "error": "HTTP 400 Request contains an invalid argument during combined assessment",
+    "rolled_back_to": "stepwise-api-00029-nin",
+    "candidate_source": "e1d678229d1a337f3acdd8995943c028aa2b6a6c",
+    "candidate_revision": "stepwise-api-00034-wew",
+    "candidate_traffic_percent": 100,
+    "schema_fixed_normal_check": {
+      "passed": true,
+      "statements": 119,
+      "wall_seconds": 21.687,
+      "response_id": "HNrMaoP2NriG1e8PzdSI8A8"
+    }
+  },
+  "paired_host_check": {
+    "passed": true,
+    "statements": 119,
+    "wall_seconds": 93.013,
+    "transport_retry": true,
+    "source_commit": "dba036f1add398baa0b3009074eb04f8881762ba"
+  },
+  "targeted_feedback_candidate": "0af30800589d1a224ab9d37686aa1c274aa39620"
+}

@@ -1,0 +1,96 @@
+{
+  "paired": [
+    {
+      "mode": "compact-schema-fixed",
+      "passed": true,
+      "source_commit": "dba036f1add398baa0b3009074eb04f8881762ba",
+      "wall_seconds": 93.013,
+      "scores": [
+        7,
+        7,
+        6,
+        6
+      ],
+      "overall": 6.5,
+      "essay_sha256": "714fb75c6b2f34d9a78d18416a89bea7274a6f896ca5d6d10d0d51b493f9cc6b",
+      "index_id": "339dcf75a711802b",
+      "target_blind": true,
+      "statements": 119,
+      "model_calls": [
+        {
+          "provider": "Google Vertex AI",
+          "model": "gemini-3.5-flash",
+          "model_version": "gemini-3.5-flash",
+          "response_id": "jNzMaszBO7iG1e8PzdSI8A8",
+          "usage": {
+            "promptTokenCount": 10740,
+            "candidatesTokenCount": 2742,
+            "totalTokenCount": 13482,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 10740
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2742
+              }
+            ]
+          },
+          "latency_ms": 11578,
+          "prompt_version": "official-rubric-v4.11-compact-parallel-pairs",
+          "temperature": 0.1,
+          "transport_attempts": 1,
+          "criteria": [
+            "TR",
+            "CC"
+          ]
+        },
+        {
+          "provider": "Google Vertex AI",
+          "model": "gemini-3.5-flash",
+          "model_version": "gemini-3.5-flash",
+          "response_id": "2dzMarjjDriG1e8PzdSI8A8",
+          "usage": {
+            "promptTokenCount": 9430,
+            "candidatesTokenCount": 2627,
+            "totalTokenCount": 12057,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9430
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2627
+              }
+            ]
+          },
+          "latency_ms": 92332,
+          "prompt_version": "official-rubric-v4.11-compact-parallel-pairs",
+          "temperature": 0.1,
+          "transport_attempts": 2,
+          "criteria": [
+            "LR",
+            "GRA"
+          ]
+        }
+      ]
+    }
+  ],
+  "lite": [
+    {
+      "mode": "compact-schema-fixed",
+      "passed": false,
+      "error": "The combined assessment could not verify its evidence. Please try again; your writing is unchanged.",
+      "wall_seconds": 43.006,
+      "source_commit": "e1d678229d1a337f3acdd8995943c028aa2b6a6c"
+    }
+  ]
+}

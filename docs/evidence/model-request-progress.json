@@ -1,0 +1,7 @@
+{
+  "phase": "model_retry",
+  "request_elapsed_ms": 83231,
+  "visible_text": "✦\n\nSTEPWISE IS WORKING\n\nAn essay shaped around your ideas.\n\nWe write, assess independently, and adjust if the band differs from your choice.\n\n150s elapsed\n✓\nFind your target-band standards\nComplete\nDone\n✓\nWrite your model essay\nComplete\nDone\n3\nReview all four criteria independently\n3 of 4 criteria checked\nIn progress\n4\nVerify evidence, sources and scores\nWaiting\nWaiting\n5\nConfirm your selected band\nWaiting\nWaiting\nTask response\nReviewing\nCoherence\nChecked\nVocabulary\nChecked\nGrammar\nChecked\n\nGoogle request delayed; retrying automatically (2 of 3)\n\nYou can keep this tab open. Your writing stays here if a connection fails.",
+  "source_commit": "3df6b2c43b815ad46407209c9dcf6a73c545f234",
+  "backend_revision": "stepwise-api-00029-nin"
+}
