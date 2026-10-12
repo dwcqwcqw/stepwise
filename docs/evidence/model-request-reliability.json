@@ -17,12 +17,12 @@
     }
   ],
   "interpretation": "The 244-second request is consistent with the old 240-second read timeout, but the old client did not log the exact transport exception subtype. A streamed application error can still have HTTP 200.",
-  "source_commit": "c46e4ebfc340887c106c7cda1527facd39115e71",
+  "source_commit": "0af30800589d1a224ab9d37686aa1c274aa39620",
   "python_tests": 139,
-  "public_retest_status": "Revision 00039 failed a later candidate on repeated LR score inconsistency; targeted feedback-only repair source 0af3080 is being deployed.",
-  "backend_revision": "stepwise-api-00039-put",
-  "image": "us-central1-docker.pkg.dev/stepwise-ac215-20261010/stepwise/api:c46e4ebfc340",
-  "image_digest": "sha256:d9a4f34504a0172c560e5d4c4d115517576a80e6864d74145f8c42eefb8612e7",
+  "public_retest_status": "passed: target 5.5, assessed 5.5, criterion scores 6/5/5/5, 292 words; displayed elapsed 205 seconds",
+  "backend_revision": "stepwise-api-00041-wag",
+  "image": "us-central1-docker.pkg.dev/stepwise-ac215-20261010/stepwise/api:0af30800589d",
+  "image_digest": "sha256:365b4e99a55958fc1ceb91143dfabb3dd68d2688a90467a8356751f65430fdc1",
   "model": "gemini-3.5-flash",
   "thinking_level": "MINIMAL",
   "traffic_percent": 100,
@@ -41,7 +41,7 @@
     "subsequent_error": "Model essay failed content or length checks; please retry."
   },
   "subsequent_length_patch_source": "3df6b2c43b815ad46407209c9dcf6a73c545f234",
-  "prompt_version": "official-rubric-v4.12-compact-parallel-pairs",
+  "prompt_version": "official-rubric-v4.13-targeted-feedback-repair",
   "public_retry_observed": {
     "source_commit": "3df6b2c43b815ad46407209c9dcf6a73c545f234",
     "backend_revision": "stepwise-api-00029-nin",
@@ -74,5 +74,6 @@
     "transport_retry": true,
     "source_commit": "dba036f1add398baa0b3009074eb04f8881762ba"
   },
-  "targeted_feedback_candidate": "0af30800589d1a224ab9d37686aa1c274aa39620"
+  "targeted_feedback_candidate": "0af30800589d1a224ab9d37686aa1c274aa39620",
+  "final_public_receipt": "compact-public-ui.json"
 }

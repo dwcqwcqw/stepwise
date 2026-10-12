@@ -33,3 +33,7 @@ A real Cloud Shell diagnostic on source `79335148cf39e83aa1dfd5886f0c5a3f6192619
 The length repair now receives the measured word count and the failed candidate, preserves the requested proficiency and stance, and asks focused editors for edits against their original base rather than a whole-essay response. Safe logs record mode, count and position-check status. Public verification of this subsequent source is recorded separately.
 
 The subsequent compact-assessment rollout on revision `stepwise-api-00034-wew` passed a real host assessment with all 119 exact-evidence checks but its first public target-5.5 generation exhausted transport retries during combined assessment. A bounded timeout was displayed and requirements stayed intact. Therefore retry recovery is verified in earlier runs, while this specific public attempt remains a failure. See the compact grading report and deployment receipt for version-specific outcomes.
+
+## Final public outcome
+
+The subsequent source `0af3080`, revision `stepwise-api-00041-wag`, completed the public target-5.5 workflow: 292 words, independent scores 6/5/5/5, exact mean 5.25 rounded to 5.5. The page displayed 205 seconds for generation plus calibration and scoring. This verifies a successful completed outcome, not a guaranteed latency bound or a speedup benchmark. See `evidence/compact-public-ui.json` and its screenshot. Total unit coverage is now 139 passing Python tests.

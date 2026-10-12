@@ -1,0 +1,63 @@
+{
+  "calculation": "(6.0 + 5.0 + 5.0 + 5.0) ÷ 4 = 5.25 → 5.5",
+  "criterion_buttons": [
+    "Task Response\n6.0",
+    "Coherence and Cohesion\n5.0",
+    "Lexical Resource\n5.0",
+    "Grammatical Range and Accuracy\n5.0"
+  ],
+  "descriptor_links": [
+    {
+      "text": "IELTS Writing Band Descriptors · Page 8 ↗",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors · Page 8 ↗",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors · Page 8 ↗",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=8"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors · Page 7 ↗",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors · Page 7 ↗",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors · Page 7 ↗",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    },
+    {
+      "text": "",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    },
+    {
+      "text": "",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    },
+    {
+      "text": "",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    },
+    {
+      "text": "",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    }
+  ],
+  "elapsed": "205s elapsed",
+  "essay": "Nowadays transport is very big thing for every country in the world. Some people think government must spend more money on public transport than roads. I believe that governments should prioritize funding for public transport to help commuters and reduce traffic, while they must also maintain essential roads to protect connections for rural areas. Public transport is good because it is cheap. This affordability for commuters is good because workers go to work. If cheap transport is there, people can get jobs. Access to jobs is very important for people. Also, many buses and trains make lower congestion. Lower congestion is good because no traffic jams. People do not like traffic jams because they are late for work. If government spend money on buses, many people do not use cars. This is very good for cities because cities have too many cars. But roads are also important. We must protect rural connections. People in countryside do not have trains. They need cars. If government do not make roads, rural people cannot go to hospital. This is very bad. So we need roads for rural connections. Public transport is good for cities but roads are good for rural areas. Therefore, government must spend money on both things. Public transport helps commuters and jobs, and roads help rural people. This is my opinion about transport spending. Government must think about this very much because transport is important. If transport is bad, people cannot live well. So public transport is first priority but roads are also needed. Many people need both things every day. If government only spend on transport, rural people will be very angry. If government only spend on roads, city people will have too much traffic. So both are important for country.",
+  "last_server_elapsed": "99693",
+  "notice": "This example matched your requested Band 5.5 in a separate assessment against official IELTS standards.",
+  "question": "Some people think governments should spend more on public transport than on roads. To what extent do you agree or disagree?",
+  "score_text": "Estimated Task 2 band\n5.5",
+  "target": 5.5,
+  "title": "Public Transport and Roads Spending"
+}

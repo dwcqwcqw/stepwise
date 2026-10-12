@@ -35,6 +35,26 @@
     "source_commit": "0af30800589d1a224ab9d37686aa1c274aa39620",
     "prompt_version": "official-rubric-v4.13-targeted-feedback-repair",
     "python_tests": 139,
-    "status": "deployment pending final public validation"
+    "status": "passed complete public generation and separate assessment",
+    "revision": "stepwise-api-00041-wag",
+    "image_digest": "sha256:365b4e99a55958fc1ceb91143dfabb3dd68d2688a90467a8356751f65430fdc1",
+    "traffic_percent": 100,
+    "requested_band": 5.5,
+    "assessed_band": 5.5,
+    "criterion_scores": [
+      6,
+      5,
+      5,
+      5
+    ],
+    "raw_mean": 5.25,
+    "rounded_band": 5.5,
+    "word_count": 292,
+    "displayed_elapsed_seconds": 205,
+    "last_request_server_elapsed_ms": 99693,
+    "screenshot": "compact-targeted-result.png",
+    "dom_receipt": "compact-targeted-public-dom.json",
+    "verification_boundary": "Completed UI confirms target/assessed scores, rounding, word count and rendered official descriptor links. The deployed validator enforces all 119 statements. Raw public model-call receipts and full candidate history were not exported; subsequent Cloud Shell log access required renewed Harvard sign-in.",
+    "targeted_repair_runtime_trigger": "not independently determined; covered by controlled regression tests"
   }
 }
