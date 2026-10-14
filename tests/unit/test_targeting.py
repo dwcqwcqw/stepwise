@@ -122,7 +122,7 @@ def test_focused_revision_keeps_calibrated_control_levels_for_unchanged_skills(m
     second=payloads[1]['criterion_target_profile']
     third=payloads[2]['criterion_target_profile']
     assert second=={'TR':5,'CC':5,'LR':5,'GRA':5}
-    assert payloads[2]['revision_mode']=='focused_revision'
+    assert payloads[2]['revision_mode']=='rewrite'
     assert payloads[2]['focus_criteria']==['LR']
     assert third=={'TR':5,'CC':5,'LR':6,'GRA':5}
     # Do not reset TR/CC/GRA to the observed scores (7/6/6), which rewrites
@@ -146,24 +146,17 @@ def test_invalid_focused_edits_are_rejected(edits):
     with pytest.raises(ValueError):apply_focus_edits(essay,edits,'My position is clear.',['LR'])
 
 
-def test_patch_retry_receives_failed_edits_and_exact_integer_budget(monkeypatch):
+def test_calibration_outputs_complete_essay_without_brittle_patch_protocol(monkeypatch):
     requirements,payloads,assessed=setup_generation(monkeypatch,[6.5,7],7)
     original=assessment.generate
-    patch_calls=[]
     def writer(system,payload,schema,temperature):
-        if schema is assessment.PATCH_SCHEMA:
-            patch_calls.append(deepcopy(payload))
-            if len(patch_calls)==1:
-                return {'edits':[{'before':'invented span','after':'better'}]},{'response_id':'bad-patch'}
+        assert schema is not assessment.PATCH_SCHEMA
         return original(system,payload,schema,temperature)
     monkeypatch.setattr(assessment,'generate',writer)
     result=assessment.generate_essay(requirements)
     assert result['target_met'] and len(assessed)==2
-    assert len(patch_calls)==2
-    assert patch_calls[0]['patch_constraints']['max_total_words']==int(len(assessed[0].split())*.2)
-    repair=patch_calls[1]['validation_repair']
-    assert repair['previous_edits']==[{'before':'invented span','after':'better'}]
-    assert 'exactly once' in repair['error']
+    assert payloads[1]['revision_mode']=='rewrite'
+    assert payloads[1]['protected_position_sentence'] in result['essay']
 
 
 def test_length_repair_receives_failed_candidate_and_measured_count(monkeypatch):
@@ -183,27 +176,19 @@ def test_length_repair_receives_failed_candidate_and_measured_count(monkeypatch)
     assert len(assessed)==1 and result['target_met']
 
 
-def test_focused_patch_length_repair_still_requests_edits_against_original(monkeypatch):
+def test_revised_essay_length_repair_keeps_target_profile_and_protected_stance(monkeypatch):
     requirements,payloads,assessed=setup_generation(monkeypatch,[6.5,7],7)
-    original=assessment.generate;patches=[]
-    tail=' '.join('token'+str(n) for n in range(21))
-    essay='A learner sentence. '*76+tail+' 1'  # 250 words
-    def writer(system,payload,schema,temperature):
-        if schema is assessment.PATCH_SCHEMA:
-            patches.append(deepcopy(payload))
-            if len(patches)==1:
-                return {'edits':[{'before':tail,'after':''}]},{'response_id':'short-patch'}
-        value,receipt=original(system,payload,schema,temperature)
-        if len(payloads)==1:value['essay']=essay
+    original=assessment.generate
+    def writer(*args,**kwargs):
+        value,receipt=original(*args,**kwargs)
+        if len(payloads)==2:value['essay']='A learner sentence. '*70
         return value,receipt
     monkeypatch.setattr(assessment,'generate',writer)
     result=assessment.generate_essay(requirements)
-    repair=patches[1]['validation_repair']
-    assert repair['actual_word_count']==229
-    assert repair['previous_edits']==[{'before':tail,'after':''}]
-    assert 'ORIGINAL previous_essay' in repair['instruction']
-    assert patches[1]['previous_essay']==essay
-    assert len(assessed)==2 and result['target_met']
+    assert len(payloads)==3 and len(assessed)==2 and result['target_met']
+    assert payloads[2]['validation_repair']['actual_word_count']==210
+    assert payloads[2]['criterion_target_profile']==payloads[1]['criterion_target_profile']
+    assert payloads[2]['protected_position_sentence'] in result['essay']
 
 
 def test_detailed_feedback_only_for_target_matching_final_candidate(monkeypatch):

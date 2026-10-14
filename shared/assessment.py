@@ -317,10 +317,7 @@ def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_cand
             context_profile=desired if focused else writer_profile
             selected=[x for x in context['chunks'] if x['kind']!='band_descriptor' or max(0,context_profile[x['criterion']]-1)<=x['band']<=min(9,context_profile[x['criterion']]+1)]
             payload.update(criterion_target_profile=dict(writer_profile),official_rubric_context=rubric_payload(selected),
-                patch_constraints={'max_total_words':int(len(essay.split())*(.2 if len([code for code in CRITERIA if desired[code]!=actual[code]])<=2 else .5)),
-                    'preferred_span':'Replace only the changed word or short phrase, not its whole surrounding sentence.',
-                    'minimum_final_essay_words':250},
-                revision_mode='focused_revision' if focused else 'rewrite',patch_target_profile=desired if focused else None,
+                revision_mode='rewrite',patch_target_profile=desired if focused else None,
                 previous_title=value.get('title','Your model essay'),previous_requirement_notes=value['requirement_notes'],
                 focus_criteria=[code for code in CRITERIA if desired[code]!=actual[code]],
                 previous_essay=essay,revision_feedback={'observed_band':observed,
