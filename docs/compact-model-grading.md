@@ -1,3 +1,5 @@
+> Superseded on 14 October 2026 by [decision-first scoring and final-only feedback](decision-first-grading.md). The measurements below describe their original versions.
+
 # Faster assessment of generated model essays
 
 ## Current design

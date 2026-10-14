@@ -47,3 +47,13 @@ The final v4.7 public check succeeded on source `bd305502d516cf30bc72d1c99d35a45
 `compact-paired-verification.json` records the subsequent two-group host pass, including its real timeout and 93.013-second total. `compact-public-ui.json` records each public rollout separately; prior errors must not be interpreted as final successful generation. `compact-paired-progress.png` shows the actual paired-assessment stage on revision 00037.
 
 The final source `0af3080`, revision 00041, completed the public target-5.5 check: 292 words, 6/5/5/5, mean 5.25 → 5.5. `compact-targeted-public-dom.json` and `compact-targeted-result.png` record the completed page; `compact-public-ui.json` records the 205-second generation/calibration total and verification boundaries.
+
+## Decision-first grading and direct essay revision — 14 October 2026
+
+- `decision-first-host.json`: actual Flash response IDs/usage; 119 standards, 20 skills, 17.74s screening and 68.89s total.
+- `decision-first-lite-probe.json`: separate faster but materially different scoring profile; not adopted.
+- `decision-first-public.json`: completed 307-word target-5.5 public result, 7/5/4/6 → 5.5, 81s overall, source419 / revision00045.
+- `decision-first-public-details.json`: four inspected criterion panels, actual next steps/examples and descriptor links.
+- `decision-first-result.png`: completed public page.
+
+The earlier source7d public run failed the old local-edit writer protocol and is not counted as success. Source419 replaces normal calibration with complete-essay revisions. See `../decision-first-grading.md` for the exact failure chronology, implementation and verification boundaries.

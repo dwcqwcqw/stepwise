@@ -1,0 +1,78 @@
+{
+  "calculation": "How your score is calculated(7.0 + 5.0 + 4.0 + 6.0) \u00f7 4 = 5.50 \u2192 5.5Each criterion has equal weight. The exact mean is converted to a half-band practice estimate: .25 rounds to .5; .75 rounds to the next whole band. Official descriptor rows use whole bands.",
+  "criteria": [
+    "Task Response\n7.0",
+    "Coherence and Cohesion\n5.0",
+    "Lexical Resource\n4.0",
+    "Grammatical Range and Accuracy\n6.0"
+  ],
+  "elapsed": "81s elapsed",
+  "essay": "Government money is very big debate for transport. Some people say spend money for public transport and other people say roads. I believe that governments should prioritize public transport while maintaining essential roads. This is very important for many things. Money is always needed. Many people need to travel every day. If no money, then transport is very bad.\n\nFirst, public transport is good. It is good for affordibility for commuters because ticket is cheap. Many people do not have car so they need bus. It give access to jobs. If no bus, people cannot go to work. This is very bad for jobs. Also, public transport make lower congestation. Many cars on road make traffic. If many people use bus, then less cars on the road. But the road is also important. We need road for cars. Road is for cars and trucks. If no road, people cannot drive. This is very bad for people. People need to drive to many places. If road is bad, cars are broken. This cost more money for people.\n\nAlso, we must protect rural connections. People in countryside do not have trains. They only have roads. If government do not maintain roads, rural people cannot travel. They are stuck. So, government must spend money on roads too. If roads are bad, it is dangerous. Many accidents happen on bad roads. So, we need both but public transport is more. Cheap tickets help poor people. It is very good for jobs and work. Many people need this every day. If no public transport, poor people cannot live. They cannot buy food. This is very big problem for country.\n\nTo conclude, government should spend money. Public transport is priority but roads are also needed. This is my opinion. Both are good but public transport is more important for poor people and jobs.",
+  "notice": "This example matched your requested Band 5.5 in a separate assessment against official IELTS standards.",
+  "source_links": [
+    {
+      "text": "IELTS Writing Band Descriptors \u00b7 Page 7 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors \u00b7 Page 7 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors \u00b7 Page 7 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors \u00b7 Page 7 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors \u00b7 Page 7 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors \u00b7 Page 7 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "IELTS Writing Band Descriptors \u00b7 Page 7 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+    },
+    {
+      "text": "Ielts Key Assessment Criteria \u00b7 Page 3 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    },
+    {
+      "text": "Ielts Key Assessment Criteria \u00b7 Page 3 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    },
+    {
+      "text": "Ielts Key Assessment Criteria \u00b7 Page 3 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    },
+    {
+      "text": "Ielts Key Assessment Criteria \u00b7 Page 3 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    },
+    {
+      "text": "Ielts Key Assessment Criteria \u00b7 Page 3 \u2197",
+      "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf#page=3"
+    }
+  ],
+  "title": "Public Transport and Road Investment",
+  "url": "https://stepwise-one.vercel.app/",
+  "word_target": "307 words \u00b7 Target band 5.5",
+  "source": "4193eae45ede197c8083fbfec0f6b6c54e23507d",
+  "revision": "stepwise-api-00045-vos",
+  "image_digest": "sha256:3d065d708e27e2f60cba7718e1cd9e96cf9e73a41a1078b3dfbf5311139993b6",
+  "requested_band": 5.5,
+  "assessed_band": 5.5,
+  "criterion_scores": [
+    7,
+    5,
+    4,
+    6
+  ],
+  "elapsed_seconds": 81,
+  "verification": "Completed public browser workflow; all four criterion advice/example panels and 5+5+6+4 qualitative detail counts inspected. Raw server model receipts not exported for this public run."
+}
