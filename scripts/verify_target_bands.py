@@ -32,7 +32,7 @@ def main():
     sample=json.loads((root/'data/sample_essay.json').read_text())
     token=subprocess.check_output(['gcloud','auth','print-identity-token'],text=True).strip()
     def check(band):
-        requirements={'prompt':sample['prompt'],'target_band':band,
+        requirements={'prompt':sample['prompt'],'source_essay':sample['essay'],'target_band':band,
                       'position':'Prioritize public transport while maintaining essential roads.',
                       'ideas':'Affordability for commuters; access to jobs; lower congestion; protect rural connections.'}
         started=time.monotonic();updates=[];value=None

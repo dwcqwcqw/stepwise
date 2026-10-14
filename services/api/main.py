@@ -2,7 +2,7 @@
 import time
 from typing import Literal
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 from fastapi.responses import StreamingResponse
 from shared.progress import events
 from shared.retrieval import active_index, database, retrieve
@@ -27,13 +27,23 @@ class EssayRequest(BaseModel):
 class ModelEssayRequest(BaseModel):
     prompt: str=Field(min_length=10,max_length=2000)
     target_band: float=Field(ge=4,le=9,multiple_of=0.5)
-    position: str=Field(min_length=5,max_length=1500)
-    ideas: str=Field(min_length=10,max_length=4000)
-    @field_validator('prompt','position','ideas')
+    source_essay: str=Field(default='',max_length=15000)
+    position: str=Field(default='',max_length=1500)
+    ideas: str=Field(default='',max_length=4000)
+    @field_validator('prompt')
     @classmethod
-    def nonblank(cls,value):
-        if not value.strip(): raise ValueError('Please enter meaningful text')
+    def nonblank_prompt(cls,value):
+        if not value.strip(): raise ValueError('Please enter a meaningful question')
         return value.strip()
+    @field_validator('source_essay','position','ideas')
+    @classmethod
+    def trim_optional(cls,value):
+        return value.strip()
+    @model_validator(mode='after')
+    def source_or_position(self):
+        if not self.source_essay and not self.position:
+            raise ValueError('Add your original essay in step 1 or enter a position.')
+        return self
 
 @app.get('/health')
 def health(): return {'status':'ok','milestone':'MS2','input_mode':'typed_or_pasted_text'}

@@ -82,3 +82,19 @@ def test_commentary_repairs_only_feedback_without_rewriting_essay(monkeypatch):
     result=commentary.comment_on_essay({'prompt':'Transport question?','target_band':7.5},ESSAY,context,target_profile(7.5))
     assert len(calls)==2 and all(p['essay']==ESSAY for p in calls)
     assert 'validation_repair' in calls[1] and result['essay_sha256']
+
+@pytest.mark.parametrize('position,ideas,position_source,ideas_source',[
+    ('','','source_essay','source_essay'),
+    ('Prioritize safer roads.','','user_override','source_essay'),
+    ('','Use a commuter example.','source_essay','user_override'),
+    ('Prioritize safer roads.','Protect rural access.','user_override','user_override')])
+def test_generation_passes_original_essay_with_independent_optional_override_policy(monkeypatch,position,ideas,position_source,ideas_source):
+    req,requests,_=setup_writer(monkeypatch)
+    req.update(source_essay='I support public transport because affordable buses improve access to work.',position=position,ideas=ideas)
+    monkeypatch.setattr(commentary,'comment_on_essay',lambda *a,**kw:{'mode':'qualitative_commentary','criteria':[]})
+    result=assessment.generate_essay(req)
+    assert requests[0]['requirements']['source_essay']==req['source_essay']
+    assert requests[0]['content_policy']['position_source']==position_source
+    assert requests[0]['content_policy']['ideas_source']==ideas_source
+    assert result['requirements']['position']==position and result['requirements']['ideas']==ideas
+    assert len(requests)==1

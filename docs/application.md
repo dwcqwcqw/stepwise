@@ -4,7 +4,7 @@ The Stepwise four-screen design uses a consistent white/lilac palette, clear typ
 
 1. **Your draft:** one wide editor for the question and typed/pasted essay, sample draft, live word count and Review button. No target-band sidebar, decorative `04` panel, image upload or OCR.
 2. **Feedback:** actual overall Task 2 estimate and four criterion scores. Selecting a criterion reveals its score explanation, exact essay evidence, an actionable next step and a revision of the learner's words. The right panel prioritizes current/next-band paragraph matches with exact official wording and page citations. The 20 supplementary skill checks are expandable; the interface shows the assessed band and the next band only. Four independently assessed criteria cover all 119 Task 2 standards.
-3. **Your goals:** enter target band, position and ideas to preserve. Submit the question and these requirements to generation.
+3. **Your goals:** select a target band. Position and ideas start empty and are optional. Blank fields reuse the original essay’s stance and relevant ideas; an explicit new position overrides the original stance. Generation receives the original essay and any optional overrides.
 4. **Model essay:** complete prose and idea coverage notes, the user's preset **Target band**, and four qualitative criterion comments with 20 expandable skill details. Each criterion includes an exact essay excerpt, an actionable next step, a before/after refinement and official target-band guidance. No generated-essay scoring, average, candidate reassessment or score-calibration loop. Download the essay and commentary as text.
 
 ```text

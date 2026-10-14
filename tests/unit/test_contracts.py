@@ -36,3 +36,17 @@ def test_duplicate_chunks_fail():
 def test_changed_source_changes_chunk_identity():
     cell={'criterion':'CC','criterion_name':'Coherence and Cohesion','band':7,'text':'An official cell.','source_sha256':'old'}
     assert build_chunks([cell])[0]['chunk_id'] != build_chunks([{**cell,'source_sha256':'new'}])[0]['chunk_id']
+
+@pytest.mark.parametrize('extras',[{}, {'position':'  ', 'ideas':'\n'}, {'position':'No','ideas':'A'}])
+def test_optional_goals_accept_blank_or_short_overrides_with_original_essay(extras):
+    value=ModelEssayRequest(prompt='Should public transport receive more funding?',target_band=7.5,source_essay='I support road maintenance.',**extras)
+    assert value.source_essay=='I support road maintenance.'
+    if not extras.get('position','').strip(): assert value.position=='' and value.ideas==''
+
+def test_blank_goals_need_original_content_instead_of_inventing_a_stance():
+    with pytest.raises(ValidationError,match='original essay'):
+        ModelEssayRequest(prompt='Should public transport receive more funding?',target_band=7.5,position=' ',ideas='More buses')
+
+def test_explicit_new_position_can_generate_without_a_source_essay():
+    value=ModelEssayRequest(prompt='Should public transport receive more funding?',target_band=7,position='Prioritize roads')
+    assert value.ideas=='' and value.source_essay==''

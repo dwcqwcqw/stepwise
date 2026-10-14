@@ -49,7 +49,7 @@ feedback=call('/api/feedback',sample);check_assessment(feedback,sample['essay'])
 save('sample_input.json',sample);save('feedback_output.json',feedback)
 retrieval=call('/api/retrieve',{'query':'How can I develop and support my position with specific examples?','criterion':'TR','target_band':6.5,'top_k':2})
 assert {x['band'] for x in retrieval['matches']}=={6,7};save('retrieval_example.json',retrieval)
-req={'prompt':sample['prompt'],'target_band':7,'position':'Prioritize public transport while maintaining essential roads.','ideas':'Affordability for commuters; access to jobs; lower congestion; protect rural connections.'}
+req={'prompt':sample['prompt'],'source_essay':sample['essay'],'target_band':7,'position':'Prioritize public transport while maintaining essential roads.','ideas':'Affordability for commuters; access to jobs; lower congestion; protect rural connections.'}
 generated=call('/api/model-essay',req);assert generated['status']=='generated_with_commentary' and generated['requirements']==req
 assert 250<=generated['word_count']<=450
 commentary=generated['commentary']

@@ -4,7 +4,7 @@ AC215 Milestone 2. Type or paste an IELTS Academic Writing Task 2 essay, receive
 
 ## Current model-essay flow: target writing and commentary
 
-The user-selected policy supersedes the older calibration releases below: **write once, then comment on the actual essay without re-scoring**. The overall number is the preset **Target band**. Generated essays have no numeric criterion scores, score average or target-matching loop. Four criterion comments, 20 qualitative skill details, actionable next steps, exact excerpts and revision examples remain linked to official IELTS guidance. Normal submitted-draft scoring retains the full 119-statement checks and four-score average. The progress view has two steps. See [current implementation](docs/model-essay-commentary.md).
+The user-selected policy supersedes the older calibration releases below: **write once, then comment on the actual essay without re-scoring**. The overall number is the preset **Target band**. Position and ideas are optional and blank by default: empty fields reuse the original essay’s stance and relevant ideas; a newly entered position overrides the original stance. Generated essays have no numeric criterion scores, score average or target-matching loop. Four criterion comments, 20 qualitative skill details, actionable next steps, exact excerpts and revision examples remain linked to official IELTS guidance. Normal submitted-draft scoring retains the full 119-statement checks and four-score average. The progress view has two steps. See [current implementation](docs/model-essay-commentary.md).
 
 ## Live application
 

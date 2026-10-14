@@ -2,7 +2,7 @@
 
 ## Current behavior
 
-A user selects a target band, position and ideas. Stepwise retrieves the official Task 2 descriptors near the target integer writing profile, then asks Gemini to write at that level. A second, single Gemini call comments on the actual essay across TR, CC, LR and GRA. It returns four actionable next steps and examples plus all 20 qualitative skill details. It does **not** assess scores or compare candidate bands.
+A user selects a target band. Position and ideas are optional and blank by default. The original typed/pasted essay is sent as `source_essay`: blank position preserves its stance, and blank ideas reuse its relevant arguments/examples. An explicit new position takes precedence over the original stance; existing arguments are adapted when necessary. Stepwise retrieves the official Task 2 descriptors near the target integer writing profile, then asks Gemini to write at that level. A second, single Gemini call comments on the actual essay across TR, CC, LR and GRA. It returns four actionable next steps and examples plus all 20 qualitative skill details. It does **not** assess scores or compare candidate bands.
 
 The displayed overall number is **Target band**, copied unchanged from the user's input. There are no numeric criterion grades, actual-score claim, mean formula, target-match claim, post-generation assessment or calibration rewrites. This policy supersedes the previous closest-assessed-candidate design.
 
