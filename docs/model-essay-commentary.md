@@ -34,3 +34,11 @@ The fixed public URL completed a target-7.5 request with **311 words** in **16 s
 - [Public DOM receipt](evidence/commentary-public.json) · [Result](evidence/commentary-result.png) · [Two-step loading](evidence/commentary-two-step-progress.png)
 
 No new examiner-agreement study was run. Submitted-draft grading was preserved in code and its existing regression checks; this public run exercised generation/commentary.
+
+## Optional goals and original-essay context
+
+The two goal fields are blank on first load and remain blank after loading a sample draft. Both are labeled optional and have no HTML `required` attribute. `source_essay` carries the current typed/pasted draft to generation. Blank fields preserve the original stance and relevant arguments; an explicit new position takes priority. Ideas can be overridden independently. Missing both original content and a position returns an input error rather than inventing the learner’s stance. Short or whitespace-only optional fields are normalized appropriately.
+
+The backend and frontend were released from `cfbedd1144018d1572aa6c5205145c1622685823` (Cloud Run `stepwise-api-00051-dox`, Vercel `dpl_2odAcynqxJe6HUVXKsFNr5Vficbh`). Regression coverage includes omitted/blank/short optional fields and all four combinations of stance/idea inheritance or overrides. **146 Python and six JavaScript tests passed.** The frontend build passed. Public verification receipts are stored in `docs/evidence/optional-goals-public.json`; the default optional form is shown in `docs/evidence/optional-goals-defaults.png`.
+
+Two real public requests used the same authored road-priority source essay. With both goals blank, the 301-word result preserved road maintenance as the primary spending priority (23 s on the retained UI timer). Entering an explicit public-transit-priority position, with ideas still blank, produced a 282-word result that changed the main priority and reused the rural road/hospital/school examples appropriately (17 s). These are two observed functional checks, not a timing benchmark.

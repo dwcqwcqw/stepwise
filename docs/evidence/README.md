@@ -65,3 +65,7 @@ The earlier source7d public run failed the old local-edit writer protocol and is
 ## Current generation without reassessment
 
 `commentary-public.json`, `commentary-result.png` and `commentary-two-step-progress.png` record the current target-guided writing / qualitative commentary release. The preset 7.5 target is displayed as a writing target; no actual generated score is claimed. Older scoring/calibration receipts are historical. See [implementation and boundaries](../model-essay-commentary.md).
+
+## Optional generation goals
+
+`optional-goals-public.json` and `optional-goals-defaults.png` record blank optional inputs, inheritance from the original essay and an explicit new-stance override. The sample essays used for verification are authored test content.
