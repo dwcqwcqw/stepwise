@@ -31,7 +31,7 @@ def score_summary(scores):
             'raw_mean':format(mean,'.2f'),'rounded_band':format(band,'.1f'),
             'rounding':'nearest_half_band_half_up','scope':'Task 2 practice estimate'}}
 
-def review_bands(card,essay,context):
+def review_bands(card,essay,context,*,check_score=True):
     code=card['criterion']
     ladder={x['band']:x for x in context['chunks'] if x['kind']=='band_descriptor' and x['criterion']==code}
     reviews=card['band_reviews']
@@ -74,7 +74,7 @@ def review_bands(card,essay,context):
     candidates=[b for b in eligible if b<=cap]
     if not candidates:raise ValueError('Band matches do not support any score within the applicable limits')
     derived=max(candidates)
-    if card['score']!=derived:
+    if check_score and card['score']!=derived:
         raise ValueError(f"Criterion {code} score inconsistent with complete descriptor matches: expected {derived}")
     return result,{'highest_supported_band':derived,'limiting_band_cap':cap,
         'descriptor_statements_checked':sum(len(r['checks']) for r in reviews),

@@ -44,6 +44,7 @@ def setup_generation(monkeypatch, bands, target=7):
                             for c,v in target_profile(band).items()]}
     monkeypatch.setattr(assessment,'generate',model)
     monkeypatch.setattr(assessment,'assess_model_essay',independent)
+    monkeypatch.setattr(assessment,'complete_model_feedback',lambda prompt,essay,evaluation,progress:evaluation)
     return requirements,payloads,assessed
 
 @pytest.mark.parametrize('target,observed',[(5,[9,6,5]),(6.5,[9,6.5]),(7,[6,7]),(9,[9])])
@@ -203,3 +204,14 @@ def test_focused_patch_length_repair_still_requests_edits_against_original(monke
     assert 'ORIGINAL previous_essay' in repair['instruction']
     assert patches[1]['previous_essay']==essay
     assert len(assessed)==2 and result['target_met']
+
+
+def test_detailed_feedback_only_for_target_matching_final_candidate(monkeypatch):
+    requirements,_,assessed=setup_generation(monkeypatch,[9,7],7)
+    completed=[]
+    def finish(prompt,essay,evaluation,progress):
+        completed.append((essay,evaluation['overall_band']))
+        return evaluation
+    monkeypatch.setattr(assessment,'complete_model_feedback',finish)
+    result=assessment.generate_essay(requirements)
+    assert len(assessed)==2 and completed==[(result['essay'],7)]
