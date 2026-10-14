@@ -1,0 +1,28 @@
+{
+  "elapsed": "16s elapsed",
+  "notice": "Written for your Band 7.5 target. Explore the feedback and examples below.",
+  "steps": [
+    "Write your essay",
+    "Prepare your feedback"
+  ],
+  "tabs": [
+    "Task Response",
+    "Coherence and Cohesion",
+    "Lexical Resource",
+    "Grammatical Range and Accuracy"
+  ],
+  "target": "Target band\n7.5",
+  "url": "https://stepwise-one.vercel.app/",
+  "wordLabel": "311 WORDS · TARGET BAND 7.5",
+  "panels": {
+    "TR": "TASK RESPONSE\n\nTask Response\n\nThe essay presents a clear, nuanced position in the introduction and maintains it consistently through to the conclusion. Each body paragraph fully extends and supports its main ideas with relevant real-world examples.\n\n“I agree that governments should prioritize funding for public transport to reduce urban congestion and assist low-income commuters, but they must also maintain existing road networks to protect essential rural connections.”\nA useful next step\n\nTo further elevate the task response, ensure that the transition between the two main viewpoints is explicitly framed as a balanced compromise in the introduction.\n\nAn example refinement\nFrom this essay\nI agree that governments should prioritize funding for public transport to reduce urban congestion and assist low-income commuters, but they must also maintain existing road networks to protect essential rural connections.\nSuggested revision\nI agree that governments should prioritize funding for public transport to reduce urban congestion and assist low-income commuters, but they must also maintain existing road networks to protect essential rural connections, representing a balanced infrastructure strategy.\nOfficial guidance for your target\nTR · Band 8 View official standard\n\nIELTS academic_task_2 | Task Response | Band 8\nThe prompt is appropriately and sufficiently addressed.\nA clear and well-developed position is presented in response to the\nquestion/s.\nIdeas are relevant, well extended and supported.\nThere may be occasional omissions or lapses in content.\n\nIELTS Writing Band Descriptors · Page 7 ↗\nWriting details · 5 skills",
+    "CC": "COHERENCE AND COHESION\n\nCoherence and Cohesion\n\nThe essay is logically organized with clear paragraphing and smooth transitions between ideas. Cohesive devices are used naturally to guide the reader through the argument.\n\n“However, completely neglecting road infrastructure in favor of public transit would be a mistake.”\nA useful next step\n\nVary the cohesive devices slightly to avoid relying on standard transition words like 'Furthermore' at the start of sentences.\n\nAn example refinement\nFrom this essay\nFurthermore, affordable public transit is crucial for social equity.\nSuggested revision\nAffordable public transit is also crucial for social equity, as it directly supports low-income workers.\nOfficial guidance for your target\nCC · Band 7 View official standard\nWriting details · 5 skills",
+    "LR": "LEXICAL RESOURCE\n\nLexical Resource\n\nThe vocabulary is sophisticated, precise, and highly appropriate for a discussion on urban planning and infrastructure. Collocations are used naturally and accurately.\n\n“In modern urban planning, the allocation of infrastructure funding is a subject of constant debate.”\nA useful next step\n\nIncorporate even more varied synonyms for 'public transport' and 'roads' to demonstrate a wider lexical range.\n\nAn example refinement\nFrom this essay\nFirst and foremost, investing heavily in public transport is a highly effective way to alleviate traffic congestion in major cities.\nSuggested revision\nFirst and foremost, investing heavily in municipal transit networks is a highly effective way to alleviate traffic congestion in major cities.\nOfficial guidance for your target\nLR · Band 8 View official standard\nWriting details · 6 skills",
+    "GRA": "GRAMMATICAL RANGE AND ACCURACY\n\nGrammatical Range and Accuracy\n\nThe essay demonstrates a high level of grammatical control, utilizing a variety of complex structures with complete accuracy. Punctuation is used correctly to support sentence structure.\n\n“When reliable, high-capacity systems such as subways and light rails are available, commuters are far more likely to leave their private vehicles at home.”\nA useful next step\n\nIntroduce an inversion or a conditional structure to further showcase grammatical range.\n\nAn example refinement\nFrom this essay\nFailing to maintain these roads would isolate rural populations and damage local economies that rely on trucking and logistics.\nSuggested revision\nShould governments fail to maintain these roads, rural populations would be isolated and local economies damaged.\nOfficial guidance for your target\nGRA · Band 7 View official standard\nWriting details · 4 skills"
+  },
+  "source_commit": "ab9e1a085377986057136692b0847c43483ee166",
+  "backend_revision": "stepwise-api-00049-weh",
+  "backend_digest": "sha256:37276c47aba73c8665ade5c268d74d87ffd006c0669c3df3a14d8b0d296f9b38",
+  "vercel_deployment": "dpl_AUeE6rxuycePFGRghD18Fsc5LoMz",
+  "verification": "DOM-backed public UI; preset target, two steps and all four qualitative panels inspected; no generated score formula or numeric criterion scores"
+}

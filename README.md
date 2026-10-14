@@ -2,6 +2,10 @@
 
 AC215 Milestone 2. Type or paste an IELTS Academic Writing Task 2 essay, receive real rubric-grounded Google Gemini scores and specific revisions, then generate an essay from your target and ideas and explore qualitative writing feedback.
 
+## Current model-essay flow: target writing and commentary
+
+The user-selected policy supersedes the older calibration releases below: **write once, then comment on the actual essay without re-scoring**. The overall number is the preset **Target band**. Generated essays have no numeric criterion scores, score average or target-matching loop. Four criterion comments, 20 qualitative skill details, actionable next steps, exact excerpts and revision examples remain linked to official IELTS guidance. Normal submitted-draft scoring retains the full 119-statement checks and four-score average. The progress view has two steps. See [current implementation](docs/model-essay-commentary.md).
+
 ## Live application
 
 [Open Stepwise](https://stepwise-one.vercel.app) — fixed public URL; no Vercel login is required. Bei Li's complete implementation is on the default `bei-li` branch. `milestone2` retains the existing course delivery snapshot.
@@ -93,11 +97,11 @@ On 11 October 2026, the fixed Vercel URL completed live draft feedback and model
 
 [Deployment details](deploy/README.md) · [Deployment receipt](docs/evidence/public-deployment.json) · [Live feedback](docs/evidence/public-feedback.png) · [Live generated essay](docs/evidence/public-model-essay.png)
 
-## Selected-band generation update
+## Historical selected-band generation update
 
 The earlier generation policy returned success only for an exact target match; the current user-selected policy is described in [closest assessed examples](docs/closest-assessed-example.md). Mismatches trigger actual essay rewrites, with the learner's position preserved; scores are never replaced by the target. Real Vertex checks matched requests for 7.0 and 6.5. See [implementation and current evidence](docs/target-bands.md) for candidate histories, timings and limitations. The real Cloud Shell receipts above used source `c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc` and `gemini-3.5-flash`. Current deployment details and public UI verification are recorded separately in `docs/evidence/target-band-deployment.json`. Focused adjustments now use server-validated exact replacements to preserve unedited text; the production embedding model loads from its frozen cache without network downloads.
 
-## Faster generated-essay assessment — 12 October 2026
+## Historical generated-essay assessment — 12 October 2026
 
 Generated essays now use **decision-first scoring**: four small independent criterion requests match all 119 official statements; the server derives scores from those decisions. Candidates that miss the target skip detailed feedback. Only the final matching essay receives criterion advice, all 20 skill checks, examples and assessed/next-band explanations. Failed requests retry only the affected criterion, and feedback cannot change scores. [Current design and verification](docs/decision-first-grading.md).
 
@@ -109,12 +113,8 @@ The earlier source `0af3080` fixed-URL check completed target **5.5 → assessed
 
 The current public check completed a **307-word target-5.5 essay**, independently scored **7/5/4/6 → 5.5**, in **81 seconds** overall on source `4193eae` / Cloud Run revision 00045. All four advice/example panels and all 20 skill checks were inspected. Calibration now returns complete revised essays and preserves the protected stance, removing the brittle exact-span patch protocol from new requests. **138 Python tests pass.** [Current implementation and verified boundaries](docs/decision-first-grading.md) · [Public result](docs/evidence/decision-first-result.png).
 
-## Historical closest assessed example — current target policy
+## Historical closest assessed example
 
 Generation now allows at most **two adjustments** and retains the closest independently assessed essay. An exact match is preferred; otherwise the app shows the closest example with **requested target and actual score clearly separated**, instead of discarding it after five attempts. Approximate results have `target_met=false`; scores and full official evidence checks are unchanged. [Behavior and regression coverage](docs/closest-assessed-example.md).
 
 The new policy completed the original **target-7.5** public request in **42 seconds**: a 292-word closest example, assessed **8/8/8/9 → 8.5**, with target and actual score displayed separately. This is an approximate result, not a claimed 7.5 match. **142 Python + six JavaScript tests pass.** [Live result evidence](docs/closest-assessed-example.md#real-public-verification).
-
-## Current model-essay flow: target writing and commentary
-
-The user-selected policy supersedes the older calibration releases below: **write once, then comment on the actual essay without re-scoring**. The overall number is the preset **Target band**. Generated essays have no numeric criterion scores, score average or target-matching loop. Four criterion comments, 20 qualitative skill details, actionable next steps, exact excerpts and revision examples remain linked to official IELTS guidance. Normal submitted-draft scoring retains the full 119-statement checks and four-score average. The progress view has two steps. See [current implementation](docs/model-essay-commentary.md).

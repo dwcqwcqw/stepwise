@@ -21,3 +21,16 @@ Submitted-draft `Review my writing` is unchanged: all 119 Task 2 descriptor stat
 ## Verification
 
 Regression tests reject unknown essay references, missing criteria/details, unavailable target sources and score fields in commentary. Generation tests make old scoring entry points fail if invoked. Frontend tests require one generation request and preserve the preset target without an assessment result. Live deployment evidence is recorded separately after release.
+
+## Real public verification — 14 October 2026
+
+The fixed public URL completed a target-7.5 request with **311 words** in **16 seconds** on the retained browser elapsed timer. The UI displayed **Target band 7.5**, two progress steps, four qualitative criterion tabs, individual next steps and before/after refinements. All four panels were inspected, with 5/5/6/4 expandable skill details. The target-guidance link was verified against the official Band Descriptors, page 7. There was no generated score average or numeric criterion grade. This is one observed run, not a latency guarantee or a new scoring benchmark.
+
+- Application source: `ab9e1a085377986057136692b0847c43483ee166`
+- Cloud Run: `stepwise-api-00049-weh`, 100% traffic
+- Image: `sha256:37276c47aba73c8665ade5c268d74d87ffd006c0669c3df3a14d8b0d296f9b38`
+- Vercel: `dpl_AUeE6rxuycePFGRghD18Fsc5LoMz`, READY, public alias attached
+- Local regression checks: 137 Python tests and six JavaScript tests passed; frontend build passed.
+- [Public DOM receipt](evidence/commentary-public.json) · [Result](evidence/commentary-result.png) · [Two-step loading](evidence/commentary-two-step-progress.png)
+
+No new examiner-agreement study was run. Submitted-draft grading was preserved in code and its existing regression checks; this public run exercised generation/commentary.

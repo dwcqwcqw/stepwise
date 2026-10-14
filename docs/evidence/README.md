@@ -61,3 +61,7 @@ The earlier source7d public run failed the old local-edit writer protocol and is
 ## Closest assessed example — user-selected policy
 
 `closest-example-public.json` and `closest-example-result.png` preserve the original target-7.5 request completing on source `a68b794`, revision 00047, in 42 seconds. Actual scores 8/8/8/9 give 8.5; the page truthfully identifies the target mismatch and closest result from three assessed drafts. This replaces the former five-attempt exact-match rejection policy. Raw candidate history was not exported; controlled tests cover minimum-distance selection and private retention.
+
+## Current generation without reassessment
+
+`commentary-public.json`, `commentary-result.png` and `commentary-two-step-progress.png` record the current target-guided writing / qualitative commentary release. The preset 7.5 target is displayed as a writing target; no actual generated score is claimed. Older scoring/calibration receipts are historical. See [implementation and boundaries](../model-essay-commentary.md).
