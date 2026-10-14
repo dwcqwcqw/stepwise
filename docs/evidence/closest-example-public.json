@@ -1,0 +1,44 @@
+{
+  "calculation": "SEPARATE ASSESSMENT\n\nEstimated Task 2 band\n8.5\nHow your score is calculated\n\n(8.0 + 8.0 + 8.0 + 9.0) \u00f7 4 = 8.25 \u2192 8.5\n\nEach criterion has equal weight. The exact mean is converted to a half-band practice estimate: .25 rounds to .5; .75 rounds to the next whole band. Official descriptor rows use whole bands.\n\n",
+  "criterion_buttons": [
+    "Task Response\n8.0",
+    "Coherence and Cohesion\n8.0",
+    "Lexical Resource\n8.0",
+    "Grammatical Range and Accuracy\n9.0"
+  ],
+  "descriptor_links": [
+    "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+    "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+    "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+    "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+    "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+    "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+    "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7",
+    "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf#page=7"
+  ],
+  "elapsed": "42s elapsed",
+  "essay": "The allocation of national budgets for infrastructure is a subject of ongoing debate. While some people argue that roads should receive the majority of funding, others believe that public transit systems deserve greater investment. I believe that while governments must prioritize funding for public transport to ensure economic and environmental sustainability, they must also maintain essential road networks to protect rural communities.\n\nFirst, investing heavily in public transport offers immense benefits for urban populations. High-quality transit systems, such as buses and trains, provide affordability for commuters who cannot own private vehicles. By reducing the financial burden of daily travel, public transport enhances access to jobs. This allows individuals from lower-income backgrounds to seek employment opportunities across a wider geographical area. Furthermore, robust public transit networks significantly lower congestion on city streets. When reliable alternatives exist, fewer people choose to drive, which not only saves valuable time for all road users but also reduces carbon emissions, contributing to cleaner urban environments.\n\nOn the other hand, governments cannot afford to neglect road infrastructure entirely, particularly because roads protect rural connections. Unlike densely populated cities, rural and remote areas often lack the passenger volume to justify expensive train or subway networks. For these communities, well-maintained roads are a vital lifeline, allowing residents to access essential services such as healthcare, education, and regional markets. Neglecting road maintenance in favor of urban transit would isolate these populations and harm regional economies. Therefore, maintaining essential roads is a matter of social equity, ensuring that rural citizens are not marginalized.\n\nIn conclusion, while public transport should be prioritized to reduce congestion and improve job access for the majority of citizens, maintaining essential roads remains critical. A balanced approach ensures that urban centers thrive while rural communities remain safely connected.",
+  "mismatch_notice": "Target 7.5 \u00b7 Assessed 8.5. The closest assessed example is shown with its actual score. Use the feedback to work toward your target.",
+  "notice": "Your target is Band 7.5. This example was independently assessed at Band 8.5, the closest result from 3 assessed drafts. Review its feedback to work toward your target.",
+  "score_summary": "Estimated Task 2 band\n8.5",
+  "title": "Balancing Public Transport and Road Budgets",
+  "url": "https://stepwise-one.vercel.app/",
+  "word_target": "292 words \u00b7 Target band 7.5",
+  "source": "a68b7940b6def3498115326c33e561a5fdc2dba3",
+  "revision": "stepwise-api-00047-pib",
+  "image_digest": "sha256:bee7a3a30aece16aeb1cca4648be945a10a9f8984a2d37d70f1ae7760bf3c33e",
+  "vercel_deployment": "dpl_J7Jyru6qBW19EhypfJA5RKcktrUB",
+  "requested_band": 7.5,
+  "assessed_band": 8.5,
+  "criterion_scores": [
+    8,
+    8,
+    8,
+    9
+  ],
+  "criterion_mean": 8.25,
+  "assessed_drafts": 3,
+  "elapsed_seconds": 42,
+  "raw_server_history_exported": false,
+  "exact_target_match_claimed": false
+}

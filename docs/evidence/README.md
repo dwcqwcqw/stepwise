@@ -57,3 +57,7 @@ The final source `0af3080`, revision 00041, completed the public target-5.5 chec
 - `decision-first-result.png`: completed public page.
 
 The earlier source7d public run failed the old local-edit writer protocol and is not counted as success. Source419 replaces normal calibration with complete-essay revisions. See `../decision-first-grading.md` for the exact failure chronology, implementation and verification boundaries.
+
+## Closest assessed example — user-selected policy
+
+`closest-example-public.json` and `closest-example-result.png` preserve the original target-7.5 request completing on source `a68b794`, revision 00047, in 42 seconds. Actual scores 8/8/8/9 give 8.5; the page truthfully identifies the target mismatch and closest result from three assessed drafts. This replaces the former five-attempt exact-match rejection policy. Raw candidate history was not exported; controlled tests cover minimum-distance selection and private retention.

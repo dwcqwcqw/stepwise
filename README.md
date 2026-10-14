@@ -95,7 +95,7 @@ On 11 October 2026, the fixed Vercel URL completed live draft feedback and model
 
 ## Selected-band generation update
 
-Generation now returns success only when its fresh target-blind assessment matches the requested overall band. Mismatches trigger actual essay rewrites, with the learner's position preserved; scores are never replaced by the target. Real Vertex checks matched requests for 7.0 and 6.5. See [implementation and current evidence](docs/target-bands.md) for candidate histories, timings and limitations. The real Cloud Shell receipts above used source `c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc` and `gemini-3.5-flash`. Current deployment details and public UI verification are recorded separately in `docs/evidence/target-band-deployment.json`. Focused adjustments now use server-validated exact replacements to preserve unedited text; the production embedding model loads from its frozen cache without network downloads.
+The earlier generation policy returned success only for an exact target match; the current user-selected policy is described in [closest assessed examples](docs/closest-assessed-example.md). Mismatches trigger actual essay rewrites, with the learner's position preserved; scores are never replaced by the target. Real Vertex checks matched requests for 7.0 and 6.5. See [implementation and current evidence](docs/target-bands.md) for candidate histories, timings and limitations. The real Cloud Shell receipts above used source `c1ae9372c42ec2efc9d0cd4bfe0386641f0fefbc` and `gemini-3.5-flash`. Current deployment details and public UI verification are recorded separately in `docs/evidence/target-band-deployment.json`. Focused adjustments now use server-validated exact replacements to preserve unedited text; the production embedding model loads from its frozen cache without network downloads.
 
 ## Faster generated-essay assessment — 12 October 2026
 
@@ -108,3 +108,9 @@ The earlier source `0af3080` fixed-URL check completed target **5.5 → assessed
 ## Decision-first grading — 14 October 2026
 
 The current public check completed a **307-word target-5.5 essay**, independently scored **7/5/4/6 → 5.5**, in **81 seconds** overall on source `4193eae` / Cloud Run revision 00045. All four advice/example panels and all 20 skill checks were inspected. Calibration now returns complete revised essays and preserves the protected stance, removing the brittle exact-span patch protocol from new requests. **138 Python tests pass.** [Current implementation and verified boundaries](docs/decision-first-grading.md) · [Public result](docs/evidence/decision-first-result.png).
+
+## Closest assessed example — current target policy
+
+Generation now allows at most **two adjustments** and retains the closest independently assessed essay. An exact match is preferred; otherwise the app shows the closest example with **requested target and actual score clearly separated**, instead of discarding it after five attempts. Approximate results have `target_met=false`; scores and full official evidence checks are unchanged. [Behavior and regression coverage](docs/closest-assessed-example.md).
+
+The new policy completed the original **target-7.5** public request in **42 seconds**: a 292-word closest example, assessed **8/8/8/9 → 8.5**, with target and actual score displayed separately. This is an approximate result, not a claimed 7.5 match. **142 Python + six JavaScript tests pass.** [Live result evidence](docs/closest-assessed-example.md#real-public-verification).
