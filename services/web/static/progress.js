@@ -35,11 +35,11 @@ export async function streamedRequest(path,value,onEvent){
 
 export function startProgress(kind){
   const panel=document.getElementById('processing'),isModel=kind==='model';
-  const rows=isModel?[['generation','Write your essay'],['assessment','Check your band'],['validation','Prepare your feedback']]:[['assessment','Review your writing'],['validation','Prepare your feedback']];
+  const rows=isModel?[['generation','Write your essay'],['commentary','Prepare your feedback']]:[['assessment','Review your writing'],['validation','Prepare your feedback']];
   const criteria=new Map(),started=performance.now();
   const controls=[...document.querySelectorAll('button, textarea, select')].filter(e=>!e.disabled);
   controls.forEach(e=>e.disabled=true);document.body.classList.add('processing');
-  panel.innerHTML=`<div class="processing-heading"><div class="ai-orbit" aria-hidden="true">✦</div><div><p class="eyebrow">Stepwise is working</p><h2>${isModel?'An essay shaped around your ideas.':'A closer look at your writing.'}</h2><p class="processing-caption">${isModel?'Writing, checking and preparing your feedback.':'Checking your writing against official IELTS standards.'}</p></div><span class="processing-elapsed">0s elapsed</span></div><ol class="processing-steps">${rows.map(([key,label],i)=>`<li data-phase="${key}" data-state="waiting"><span class="step-indicator">${i+1}</span><div><strong>${label}</strong><small>Waiting</small></div><span class="step-state">Waiting</span></li>`).join('')}</ol><p class="processing-message" role="status" aria-live="polite">Connecting to your writing review…</p><p class="processing-footnote">You can keep this tab open. Your writing stays here if a connection fails.</p>`;
+  panel.innerHTML=`<div class="processing-heading"><div class="ai-orbit" aria-hidden="true">✦</div><div><p class="eyebrow">Stepwise is working</p><h2>${isModel?'An essay shaped around your ideas.':'A closer look at your writing.'}</h2><p class="processing-caption">${isModel?'Writing your essay and preparing practical feedback.':'Checking your writing against official IELTS standards.'}</p></div><span class="processing-elapsed">0s elapsed</span></div><ol class="processing-steps">${rows.map(([key,label],i)=>`<li data-phase="${key}" data-state="waiting"><span class="step-indicator">${i+1}</span><div><strong>${label}</strong><small>Waiting</small></div><span class="step-state">Waiting</span></li>`).join('')}</ol><p class="processing-message" role="status" aria-live="polite">Connecting to your writing review…</p><p class="processing-footnote">You can keep this tab open. Your writing stays here if a connection fails.</p>`;
   panel.classList.remove('hidden');panel.setAttribute('aria-busy','true');
   panel.scrollIntoView({behavior:'smooth',block:'start'});
   const clock=setInterval(()=>{panel.querySelector('.processing-elapsed').textContent=`${Math.floor((performance.now()-started)/1000)}s elapsed`;},1000);
@@ -47,15 +47,7 @@ export function startProgress(kind){
     if(event.type==='heartbeat')return;
     panel.dataset.currentPhase=event.phase;panel.dataset.serverElapsed=event.elapsed_ms??'';
     panel.querySelector('.processing-message').textContent=event.message;
-    if(isModel&&event.phase==='generation'&&event.status==='repair'&&event.attempt>1){
-      criteria.clear();
-      for(const key of ['assessment','validation']){
-        const pendingRow=panel.querySelector(`[data-phase="${key}"]`);pendingRow.dataset.state='waiting';
-        pendingRow.querySelector('.step-state').textContent='Waiting';pendingRow.querySelector('small').textContent='Waiting';
-        pendingRow.querySelector('.step-indicator').textContent=rows.findIndex(([phase])=>phase===key)+1;
-      }
-    }
-    const phase=event.phase==='generation_retrieval'?'generation':(['retrieval','calibration'].includes(event.phase)?'assessment':event.phase);
+    const phase=event.phase==='generation_retrieval'?'generation':(event.phase==='retrieval'?'assessment':event.phase);
     const row=panel.querySelector(`[data-phase="${phase}"]`);
     if(event.criterion){
       criteria.set(event.criterion,event.status);
@@ -73,16 +65,7 @@ export function startProgress(kind){
   return {update,stop};
 }
 
-// Each candidate gets its own bounded gateway request. Progress remains visible
-// across candidates; an opaque server token resumes the same validated session.
+// A single request writes the essay and adds qualitative commentary, without scoring.
 export async function generatedRequest(value,onEvent){
-  let continuation;
-  for(let attempt=0;attempt<3;attempt++){
-    const result=await streamedRequest('/api/model-essay/stream',
-      continuation?{...value,continuation_id:continuation}:value,onEvent);
-    if(result.status!=='continuation_required')return result;
-    if(!/^[a-f0-9]{64}$/.test(result.continuation_id||''))throw new Error('The writing session could not continue. Please generate again.');
-    continuation=result.continuation_id;
-  }
-  throw new Error('The writing session did not complete. Please retry; your requirements are unchanged.');
+  return streamedRequest('/api/model-essay/stream',value,onEvent);
 }

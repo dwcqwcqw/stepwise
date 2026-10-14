@@ -5,34 +5,22 @@ The Stepwise four-screen design uses a consistent white/lilac palette, clear typ
 1. **Your draft:** one wide editor for the question and typed/pasted essay, sample draft, live word count and Review button. No target-band sidebar, decorative `04` panel, image upload or OCR.
 2. **Feedback:** actual overall Task 2 estimate and four criterion scores. Selecting a criterion reveals its score explanation, exact essay evidence, an actionable next step and a revision of the learner's words. The right panel prioritizes current/next-band paragraph matches with exact official wording and page citations. The 20 supplementary skill checks are expandable; the interface shows the assessed band and the next band only. Four independently assessed criteria cover all 119 Task 2 standards.
 3. **Your goals:** enter target band, position and ideas to preserve. Submit the question and these requirements to generation.
-4. **Model essay:** full generated prose, coverage notes for the requested ideas, and a separate target-blind assessment with four scores, detailed subcriteria, revisions and official citations. Target and independently assessed band are shown together. A candidate that misses the exact selected band is rewritten and reassessed; persistent mismatches produce a retry message rather than an incorrectly targeted result. Download the essay and explained scores as text.
+4. **Model essay:** complete prose and idea coverage notes, the user's preset **Target band**, and four qualitative criterion comments with 20 expandable skill details. Each criterion includes an exact essay excerpt, an actionable next step, a before/after refinement and official target-band guidance. No generated-essay scoring, average, candidate reassessment or score-calibration loop. Download the essay and commentary as text.
 
 ```text
 Question + typed/pasted essay
-           ↓ /api/feedback/stream
-Complete Task 2 rubric retrieved from Qdrant
-           ↓ live Gemini assessment + evidence validation
-Four scores + 20 qualitative checks + revisions
-           ↓ user enters target / position / ideas
-/api/model-essay/stream → target rubric → Gemini generation
-           ↓ essay text only + original question
-New target-blind Gemini assessment → validated scores / citations
+  → /api/feedback/stream → complete Task 2 rubric → live assessment
+  → four actual scores + 119 descriptor matches + 20 skill checks + revisions
+
+Question + target + position + ideas
+  → /api/model-essay/stream → official target-band guidance → essay generation
+  → one qualitative commentary call → preset target + four comments and examples
 ```
 
-The frontend escapes all dynamic text. User input is bounded and validated. Model calls have timeouts and bounded retries; source IDs and exact essay quotations are checked before returning results. Errors remain errors rather than fabricated feedback. Generated assessment does not receive the target, generator's title, notes or self-rating claims. The source library is server-owned; user writing is never inserted into its vector collection.
+Original quotes are selected by evidence ID and copied by the server; official sources are attached from the retrieved index. Dynamic text is escaped. Writing never enters the rubric index or persistent browser storage. The preset target is a writing goal, not a newly assessed score. Submitted drafts continue to be assessed independently of any target.
 
-These are real model outputs, but contract tests and successful API calls do not establish scoring accuracy. Criterion agreement, repeatability, cost and latency benchmarking remain subsequent evaluation work.
+## Processing progress
 
-## Real processing progress
+Generation shows only **Write your essay → Prepare your feedback**. One streamed request covers the two operations. Progress follows real backend events and an elapsed timer. The generator may repair invalid length/content once; the feedback call may repair malformed references once. Neither repair scores or recalibrates the essay. Failed connections preserve form inputs. Submitted-draft review retains its separate grading and validation progress.
 
-Both submit buttons immediately open a loading view and prevent duplicate submission. The same POST connection streams NDJSON events through Cloud Run and the Vercel/Compose gateway. Review shows rubric retrieval, four parallel criterion checks and final evidence/arithmetic validation. Generation first shows target-rubric retrieval and writing, then a separate target-blind assessment and exact target confirmation. If a rewrite is needed, the real attempt and fresh criterion progress are shown. Each criterion changes state only when the backend reports it; the timer shows elapsed time without estimating a percentage. Heartbeats keep the connection active without claiming progress.
-
-Failures restore the form with its text intact. Only identical, already validated feedback can be reused from a three-entry in-memory cache in the current browser tab. Changed inputs trigger new inference; generation always runs again. Reloading/closing the tab discards the cache. No learner text is stored in localStorage, a task database or the source index.
-
-See [performance and reproduction](performance.md) for the compact inference protocol, measurements and test commands.
-
-See [selected-band generation](target-bands.md) for proficiency profiles, the bounded rewrite loop and regression verification.
-
-## Target-band generation
-
-The model-essay screen now waits for a separately assessed exact match to the requested overall band. A mismatch triggers an actual rewrite, preserving the learner's position and carrying forward progress. Each candidate runs in its own streamed request, so the Vercel Hobby request limit applies to one round. Opaque continuation tokens are bound to unchanged requirements and short-lived server memory; they are consumed once and expire after 15 minutes. No unmatched essay is displayed as the final example. A failed or expired session leaves the user's inputs intact for retry.
+Historical calibration designs and measured receipts are preserved in earlier release documents; [model-essay-commentary.md](model-essay-commentary.md) describes the current behavior.

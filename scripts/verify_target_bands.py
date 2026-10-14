@@ -9,23 +9,17 @@ import time
 import urllib.request
 
 def streamed_generation(url,requirements,token,updates,started):
-    payload=dict(requirements)
-    for round_number in range(1,6):
-        value=None
-        request=urllib.request.Request(url.rstrip('/')+'/api/model-essay/stream',data=json.dumps(payload).encode(),
-            headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'})
-        with urllib.request.urlopen(request,timeout=290) as response:
-            for line in response:
-                event=json.loads(line)
-                if event['type']=='error':raise RuntimeError(event['detail'])
-                if event['type']=='result':value=event['result']
-                else:updates.append({**event,'request_round':round_number,'received_seconds':round(time.monotonic()-started,3)})
-        if value is None:raise RuntimeError('Stream ended before its result')
-        if value.get('status')!='continuation_required':return value
-        continuation=value.get('continuation_id','')
-        if not re.fullmatch('[a-f0-9]{64}',continuation):raise RuntimeError('Invalid continuation token')
-        payload={**requirements,'continuation_id':continuation}
-    raise RuntimeError('Generation exhausted its five candidate requests')
+    request=urllib.request.Request(url.rstrip('/')+'/api/model-essay/stream',data=json.dumps(requirements).encode(),
+        headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'})
+    value=None
+    with urllib.request.urlopen(request,timeout=290) as response:
+        for line in response:
+            event=json.loads(line)
+            if event['type']=='error':raise RuntimeError(event['detail'])
+            if event['type']=='result':value=event['result']
+            else:updates.append({**event,'received_seconds':round(time.monotonic()-started,3)})
+    if value is None:raise RuntimeError('Stream ended before its result')
+    return value
 
 def main():
     parser=argparse.ArgumentParser()
@@ -44,15 +38,13 @@ def main():
         started=time.monotonic();updates=[];value=None
         try:
             value=streamed_generation(args.url,requirements,token,updates,started)
-            a=value['assessment'];essay=value['essay']
-            assert a['overall_band']==band and value['target_met'] and value['target_match']['exact_match']
-            assert a['target_blind'] and a['descriptor_statements_checked']==119
-            checks=[s for c in a['criteria'] for b in c['band_reviews'] for s in b['checks']]
-            assert len(checks)==119 and len({s['statement_id'] for s in checks})==119
-            assert all(s['essay_quote'] in essay for s in checks)
-            assert all(s['source']['source_id']=='ielts-writing-band-descriptors-2023' and s['source']['page'] in {7,8,9} for s in checks)
-            assert a['criterion_mean']==sum(c['score'] for c in a['criteria'])/4
-            result={'requested_band':band,'assessed_band':a['overall_band'],'scores':[c['score'] for c in a['criteria']],
+            a=value['commentary'];essay=value['essay']
+            assert value['status']=='generated_with_commentary' and value['requirements']['target_band']==band
+            assert 'assessment' not in value and 'overall_band' not in a
+            assert len(a['criteria'])==4 and sum(len(c['subcriteria']) for c in a['criteria'])==20
+            assert all('score' not in c and c['essay_quote'] in essay and c['example']['before'] in essay for c in a['criteria'])
+            assert all(c['rubric'][0]['source_id']=='ielts-writing-band-descriptors-2023' for c in a['criteria'])
+            result={'requested_band':band,'mode':a['mode'],
                     'wall_seconds':round(time.monotonic()-started,3),'result':value,'events':updates,'passed':True}
         except Exception as error:
             result={'requested_band':band,'passed':False,'error':str(error),'events':updates,'wall_seconds':round(time.monotonic()-started,3)}

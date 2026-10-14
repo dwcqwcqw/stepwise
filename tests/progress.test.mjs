@@ -29,16 +29,17 @@ test('only identical verified feedback is reused; changed inputs and generation 
   }finally{globalThis.fetch=original;}
 });
 
-test('generation resumes an opaque checkpoint and returns only the final matched essay',async()=>{
-  const original=globalThis.fetch,requests=[],token='a'.repeat(64);
+test('generation uses one request and returns the preset target with qualitative commentary',async()=>{
+  const original=globalThis.fetch,requests=[];
   globalThis.fetch=async(path,options)=>{
-    requests.push(JSON.parse(options.body));
-    const result=requests.length===1?{status:'continuation_required',continuation_id:token}:{status:'generated_and_assessed',target_met:true,essay:'Matched essay'};
+    requests.push({path,value:JSON.parse(options.body)});
+    const result={status:'generated_with_commentary',requirements:{target_band:7.5},essay:'Model essay',commentary:{mode:'qualitative_commentary'}};
     return new Response(JSON.stringify({type:'result',result})+'\n',{headers:{'Content-Type':'application/x-ndjson'}});
   };
   try{
-    const result=await generatedRequest({target_band:7,ideas:'Bus access'},()=>{});
-    assert.equal(result.essay,'Matched essay');assert.equal(requests.length,2);
-    assert.equal(requests[1].continuation_id,token);assert.equal(requests[1].target_band,7);
+    const result=await generatedRequest({target_band:7.5,ideas:'Bus access'},()=>{});
+    assert.equal(requests.length,1);assert.equal(requests[0].path,'/api/model-essay/stream');
+    assert.equal(result.requirements.target_band,7.5);assert.equal(result.assessment,undefined);
+    assert.equal(result.commentary.mode,'qualitative_commentary');
   }finally{globalThis.fetch=original;}
 });

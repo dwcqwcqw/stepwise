@@ -1,17 +1,15 @@
-"""Live Gemini scoring, actionable revisions, generation and independent assessment."""
+"""Live Gemini scoring, actionable revisions, targeted generation and qualitative commentary."""
 import time
 from typing import Literal
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field, field_validator
 from fastapi.responses import StreamingResponse
 from shared.progress import events
-from shared.continuation import Continuations
-continuations=Continuations()
 from shared.retrieval import active_index, database, retrieve
 from shared.assessment import assess, generate_essay
 from shared.gemini import ModelUnavailable, configuration
 
-app=FastAPI(title='Stepwise',version='0.3.0',description='Live rubric-grounded IELTS essay feedback and separately assessed model essays.')
+app=FastAPI(title='Stepwise',version='0.3.0',description='Live rubric-grounded IELTS essay feedback and targeted model essays with qualitative commentary.')
 Criterion=Literal['TR','CC','LR','GRA']
 class RetrievalRequest(BaseModel):
     query: str=Field(min_length=5,max_length=4000)
@@ -62,10 +60,7 @@ def feedback(request:EssayRequest):
 def model_essay(request:ModelEssayRequest):
     try:return generate_essay(request.model_dump())
     except ModelUnavailable as error:raise HTTPException(503,str(error)) from error
-    except Exception as error:raise HTTPException(503,'Model essay assessment evidence could not be validated; please retry.') from error
-
-class StreamModelEssayRequest(ModelEssayRequest):
-    continuation_id: str | None=Field(default=None,pattern=r'^[a-f0-9]{64}$')
+    except Exception as error:raise HTTPException(503,'Model essay feedback evidence could not be validated; please retry.') from error
 
 STREAM_HEADERS={'Cache-Control':'no-store, no-transform','X-Accel-Buffering':'no'}
 
@@ -78,6 +73,6 @@ def feedback_stream(request:EssayRequest):
     return StreamingResponse(events(operation),media_type='application/x-ndjson',headers=STREAM_HEADERS)
 
 @app.post('/api/model-essay/stream')
-def model_essay_stream(request:StreamModelEssayRequest):
-    requirements=request.model_dump(exclude={'continuation_id'})
-    return StreamingResponse(events(lambda progress:continuations.run(requirements,request.continuation_id,generate_essay,progress)),media_type='application/x-ndjson',headers=STREAM_HEADERS)
+def model_essay_stream(request:ModelEssayRequest):
+    requirements=request.model_dump()
+    return StreamingResponse(events(lambda progress:generate_essay(requirements,progress)),media_type='application/x-ndjson',headers=STREAM_HEADERS)

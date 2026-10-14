@@ -1,4 +1,4 @@
-"""Live gateway -> Qdrant -> Gemini assessment -> generation -> blind reassessment."""
+"""Live gateway -> Qdrant -> Gemini assessment -> generation -> qualitative commentary."""
 import json
 import os
 import time
@@ -50,8 +50,16 @@ save('sample_input.json',sample);save('feedback_output.json',feedback)
 retrieval=call('/api/retrieve',{'query':'How can I develop and support my position with specific examples?','criterion':'TR','target_band':6.5,'top_k':2})
 assert {x['band'] for x in retrieval['matches']}=={6,7};save('retrieval_example.json',retrieval)
 req={'prompt':sample['prompt'],'target_band':7,'position':'Prioritize public transport while maintaining essential roads.','ideas':'Affordability for commuters; access to jobs; lower congestion; protect rural connections.'}
-generated=call('/api/model-essay',req);assert generated['status']=='generated_and_assessed' and generated['requirements']==req
-assert 250<=generated['word_count']<=450;check_assessment(generated['assessment'],generated['essay'])
+generated=call('/api/model-essay',req);assert generated['status']=='generated_with_commentary' and generated['requirements']==req
+assert 250<=generated['word_count']<=450
+commentary=generated['commentary']
+assert 'assessment' not in generated and 'overall_band' not in commentary
+assert commentary['mode']=='qualitative_commentary' and len(commentary['criteria'])==4
+assert sum(len(c['subcriteria']) for c in commentary['criteria'])==20
+for c in commentary['criteria']:
+    assert 'score' not in c and c['essay_quote'] in generated['essay'] and c['example']['before'] in generated['essay']
+    assert c['rubric'][0]['source_id']=='ielts-writing-band-descriptors-2023'
+    assert all(d['essay_quote'] in generated['essay'] for d in c['subcriteria'])
 assert generated['generation_calls'][0]['usage']['totalTokenCount']>0
 save('model_essay_request.json',req);save('model_essay_output.json',generated)
 # A distinct weak answer demonstrates content-dependent live scoring.
@@ -62,5 +70,5 @@ for path,invalid in [('/api/feedback',dict(sample,essay='')),('/api/model-essay'
     try:call(path,invalid)
     except urllib.error.HTTPError as error:assert error.code==422
     else:raise AssertionError('Invalid input accepted')
-summary={'status':'passed','checks':['entire official band PDF indexed','Task 2 score excludes Task 1','real Google model scoring and feedback','20 official subcriteria checked','verbatim essay excerpts','validated source IDs and awarded bands','target-blind assessment','half-band descriptor retrieval','complete model essay generated','model essay independently assessed','different weak essay scores lower','invalid input rejected'],'index_id':status['index_id'],'vectors':status['points'],'sample_band':feedback['overall_band'],'weak_band':weak_result['overall_band'],'generated_band':generated['assessment']['overall_band'],'target_band':req['target_band'],'model':feedback['model_calls'][0]['model_version'],'model_calls':sum(len(x['model_calls']) for x in [feedback,weak_result,generated['assessment']])+len(generated['generation_calls']),'feedback_latency_ms':feedback['latency_ms']}
+summary={'status':'passed','checks':['entire official band PDF indexed','Task 2 score excludes Task 1','real Google model scoring and feedback','20 official subcriteria checked','verbatim essay excerpts','validated source IDs and awarded bands','target-blind assessment','half-band descriptor retrieval','complete model essay generated','model essay qualitative commentary without scoring','different weak essay scores lower','invalid input rejected'],'index_id':status['index_id'],'vectors':status['points'],'sample_band':feedback['overall_band'],'weak_band':weak_result['overall_band'],'target_band':req['target_band'],'model':feedback['model_calls'][0]['model_version'],'model_calls':sum(len(x['model_calls']) for x in [feedback,weak_result,generated['commentary']])+len(generated['generation_calls']),'feedback_latency_ms':feedback['latency_ms']}
 save('verification.json',summary);print(json.dumps(summary,indent=2))
