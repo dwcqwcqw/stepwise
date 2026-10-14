@@ -2,7 +2,7 @@
 import math
 from shared.common import CRITERIA
 
-MAX_TARGET_ATTEMPTS = 5
+MAX_TARGET_ATTEMPTS = 3  # Initial draft plus at most two adjustments.
 
 def target_profile(target):
     """Published integer criterion rows whose equal-weight mean is the target."""

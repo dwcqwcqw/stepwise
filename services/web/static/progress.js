@@ -77,12 +77,12 @@ export function startProgress(kind){
 // across candidates; an opaque server token resumes the same validated session.
 export async function generatedRequest(value,onEvent){
   let continuation;
-  for(let attempt=0;attempt<5;attempt++){
+  for(let attempt=0;attempt<3;attempt++){
     const result=await streamedRequest('/api/model-essay/stream',
       continuation?{...value,continuation_id:continuation}:value,onEvent);
     if(result.status!=='continuation_required')return result;
     if(!/^[a-f0-9]{64}$/.test(result.continuation_id||''))throw new Error('The writing session could not continue. Please generate again.');
     continuation=result.continuation_id;
   }
-  throw new Error('The essay did not match your selected band. Please generate again; your requirements are unchanged.');
+  throw new Error('The writing session did not complete. Please retry; your requirements are unchanged.');
 }

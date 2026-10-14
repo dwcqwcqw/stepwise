@@ -253,13 +253,28 @@ def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_cand
     payload={'requirements':{k:v for k,v in requirements.items() if k!='target_band'},'criterion_target_profile':writer_profile,'official_rubric_context':rubric_payload(selected)}
     emit(phase='generation_retrieval',status='done',message='Target-band standards retrieved')
     emit(phase='generation',status='running',message='Writing an essay around your position and ideas')
-    calls=[];history=[];protected_position=None;first_attempt=1
+    calls=[];history=[];protected_position=None;first_attempt=1;best=None
     if checkpoint is not None:
         payload=checkpoint['payload'];writer_profile=checkpoint['writer_profile']
         calls=checkpoint['calls'];history=checkpoint['history']
         protected_position=checkpoint['protected_position'];first_attempt=checkpoint['next_attempt']
+        best=checkpoint.get('best')
         context_profile=payload.get('patch_target_profile') or writer_profile
         selected=[x for x in context['chunks'] if x['kind']!='band_descriptor' or max(0,context_profile[x['criterion']]-1)<=x['band']<=min(9,context_profile[x['criterion']]+1)]
+    def finish(candidate):
+        evaluation=complete_model_feedback(requirements['prompt'],candidate['essay'],candidate['evaluation'],emit)
+        observed=evaluation['overall_band'];matched=observed==target
+        notice=(f'This example matched your requested Band {target:.1f} in a separate assessment against official IELTS standards.'
+                if matched else f'Your target is Band {target:.1f}. This example was independently assessed at Band {observed:.1f}, the closest result from {len(history)} assessed '+('draft.' if len(history)==1 else 'drafts.')+' Review its feedback to work toward your target.')
+        emit(phase='calibration',status='done',message=f'Target {target:.1f} · Assessed {observed:.1f}',target_met=matched)
+        return {'status':'generated_and_assessed','title':candidate['value'].get('title','Your model essay'),
+            'essay':candidate['essay'],'word_count':candidate['words'],'requirements':requirements,
+            'requirement_notes':candidate['value']['requirement_notes'],'assessment':evaluation,
+            'generation_calls':calls,'generation_context_ids':candidate['context_ids'],'target_met':matched,
+            'target_match':{'requested_band':target,'assessed_band':observed,'exact_match':matched,
+                'selection':'exact_match' if matched else 'closest_assessed_candidate',
+                'selected_attempt':candidate['attempt'],'band_distance':abs(observed-target),
+                'criterion_target_profile':profile,'attempts':history},'notice':notice}
     for target_attempt in range(first_attempt,MAX_TARGET_ATTEMPTS+1):
         if target_attempt>1:
             emit(phase='generation',status='repair',attempt=target_attempt,message=f'Adjusting the essay to Band {target:.1f} (attempt {target_attempt})')
@@ -292,7 +307,9 @@ def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_cand
                 'instruction':('Correct your previous edits so the final essay remains 280–360 words. Return edits against the ORIGINAL previous_essay; obey the same patch budget and protected position.'
                     if payload.get('revision_mode')=='focused_revision' else
                     'Repair previous_invalid_candidate into a complete 280–360 word essay. Expand or shorten it at the SAME requested proficiency; do not improve its sophistication. Return a verbatim position_sentence expressing the requested stance and retain protected_position_sentence exactly when supplied.')}
-        else:raise ModelUnavailable('Model essay failed content or length checks; please retry.')
+        else:
+            if best is not None:return finish(best)
+            raise ModelUnavailable('Model essay failed content or length checks; please retry.')
         emit(phase='generation',status='done',attempt=target_attempt,message=f'{words}-word essay written; starting a separate assessment',word_count=words)
         # A fresh assessor sees only the question and essay, never target/plan/feedback.
         evaluation=assess_model_essay(requirements['prompt'],essay,progress=emit)
@@ -302,12 +319,14 @@ def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_cand
                         'writer_profile':dict(writer_profile),
                         'criterion_scores':{c['criterion']:c['score'] for c in evaluation['criteria']},
                         'essay_sha256':evaluation.get('essay_sha256'),'model_calls':evaluation.get('model_calls',[])})
+        candidate={'value':deepcopy(value),'essay':essay,'words':words,'evaluation':deepcopy(evaluation),
+                   'context_ids':[x['chunk_id'] for x in selected],'attempt':target_attempt}
+        if best is None or abs(observed-target)<abs(best['evaluation']['overall_band']-target):best=candidate
         emit(phase='calibration',status='done' if observed==target else 'repair',attempt=target_attempt,
              message=f'Independent assessment: Band {observed:.1f}; requested: Band {target:.1f}',
              criterion_scores=history[-1]['criterion_scores'])
         if observed==target:
-            evaluation=complete_model_feedback(requirements['prompt'],essay,evaluation,emit)
-            return {'status':'generated_and_assessed','title':value.get('title','Your model essay'),'essay':essay,'word_count':words,'requirements':requirements,'requirement_notes':value['requirement_notes'],'assessment':evaluation,'generation_calls':calls,'generation_context_ids':[x['chunk_id'] for x in selected],'target_met':True,'target_match':{'requested_band':target,'assessed_band':observed,'exact_match':True,'criterion_target_profile':profile,'attempts':history},'notice':f'This example matched your requested Band {target:.1f} in a separate assessment against official IELTS standards.'}
+            return finish(candidate)
         if target_attempt<MAX_TARGET_ATTEMPTS:
             payload.pop('validation_repair',None)
             focused=abs(observed-target)<=1
@@ -330,5 +349,6 @@ def generate_essay(requirements,progress=None,*,checkpoint=None,pause_after_cand
                 return {'status':'continuation_required','checkpoint':{
                     'payload':payload,'writer_profile':writer_profile,'calls':calls,
                     'history':history,'protected_position':protected_position,
-                    'next_attempt':target_attempt+1}}
-    raise ModelUnavailable(f'The generated essay did not match your requested Band {target:.1f} after {MAX_TARGET_ATTEMPTS} independent checks. Please try again; your requirements are unchanged.')
+                    'next_attempt':target_attempt+1,'best':best}}
+    if best is not None:return finish(best)
+    raise ModelUnavailable('No assessed example is available. Please generate again; your requirements are unchanged.')

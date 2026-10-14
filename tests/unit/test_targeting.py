@@ -70,12 +70,16 @@ def test_generation_retrieves_adjacent_official_boundaries(monkeypatch):
         rows=[r for r in payloads[0]['official_rubric_context'] if r['kind']=='band_descriptor' and r['criterion']==code]
         assert {r['band'] for r in rows}=={expected-1,expected,expected+1}
 
-def test_persistent_overshoot_never_returns_wrong_band_as_success(monkeypatch):
+def test_persistent_overshoot_returns_actual_score_without_claiming_target_match(monkeypatch):
     requirements,payloads,_=setup_generation(monkeypatch,[9]*MAX_TARGET_ATTEMPTS,5)
     output=[json.loads(line) for line in events(lambda emit:assessment.generate_essay(requirements,emit))]
     assert len(payloads)==MAX_TARGET_ATTEMPTS, apply_focus_edits
-    assert not any(e['type']=='result' for e in output)
-    assert output[-1]['type']=='error' and 'Band 5.0' in output[-1]['detail']
+    result=next(e['result'] for e in output if e['type']=='result')
+    assert not any(e['type']=='error' for e in output)
+    assert result['assessment']['overall_band']==9 and result['requirements']['target_band']==5
+    assert result['target_met'] is False and result['target_match']['exact_match'] is False
+    assert result['target_match']['selection']=='closest_assessed_candidate'
+    assert 'Band 5.0' in result['notice'] and 'Band 9.0' in result['notice']
 
 @pytest.mark.parametrize('current,observed,desired,expected',[
     (7,9,7,5),(5,6,7,6),(4,6,4,2),(2,9,4,2),(9,5,9,9)])
@@ -200,3 +204,54 @@ def test_detailed_feedback_only_for_target_matching_final_candidate(monkeypatch)
     monkeypatch.setattr(assessment,'complete_model_feedback',finish)
     result=assessment.generate_essay(requirements)
     assert len(assessed)==2 and completed==[(result['essay'],7)]
+
+
+def test_closest_candidate_is_preserved_even_when_last_draft_regresses(monkeypatch):
+    requirements,payloads,assessed=setup_generation(monkeypatch,[7,6.5,8.5],7.5)
+    finished=[]
+    def finish(prompt,essay,evaluation,progress):
+        finished.append(essay);return evaluation
+    monkeypatch.setattr(assessment,'complete_model_feedback',finish)
+    result=assessment.generate_essay(requirements)
+    assert len(payloads)==3 and result['essay']==assessed[0] and finished==[assessed[0]]
+    assert result['assessment']['overall_band']==7 and not result['target_met']
+    assert result['target_match']['selected_attempt']==1
+    assert result['target_match']['band_distance']==.5
+    assert len(result['target_match']['attempts'])==3
+
+
+def test_best_candidate_stays_private_across_continuations_and_finishes_after_two_adjustments(monkeypatch):
+    requirements,_,assessed=setup_generation(monkeypatch,[6.5,7,8.5],7.5)
+    a=assessment.generate_essay(requirements,pause_after_candidate=True)
+    b=assessment.generate_essay(requirements,checkpoint=a['checkpoint'],pause_after_candidate=True)
+    assert a['status']==b['status']=='continuation_required'
+    assert b['checkpoint']['best']['attempt']==2 and 'essay' not in b
+    result=assessment.generate_essay(requirements,checkpoint=b['checkpoint'],pause_after_candidate=True)
+    assert result['status']=='generated_and_assessed' and result['essay']==assessed[1]
+    assert result['assessment']['overall_band']==7 and result['target_met'] is False
+
+
+def test_final_feedback_failure_never_returns_an_unchecked_closest_candidate(monkeypatch):
+    requirements,_,_=setup_generation(monkeypatch,[7,7,7],7.5)
+    def finish(*args):raise ModelUnavailable('Feedback evidence failed')
+    monkeypatch.setattr(assessment,'complete_model_feedback',finish)
+    output=[json.loads(line) for line in events(lambda emit:assessment.generate_essay(requirements,emit))]
+    assert not any(e['type']=='result' for e in output)
+    assert output[-1]['type']=='error' and output[-1]['detail']=='Feedback evidence failed'
+
+
+def test_invalid_later_draft_does_not_discard_an_assessed_candidate(monkeypatch):
+    requirements,_,assessed=setup_generation(monkeypatch,[7],7.5)
+    writer=assessment.generate
+    count=0
+    def short_revision(*args,**kwargs):
+        nonlocal count
+        count+=1
+        value,receipt=writer(*args,**kwargs)
+        if count>1:value['essay']='A learner sentence. '*70
+        return value,receipt
+    monkeypatch.setattr(assessment,'generate',short_revision)
+    result=assessment.generate_essay(requirements)
+    assert count==3 and len(assessed)==1
+    assert result['essay']==assessed[0] and result['assessment']['overall_band']==7
+    assert result['target_met'] is False and len(result['target_match']['attempts'])==1
