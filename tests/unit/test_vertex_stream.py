@@ -62,3 +62,24 @@ def test_active_stream_still_obeys_shared_deadline(monkeypatch):
     monkeypatch.setattr(gemini,'request_remaining',lambda _:next(remaining,0))
     with pytest.raises(gemini.ModelUnavailable,match='timed out'):
         gemini.generate('role',{}, {'type':'OBJECT'})
+
+def test_transient_failure_switches_model_and_receipt_names_actual_provider(monkeypatch):
+    from test_gemini_transport import prepare
+    monkeypatch.setattr(gemini,'MODEL','gemini-3.8-flash')
+    monkeypatch.setenv('GEMINI_FALLBACK_MODEL','gemini-3.5-flash')
+    monkeypatch.setenv('GEMINI_THINKING_LEVEL','MINIMAL')
+    calls=prepare(monkeypatch,[429,200])
+    value,receipt=gemini.generate('role',{}, {'type':'OBJECT'})
+    assert value=={'ok':True} and receipt['model']=='gemini-3.5-flash'
+    assert receipt['attempted_models']==['gemini-3.8-flash','gemini-3.5-flash']
+    assert receipt['thinking_config']=={'thinkingLevel':'MINIMAL'}
+    assert len(calls)==2
+
+def test_supported_thinking_setting_is_chosen_for_each_model(monkeypatch):
+    monkeypatch.setenv('GEMINI_THINKING_LEVEL','MINIMAL')
+    assert gemini.thinking_config('gemini-3.8-flash')=={'thinkingLevel':'LOW'}
+    assert gemini.thinking_config('gemini-3.5-flash')=={'thinkingLevel':'MINIMAL'}
+
+def test_no_fallback_preserves_operator_chosen_model(monkeypatch):
+    monkeypatch.delenv('GEMINI_FALLBACK_MODEL',raising=False)
+    assert gemini.request_model(0)==gemini.request_model(1)==gemini.request_model(2)==gemini.MODEL

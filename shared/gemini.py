@@ -12,7 +12,7 @@ from pathlib import Path
 import httpx
 
 MODEL=os.getenv('GEMINI_MODEL','gemini-3.5-flash')
-PROMPT_VERSION='official-rubric-v6.2-streamed-provider-response'
+PROMPT_VERSION='official-rubric-v6.3-streamed-provider-failover'
 CLIENT=httpx.Client(timeout=httpx.Timeout(75,connect=10,pool=5,write=15),limits=httpx.Limits(max_connections=12,max_keepalive_connections=8))
 _metadata_token=None
 _token_lock=threading.Lock()
@@ -55,7 +55,19 @@ def access_token():
     return token
 
 def configuration():
-    return {'provider':'Google Vertex AI','model':MODEL,'prompt_version':PROMPT_VERSION,'transport':'vertex_sse','project_configured':bool(os.getenv('GOOGLE_CLOUD_PROJECT'))}
+    return {'provider':'Google Vertex AI','model':MODEL,'fallback_model':os.getenv('GEMINI_FALLBACK_MODEL') or None,'prompt_version':PROMPT_VERSION,'transport':'vertex_sse','project_configured':bool(os.getenv('GOOGLE_CLOUD_PROJECT'))}
+
+def request_model(attempt):
+    fallback=os.getenv('GEMINI_FALLBACK_MODEL','').strip()
+    return fallback if fallback and attempt%2 else MODEL
+
+def thinking_config(model):
+    if 'gemini-3' not in model:return {'thinkingBudget':1024}
+    level=os.getenv('GEMINI_THINKING_LEVEL','LOW').upper()
+    if level not in {'MINIMAL','LOW','MEDIUM','HIGH'}:raise ModelUnavailable('Invalid Gemini thinking configuration.')
+    # Gemini 3.8 rejects MINIMAL; LOW is its supported low-latency setting.
+    if model.startswith('gemini-3.8') and level=='MINIMAL':level='LOW'
+    return {'thinkingLevel':level}
 
 def stream_response(url,body,token,timeout,call_deadline):
     """Consume Vertex SSE incrementally; never expose unvalidated model text.
@@ -107,38 +119,38 @@ def generate(system, payload, schema, temperature=0.1):
     if not re.fullmatch(r'[a-z][a-z0-9-]{4,61}[a-z0-9]',project): raise ModelUnavailable('Set GOOGLE_CLOUD_PROJECT to your authorized Google Cloud project.')
     token=access_token()
     host='aiplatform.googleapis.com' if location=='global' else f'{location}-aiplatform.googleapis.com'
-    url=f'https://{host}/v1/projects/{project}/locations/{location}/publishers/google/models/{MODEL}:streamGenerateContent?alt=sse'
     body={'systemInstruction':{'parts':[{'text':system}]},'contents':[{'role':'user','parts':[{'text':json.dumps(payload,ensure_ascii=False,separators=(',',':'))}]}],'generationConfig':{'temperature':temperature,'maxOutputTokens':16384,'responseMimeType':'application/json','responseSchema':schema}}
-    if 'gemini-3' in MODEL:
-        level=os.getenv('GEMINI_THINKING_LEVEL','LOW').upper()
-        if level not in {'MINIMAL','LOW','MEDIUM','HIGH'}:raise ModelUnavailable('Invalid Gemini thinking configuration.')
-        body['generationConfig']['thinkingConfig']={'thinkingLevel':level}
-    else: body['generationConfig']['thinkingConfig']={'thinkingBudget':1024}
     started=time.monotonic()
     call_deadline=started+180
+    attempted_models=[]
     for attempt in range(3):
         remaining=request_remaining(call_deadline)
         if remaining<=1:
             raise ModelUnavailable('Google model response timed out. Please try again; your writing is unchanged.')
         # Bound each attempt so a read timeout leaves room for a real retry.
         attempt_timeout=httpx.Timeout(min(75,remaining),connect=min(10,remaining),pool=min(5,remaining),write=min(15,remaining))
+        model=request_model(attempt)
+        if not re.fullmatch(r'gemini-[a-z0-9.-]+',model):raise ModelUnavailable('Invalid Gemini model configuration.')
+        url=f'https://{host}/v1/projects/{project}/locations/{location}/publishers/google/models/{model}:streamGenerateContent?alt=sse'
+        body['generationConfig']['thinkingConfig']=thinking_config(model)
+        attempted_models.append(model)
         retry_reason=None
         try:
             response=stream_response(url,body,token,attempt_timeout,call_deadline)
         except (httpx.TimeoutException,httpx.NetworkError,httpx.RemoteProtocolError) as error:
             retry_reason=type(error).__name__
-            logger.warning('vertex_transport_failure model=%s attempt=%s kind=%s elapsed_ms=%s',MODEL,attempt+1,retry_reason,round((time.monotonic()-started)*1000))
+            logger.warning('vertex_transport_failure model=%s attempt=%s kind=%s elapsed_ms=%s',model,attempt+1,retry_reason,round((time.monotonic()-started)*1000))
             if attempt==2 or request_remaining(call_deadline)<=2:
                 message='Google model response timed out' if isinstance(error,httpx.TimeoutException) else 'The connection to Google was interrupted'
                 raise ModelUnavailable(message+'. Please try again; your writing is unchanged.') from error
         except httpx.HTTPError as error:
-            logger.warning('vertex_transport_failure model=%s kind=%s',MODEL,type(error).__name__)
+            logger.warning('vertex_transport_failure model=%s kind=%s',model,type(error).__name__)
             raise ModelUnavailable('The connection to Google could not complete. Please try again; your writing is unchanged.') from error
         if retry_reason is None and response.status_code in {408,429,500,502,503,504} and attempt<2:
             retry_reason='HTTP_'+str(response.status_code)
         if retry_reason:
             delay=min(2**attempt+random.uniform(0,.5),max(0,request_remaining(call_deadline)-1))
-            logger.warning('vertex_request_retry model=%s attempt=%s reason=%s',MODEL,attempt+1,retry_reason)
+            logger.warning('vertex_request_retry model=%s next_model=%s attempt=%s reason=%s',model,request_model(attempt+1),attempt+1,retry_reason)
             emit=_request_progress.get()
             if emit:emit(phase='model_retry',status='repair',message=f'Google request delayed; retrying automatically ({attempt+2} of 3)')
             time.sleep(delay);continue
@@ -152,5 +164,5 @@ def generate(system, payload, schema, temperature=0.1):
         text=''.join(p.get('text','') for p in candidates[0].get('content',{}).get('parts',[]) if not p.get('thought'))
         try: value=json.loads(text)
         except ValueError as error: raise ModelUnavailable('Google returned invalid structured output; please retry.') from error
-        return value,{'provider':'Google Vertex AI','model':MODEL,'model_version':result.get('modelVersion',MODEL),'response_id':result.get('responseId'),'usage':result.get('usageMetadata',{}),'latency_ms':round((time.monotonic()-started)*1000),'prompt_version':PROMPT_VERSION,'temperature':temperature,'transport_attempts':attempt+1,'transport':'vertex_sse',**result.get('_stream_receipt',{})}
+        return value,{'provider':'Google Vertex AI','model':model,'configured_model':MODEL,'attempted_models':attempted_models,'model_version':result.get('modelVersion',model),'response_id':result.get('responseId'),'usage':result.get('usageMetadata',{}),'latency_ms':round((time.monotonic()-started)*1000),'prompt_version':PROMPT_VERSION,'temperature':temperature,'thinking_config':thinking_config(model),'transport_attempts':attempt+1,'transport':'vertex_sse',**result.get('_stream_receipt',{})}
     raise ModelUnavailable('Google model temporarily unavailable.')
