@@ -1,0 +1,2575 @@
+{
+  "url": "https://commentary-candidate---stepwise-api-t37cje4wva-uc.a.run.app",
+  "sample_source": "docs/evidence/sample_input.json",
+  "cases": {
+    "model": {
+      "wall_seconds": 31.889,
+      "events": [
+        {
+          "type": "progress",
+          "phase": "accepted",
+          "status": "done",
+          "message": "Request received; preparing your writing",
+          "elapsed_ms": 0
+        },
+        {
+          "type": "progress",
+          "phase": "generation_retrieval",
+          "status": "running",
+          "message": "Finding official guidance for your writing target",
+          "elapsed_ms": 10
+        },
+        {
+          "type": "progress",
+          "phase": "generation_retrieval",
+          "status": "done",
+          "message": "Target-band writing guidance ready",
+          "elapsed_ms": 562
+        },
+        {
+          "type": "progress",
+          "phase": "generation",
+          "status": "running",
+          "message": "Writing around your position and ideas",
+          "elapsed_ms": 562
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 6555
+        },
+        {
+          "type": "progress",
+          "phase": "generation",
+          "status": "done",
+          "message": "319-word essay ready",
+          "word_count": 319,
+          "elapsed_ms": 11572
+        },
+        {
+          "type": "progress",
+          "phase": "commentary",
+          "status": "running",
+          "message": "Preparing four writing comments and concrete examples",
+          "elapsed_ms": 11572
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 13772
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 21780
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 29793
+        },
+        {
+          "type": "progress",
+          "phase": "commentary",
+          "status": "done",
+          "message": "Comments, exact essay quotes and official sources ready",
+          "elapsed_ms": 30030
+        }
+      ],
+      "target_band": 6.5,
+      "word_count": 319,
+      "mode": "qualitative_commentary",
+      "model_calls": [
+        {
+          "provider": "Google Vertex AI",
+          "model": "gemini-3.8-flash",
+          "configured_model": "gemini-3.8-flash",
+          "attempted_models": [
+            "gemini-3.8-flash"
+          ],
+          "model_version": "gemini-3.8-flash",
+          "response_id": "Z0fSat6vG-ahmecP4YnMWA",
+          "usage": {
+            "promptTokenCount": 5817,
+            "candidatesTokenCount": 778,
+            "totalTokenCount": 6595,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 5817
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 778
+              }
+            ]
+          },
+          "latency_ms": 10956,
+          "prompt_version": "official-rubric-v6.4-target-grounded-commentary",
+          "temperature": 0.4,
+          "thinking_config": {
+            "thinkingLevel": "LOW"
+          },
+          "transport_attempts": 1,
+          "transport": "vertex_sse",
+          "stream_events": 32,
+          "first_response_ms": 5939
+        },
+        {
+          "provider": "Google Vertex AI",
+          "model": "gemini-3.8-flash",
+          "configured_model": "gemini-3.8-flash",
+          "attempted_models": [
+            "gemini-3.8-flash"
+          ],
+          "model_version": "gemini-3.8-flash",
+          "response_id": "ckfSatyhHJ6Bm9IPz57KgAU",
+          "usage": {
+            "promptTokenCount": 13852,
+            "candidatesTokenCount": 2423,
+            "totalTokenCount": 16275,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 13852
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2423
+              }
+            ]
+          },
+          "latency_ms": 18456,
+          "prompt_version": "official-rubric-v6.4-target-grounded-commentary",
+          "temperature": 0.1,
+          "thinking_config": {
+            "thinkingLevel": "LOW"
+          },
+          "transport_attempts": 1,
+          "transport": "vertex_sse",
+          "stream_events": 91,
+          "first_response_ms": 2200
+        }
+      ],
+      "commentary": {
+        "summary": "These comments connect specific passages to the official guidance for your writing target. Use the suggested revisions to practise each skill.",
+        "criteria": [
+          {
+            "criterion": "TR",
+            "name": "Task Response",
+            "title": "Position formulation and precision",
+            "rationale": "The passage presents a clear direct position regarding the division of funds between transit and roads. To develop the position more fully, ensure that qualification criteria like urban focus are consistently connected to the central argument across all body sections.",
+            "essay_quote": "I agree that public transit should receive a larger share of public funds, particularly in urban areas, although essential road networks must not be neglected.",
+            "next_step": "Explicitly align the scope set in the thesis statement with the supporting explanations in subsequent body paragraphs.",
+            "example": {
+              "before": "I agree that public transit should receive a larger share of public funds, particularly in urban areas, although essential road networks must not be neglected.",
+              "after": "I agree that public transit should receive a larger share of public funds, particularly in urban areas, although essential road networks must not be neglected to maintain connectivity across all regions."
+            },
+            "subcriteria": [
+              {
+                "subcriterion_id": "TR-4",
+                "judgment": "strength",
+                "explanation": "A position directly addressing the balance between funding transit and roads is established early in the introduction.",
+                "essay_quote": "I agree that public transit should receive a larger share of public funds, particularly in urban areas, although essential road networks must not be neglected.",
+                "official_standard": "how clearly the candidate opens the discourse, establishes their position and \nformulates conclusions.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "TR",
+                  "criterion_name": "Task Response",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow clearly the candidate opens the discourse, establishes their position and \nformulates conclusions.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "TR-4",
+                  "statements": [],
+                  "chunk_id": "1e9c384e6edba79e4fdcc6e0b42bcde94411c020ab4d6aeccf198427f843731b",
+                  "characters": 155
+                },
+                "target_standard": {
+                  "statement_id": "T2-TR-B6-S2",
+                  "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "d65ef0adb660d556367008c1963c59947f8ca3a16b8f15d5e66877a3c1288cf9",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "TR",
+                    "criterion_name": "Task Response",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Task Response | Band 6\nThe main parts of the prompt are addressed (though some may be\nmore fully covered than others). An appropriate format is used.\nA position is presented that is directly relevant to the prompt,\nalthough the conclusions drawn may be unclear, unjustified or\nrepetitive.\nMain ideas are relevant, but some may be insufficiently developed\nor may lack clarity, while some supporting arguments and evidence\nmay be less relevant or inadequate.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-TR-B6-S1",
+                        "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "475104c7d5f8cc9ffd1572acf398663757ffb2ecc08650ad4cedc2862cfc6d70"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S2",
+                        "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "d65ef0adb660d556367008c1963c59947f8ca3a16b8f15d5e66877a3c1288cf9"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S3",
+                        "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "168ef679d823caf22d6542acaafb4ff9b9140f588da2c3072d37259a3bd76677"
+                      }
+                    ],
+                    "chunk_id": "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+                    "characters": 480
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "TR-1",
+                "judgment": "strength",
+                "explanation": "The prompt's trade-off between spending on public transport and roadways is addressed across the response.",
+                "essay_quote": "Governments face ongoing decisions regarding how to allocate their infrastructure budgets between mass transit systems and roadways.",
+                "official_standard": "how fully the candidate responds to the task.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "TR",
+                  "criterion_name": "Task Response",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow fully the candidate responds to the task.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "TR-1",
+                  "statements": [],
+                  "chunk_id": "278ae8178cb9631204a00965b11c53a8ccbc477e1471ed5e9ac8ce8916ed699b",
+                  "characters": 98
+                },
+                "target_standard": {
+                  "statement_id": "T2-TR-B6-S1",
+                  "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "475104c7d5f8cc9ffd1572acf398663757ffb2ecc08650ad4cedc2862cfc6d70",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "TR",
+                    "criterion_name": "Task Response",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Task Response | Band 6\nThe main parts of the prompt are addressed (though some may be\nmore fully covered than others). An appropriate format is used.\nA position is presented that is directly relevant to the prompt,\nalthough the conclusions drawn may be unclear, unjustified or\nrepetitive.\nMain ideas are relevant, but some may be insufficiently developed\nor may lack clarity, while some supporting arguments and evidence\nmay be less relevant or inadequate.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-TR-B6-S1",
+                        "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "475104c7d5f8cc9ffd1572acf398663757ffb2ecc08650ad4cedc2862cfc6d70"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S2",
+                        "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "d65ef0adb660d556367008c1963c59947f8ca3a16b8f15d5e66877a3c1288cf9"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S3",
+                        "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "168ef679d823caf22d6542acaafb4ff9b9140f588da2c3072d37259a3bd76677"
+                      }
+                    ],
+                    "chunk_id": "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+                    "characters": 480
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "TR-5",
+                "judgment": "strength",
+                "explanation": "An appropriate essay format is used, featuring clear introductory, body, and concluding sections.",
+                "essay_quote": "In conclusion, I believe that governments should dedicate the greater portion of their transport expenditure to public systems because they reduce congestion and enhance social equity.",
+                "official_standard": "how appropriate the format of the response is to the task.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "TR",
+                  "criterion_name": "Task Response",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow appropriate the format of the response is to the task.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "TR-5",
+                  "statements": [],
+                  "chunk_id": "2abca835312b13b771b2f544ea0b02ba330e3036d86b4a7eed05a6d5287abd3c",
+                  "characters": 111
+                },
+                "target_standard": {
+                  "statement_id": "T2-TR-B6-S1",
+                  "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "475104c7d5f8cc9ffd1572acf398663757ffb2ecc08650ad4cedc2862cfc6d70",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "TR",
+                    "criterion_name": "Task Response",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Task Response | Band 6\nThe main parts of the prompt are addressed (though some may be\nmore fully covered than others). An appropriate format is used.\nA position is presented that is directly relevant to the prompt,\nalthough the conclusions drawn may be unclear, unjustified or\nrepetitive.\nMain ideas are relevant, but some may be insufficiently developed\nor may lack clarity, while some supporting arguments and evidence\nmay be less relevant or inadequate.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-TR-B6-S1",
+                        "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "475104c7d5f8cc9ffd1572acf398663757ffb2ecc08650ad4cedc2862cfc6d70"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S2",
+                        "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "d65ef0adb660d556367008c1963c59947f8ca3a16b8f15d5e66877a3c1288cf9"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S3",
+                        "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "168ef679d823caf22d6542acaafb4ff9b9140f588da2c3072d37259a3bd76677"
+                      }
+                    ],
+                    "chunk_id": "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+                    "characters": 480
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "TR-2",
+                "judgment": "develop",
+                "explanation": "Main ideas are supported with relevant reasoning, though further concrete detail on implementation costs could prevent over-generalisation.",
+                "essay_quote": "Nonetheless, this outcome requires comprehensive networks with integrated ticketing, which demands substantial government capital.",
+                "official_standard": "how adequately the main ideas are extended and supported.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "TR",
+                  "criterion_name": "Task Response",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow adequately the main ideas are extended and supported.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "TR-2",
+                  "statements": [],
+                  "chunk_id": "433d6b76fc32161997deb7ca3a675c3367af3d7db0bf2c6f035b07bb407db058",
+                  "characters": 110
+                },
+                "target_standard": {
+                  "statement_id": "T2-TR-B6-S3",
+                  "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "168ef679d823caf22d6542acaafb4ff9b9140f588da2c3072d37259a3bd76677",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "TR",
+                    "criterion_name": "Task Response",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Task Response | Band 6\nThe main parts of the prompt are addressed (though some may be\nmore fully covered than others). An appropriate format is used.\nA position is presented that is directly relevant to the prompt,\nalthough the conclusions drawn may be unclear, unjustified or\nrepetitive.\nMain ideas are relevant, but some may be insufficiently developed\nor may lack clarity, while some supporting arguments and evidence\nmay be less relevant or inadequate.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-TR-B6-S1",
+                        "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "475104c7d5f8cc9ffd1572acf398663757ffb2ecc08650ad4cedc2862cfc6d70"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S2",
+                        "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "d65ef0adb660d556367008c1963c59947f8ca3a16b8f15d5e66877a3c1288cf9"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S3",
+                        "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "168ef679d823caf22d6542acaafb4ff9b9140f588da2c3072d37259a3bd76677"
+                      }
+                    ],
+                    "chunk_id": "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+                    "characters": 480
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "TR-3",
+                "judgment": "strength",
+                "explanation": "The example of connecting suburban residents to industrial employment directly supports the point on economic mobility.",
+                "essay_quote": "For instance, an affordable bus route linking a suburban neighbourhood directly to an industrial park enables local residents to access stable employment opportunities that were previously out of reach.",
+                "official_standard": "how relevant the candidate\u2019s ideas are to the task.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "TR",
+                  "criterion_name": "Task Response",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Task Response | subcriterion\nhow relevant the candidate\u2019s ideas are to the task.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "TR-3",
+                  "statements": [],
+                  "chunk_id": "4b75a24d694b0f60f3e5052c3418d8917218a080c177f067a02811cb3c220625",
+                  "characters": 104
+                },
+                "target_standard": {
+                  "statement_id": "T2-TR-B6-S3",
+                  "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "168ef679d823caf22d6542acaafb4ff9b9140f588da2c3072d37259a3bd76677",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "TR",
+                    "criterion_name": "Task Response",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Task Response | Band 6\nThe main parts of the prompt are addressed (though some may be\nmore fully covered than others). An appropriate format is used.\nA position is presented that is directly relevant to the prompt,\nalthough the conclusions drawn may be unclear, unjustified or\nrepetitive.\nMain ideas are relevant, but some may be insufficiently developed\nor may lack clarity, while some supporting arguments and evidence\nmay be less relevant or inadequate.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-TR-B6-S1",
+                        "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "475104c7d5f8cc9ffd1572acf398663757ffb2ecc08650ad4cedc2862cfc6d70"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S2",
+                        "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "d65ef0adb660d556367008c1963c59947f8ca3a16b8f15d5e66877a3c1288cf9"
+                      },
+                      {
+                        "statement_id": "T2-TR-B6-S3",
+                        "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "168ef679d823caf22d6542acaafb4ff9b9140f588da2c3072d37259a3bd76677"
+                      }
+                    ],
+                    "chunk_id": "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+                    "characters": 480
+                  }
+                }
+              }
+            ],
+            "rubric": [
+              {
+                "task": "academic_task_2",
+                "criterion": "TR",
+                "criterion_name": "Task Response",
+                "band": 6,
+                "kind": "band_descriptor",
+                "text": "IELTS academic_task_2 | Task Response | Band 6\nThe main parts of the prompt are addressed (though some may be\nmore fully covered than others). An appropriate format is used.\nA position is presented that is directly relevant to the prompt,\nalthough the conclusions drawn may be unclear, unjustified or\nrepetitive.\nMain ideas are relevant, but some may be insufficiently developed\nor may lack clarity, while some supporting arguments and evidence\nmay be less relevant or inadequate.",
+                "source_id": "ielts-writing-band-descriptors-2023",
+                "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                "source_title": "Ielts Writing Band Descriptors 2023",
+                "page": 8,
+                "version": "May 2023",
+                "limiting_features": [],
+                "statements": [
+                  {
+                    "statement_id": "T2-TR-B6-S1",
+                    "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "475104c7d5f8cc9ffd1572acf398663757ffb2ecc08650ad4cedc2862cfc6d70"
+                  },
+                  {
+                    "statement_id": "T2-TR-B6-S2",
+                    "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "d65ef0adb660d556367008c1963c59947f8ca3a16b8f15d5e66877a3c1288cf9"
+                  },
+                  {
+                    "statement_id": "T2-TR-B6-S3",
+                    "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "168ef679d823caf22d6542acaafb4ff9b9140f588da2c3072d37259a3bd76677"
+                  }
+                ],
+                "chunk_id": "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+                "characters": 480
+              },
+              {
+                "task": "academic_task_2",
+                "criterion": "TR",
+                "criterion_name": "Task Response",
+                "band": 7,
+                "kind": "band_descriptor",
+                "text": "IELTS academic_task_2 | Task Response | Band 7\nThe main parts of the prompt are appropriately addressed.\nA clear and developed position is presented.\nMain ideas are extended and supported but there may be a\ntendency to over-generalise or there may be a lack of focus and\nprecision in supporting ideas/material.",
+                "source_id": "ielts-writing-band-descriptors-2023",
+                "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                "source_title": "Ielts Writing Band Descriptors 2023",
+                "page": 7,
+                "version": "May 2023",
+                "limiting_features": [],
+                "statements": [
+                  {
+                    "statement_id": "T2-TR-B7-S1",
+                    "text": "The main parts of the prompt are appropriately addressed.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "49303061a6e953f759fd61b0ce976ad6ee3cbaaf811fa62eb57f2e4241f42c22"
+                  },
+                  {
+                    "statement_id": "T2-TR-B7-S2",
+                    "text": "A clear and developed position is presented.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "2de4d3f82d758c266bcb0b4985da1bdaa3172d0b94b1dd1b459970aab4471112"
+                  },
+                  {
+                    "statement_id": "T2-TR-B7-S3",
+                    "text": "Main ideas are extended and supported but there may be a tendency to over-generalise or there may be a lack of focus and precision in supporting ideas/material.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "50046d7dde770ffc9b2f3a1741479cbc628dafdf0ee81fc7f8ce2b45d0179d5d"
+                  }
+                ],
+                "chunk_id": "a48820ccc82d8570c378eec242aa8e1728d9a7dc43ae16010f2e01a098a7f3b4",
+                "characters": 310
+              }
+            ],
+            "standard_references": {
+              "observation": {
+                "statement_id": "T2-TR-B6-S2",
+                "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive.",
+                "conditional": false,
+                "limiting_features": [],
+                "chunk_id": "d65ef0adb660d556367008c1963c59947f8ca3a16b8f15d5e66877a3c1288cf9",
+                "band": 6,
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "TR",
+                  "criterion_name": "Task Response",
+                  "band": 6,
+                  "kind": "band_descriptor",
+                  "text": "IELTS academic_task_2 | Task Response | Band 6\nThe main parts of the prompt are addressed (though some may be\nmore fully covered than others). An appropriate format is used.\nA position is presented that is directly relevant to the prompt,\nalthough the conclusions drawn may be unclear, unjustified or\nrepetitive.\nMain ideas are relevant, but some may be insufficiently developed\nor may lack clarity, while some supporting arguments and evidence\nmay be less relevant or inadequate.",
+                  "source_id": "ielts-writing-band-descriptors-2023",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                  "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                  "source_title": "Ielts Writing Band Descriptors 2023",
+                  "page": 8,
+                  "version": "May 2023",
+                  "limiting_features": [],
+                  "statements": [
+                    {
+                      "statement_id": "T2-TR-B6-S1",
+                      "text": "The main parts of the prompt are addressed (though some may be more fully covered than others). An appropriate format is used.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "475104c7d5f8cc9ffd1572acf398663757ffb2ecc08650ad4cedc2862cfc6d70"
+                    },
+                    {
+                      "statement_id": "T2-TR-B6-S2",
+                      "text": "A position is presented that is directly relevant to the prompt, although the conclusions drawn may be unclear, unjustified or repetitive.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "d65ef0adb660d556367008c1963c59947f8ca3a16b8f15d5e66877a3c1288cf9"
+                    },
+                    {
+                      "statement_id": "T2-TR-B6-S3",
+                      "text": "Main ideas are relevant, but some may be insufficiently developed or may lack clarity, while some supporting arguments and evidence may be less relevant or inadequate.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "168ef679d823caf22d6542acaafb4ff9b9140f588da2c3072d37259a3bd76677"
+                    }
+                  ],
+                  "chunk_id": "ed8749c37aaa24fbde33a9952f4ff1bdf03764ddd26432d4da888cae02c940d1",
+                  "characters": 480
+                }
+              },
+              "refinement": {
+                "statement_id": "T2-TR-B7-S2",
+                "text": "A clear and developed position is presented.",
+                "conditional": false,
+                "limiting_features": [],
+                "chunk_id": "2de4d3f82d758c266bcb0b4985da1bdaa3172d0b94b1dd1b459970aab4471112",
+                "band": 7,
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "TR",
+                  "criterion_name": "Task Response",
+                  "band": 7,
+                  "kind": "band_descriptor",
+                  "text": "IELTS academic_task_2 | Task Response | Band 7\nThe main parts of the prompt are appropriately addressed.\nA clear and developed position is presented.\nMain ideas are extended and supported but there may be a\ntendency to over-generalise or there may be a lack of focus and\nprecision in supporting ideas/material.",
+                  "source_id": "ielts-writing-band-descriptors-2023",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                  "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                  "source_title": "Ielts Writing Band Descriptors 2023",
+                  "page": 7,
+                  "version": "May 2023",
+                  "limiting_features": [],
+                  "statements": [
+                    {
+                      "statement_id": "T2-TR-B7-S1",
+                      "text": "The main parts of the prompt are appropriately addressed.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "49303061a6e953f759fd61b0ce976ad6ee3cbaaf811fa62eb57f2e4241f42c22"
+                    },
+                    {
+                      "statement_id": "T2-TR-B7-S2",
+                      "text": "A clear and developed position is presented.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "2de4d3f82d758c266bcb0b4985da1bdaa3172d0b94b1dd1b459970aab4471112"
+                    },
+                    {
+                      "statement_id": "T2-TR-B7-S3",
+                      "text": "Main ideas are extended and supported but there may be a tendency to over-generalise or there may be a lack of focus and precision in supporting ideas/material.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "50046d7dde770ffc9b2f3a1741479cbc628dafdf0ee81fc7f8ce2b45d0179d5d"
+                    }
+                  ],
+                  "chunk_id": "a48820ccc82d8570c378eec242aa8e1728d9a7dc43ae16010f2e01a098a7f3b4",
+                  "characters": 310
+                }
+              }
+            }
+          },
+          {
+            "criterion": "CC",
+            "name": "Coherence and Cohesion",
+            "title": "Logical idea progression",
+            "rationale": "Information is arranged coherently to illustrate the sequence from expanding transit networks to achieving reduced congestion. For a more seamless progression, connect the shift toward rural road necessities smoothly to the preceding urban considerations.",
+            "essay_quote": "A single passenger train can carry hundreds of travellers, thereby removing hundreds of individual vehicles from the road and reducing air pollution.",
+            "next_step": "Use clear comparative topic transitions when pivoting between contrasting sections of an argument.",
+            "example": {
+              "before": "On the other hand, road spending must not be completely sidelined.",
+              "after": "While urban centers gain the most from mass transit, road spending must not be completely sidelined in areas where rail is impractical."
+            },
+            "subcriteria": [
+              {
+                "subcriterion_id": "CC-3",
+                "judgment": "strength",
+                "explanation": "Ideas within the paragraph flow logically from vehicle capacity to reduced congestion and emissions.",
+                "essay_quote": "A single passenger train can carry hundreds of travellers, thereby removing hundreds of individual vehicles from the road and reducing air pollution.",
+                "official_standard": "the logical sequencing of ideas and/or information within and across \nparagraphs.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "CC",
+                  "criterion_name": "Coherence and Cohesion",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe logical sequencing of ideas and/or information within and across \nparagraphs.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "CC-3",
+                  "statements": [],
+                  "chunk_id": "67b67e57fefcd8e0182546315721f413a2fe80f590efd280a0a52f1dfca2c418",
+                  "characters": 143
+                },
+                "target_standard": {
+                  "statement_id": "T2-CC-B6-S1",
+                  "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "CC",
+                    "criterion_name": "Coherence and Cohesion",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 6\nInformation and ideas are generally arranged\ncoherently and there is a clear overall\nprogression.\nCohesive devices are used to some good effect\nbut cohesion within and/or between sentences\nmay be faulty or mechanical due to misuse,\noveruse or omission.\nThe use of reference and substitution may lack\nflexibility or clarity and result in some\nrepetition or error.\nParagraphing may not always be logical and/or\nthe central topic may not always be clear.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-CC-B6-S1",
+                        "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S2",
+                        "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "25fe66417e786b2d75d5d12edc6e7ced4242d1be497ca5059f65b5a038bbaf25"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S3",
+                        "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "19bf99f0856b7e64ec83fccfd56ecc3f33376d2161271880654b9ddd7130d558"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S4",
+                        "text": "Paragraphing may not always be logical and/or the central topic may not always be clear.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f81003e457360999ad1cd05d79921be96ec1d1bdcd7278da2a453e50fb9e9cfc"
+                      }
+                    ],
+                    "chunk_id": "808b288b48cf0870e25aa84d344a0d1b85ed905ad4ac8dd3455acd1560f4b60a",
+                    "characters": 507
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "CC-1",
+                "judgment": "strength",
+                "explanation": "There is a clear overall progression from economic arguments to environmental benefits and counter-considerations.",
+                "essay_quote": "Furthermore, investing in public transit is vital for tackling traffic congestion and environmental degradation.",
+                "official_standard": "the coherence of the response via the logical organisation of information \nand/or ideas, or the logical progression of the argument.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "CC",
+                  "criterion_name": "Coherence and Cohesion",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe coherence of the response via the logical organisation of information \nand/or ideas, or the logical progression of the argument.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "CC-1",
+                  "statements": [],
+                  "chunk_id": "6847483d0053c3f66b8c1dc9b0374667be1b2a3f0d9b451a91ec441d48798ae3",
+                  "characters": 194
+                },
+                "target_standard": {
+                  "statement_id": "T2-CC-B6-S1",
+                  "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "CC",
+                    "criterion_name": "Coherence and Cohesion",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 6\nInformation and ideas are generally arranged\ncoherently and there is a clear overall\nprogression.\nCohesive devices are used to some good effect\nbut cohesion within and/or between sentences\nmay be faulty or mechanical due to misuse,\noveruse or omission.\nThe use of reference and substitution may lack\nflexibility or clarity and result in some\nrepetition or error.\nParagraphing may not always be logical and/or\nthe central topic may not always be clear.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-CC-B6-S1",
+                        "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S2",
+                        "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "25fe66417e786b2d75d5d12edc6e7ced4242d1be497ca5059f65b5a038bbaf25"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S3",
+                        "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "19bf99f0856b7e64ec83fccfd56ecc3f33376d2161271880654b9ddd7130d558"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S4",
+                        "text": "Paragraphing may not always be logical and/or the central topic may not always be clear.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f81003e457360999ad1cd05d79921be96ec1d1bdcd7278da2a453e50fb9e9cfc"
+                      }
+                    ],
+                    "chunk_id": "808b288b48cf0870e25aa84d344a0d1b85ed905ad4ac8dd3455acd1560f4b60a",
+                    "characters": 507
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "CC-2",
+                "judgment": "strength",
+                "explanation": "Paragraphing is used effectively to divide distinct central topics regarding transit benefits and roadway requirements.",
+                "essay_quote": "The strongest argument for prioritising public transport is affordability and economic mobility.",
+                "official_standard": "the appropriate use of paragraphing for topic organisation and presentation.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "CC",
+                  "criterion_name": "Coherence and Cohesion",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe appropriate use of paragraphing for topic organisation and presentation.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "CC-2",
+                  "statements": [],
+                  "chunk_id": "cfd6e6f586b195b07127b7ea7c4c5d31aa97f9599494b8935e82c40f81a3fa75",
+                  "characters": 138
+                },
+                "target_standard": {
+                  "statement_id": "T2-CC-B6-S4",
+                  "text": "Paragraphing may not always be logical and/or the central topic may not always be clear.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "f81003e457360999ad1cd05d79921be96ec1d1bdcd7278da2a453e50fb9e9cfc",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "CC",
+                    "criterion_name": "Coherence and Cohesion",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 6\nInformation and ideas are generally arranged\ncoherently and there is a clear overall\nprogression.\nCohesive devices are used to some good effect\nbut cohesion within and/or between sentences\nmay be faulty or mechanical due to misuse,\noveruse or omission.\nThe use of reference and substitution may lack\nflexibility or clarity and result in some\nrepetition or error.\nParagraphing may not always be logical and/or\nthe central topic may not always be clear.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-CC-B6-S1",
+                        "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S2",
+                        "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "25fe66417e786b2d75d5d12edc6e7ced4242d1be497ca5059f65b5a038bbaf25"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S3",
+                        "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "19bf99f0856b7e64ec83fccfd56ecc3f33376d2161271880654b9ddd7130d558"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S4",
+                        "text": "Paragraphing may not always be logical and/or the central topic may not always be clear.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f81003e457360999ad1cd05d79921be96ec1d1bdcd7278da2a453e50fb9e9cfc"
+                      }
+                    ],
+                    "chunk_id": "808b288b48cf0870e25aa84d344a0d1b85ed905ad4ac8dd3455acd1560f4b60a",
+                    "characters": 507
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "CC-4",
+                "judgment": "strength",
+                "explanation": "Pronoun reference is clear and links back effectively to low- and middle-income workers.",
+                "essay_quote": "When municipalities invest in extensive bus networks and rail lines, they offer these citizens a dependable and economical way to travel.",
+                "official_standard": "the flexible use of reference and substitution (e.g. definite articles, pronouns).",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "CC",
+                  "criterion_name": "Coherence and Cohesion",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe flexible use of reference and substitution (e.g. definite articles, pronouns).",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "CC-4",
+                  "statements": [],
+                  "chunk_id": "ea689fea5f768bf51d3ef01212972b7dc56c4b0a2e28a12a41375471445c3230",
+                  "characters": 144
+                },
+                "target_standard": {
+                  "statement_id": "T2-CC-B6-S3",
+                  "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "19bf99f0856b7e64ec83fccfd56ecc3f33376d2161271880654b9ddd7130d558",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "CC",
+                    "criterion_name": "Coherence and Cohesion",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 6\nInformation and ideas are generally arranged\ncoherently and there is a clear overall\nprogression.\nCohesive devices are used to some good effect\nbut cohesion within and/or between sentences\nmay be faulty or mechanical due to misuse,\noveruse or omission.\nThe use of reference and substitution may lack\nflexibility or clarity and result in some\nrepetition or error.\nParagraphing may not always be logical and/or\nthe central topic may not always be clear.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-CC-B6-S1",
+                        "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S2",
+                        "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "25fe66417e786b2d75d5d12edc6e7ced4242d1be497ca5059f65b5a038bbaf25"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S3",
+                        "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "19bf99f0856b7e64ec83fccfd56ecc3f33376d2161271880654b9ddd7130d558"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S4",
+                        "text": "Paragraphing may not always be logical and/or the central topic may not always be clear.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f81003e457360999ad1cd05d79921be96ec1d1bdcd7278da2a453e50fb9e9cfc"
+                      }
+                    ],
+                    "chunk_id": "808b288b48cf0870e25aa84d344a0d1b85ed905ad4ac8dd3455acd1560f4b60a",
+                    "characters": 507
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "CC-5",
+                "judgment": "strength",
+                "explanation": "Discourse markers are used to establish causal relationships between points in the paragraph.",
+                "essay_quote": "Consequently, funding mass transit directly fosters local economic development.",
+                "official_standard": "the appropriate use of discourse markers to clearly mark the stages in a \nresponse, e.g. [First of all | In conclusion], and to signal the relationship between \nideas and/or information, e.g. [as a result | similarly].",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "CC",
+                  "criterion_name": "Coherence and Cohesion",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Coherence and Cohesion | subcriterion\nthe appropriate use of discourse markers to clearly mark the stages in a \nresponse, e.g. [First of all | In conclusion], and to signal the relationship between \nideas and/or information, e.g. [as a result | similarly].",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 3,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "CC-5",
+                  "statements": [],
+                  "chunk_id": "ff098df0a8a8ea153090dc48a02d9cffd99fbb594f5c6f1616170ac91146bd51",
+                  "characters": 280
+                },
+                "target_standard": {
+                  "statement_id": "T2-CC-B6-S2",
+                  "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "25fe66417e786b2d75d5d12edc6e7ced4242d1be497ca5059f65b5a038bbaf25",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "CC",
+                    "criterion_name": "Coherence and Cohesion",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 6\nInformation and ideas are generally arranged\ncoherently and there is a clear overall\nprogression.\nCohesive devices are used to some good effect\nbut cohesion within and/or between sentences\nmay be faulty or mechanical due to misuse,\noveruse or omission.\nThe use of reference and substitution may lack\nflexibility or clarity and result in some\nrepetition or error.\nParagraphing may not always be logical and/or\nthe central topic may not always be clear.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-CC-B6-S1",
+                        "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S2",
+                        "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "25fe66417e786b2d75d5d12edc6e7ced4242d1be497ca5059f65b5a038bbaf25"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S3",
+                        "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "19bf99f0856b7e64ec83fccfd56ecc3f33376d2161271880654b9ddd7130d558"
+                      },
+                      {
+                        "statement_id": "T2-CC-B6-S4",
+                        "text": "Paragraphing may not always be logical and/or the central topic may not always be clear.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "f81003e457360999ad1cd05d79921be96ec1d1bdcd7278da2a453e50fb9e9cfc"
+                      }
+                    ],
+                    "chunk_id": "808b288b48cf0870e25aa84d344a0d1b85ed905ad4ac8dd3455acd1560f4b60a",
+                    "characters": 507
+                  }
+                }
+              }
+            ],
+            "rubric": [
+              {
+                "task": "academic_task_2",
+                "criterion": "CC",
+                "criterion_name": "Coherence and Cohesion",
+                "band": 6,
+                "kind": "band_descriptor",
+                "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 6\nInformation and ideas are generally arranged\ncoherently and there is a clear overall\nprogression.\nCohesive devices are used to some good effect\nbut cohesion within and/or between sentences\nmay be faulty or mechanical due to misuse,\noveruse or omission.\nThe use of reference and substitution may lack\nflexibility or clarity and result in some\nrepetition or error.\nParagraphing may not always be logical and/or\nthe central topic may not always be clear.",
+                "source_id": "ielts-writing-band-descriptors-2023",
+                "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                "source_title": "Ielts Writing Band Descriptors 2023",
+                "page": 8,
+                "version": "May 2023",
+                "limiting_features": [],
+                "statements": [
+                  {
+                    "statement_id": "T2-CC-B6-S1",
+                    "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68"
+                  },
+                  {
+                    "statement_id": "T2-CC-B6-S2",
+                    "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "25fe66417e786b2d75d5d12edc6e7ced4242d1be497ca5059f65b5a038bbaf25"
+                  },
+                  {
+                    "statement_id": "T2-CC-B6-S3",
+                    "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "19bf99f0856b7e64ec83fccfd56ecc3f33376d2161271880654b9ddd7130d558"
+                  },
+                  {
+                    "statement_id": "T2-CC-B6-S4",
+                    "text": "Paragraphing may not always be logical and/or the central topic may not always be clear.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "f81003e457360999ad1cd05d79921be96ec1d1bdcd7278da2a453e50fb9e9cfc"
+                  }
+                ],
+                "chunk_id": "808b288b48cf0870e25aa84d344a0d1b85ed905ad4ac8dd3455acd1560f4b60a",
+                "characters": 507
+              },
+              {
+                "task": "academic_task_2",
+                "criterion": "CC",
+                "criterion_name": "Coherence and Cohesion",
+                "band": 7,
+                "kind": "band_descriptor",
+                "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 7\nInformation and ideas are logically organised,\nand there is a clear progression throughout\nthe response. (A few lapses may occur, but\nthese are minor.)\nA range of cohesive devices including\nreference and substitution is used flexibly but\nwith some inaccuracies or some over/under\nuse.\nParagraphing is generally used effectively to\nsupport overall coherence, and the sequencing\nof ideas within a paragraph is generally logical.",
+                "source_id": "ielts-writing-band-descriptors-2023",
+                "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                "source_title": "Ielts Writing Band Descriptors 2023",
+                "page": 7,
+                "version": "May 2023",
+                "limiting_features": [],
+                "statements": [
+                  {
+                    "statement_id": "T2-CC-B7-S1",
+                    "text": "Information and ideas are logically organised, and there is a clear progression throughout the response. (A few lapses may occur, but these are minor.)",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "08ae60500336567cd06eff6f542070e98d8fb15d9454b40ed5f147544cecd211"
+                  },
+                  {
+                    "statement_id": "T2-CC-B7-S2",
+                    "text": "A range of cohesive devices including reference and substitution is used flexibly but with some inaccuracies or some over/under use.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "d17635dbfd4e43295a44387b297ae32129e254e903194132b4aa8970ab58bc9c"
+                  },
+                  {
+                    "statement_id": "T2-CC-B7-S3",
+                    "text": "Paragraphing is generally used effectively to support overall coherence, and the sequencing of ideas within a paragraph is generally logical.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "0e00213547dde4b093140676a00c58caf17759fa1cfdab88d3800851c181dd57"
+                  }
+                ],
+                "chunk_id": "517aec71389cf8bab8381bdec1791927f0b754b41945bf62d30a1a66d1ac1378",
+                "characters": 482
+              }
+            ],
+            "standard_references": {
+              "observation": {
+                "statement_id": "T2-CC-B6-S1",
+                "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                "conditional": false,
+                "limiting_features": [],
+                "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68",
+                "band": 6,
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "CC",
+                  "criterion_name": "Coherence and Cohesion",
+                  "band": 6,
+                  "kind": "band_descriptor",
+                  "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 6\nInformation and ideas are generally arranged\ncoherently and there is a clear overall\nprogression.\nCohesive devices are used to some good effect\nbut cohesion within and/or between sentences\nmay be faulty or mechanical due to misuse,\noveruse or omission.\nThe use of reference and substitution may lack\nflexibility or clarity and result in some\nrepetition or error.\nParagraphing may not always be logical and/or\nthe central topic may not always be clear.",
+                  "source_id": "ielts-writing-band-descriptors-2023",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                  "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                  "source_title": "Ielts Writing Band Descriptors 2023",
+                  "page": 8,
+                  "version": "May 2023",
+                  "limiting_features": [],
+                  "statements": [
+                    {
+                      "statement_id": "T2-CC-B6-S1",
+                      "text": "Information and ideas are generally arranged coherently and there is a clear overall progression.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "f368009961d78e242898f90a71a2aa620c9a5555bcf86cd9edae93249c7a4e68"
+                    },
+                    {
+                      "statement_id": "T2-CC-B6-S2",
+                      "text": "Cohesive devices are used to some good effect but cohesion within and/or between sentences may be faulty or mechanical due to misuse, overuse or omission.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "25fe66417e786b2d75d5d12edc6e7ced4242d1be497ca5059f65b5a038bbaf25"
+                    },
+                    {
+                      "statement_id": "T2-CC-B6-S3",
+                      "text": "The use of reference and substitution may lack flexibility or clarity and result in some repetition or error.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "19bf99f0856b7e64ec83fccfd56ecc3f33376d2161271880654b9ddd7130d558"
+                    },
+                    {
+                      "statement_id": "T2-CC-B6-S4",
+                      "text": "Paragraphing may not always be logical and/or the central topic may not always be clear.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "f81003e457360999ad1cd05d79921be96ec1d1bdcd7278da2a453e50fb9e9cfc"
+                    }
+                  ],
+                  "chunk_id": "808b288b48cf0870e25aa84d344a0d1b85ed905ad4ac8dd3455acd1560f4b60a",
+                  "characters": 507
+                }
+              },
+              "refinement": {
+                "statement_id": "T2-CC-B7-S1",
+                "text": "Information and ideas are logically organised, and there is a clear progression throughout the response. (A few lapses may occur, but these are minor.)",
+                "conditional": false,
+                "limiting_features": [],
+                "chunk_id": "08ae60500336567cd06eff6f542070e98d8fb15d9454b40ed5f147544cecd211",
+                "band": 7,
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "CC",
+                  "criterion_name": "Coherence and Cohesion",
+                  "band": 7,
+                  "kind": "band_descriptor",
+                  "text": "IELTS academic_task_2 | Coherence and Cohesion | Band 7\nInformation and ideas are logically organised,\nand there is a clear progression throughout\nthe response. (A few lapses may occur, but\nthese are minor.)\nA range of cohesive devices including\nreference and substitution is used flexibly but\nwith some inaccuracies or some over/under\nuse.\nParagraphing is generally used effectively to\nsupport overall coherence, and the sequencing\nof ideas within a paragraph is generally logical.",
+                  "source_id": "ielts-writing-band-descriptors-2023",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                  "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                  "source_title": "Ielts Writing Band Descriptors 2023",
+                  "page": 7,
+                  "version": "May 2023",
+                  "limiting_features": [],
+                  "statements": [
+                    {
+                      "statement_id": "T2-CC-B7-S1",
+                      "text": "Information and ideas are logically organised, and there is a clear progression throughout the response. (A few lapses may occur, but these are minor.)",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "08ae60500336567cd06eff6f542070e98d8fb15d9454b40ed5f147544cecd211"
+                    },
+                    {
+                      "statement_id": "T2-CC-B7-S2",
+                      "text": "A range of cohesive devices including reference and substitution is used flexibly but with some inaccuracies or some over/under use.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "d17635dbfd4e43295a44387b297ae32129e254e903194132b4aa8970ab58bc9c"
+                    },
+                    {
+                      "statement_id": "T2-CC-B7-S3",
+                      "text": "Paragraphing is generally used effectively to support overall coherence, and the sequencing of ideas within a paragraph is generally logical.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "0e00213547dde4b093140676a00c58caf17759fa1cfdab88d3800851c181dd57"
+                    }
+                  ],
+                  "chunk_id": "517aec71389cf8bab8381bdec1791927f0b754b41945bf62d30a1a66d1ac1378",
+                  "characters": 482
+                }
+              }
+            }
+          },
+          {
+            "criterion": "LR",
+            "name": "Lexical Resource",
+            "title": "Topic vocabulary and precision",
+            "rationale": "The lexical choice is appropriate and conveys precise meaning regarding transport networks and commuter choices. To expand precision, vary collocated terms rather than repeating general descriptors such as 'bus networks' across paragraphs.",
+            "essay_quote": "When urban railways and bus rapid transit systems operate reliably and with high frequency, a significant proportion of commuters choose to leave their private vehicles at home.",
+            "next_step": "Incorporate varied, context-specific collocations for infrastructure management and financing.",
+            "example": {
+              "before": "Nonetheless, this outcome requires comprehensive networks with integrated ticketing, which demands substantial government capital.",
+              "after": "Nonetheless, achieving this outcome requires comprehensive networks with integrated ticketing, which demands substantial public capital expenditure."
+            },
+            "subcriteria": [
+              {
+                "subcriterion_id": "LR-3",
+                "judgment": "strength",
+                "explanation": "Word choices like 'prohibitive' show good precision when detailing the financial burdens of car ownership.",
+                "essay_quote": "For many low- and middle-income workers, the expenses associated with owning an automobile, such as fuel, maintenance, insurance, and parking, are prohibitive.",
+                "official_standard": "the precision of word choice and expression.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "LR",
+                  "criterion_name": "Lexical Resource",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe precision of word choice and expression.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "LR-3",
+                  "statements": [],
+                  "chunk_id": "039260ab9883de0ba9291fb16ba4417311afe7ab20184d5406c3b07c03d61d65",
+                  "characters": 100
+                },
+                "target_standard": {
+                  "statement_id": "T2-LR-B6-S2",
+                  "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "LR",
+                    "criterion_name": "Lexical Resource",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Lexical Resource | Band 6\nThe resource is generally adequate and\nappropriate for the task.\nThe meaning is generally clear in spite of a\nrather restricted range or a lack of\nprecision in word choice.\nIf the writer is a risk-taker, there will be a\nwider range of vocabulary used but higher\ndegrees of inaccuracy or inappropriacy.\nThere are some errors in spelling and/or\nword formation, but these do not impede\ncommunication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-LR-B6-S1",
+                        "text": "The resource is generally adequate and appropriate for the task.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S2",
+                        "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S3",
+                        "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "1996b13aed81cee23909d98ffbc25568079192c5d2fb1510513be3243cafd211"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S4",
+                        "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9"
+                      }
+                    ],
+                    "chunk_id": "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+                    "characters": 447
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "LR-5",
+                "judgment": "strength",
+                "explanation": "Spelling is accurate across standard and less frequent vocabulary.",
+                "essay_quote": "The strongest argument for prioritising public transport is affordability and economic mobility.",
+                "official_standard": "the density and communicative effect of errors in spelling.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "LR",
+                  "criterion_name": "Lexical Resource",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe density and communicative effect of errors in spelling.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "LR-5",
+                  "statements": [],
+                  "chunk_id": "679f4f6fbb831587eb69588a1fdae357b4705e4cac942105394ad7e1a3a4c1e1",
+                  "characters": 115
+                },
+                "target_standard": {
+                  "statement_id": "T2-LR-B6-S4",
+                  "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "LR",
+                    "criterion_name": "Lexical Resource",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Lexical Resource | Band 6\nThe resource is generally adequate and\nappropriate for the task.\nThe meaning is generally clear in spite of a\nrather restricted range or a lack of\nprecision in word choice.\nIf the writer is a risk-taker, there will be a\nwider range of vocabulary used but higher\ndegrees of inaccuracy or inappropriacy.\nThere are some errors in spelling and/or\nword formation, but these do not impede\ncommunication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-LR-B6-S1",
+                        "text": "The resource is generally adequate and appropriate for the task.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S2",
+                        "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S3",
+                        "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "1996b13aed81cee23909d98ffbc25568079192c5d2fb1510513be3243cafd211"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S4",
+                        "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9"
+                      }
+                    ],
+                    "chunk_id": "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+                    "characters": 447
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "LR-1",
+                "judgment": "strength",
+                "explanation": "The writer uses appropriate synonyms such as 'mass transit', 'public transit', and 'rail lines' to refer to transport.",
+                "essay_quote": "Governments face ongoing decisions regarding how to allocate their infrastructure budgets between mass transit systems and roadways.",
+                "official_standard": "the range of general words used (e.g. the use of synonyms to avoid repetition).",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "LR",
+                  "criterion_name": "Lexical Resource",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe range of general words used (e.g. the use of synonyms to avoid repetition).",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "LR-1",
+                  "statements": [],
+                  "chunk_id": "69f66d6877cb71eead0de49e795a05ba9d2947f63b9f873da95b85ca05b2346c",
+                  "characters": 135
+                },
+                "target_standard": {
+                  "statement_id": "T2-LR-B6-S1",
+                  "text": "The resource is generally adequate and appropriate for the task.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "LR",
+                    "criterion_name": "Lexical Resource",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Lexical Resource | Band 6\nThe resource is generally adequate and\nappropriate for the task.\nThe meaning is generally clear in spite of a\nrather restricted range or a lack of\nprecision in word choice.\nIf the writer is a risk-taker, there will be a\nwider range of vocabulary used but higher\ndegrees of inaccuracy or inappropriacy.\nThere are some errors in spelling and/or\nword formation, but these do not impede\ncommunication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-LR-B6-S1",
+                        "text": "The resource is generally adequate and appropriate for the task.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S2",
+                        "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S3",
+                        "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "1996b13aed81cee23909d98ffbc25568079192c5d2fb1510513be3243cafd211"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S4",
+                        "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9"
+                      }
+                    ],
+                    "chunk_id": "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+                    "characters": 447
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "LR-2",
+                "judgment": "strength",
+                "explanation": "Topic-specific vocabulary like 'population density' is used appropriately to discuss transport feasibility.",
+                "essay_quote": "Rural and remote communities often lack the population density necessary to sustain frequent rail or bus operations, meaning they rely almost entirely on roads.",
+                "official_standard": "the adequacy and appropriacy of the vocabulary (e.g. topic-specific items, \nindicators of writer\u2019s attitude).",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "LR",
+                  "criterion_name": "Lexical Resource",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe adequacy and appropriacy of the vocabulary (e.g. topic-specific items, \nindicators of writer\u2019s attitude).",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "LR-2",
+                  "statements": [],
+                  "chunk_id": "6a4ad8d8b6374809300c3e0b0dea491fc62774789e76cc1d89fa2000dd778792",
+                  "characters": 165
+                },
+                "target_standard": {
+                  "statement_id": "T2-LR-B6-S1",
+                  "text": "The resource is generally adequate and appropriate for the task.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "LR",
+                    "criterion_name": "Lexical Resource",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Lexical Resource | Band 6\nThe resource is generally adequate and\nappropriate for the task.\nThe meaning is generally clear in spite of a\nrather restricted range or a lack of\nprecision in word choice.\nIf the writer is a risk-taker, there will be a\nwider range of vocabulary used but higher\ndegrees of inaccuracy or inappropriacy.\nThere are some errors in spelling and/or\nword formation, but these do not impede\ncommunication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-LR-B6-S1",
+                        "text": "The resource is generally adequate and appropriate for the task.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S2",
+                        "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S3",
+                        "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "1996b13aed81cee23909d98ffbc25568079192c5d2fb1510513be3243cafd211"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S4",
+                        "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9"
+                      }
+                    ],
+                    "chunk_id": "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+                    "characters": 447
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "LR-4",
+                "judgment": "strength",
+                "explanation": "Collocations such as 'fosters local economic development' demonstrate sound control of phraseology.",
+                "essay_quote": "Consequently, funding mass transit directly fosters local economic development.",
+                "official_standard": "the control and use of collocations, idiomatic expressions and sophisticated \nphrasing.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "LR",
+                  "criterion_name": "Lexical Resource",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe control and use of collocations, idiomatic expressions and sophisticated \nphrasing.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "LR-4",
+                  "statements": [],
+                  "chunk_id": "9ebe4287ed047885dee1f4703805d01472bf6b547f0e0e80ca15b06a1bd08ce0",
+                  "characters": 143
+                },
+                "target_standard": {
+                  "statement_id": "T2-LR-B6-S2",
+                  "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "LR",
+                    "criterion_name": "Lexical Resource",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Lexical Resource | Band 6\nThe resource is generally adequate and\nappropriate for the task.\nThe meaning is generally clear in spite of a\nrather restricted range or a lack of\nprecision in word choice.\nIf the writer is a risk-taker, there will be a\nwider range of vocabulary used but higher\ndegrees of inaccuracy or inappropriacy.\nThere are some errors in spelling and/or\nword formation, but these do not impede\ncommunication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-LR-B6-S1",
+                        "text": "The resource is generally adequate and appropriate for the task.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S2",
+                        "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S3",
+                        "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "1996b13aed81cee23909d98ffbc25568079192c5d2fb1510513be3243cafd211"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S4",
+                        "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9"
+                      }
+                    ],
+                    "chunk_id": "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+                    "characters": 447
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "LR-6",
+                "judgment": "strength",
+                "explanation": "Word formation is accurate throughout derived forms like 'prioritising' and 'dependable'.",
+                "essay_quote": "When municipalities invest in extensive bus networks and rail lines, they offer these citizens a dependable and economical way to travel.",
+                "official_standard": "the density and communicative effect of errors in word formation.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "LR",
+                  "criterion_name": "Lexical Resource",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Lexical Resource | subcriterion\nthe density and communicative effect of errors in word formation.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "LR-6",
+                  "statements": [],
+                  "chunk_id": "e86ba5c2f5b1ea36733e0681649b882e364a71cb288c4bb73a8672addb6dfc48",
+                  "characters": 121
+                },
+                "target_standard": {
+                  "statement_id": "T2-LR-B6-S4",
+                  "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "LR",
+                    "criterion_name": "Lexical Resource",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Lexical Resource | Band 6\nThe resource is generally adequate and\nappropriate for the task.\nThe meaning is generally clear in spite of a\nrather restricted range or a lack of\nprecision in word choice.\nIf the writer is a risk-taker, there will be a\nwider range of vocabulary used but higher\ndegrees of inaccuracy or inappropriacy.\nThere are some errors in spelling and/or\nword formation, but these do not impede\ncommunication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-LR-B6-S1",
+                        "text": "The resource is generally adequate and appropriate for the task.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S2",
+                        "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S3",
+                        "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "1996b13aed81cee23909d98ffbc25568079192c5d2fb1510513be3243cafd211"
+                      },
+                      {
+                        "statement_id": "T2-LR-B6-S4",
+                        "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9"
+                      }
+                    ],
+                    "chunk_id": "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+                    "characters": 447
+                  }
+                }
+              }
+            ],
+            "rubric": [
+              {
+                "task": "academic_task_2",
+                "criterion": "LR",
+                "criterion_name": "Lexical Resource",
+                "band": 6,
+                "kind": "band_descriptor",
+                "text": "IELTS academic_task_2 | Lexical Resource | Band 6\nThe resource is generally adequate and\nappropriate for the task.\nThe meaning is generally clear in spite of a\nrather restricted range or a lack of\nprecision in word choice.\nIf the writer is a risk-taker, there will be a\nwider range of vocabulary used but higher\ndegrees of inaccuracy or inappropriacy.\nThere are some errors in spelling and/or\nword formation, but these do not impede\ncommunication.",
+                "source_id": "ielts-writing-band-descriptors-2023",
+                "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                "source_title": "Ielts Writing Band Descriptors 2023",
+                "page": 8,
+                "version": "May 2023",
+                "limiting_features": [],
+                "statements": [
+                  {
+                    "statement_id": "T2-LR-B6-S1",
+                    "text": "The resource is generally adequate and appropriate for the task.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d"
+                  },
+                  {
+                    "statement_id": "T2-LR-B6-S2",
+                    "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40"
+                  },
+                  {
+                    "statement_id": "T2-LR-B6-S3",
+                    "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "1996b13aed81cee23909d98ffbc25568079192c5d2fb1510513be3243cafd211"
+                  },
+                  {
+                    "statement_id": "T2-LR-B6-S4",
+                    "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9"
+                  }
+                ],
+                "chunk_id": "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+                "characters": 447
+              },
+              {
+                "task": "academic_task_2",
+                "criterion": "LR",
+                "criterion_name": "Lexical Resource",
+                "band": 7,
+                "kind": "band_descriptor",
+                "text": "IELTS academic_task_2 | Lexical Resource | Band 7\nThe resource is sufficient to allow some\nflexibility and precision.\nThere is some ability to use less common\nand/or idiomatic items.\nAn awareness of style and collocation is\nevident, though inappropriacies occur.\nThere are only a few errors in spelling\nand/or word formation and they do not\ndetract from overall clarity.",
+                "source_id": "ielts-writing-band-descriptors-2023",
+                "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                "source_title": "Ielts Writing Band Descriptors 2023",
+                "page": 7,
+                "version": "May 2023",
+                "limiting_features": [],
+                "statements": [
+                  {
+                    "statement_id": "T2-LR-B7-S1",
+                    "text": "The resource is sufficient to allow some flexibility and precision.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "e5eb0bb8920a349cf9e2c9a21f8219d18e9657e836ab28ac1430e37577690576"
+                  },
+                  {
+                    "statement_id": "T2-LR-B7-S2",
+                    "text": "There is some ability to use less common and/or idiomatic items.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "35f02ba4ee8715a6040fc7bb253708b58a5a37c70927151a848e51b32758226c"
+                  },
+                  {
+                    "statement_id": "T2-LR-B7-S3",
+                    "text": "An awareness of style and collocation is evident, though inappropriacies occur.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "1e9b80b816cf9ba49acf0d5438ee364af8f78c2cc695ae0c99a136c0d85f28a6"
+                  },
+                  {
+                    "statement_id": "T2-LR-B7-S4",
+                    "text": "There are only a few errors in spelling and/or word formation and they do not detract from overall clarity.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "f61428bf5438a988ceb284c3c2f3b9f4ee74ecfdbe58f828fef0c2b944ddd52b"
+                  }
+                ],
+                "chunk_id": "f44e245fa5d7218c4d1cdf5ec4c9c70a1626bf0b1565454662514ca2c82dbb70",
+                "characters": 370
+              }
+            ],
+            "standard_references": {
+              "observation": {
+                "statement_id": "T2-LR-B6-S1",
+                "text": "The resource is generally adequate and appropriate for the task.",
+                "conditional": false,
+                "limiting_features": [],
+                "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d",
+                "band": 6,
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "LR",
+                  "criterion_name": "Lexical Resource",
+                  "band": 6,
+                  "kind": "band_descriptor",
+                  "text": "IELTS academic_task_2 | Lexical Resource | Band 6\nThe resource is generally adequate and\nappropriate for the task.\nThe meaning is generally clear in spite of a\nrather restricted range or a lack of\nprecision in word choice.\nIf the writer is a risk-taker, there will be a\nwider range of vocabulary used but higher\ndegrees of inaccuracy or inappropriacy.\nThere are some errors in spelling and/or\nword formation, but these do not impede\ncommunication.",
+                  "source_id": "ielts-writing-band-descriptors-2023",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                  "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                  "source_title": "Ielts Writing Band Descriptors 2023",
+                  "page": 8,
+                  "version": "May 2023",
+                  "limiting_features": [],
+                  "statements": [
+                    {
+                      "statement_id": "T2-LR-B6-S1",
+                      "text": "The resource is generally adequate and appropriate for the task.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "56ed82af89110598c8ef9f5268fadec00383c67f1f17fc89be3d1e9b8ff3871d"
+                    },
+                    {
+                      "statement_id": "T2-LR-B6-S2",
+                      "text": "The meaning is generally clear in spite of a rather restricted range or a lack of precision in word choice.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "a4f3d1b5732b6e99d8a7f4d09a1025b13146e83f27713624d94c21f327e5df40"
+                    },
+                    {
+                      "statement_id": "T2-LR-B6-S3",
+                      "text": "If the writer is a risk-taker, there will be a wider range of vocabulary used but higher degrees of inaccuracy or inappropriacy.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "1996b13aed81cee23909d98ffbc25568079192c5d2fb1510513be3243cafd211"
+                    },
+                    {
+                      "statement_id": "T2-LR-B6-S4",
+                      "text": "There are some errors in spelling and/or word formation, but these do not impede communication.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "b38a44cc2e6d0226af6fcc673610047bfd541638069f818c2c6e0654f14987c9"
+                    }
+                  ],
+                  "chunk_id": "33e6a778af627bdd5da3c225d85759fcb153fc6cd6993948f4a1aadc23bf5eba",
+                  "characters": 447
+                }
+              },
+              "refinement": {
+                "statement_id": "T2-LR-B7-S1",
+                "text": "The resource is sufficient to allow some flexibility and precision.",
+                "conditional": false,
+                "limiting_features": [],
+                "chunk_id": "e5eb0bb8920a349cf9e2c9a21f8219d18e9657e836ab28ac1430e37577690576",
+                "band": 7,
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "LR",
+                  "criterion_name": "Lexical Resource",
+                  "band": 7,
+                  "kind": "band_descriptor",
+                  "text": "IELTS academic_task_2 | Lexical Resource | Band 7\nThe resource is sufficient to allow some\nflexibility and precision.\nThere is some ability to use less common\nand/or idiomatic items.\nAn awareness of style and collocation is\nevident, though inappropriacies occur.\nThere are only a few errors in spelling\nand/or word formation and they do not\ndetract from overall clarity.",
+                  "source_id": "ielts-writing-band-descriptors-2023",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                  "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                  "source_title": "Ielts Writing Band Descriptors 2023",
+                  "page": 7,
+                  "version": "May 2023",
+                  "limiting_features": [],
+                  "statements": [
+                    {
+                      "statement_id": "T2-LR-B7-S1",
+                      "text": "The resource is sufficient to allow some flexibility and precision.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "e5eb0bb8920a349cf9e2c9a21f8219d18e9657e836ab28ac1430e37577690576"
+                    },
+                    {
+                      "statement_id": "T2-LR-B7-S2",
+                      "text": "There is some ability to use less common and/or idiomatic items.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "35f02ba4ee8715a6040fc7bb253708b58a5a37c70927151a848e51b32758226c"
+                    },
+                    {
+                      "statement_id": "T2-LR-B7-S3",
+                      "text": "An awareness of style and collocation is evident, though inappropriacies occur.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "1e9b80b816cf9ba49acf0d5438ee364af8f78c2cc695ae0c99a136c0d85f28a6"
+                    },
+                    {
+                      "statement_id": "T2-LR-B7-S4",
+                      "text": "There are only a few errors in spelling and/or word formation and they do not detract from overall clarity.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "f61428bf5438a988ceb284c3c2f3b9f4ee74ecfdbe58f828fef0c2b944ddd52b"
+                    }
+                  ],
+                  "chunk_id": "f44e245fa5d7218c4d1cdf5ec4c9c70a1626bf0b1565454662514ca2c82dbb70",
+                  "characters": 370
+                }
+              }
+            }
+          },
+          {
+            "criterion": "GRA",
+            "name": "Grammatical Range and Accuracy",
+            "title": "Complex sentence structures",
+            "rationale": "A mix of complex sentence structures is used effectively with appropriate subordinate clauses. To build flexibility, vary the placement of participial clauses and dependent conditions across the paragraph.",
+            "essay_quote": "A single passenger train can carry hundreds of travellers, thereby removing hundreds of individual vehicles from the road and reducing air pollution.",
+            "next_step": "Practise alternating introductory dependent clauses with mid-sentence non-finite verb phrases to diversify structure.",
+            "example": {
+              "before": "Rural and remote communities often lack the population density necessary to sustain frequent rail or bus operations, meaning they rely almost entirely on roads.",
+              "after": "Lacking the population density necessary to sustain frequent rail or bus operations, rural and remote communities must rely almost entirely on roads."
+            },
+            "subcriteria": [
+              {
+                "subcriterion_id": "GRA-2",
+                "judgment": "strength",
+                "explanation": "The complex sentence containing relative and adverbial structures is produced accurately.",
+                "essay_quote": "For instance, an affordable bus route linking a suburban neighbourhood directly to an industrial park enables local residents to access stable employment opportunities that were previously out of reach.",
+                "official_standard": "the accuracy of simple, compound and complex sentences.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "GRA",
+                  "criterion_name": "Grammatical Range and Accuracy",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | subcriterion\nthe accuracy of simple, compound and complex sentences.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "GRA-2",
+                  "statements": [],
+                  "chunk_id": "25322d597ab4be66b97fc1511f8afa14e26d9e678033f37e1409f993abd920f1",
+                  "characters": 125
+                },
+                "target_standard": {
+                  "statement_id": "T2-GRA-B6-S2",
+                  "text": "Examples of more complex structures are not marked by the same level of accuracy as in simple structures.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "7d460e5a3d6b375b1bd1903da01279a9c97cdd0998d03eee0fd67d76a6731c7b",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "GRA",
+                    "criterion_name": "Grammatical Range and Accuracy",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | Band 6\nA mix of simple and complex sentence\nforms is used but flexibility is limited.\nExamples of more complex structures are\nnot marked by the same level of accuracy\nas in simple structures.\nErrors in grammar and punctuation occur,\nbut rarely impede communication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-GRA-B6-S1",
+                        "text": "A mix of simple and complex sentence forms is used but flexibility is limited.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a6a7575119576ffd74f127e055f96b4f332a1322d5f47eb048a7ea05c520314a"
+                      },
+                      {
+                        "statement_id": "T2-GRA-B6-S2",
+                        "text": "Examples of more complex structures are not marked by the same level of accuracy as in simple structures.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "7d460e5a3d6b375b1bd1903da01279a9c97cdd0998d03eee0fd67d76a6731c7b"
+                      },
+                      {
+                        "statement_id": "T2-GRA-B6-S3",
+                        "text": "Errors in grammar and punctuation occur, but rarely impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "593c680bba1cd363b9322c8c19ec3f446bf6665d903905c109c8c0e34eec19e5"
+                      }
+                    ],
+                    "chunk_id": "00a8b98103b3b44eba2ff81f7d2420c1b3d21f17773029b304f5d04ead41b215",
+                    "characters": 322
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "GRA-4",
+                "judgment": "strength",
+                "explanation": "Punctuation such as commas in lists and following introductory dependent clauses is correctly applied.",
+                "essay_quote": "For many low- and middle-income workers, the expenses associated with owning an automobile, such as fuel, maintenance, insurance, and parking, are prohibitive.",
+                "official_standard": "the accurate and appropriate use of punctuation.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "GRA",
+                  "criterion_name": "Grammatical Range and Accuracy",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | subcriterion\nthe accurate and appropriate use of punctuation.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "GRA-4",
+                  "statements": [],
+                  "chunk_id": "5bd84dfad397844432a3b7b0bef84373256a62d9b152d563a79937e6803d13b9",
+                  "characters": 118
+                },
+                "target_standard": {
+                  "statement_id": "T2-GRA-B6-S3",
+                  "text": "Errors in grammar and punctuation occur, but rarely impede communication.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "593c680bba1cd363b9322c8c19ec3f446bf6665d903905c109c8c0e34eec19e5",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "GRA",
+                    "criterion_name": "Grammatical Range and Accuracy",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | Band 6\nA mix of simple and complex sentence\nforms is used but flexibility is limited.\nExamples of more complex structures are\nnot marked by the same level of accuracy\nas in simple structures.\nErrors in grammar and punctuation occur,\nbut rarely impede communication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-GRA-B6-S1",
+                        "text": "A mix of simple and complex sentence forms is used but flexibility is limited.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a6a7575119576ffd74f127e055f96b4f332a1322d5f47eb048a7ea05c520314a"
+                      },
+                      {
+                        "statement_id": "T2-GRA-B6-S2",
+                        "text": "Examples of more complex structures are not marked by the same level of accuracy as in simple structures.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "7d460e5a3d6b375b1bd1903da01279a9c97cdd0998d03eee0fd67d76a6731c7b"
+                      },
+                      {
+                        "statement_id": "T2-GRA-B6-S3",
+                        "text": "Errors in grammar and punctuation occur, but rarely impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "593c680bba1cd363b9322c8c19ec3f446bf6665d903905c109c8c0e34eec19e5"
+                      }
+                    ],
+                    "chunk_id": "00a8b98103b3b44eba2ff81f7d2420c1b3d21f17773029b304f5d04ead41b215",
+                    "characters": 322
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "GRA-1",
+                "judgment": "strength",
+                "explanation": "The passage employs a mix of subordinate clauses and coordinate structures effectively.",
+                "essay_quote": "When urban railways and bus rapid transit systems operate reliably and with high frequency, a significant proportion of commuters choose to leave their private vehicles at home.",
+                "official_standard": "the range and appropriacy of structures used in a given response (e.g. simple, \ncompound and complex sentences).",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "GRA",
+                  "criterion_name": "Grammatical Range and Accuracy",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | subcriterion\nthe range and appropriacy of structures used in a given response (e.g. simple, \ncompound and complex sentences).",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "GRA-1",
+                  "statements": [],
+                  "chunk_id": "c7e540eeb334c658523d41e4b86f06c028a4f4409ee3113f9598a9c9bc37ebd3",
+                  "characters": 182
+                },
+                "target_standard": {
+                  "statement_id": "T2-GRA-B6-S1",
+                  "text": "A mix of simple and complex sentence forms is used but flexibility is limited.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "a6a7575119576ffd74f127e055f96b4f332a1322d5f47eb048a7ea05c520314a",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "GRA",
+                    "criterion_name": "Grammatical Range and Accuracy",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | Band 6\nA mix of simple and complex sentence\nforms is used but flexibility is limited.\nExamples of more complex structures are\nnot marked by the same level of accuracy\nas in simple structures.\nErrors in grammar and punctuation occur,\nbut rarely impede communication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-GRA-B6-S1",
+                        "text": "A mix of simple and complex sentence forms is used but flexibility is limited.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a6a7575119576ffd74f127e055f96b4f332a1322d5f47eb048a7ea05c520314a"
+                      },
+                      {
+                        "statement_id": "T2-GRA-B6-S2",
+                        "text": "Examples of more complex structures are not marked by the same level of accuracy as in simple structures.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "7d460e5a3d6b375b1bd1903da01279a9c97cdd0998d03eee0fd67d76a6731c7b"
+                      },
+                      {
+                        "statement_id": "T2-GRA-B6-S3",
+                        "text": "Errors in grammar and punctuation occur, but rarely impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "593c680bba1cd363b9322c8c19ec3f446bf6665d903905c109c8c0e34eec19e5"
+                      }
+                    ],
+                    "chunk_id": "00a8b98103b3b44eba2ff81f7d2420c1b3d21f17773029b304f5d04ead41b215",
+                    "characters": 322
+                  }
+                }
+              },
+              {
+                "subcriterion_id": "GRA-3",
+                "judgment": "strength",
+                "explanation": "Grammar is well controlled here with no errors impeding understanding.",
+                "essay_quote": "Moreover, emergency response services and commercial freight transport must have access to well-maintained highways.",
+                "official_standard": "the density and communicative effect of grammatical errors.",
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "GRA",
+                  "criterion_name": "Grammatical Range and Accuracy",
+                  "band": null,
+                  "kind": "subcriterion",
+                  "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | subcriterion\nthe density and communicative effect of grammatical errors.",
+                  "source_id": "ielts-key-assessment-criteria",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+                  "source_sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+                  "source_title": "Ielts Key Assessment Criteria",
+                  "page": 4,
+                  "version": "Retrieved 2026-10-10",
+                  "subcriterion_id": "GRA-3",
+                  "statements": [],
+                  "chunk_id": "e8e541442168381434cc271913c24bb20758757253e6243aed8dc70b8a708174",
+                  "characters": 129
+                },
+                "target_standard": {
+                  "statement_id": "T2-GRA-B6-S3",
+                  "text": "Errors in grammar and punctuation occur, but rarely impede communication.",
+                  "conditional": false,
+                  "limiting_features": [],
+                  "chunk_id": "593c680bba1cd363b9322c8c19ec3f446bf6665d903905c109c8c0e34eec19e5",
+                  "band": 6,
+                  "source": {
+                    "task": "academic_task_2",
+                    "criterion": "GRA",
+                    "criterion_name": "Grammatical Range and Accuracy",
+                    "band": 6,
+                    "kind": "band_descriptor",
+                    "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | Band 6\nA mix of simple and complex sentence\nforms is used but flexibility is limited.\nExamples of more complex structures are\nnot marked by the same level of accuracy\nas in simple structures.\nErrors in grammar and punctuation occur,\nbut rarely impede communication.",
+                    "source_id": "ielts-writing-band-descriptors-2023",
+                    "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                    "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                    "source_title": "Ielts Writing Band Descriptors 2023",
+                    "page": 8,
+                    "version": "May 2023",
+                    "limiting_features": [],
+                    "statements": [
+                      {
+                        "statement_id": "T2-GRA-B6-S1",
+                        "text": "A mix of simple and complex sentence forms is used but flexibility is limited.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "a6a7575119576ffd74f127e055f96b4f332a1322d5f47eb048a7ea05c520314a"
+                      },
+                      {
+                        "statement_id": "T2-GRA-B6-S2",
+                        "text": "Examples of more complex structures are not marked by the same level of accuracy as in simple structures.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "7d460e5a3d6b375b1bd1903da01279a9c97cdd0998d03eee0fd67d76a6731c7b"
+                      },
+                      {
+                        "statement_id": "T2-GRA-B6-S3",
+                        "text": "Errors in grammar and punctuation occur, but rarely impede communication.",
+                        "conditional": false,
+                        "limiting_features": [],
+                        "chunk_id": "593c680bba1cd363b9322c8c19ec3f446bf6665d903905c109c8c0e34eec19e5"
+                      }
+                    ],
+                    "chunk_id": "00a8b98103b3b44eba2ff81f7d2420c1b3d21f17773029b304f5d04ead41b215",
+                    "characters": 322
+                  }
+                }
+              }
+            ],
+            "rubric": [
+              {
+                "task": "academic_task_2",
+                "criterion": "GRA",
+                "criterion_name": "Grammatical Range and Accuracy",
+                "band": 6,
+                "kind": "band_descriptor",
+                "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | Band 6\nA mix of simple and complex sentence\nforms is used but flexibility is limited.\nExamples of more complex structures are\nnot marked by the same level of accuracy\nas in simple structures.\nErrors in grammar and punctuation occur,\nbut rarely impede communication.",
+                "source_id": "ielts-writing-band-descriptors-2023",
+                "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                "source_title": "Ielts Writing Band Descriptors 2023",
+                "page": 8,
+                "version": "May 2023",
+                "limiting_features": [],
+                "statements": [
+                  {
+                    "statement_id": "T2-GRA-B6-S1",
+                    "text": "A mix of simple and complex sentence forms is used but flexibility is limited.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "a6a7575119576ffd74f127e055f96b4f332a1322d5f47eb048a7ea05c520314a"
+                  },
+                  {
+                    "statement_id": "T2-GRA-B6-S2",
+                    "text": "Examples of more complex structures are not marked by the same level of accuracy as in simple structures.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "7d460e5a3d6b375b1bd1903da01279a9c97cdd0998d03eee0fd67d76a6731c7b"
+                  },
+                  {
+                    "statement_id": "T2-GRA-B6-S3",
+                    "text": "Errors in grammar and punctuation occur, but rarely impede communication.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "593c680bba1cd363b9322c8c19ec3f446bf6665d903905c109c8c0e34eec19e5"
+                  }
+                ],
+                "chunk_id": "00a8b98103b3b44eba2ff81f7d2420c1b3d21f17773029b304f5d04ead41b215",
+                "characters": 322
+              },
+              {
+                "task": "academic_task_2",
+                "criterion": "GRA",
+                "criterion_name": "Grammatical Range and Accuracy",
+                "band": 7,
+                "kind": "band_descriptor",
+                "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | Band 7\nA variety of complex structures is used\nwith some flexibility and accuracy.\nGrammar and punctuation are generally\nwell controlled, and error-free sentences\nare frequent.\nA few errors in grammar may persist, but\nthese do not impede communication.",
+                "source_id": "ielts-writing-band-descriptors-2023",
+                "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                "source_title": "Ielts Writing Band Descriptors 2023",
+                "page": 7,
+                "version": "May 2023",
+                "limiting_features": [],
+                "statements": [
+                  {
+                    "statement_id": "T2-GRA-B7-S1",
+                    "text": "A variety of complex structures is used with some flexibility and accuracy.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "2303ad0537742c50fb9b84948f3f42a7865c1bc916eaebe4bc331a3271a1628e"
+                  },
+                  {
+                    "statement_id": "T2-GRA-B7-S2",
+                    "text": "Grammar and punctuation are generally well controlled, and error-free sentences are frequent.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "fd17e6feb7b5198cee312d2152e891c67733ff7943c66fe41b947364f766e4e8"
+                  },
+                  {
+                    "statement_id": "T2-GRA-B7-S3",
+                    "text": "A few errors in grammar may persist, but these do not impede communication.",
+                    "conditional": false,
+                    "limiting_features": [],
+                    "chunk_id": "d2e41aa7a027eff848946deee5b2e1e0d6a326653695f79448f5abb019561312"
+                  }
+                ],
+                "chunk_id": "839682a220a272e086a3734b52cdecca4ed67a81dc8bc557832f88a5dc23b975",
+                "characters": 309
+              }
+            ],
+            "standard_references": {
+              "observation": {
+                "statement_id": "T2-GRA-B6-S1",
+                "text": "A mix of simple and complex sentence forms is used but flexibility is limited.",
+                "conditional": false,
+                "limiting_features": [],
+                "chunk_id": "a6a7575119576ffd74f127e055f96b4f332a1322d5f47eb048a7ea05c520314a",
+                "band": 6,
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "GRA",
+                  "criterion_name": "Grammatical Range and Accuracy",
+                  "band": 6,
+                  "kind": "band_descriptor",
+                  "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | Band 6\nA mix of simple and complex sentence\nforms is used but flexibility is limited.\nExamples of more complex structures are\nnot marked by the same level of accuracy\nas in simple structures.\nErrors in grammar and punctuation occur,\nbut rarely impede communication.",
+                  "source_id": "ielts-writing-band-descriptors-2023",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                  "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                  "source_title": "Ielts Writing Band Descriptors 2023",
+                  "page": 8,
+                  "version": "May 2023",
+                  "limiting_features": [],
+                  "statements": [
+                    {
+                      "statement_id": "T2-GRA-B6-S1",
+                      "text": "A mix of simple and complex sentence forms is used but flexibility is limited.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "a6a7575119576ffd74f127e055f96b4f332a1322d5f47eb048a7ea05c520314a"
+                    },
+                    {
+                      "statement_id": "T2-GRA-B6-S2",
+                      "text": "Examples of more complex structures are not marked by the same level of accuracy as in simple structures.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "7d460e5a3d6b375b1bd1903da01279a9c97cdd0998d03eee0fd67d76a6731c7b"
+                    },
+                    {
+                      "statement_id": "T2-GRA-B6-S3",
+                      "text": "Errors in grammar and punctuation occur, but rarely impede communication.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "593c680bba1cd363b9322c8c19ec3f446bf6665d903905c109c8c0e34eec19e5"
+                    }
+                  ],
+                  "chunk_id": "00a8b98103b3b44eba2ff81f7d2420c1b3d21f17773029b304f5d04ead41b215",
+                  "characters": 322
+                }
+              },
+              "refinement": {
+                "statement_id": "T2-GRA-B7-S1",
+                "text": "A variety of complex structures is used with some flexibility and accuracy.",
+                "conditional": false,
+                "limiting_features": [],
+                "chunk_id": "2303ad0537742c50fb9b84948f3f42a7865c1bc916eaebe4bc331a3271a1628e",
+                "band": 7,
+                "source": {
+                  "task": "academic_task_2",
+                  "criterion": "GRA",
+                  "criterion_name": "Grammatical Range and Accuracy",
+                  "band": 7,
+                  "kind": "band_descriptor",
+                  "text": "IELTS academic_task_2 | Grammatical Range and Accuracy | Band 7\nA variety of complex structures is used\nwith some flexibility and accuracy.\nGrammar and punctuation are generally\nwell controlled, and error-free sentences\nare frequent.\nA few errors in grammar may persist, but\nthese do not impede communication.",
+                  "source_id": "ielts-writing-band-descriptors-2023",
+                  "source_url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+                  "source_sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+                  "source_title": "Ielts Writing Band Descriptors 2023",
+                  "page": 7,
+                  "version": "May 2023",
+                  "limiting_features": [],
+                  "statements": [
+                    {
+                      "statement_id": "T2-GRA-B7-S1",
+                      "text": "A variety of complex structures is used with some flexibility and accuracy.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "2303ad0537742c50fb9b84948f3f42a7865c1bc916eaebe4bc331a3271a1628e"
+                    },
+                    {
+                      "statement_id": "T2-GRA-B7-S2",
+                      "text": "Grammar and punctuation are generally well controlled, and error-free sentences are frequent.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "fd17e6feb7b5198cee312d2152e891c67733ff7943c66fe41b947364f766e4e8"
+                    },
+                    {
+                      "statement_id": "T2-GRA-B7-S3",
+                      "text": "A few errors in grammar may persist, but these do not impede communication.",
+                      "conditional": false,
+                      "limiting_features": [],
+                      "chunk_id": "d2e41aa7a027eff848946deee5b2e1e0d6a326653695f79448f5abb019561312"
+                    }
+                  ],
+                  "chunk_id": "839682a220a272e086a3734b52cdecca4ed67a81dc8bc557832f88a5dc23b975",
+                  "characters": 309
+                }
+              }
+            }
+          }
+        ],
+        "mode": "qualitative_commentary",
+        "index_id": "34ed51cdcb06ed7c",
+        "model_calls": [
+          {
+            "provider": "Google Vertex AI",
+            "model": "gemini-3.8-flash",
+            "configured_model": "gemini-3.8-flash",
+            "attempted_models": [
+              "gemini-3.8-flash"
+            ],
+            "model_version": "gemini-3.8-flash",
+            "response_id": "ckfSatyhHJ6Bm9IPz57KgAU",
+            "usage": {
+              "promptTokenCount": 13852,
+              "candidatesTokenCount": 2423,
+              "totalTokenCount": 16275,
+              "trafficType": "ON_DEMAND",
+              "promptTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 13852
+                }
+              ],
+              "candidatesTokensDetails": [
+                {
+                  "modality": "TEXT",
+                  "tokenCount": 2423
+                }
+              ]
+            },
+            "latency_ms": 18456,
+            "prompt_version": "official-rubric-v6.4-target-grounded-commentary",
+            "temperature": 0.1,
+            "thinking_config": {
+              "thinkingLevel": "LOW"
+            },
+            "transport_attempts": 1,
+            "transport": "vertex_sse",
+            "stream_events": 91,
+            "first_response_ms": 2200
+          }
+        ],
+        "essay_sha256": "e7a1896a8dd27233cabdab2fb29789b998de39de6a1a184e00628e06b84f6799"
+      },
+      "essay": "Governments face ongoing decisions regarding how to allocate their infrastructure budgets between mass transit systems and roadways. I agree that public transit should receive a larger share of public funds, particularly in urban areas, although essential road networks must not be neglected.\n\nThe strongest argument for prioritising public transport is affordability and economic mobility. For many low- and middle-income workers, the expenses associated with owning an automobile, such as fuel, maintenance, insurance, and parking, are prohibitive. When municipalities invest in extensive bus networks and rail lines, they offer these citizens a dependable and economical way to travel. For instance, an affordable bus route linking a suburban neighbourhood directly to an industrial park enables local residents to access stable employment opportunities that were previously out of reach. Consequently, funding mass transit directly fosters local economic development.\n\nFurthermore, investing in public transit is vital for tackling traffic congestion and environmental degradation. When urban railways and bus rapid transit systems operate reliably and with high frequency, a significant proportion of commuters choose to leave their private vehicles at home. A single passenger train can carry hundreds of travellers, thereby removing hundreds of individual vehicles from the road and reducing air pollution. Nonetheless, this outcome requires comprehensive networks with integrated ticketing, which demands substantial government capital.\n\nOn the other hand, road spending must not be completely sidelined. Rural and remote communities often lack the population density necessary to sustain frequent rail or bus operations, meaning they rely almost entirely on roads. Moreover, emergency response services and commercial freight transport must have access to well-maintained highways. Therefore, a portion of the transport budget must always be preserved for basic maintenance and safety upgrades.\n\nIn conclusion, I believe that governments should dedicate the greater portion of their transport expenditure to public systems because they reduce congestion and enhance social equity. However, maintaining existing roadways remains essential to guarantee accessibility for rural regions and emergency services."
+    }
+  },
+  "status": "passed"
+}

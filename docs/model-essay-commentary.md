@@ -53,3 +53,9 @@ Each observation and suggested refinement selects an exact official paragraph st
 The coaching prompt requires qualified, passage-specific observations and concrete revisions, rather than global praise or claims of effortless mastery. Conditional weaknesses in a descriptor must not be asserted as actual mistakes without essay evidence. Where the text is correct, an optional practice improvement is appropriate. The summary uses neutral server text, preventing an unsupported model-generated overall endorsement.
 
 The normal flow remains one writer call plus one qualitative feedback call, with a bounded format/evidence repair. There is no post-generation numerical reassessment. Reference validation checks provenance and scope; semantic interpretation remains model-generated and is inspected in the live sample receipt.
+
+### v6.4 release verification
+
+Source `39b5a4a`, production Cloud Run revision `stepwise-api-00060-bil`. All 179 unit tests passed. A real target-6.5 public-sample request produced 319 words in 31.889 seconds using two first-attempt model calls. All four observation references and 20 skill references were validated against official Band 6 statements; refinement references were constrained to Bands 6–7. No numerical reassessment was performed.
+
+The fixed public website also completed the preserved learner session at target 6.5 in 26 seconds (25,436 ms server elapsed), producing 289 words. All four visible criterion panels were inspected. Learner essay text and screenshots are excluded from the public evidence. See [provider receipt](evidence/target-commentary-provider.json), [release receipt](evidence/target-commentary-release.json), and [public readiness](evidence/target-commentary-public-ready.json). These are individual observed runs, not a latency guarantee.

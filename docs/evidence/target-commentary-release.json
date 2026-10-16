@@ -1,0 +1,26 @@
+{
+  "source_revision": "39b5a4a4ca3ad64ee6059c46224cf7909f74ce6b",
+  "cloud_run_revision": "stepwise-api-00060-bil",
+  "production_traffic_percent": 100,
+  "public_url": "https://stepwise-one.vercel.app/",
+  "prompt_version": "official-rubric-v6.4-target-grounded-commentary",
+  "unit_tests_passed": 179,
+  "provider_verification": "target-commentary-provider.json",
+  "public_ui": {
+    "target_band": 6.5,
+    "generated_word_count": 289,
+    "elapsed_seconds_visible": 26,
+    "server_elapsed_ms": 25436,
+    "criterion_panels_inspected": 4,
+    "mode": "qualitative_commentary",
+    "error_visible": false
+  },
+  "constraints": {
+    "half_band_observation_anchor": "lower official integer band",
+    "refinement_guidance": "lower or upper adjacent official band",
+    "criterion_observation_and_refinement_references": 8,
+    "skill_statement_references": 20,
+    "post_generation_numerical_scoring": false
+  },
+  "semantic_review": "Inspected all four live criterion panels; local observations, specific revisions and source links were present. Semantic wording remains model-generated, not a deterministic grading guarantee."
+}
