@@ -2,6 +2,7 @@
 import json
 import logging
 from contextlib import contextmanager
+from copy import deepcopy
 import httpx
 import pytest
 from shared import gemini
@@ -14,7 +15,7 @@ def prepare(monkeypatch,outcomes):
     calls=[]
     @contextmanager
     def stream(method,url,**kwargs):
-        calls.append(kwargs)
+        calls.append({'url':url,**kwargs,'json':deepcopy(kwargs['json'])})
         item=outcomes[len(calls)-1]
         if isinstance(item,Exception):raise item
         result={

@@ -1,0 +1,9 @@
+2026-10-16T14:54:18.528262Z	stepwise-api-00053-ban	vertex_transport_failure model=gemini-3.5-flash attempt=3 kind=ReadTimeout elapsed_ms=180011
+2026-10-16T14:53:49.614945Z	stepwise-api-00053-ban	vertex_request_retry model=gemini-3.5-flash attempt=2 reason=ReadTimeout
+2026-10-16T14:53:49.614884Z	stepwise-api-00053-ban	vertex_transport_failure model=gemini-3.5-flash attempt=2 kind=ReadTimeout elapsed_ms=151097
+2026-10-16T14:52:33.527819Z	stepwise-api-00053-ban	vertex_request_retry model=gemini-3.5-flash attempt=1 reason=ReadTimeout
+2026-10-16T14:52:33.527499Z	stepwise-api-00053-ban	vertex_transport_failure model=gemini-3.5-flash attempt=1 kind=ReadTimeout elapsed_ms=75010
+2026-10-16T14:50:42.525144Z	stepwise-api-00053-ban	vertex_request_retry model=gemini-3.5-flash attempt=1 reason=ReadTimeout
+2026-10-16T14:50:42.525014Z	stepwise-api-00053-ban	vertex_transport_failure model=gemini-3.5-flash attempt=1 kind=ReadTimeout elapsed_ms=75016
+2026-10-16T14:50:42.524307Z	stepwise-api-00053-ban	vertex_request_retry model=gemini-3.5-flash attempt=1 reason=ReadTimeout
+2026-10-16T14:50:42.524158Z	stepwise-api-00053-ban	vertex_transport_failure model=gemini-3.5-flash attempt=1 kind=ReadTimeout elapsed_ms=75018

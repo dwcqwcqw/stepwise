@@ -73,6 +73,10 @@ def test_transient_failure_switches_model_and_receipt_names_actual_provider(monk
     assert value=={'ok':True} and receipt['model']=='gemini-3.5-flash'
     assert receipt['attempted_models']==['gemini-3.8-flash','gemini-3.5-flash']
     assert receipt['thinking_config']=={'thinkingLevel':'MINIMAL'}
+    assert '/gemini-3.8-flash:' in calls[0]['url']
+    assert '/gemini-3.5-flash:' in calls[1]['url']
+    assert calls[0]['json']['generationConfig']['thinkingConfig']=={'thinkingLevel':'LOW'}
+    assert calls[1]['json']['generationConfig']['thinkingConfig']=={'thinkingLevel':'MINIMAL'}
     assert len(calls)==2
 
 def test_supported_thinking_setting_is_chosen_for_each_model(monkeypatch):

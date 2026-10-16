@@ -1,0 +1,361 @@
+{
+  "url": "https://failover-candidate---stepwise-api-t37cje4wva-uc.a.run.app",
+  "sample_source": "docs/evidence/sample_input.json",
+  "cases": {
+    "feedback": {
+      "wall_seconds": 25.641,
+      "events": [
+        {
+          "type": "progress",
+          "phase": "accepted",
+          "status": "done",
+          "message": "Request received; preparing your writing",
+          "elapsed_ms": 0
+        },
+        {
+          "type": "progress",
+          "phase": "retrieval",
+          "status": "running",
+          "message": "Retrieving the official scoring standards",
+          "elapsed_ms": 1
+        },
+        {
+          "type": "progress",
+          "phase": "retrieval",
+          "status": "done",
+          "message": "All 119 Task 2 standards retrieved",
+          "statements": 119,
+          "elapsed_ms": 428
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "message": "Checking four criteria in parallel",
+          "elapsed_ms": 428
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "TR",
+          "message": "Checking Task Response",
+          "elapsed_ms": 430
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "CC",
+          "message": "Checking Coherence and Cohesion",
+          "elapsed_ms": 435
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "LR",
+          "message": "Checking Lexical Resource",
+          "elapsed_ms": 437
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "running",
+          "criterion": "GRA",
+          "message": "Checking Grammatical Range and Accuracy",
+          "elapsed_ms": 439
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 2117
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 2140
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 2658
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 5087
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 10198
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 10255
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 10677
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 13296
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "GRA",
+          "message": "Grammatical Range and Accuracy checked",
+          "statements": 26,
+          "elapsed_ms": 14099
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 18216
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 18289
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "LR",
+          "message": "Lexical Resource checked",
+          "statements": 28,
+          "elapsed_ms": 19572
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "TR",
+          "message": "Task Response checked",
+          "statements": 32,
+          "elapsed_ms": 20200
+        },
+        {
+          "type": "progress",
+          "phase": "model_response",
+          "status": "running",
+          "message": "Receiving the response from Google",
+          "elapsed_ms": 21367
+        },
+        {
+          "type": "progress",
+          "phase": "assessment",
+          "status": "done",
+          "criterion": "CC",
+          "message": "Coherence and Cohesion checked",
+          "statements": 33,
+          "elapsed_ms": 24013
+        },
+        {
+          "type": "progress",
+          "phase": "validation",
+          "status": "running",
+          "message": "Verifying all evidence, citations and score arithmetic",
+          "elapsed_ms": 24014
+        },
+        {
+          "type": "progress",
+          "phase": "validation",
+          "status": "done",
+          "message": "All 119 matches and the four-score average verified",
+          "elapsed_ms": 24018
+        }
+      ],
+      "overall_band": 8.5,
+      "descriptor_statements_checked": 119,
+      "index_id": "34ed51cdcb06ed7c",
+      "model_calls": [
+        {
+          "provider": "Google Vertex AI",
+          "model": "gemini-3.8-flash",
+          "configured_model": "gemini-3.8-flash",
+          "attempted_models": [
+            "gemini-3.8-flash"
+          ],
+          "model_version": "gemini-3.8-flash",
+          "response_id": "HD_SapikNpXZ88AP_9SewAk",
+          "usage": {
+            "promptTokenCount": 6972,
+            "candidatesTokenCount": 3064,
+            "totalTokenCount": 10036,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6972
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 3064
+              }
+            ]
+          },
+          "latency_ms": 19708,
+          "prompt_version": "official-rubric-v6.3-streamed-provider-failover",
+          "temperature": 0.1,
+          "thinking_config": {
+            "thinkingLevel": "LOW"
+          },
+          "transport_attempts": 1,
+          "transport": "vertex_sse",
+          "stream_events": 115,
+          "first_response_ms": 1649,
+          "criterion": "TR"
+        },
+        {
+          "provider": "Google Vertex AI",
+          "model": "gemini-3.8-flash",
+          "configured_model": "gemini-3.8-flash",
+          "attempted_models": [
+            "gemini-3.8-flash"
+          ],
+          "model_version": "gemini-3.8-flash",
+          "response_id": "HD_SarC5NoT01dkP6bOh8Q4",
+          "usage": {
+            "promptTokenCount": 7164,
+            "candidatesTokenCount": 3029,
+            "totalTokenCount": 10193,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 7164
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 3029
+              }
+            ]
+          },
+          "latency_ms": 23520,
+          "prompt_version": "official-rubric-v6.3-streamed-provider-failover",
+          "temperature": 0.1,
+          "thinking_config": {
+            "thinkingLevel": "LOW"
+          },
+          "transport_attempts": 1,
+          "transport": "vertex_sse",
+          "stream_events": 113,
+          "first_response_ms": 4594,
+          "criterion": "CC"
+        },
+        {
+          "provider": "Google Vertex AI",
+          "model": "gemini-3.8-flash",
+          "configured_model": "gemini-3.8-flash",
+          "attempted_models": [
+            "gemini-3.8-flash"
+          ],
+          "model_version": "gemini-3.8-flash",
+          "response_id": "HD_SauH3N5SXgLUPyM2E4Q0",
+          "usage": {
+            "promptTokenCount": 6811,
+            "candidatesTokenCount": 2819,
+            "totalTokenCount": 9630,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6811
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 2819
+              }
+            ]
+          },
+          "latency_ms": 19077,
+          "prompt_version": "official-rubric-v6.3-streamed-provider-failover",
+          "temperature": 0.1,
+          "thinking_config": {
+            "thinkingLevel": "LOW"
+          },
+          "transport_attempts": 1,
+          "transport": "vertex_sse",
+          "stream_events": 101,
+          "first_response_ms": 1623,
+          "criterion": "LR"
+        },
+        {
+          "provider": "Google Vertex AI",
+          "model": "gemini-3.8-flash",
+          "configured_model": "gemini-3.8-flash",
+          "attempted_models": [
+            "gemini-3.8-flash"
+          ],
+          "model_version": "gemini-3.8-flash",
+          "response_id": "HD_SavyVN_jSqMgPo9i5qA4",
+          "usage": {
+            "promptTokenCount": 6472,
+            "candidatesTokenCount": 1622,
+            "totalTokenCount": 8094,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 6472
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 1622
+              }
+            ]
+          },
+          "latency_ms": 13602,
+          "prompt_version": "official-rubric-v6.3-streamed-provider-failover",
+          "temperature": 0.1,
+          "thinking_config": {
+            "thinkingLevel": "LOW"
+          },
+          "transport_attempts": 1,
+          "transport": "vertex_sse",
+          "stream_events": 65,
+          "first_response_ms": 2162,
+          "criterion": "GRA"
+        }
+      ]
+    }
+  },
+  "status": "passed"
+}

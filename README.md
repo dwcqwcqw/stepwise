@@ -118,3 +118,7 @@ The current public check completed a **307-word target-5.5 essay**, independentl
 Generation now allows at most **two adjustments** and retains the closest independently assessed essay. An exact match is preferred; otherwise the app shows the closest example with **requested target and actual score clearly separated**, instead of discarding it after five attempts. Approximate results have `target_met=false`; scores and full official evidence checks are unchanged. [Behavior and regression coverage](docs/closest-assessed-example.md).
 
 The new policy completed the original **target-7.5** public request in **42 seconds**: a 292-word closest example, assessed **8/8/8/9 → 8.5**, with target and actual score displayed separately. This is an approximate result, not a claimed 7.5 match. **142 Python + six JavaScript tests pass.** [Live result evidence](docs/closest-assessed-example.md#real-public-verification).
+
+## Provider request reliability
+
+The production API incrementally consumes Vertex SSE responses and uses Gemini 3.8 Flash with 3.5 Flash as a bounded fallback for transient availability failures. Full official-rubric and exact-evidence checks remain required. [Implementation and measured release verification](docs/provider-streaming.md).

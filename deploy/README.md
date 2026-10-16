@@ -23,3 +23,5 @@ uv run --frozen --project services/ingest python scripts/rebuild-official-bundle
 ```
 
 This reparses and hash-checks the two official PDFs, rebuilds all 359 chunks, and reuses a frozen vector only when its complete payload and stable chunk ID match exactly. The model weights are verified against the previous manifest. The new bundle excludes every retired-source point. Both the deployment gate and bundled API startup reject any other source set. For a fresh installation, run the Compose pipeline and export its newly embedded index.
+
+For the streamed-provider release, set `GEMINI_MODEL=gemini-3.8-flash`, `GEMINI_FALLBACK_MODEL=gemini-3.5-flash`, and `GEMINI_THINKING_LEVEL=MINIMAL`. The client maps the thinking setting to a supported value for each model. Transient failures rotate between the two full Flash models within the existing request budget. See [provider streaming](../docs/provider-streaming.md).
