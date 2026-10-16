@@ -34,7 +34,7 @@ Evidence: Figure 1 and docs/evidence/cloud-running.png show the running developm
 
 Implementation: services/{ingest,chunk,index,api,web} each has a Dockerfile, pyproject.toml and uv.lock. compose.yaml orders ingestion → chunking → indexing → API → web, with Qdrant health checks. After the documented environment/auth setup, make run starts the complete pipeline.
 
-Data versions: official source snapshot f58ab6f2ce4fb7a9; paragraph chunk snapshot 6f021ec96cdbaa7a; index recorded in the active index manifest. Ingestion, chunking and index manifests record lineage and pinned dependencies; the API consumes the resulting 359-point official corpus.
+Data versions: official source snapshot f58ab6f2ce4fb7a9; paragraph chunk snapshot 6f021ec96cdbaa7a; index 34ed51cdcb06ed7c. Ingestion, chunking and index manifests record lineage and pinned dependencies; the API consumes the resulting 359-point official corpus.
 
 Evidence: docs/setup.md provides exact commands. Historical pipeline/sample receipts remain versioned; docs/evidence/two-source-cleanup.json records the active 359-point index and its approved source counts.
 
@@ -76,7 +76,7 @@ The index has 359 chunks: 238 paragraph statements, 80 parent band cells, 20 ski
 
 Both tasks are indexed for source coverage; scoring retrieves only Task 2/shared rules. It receives all 40 Task 2 band cells with their 119 statements, definitions and applicable limits. Semantic top-k cannot discard lower bands. Generation receives the requested-band context; each subsequent assessment receives the complete target-blind ladder.
 
-FastEmbed 0.7.3 runs BAAI/bge-small-en-v1.5 as CPU ONNX: 384 dimensions and cosine distance. Qdrant collection: the collection named in the active index manifest. Source snapshot: f58ab6f2ce4fb7a9; chunk snapshot: 6f021ec96cdbaa7a. Weight hashes, dependency versions, stable UUIDs and exact point counts make the corpus reproducible.
+FastEmbed 0.7.3 runs BAAI/bge-small-en-v1.5 as CPU ONNX: 384 dimensions and cosine distance. Qdrant collection: stepwise_34ed51cdcb06ed7c. Source snapshot: f58ab6f2ce4fb7a9; chunk snapshot: 6f021ec96cdbaa7a. Weight hashes, dependency versions, stable UUIDs and exact point counts make the corpus reproducible.
 
 Retrieval example: POST /api/retrieve with criterion TR, target_band 6.5 and a query about developing examples returns only Task 2 TR descriptors for bands 6 and 7, with text, source/page links and similarity values. The request and complete response are saved in docs/evidence/retrieval_example.json. Similarity selects context; it is not an essay score.
 
@@ -92,7 +92,7 @@ The four screens are Draft → Feedback → Goals → Model Essay. Generation us
 
 ## 5. Verification and exact reproduction
 
-Forty-six local tests pass, covering exact evidence, all-band coverage, duplicate/missing/cross-band statements, unsupported scores, bold limits and .25/.75 rounding. The current two-source corpus contains 359 points, 80 cells, 238 paragraph vectors, all 119 Task 2 statements and 40 criterion-band retrieval cases. The live container workflow completes 13 model calls across draft feedback, generation, separate assessment and a distinct weak draft. Each assessment checks all 119 statements and 20 supplementary skills.
+151 local tests pass, including guards against extra sources and stale or contaminated deployment bundles. The deployed release passes 40 criterion-band HTTP retrieval cases and a half-band 6.5 query returning both Band 6 and Band 7. The active corpus retains 80 cells, 238 paragraph vectors and all 119 Task 2 statements. See docs/evidence/two-source-tests.txt, two-source-http.json and two-source-cleanup.json.
 
 Observed container outputs: the 273-word sample received 8.0; the weak draft received TR 3, CC 4, LR 3 and GRA 3, producing 3.25 → 3.5; a target-7.0 model essay was independently assessed 9.0. Draft feedback took 18.8 seconds in this run. These demonstrate complete execution, rather than scoring accuracy or guaranteed target matching; response IDs and calculations are in docs/evidence/band-matching-integration.json.
 
