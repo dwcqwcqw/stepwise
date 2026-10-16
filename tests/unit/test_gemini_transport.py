@@ -1,6 +1,7 @@
 """Actual HTTP client boundary: transient failures retry without leaking payloads."""
 import json
 import logging
+from contextlib import contextmanager
 import httpx
 import pytest
 from shared import gemini
@@ -11,14 +12,18 @@ def prepare(monkeypatch,outcomes):
     monkeypatch.setattr(gemini,'access_token',lambda:'runtime-only-secret')
     monkeypatch.setattr(gemini.time,'sleep',lambda _:None)
     calls=[]
-    def post(url,**kwargs):
+    @contextmanager
+    def stream(method,url,**kwargs):
         calls.append(kwargs)
         item=outcomes[len(calls)-1]
         if isinstance(item,Exception):raise item
-        return httpx.Response(item,request=httpx.Request('POST',url),json={
+        result={
             'candidates':[{'finishReason':'STOP','content':{'parts':[{'text':'{"ok":true}'}]}}],
-            'responseId':'real-boundary-fixture'})
-    monkeypatch.setattr(gemini.CLIENT,'post',post)
+            'responseId':'real-boundary-fixture'}
+        yield httpx.Response(item,request=httpx.Request('POST',url),
+            content=('data: '+json.dumps(result)+'\n\n').encode() if item==200 else json.dumps(result).encode(),
+            headers={'content-type':'text/event-stream' if item==200 else 'application/json'})
+    monkeypatch.setattr(gemini.CLIENT,'stream',stream)
     return calls
 
 
@@ -67,10 +72,12 @@ def test_elapsed_time_caps_retry_timeout_within_shared_request_budget(monkeypatc
     monkeypatch.setattr(gemini.time,'monotonic',lambda:now[0])
     monkeypatch.setattr(gemini.time,'sleep',lambda delay:now.__setitem__(0,now[0]+delay))
     monkeypatch.setattr(gemini.random,'uniform',lambda *_:0)
-    def slow(url,**kwargs):
+    @contextmanager
+    def slow(method,url,**kwargs):
         timeouts.append(kwargs['timeout'].read);now[0]+=kwargs['timeout'].read
         raise httpx.ReadTimeout('private')
-    monkeypatch.setattr(gemini.CLIENT,'post',slow)
+        yield  # make the failure happen when the stream context is entered
+    monkeypatch.setattr(gemini.CLIENT,'stream',slow)
     with gemini.request_budget(seconds=100):
         with pytest.raises(gemini.ModelUnavailable,match='timed out'):
             gemini.generate('role',{}, {'type':'OBJECT'})

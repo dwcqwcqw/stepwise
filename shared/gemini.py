@@ -12,7 +12,7 @@ from pathlib import Path
 import httpx
 
 MODEL=os.getenv('GEMINI_MODEL','gemini-3.5-flash')
-PROMPT_VERSION='official-rubric-v6.1-optional-goals-source-essay'
+PROMPT_VERSION='official-rubric-v6.2-streamed-provider-response'
 CLIENT=httpx.Client(timeout=httpx.Timeout(75,connect=10,pool=5,write=15),limits=httpx.Limits(max_connections=12,max_keepalive_connections=8))
 _metadata_token=None
 _token_lock=threading.Lock()
@@ -55,7 +55,51 @@ def access_token():
     return token
 
 def configuration():
-    return {'provider':'Google Vertex AI','model':MODEL,'prompt_version':PROMPT_VERSION,'project_configured':bool(os.getenv('GOOGLE_CLOUD_PROJECT'))}
+    return {'provider':'Google Vertex AI','model':MODEL,'prompt_version':PROMPT_VERSION,'transport':'vertex_sse','project_configured':bool(os.getenv('GOOGLE_CLOUD_PROJECT'))}
+
+def stream_response(url,body,token,timeout,call_deadline):
+    """Consume Vertex SSE incrementally; never expose unvalidated model text.
+
+    The read timeout measures silence between chunks, rather than waiting for
+    the entire large structured rubric response. Each retry starts a new buffer.
+    """
+    started=time.monotonic();first_response_ms=None;last_progress=None
+    parts=[];metadata={};finish=None;events=0;data=[]
+    def consume(lines):
+        nonlocal first_response_ms,last_progress,finish,events
+        raw='\n'.join(lines)
+        if not raw or raw.strip()=='[DONE]':return
+        try: item=json.loads(raw)
+        except ValueError as error:raise httpx.RemoteProtocolError('Invalid Google stream frame') from error
+        if 'error' in item:raise httpx.RemoteProtocolError('Google stream returned an error')
+        events+=1
+        if first_response_ms is None:first_response_ms=round((time.monotonic()-started)*1000)
+        for key in ('modelVersion','responseId','usageMetadata'):
+            if key in item:metadata[key]=item[key]
+        candidates=item.get('candidates',[])
+        if not candidates:return
+        candidate=candidates[0]
+        if candidate.get('finishReason'):finish=candidate['finishReason']
+        text=''.join(p.get('text','') for p in candidate.get('content',{}).get('parts',[]) if not p.get('thought'))
+        if text:
+            parts.append(text)
+            now=time.monotonic();emit=_request_progress.get()
+            if emit and (last_progress is None or now-last_progress>=8):
+                emit(phase='model_response',status='running',message='Receiving the response from Google')
+                last_progress=now
+    with CLIENT.stream('POST',url,json=body,headers={'Authorization':f'Bearer {token}','Accept':'text/event-stream'},timeout=timeout) as response:
+        if response.status_code>=400:
+            response.read();return response
+        for line in response.iter_lines():
+            if request_remaining(call_deadline)<=0:raise httpx.ReadTimeout('Google stream deadline exceeded')
+            if line.startswith('data:'):data.append(line[5:].lstrip())
+            elif not line and data:consume(data);data=[]
+        if data:consume(data)
+        if not events or finish is None:
+            raise httpx.RemoteProtocolError('Google stream ended before completion')
+        result={**metadata,'candidates':[{'finishReason':finish,'content':{'parts':[{'text':''.join(parts)}]}}],
+                '_stream_receipt':{'stream_events':events,'first_response_ms':first_response_ms}}
+        return httpx.Response(200,request=response.request,json=result)
 
 def generate(system, payload, schema, temperature=0.1):
     project=os.getenv('GOOGLE_CLOUD_PROJECT','')
@@ -63,7 +107,7 @@ def generate(system, payload, schema, temperature=0.1):
     if not re.fullmatch(r'[a-z][a-z0-9-]{4,61}[a-z0-9]',project): raise ModelUnavailable('Set GOOGLE_CLOUD_PROJECT to your authorized Google Cloud project.')
     token=access_token()
     host='aiplatform.googleapis.com' if location=='global' else f'{location}-aiplatform.googleapis.com'
-    url=f'https://{host}/v1/projects/{project}/locations/{location}/publishers/google/models/{MODEL}:generateContent'
+    url=f'https://{host}/v1/projects/{project}/locations/{location}/publishers/google/models/{MODEL}:streamGenerateContent?alt=sse'
     body={'systemInstruction':{'parts':[{'text':system}]},'contents':[{'role':'user','parts':[{'text':json.dumps(payload,ensure_ascii=False,separators=(',',':'))}]}],'generationConfig':{'temperature':temperature,'maxOutputTokens':16384,'responseMimeType':'application/json','responseSchema':schema}}
     if 'gemini-3' in MODEL:
         level=os.getenv('GEMINI_THINKING_LEVEL','LOW').upper()
@@ -80,7 +124,7 @@ def generate(system, payload, schema, temperature=0.1):
         attempt_timeout=httpx.Timeout(min(75,remaining),connect=min(10,remaining),pool=min(5,remaining),write=min(15,remaining))
         retry_reason=None
         try:
-            response=CLIENT.post(url,json=body,headers={'Authorization':f'Bearer {token}'},timeout=attempt_timeout)
+            response=stream_response(url,body,token,attempt_timeout,call_deadline)
         except (httpx.TimeoutException,httpx.NetworkError,httpx.RemoteProtocolError) as error:
             retry_reason=type(error).__name__
             logger.warning('vertex_transport_failure model=%s attempt=%s kind=%s elapsed_ms=%s',MODEL,attempt+1,retry_reason,round((time.monotonic()-started)*1000))
@@ -108,5 +152,5 @@ def generate(system, payload, schema, temperature=0.1):
         text=''.join(p.get('text','') for p in candidates[0].get('content',{}).get('parts',[]) if not p.get('thought'))
         try: value=json.loads(text)
         except ValueError as error: raise ModelUnavailable('Google returned invalid structured output; please retry.') from error
-        return value,{'provider':'Google Vertex AI','model':MODEL,'model_version':result.get('modelVersion',MODEL),'response_id':result.get('responseId'),'usage':result.get('usageMetadata',{}),'latency_ms':round((time.monotonic()-started)*1000),'prompt_version':PROMPT_VERSION,'temperature':temperature,'transport_attempts':attempt+1}
+        return value,{'provider':'Google Vertex AI','model':MODEL,'model_version':result.get('modelVersion',MODEL),'response_id':result.get('responseId'),'usage':result.get('usageMetadata',{}),'latency_ms':round((time.monotonic()-started)*1000),'prompt_version':PROMPT_VERSION,'temperature':temperature,'transport_attempts':attempt+1,'transport':'vertex_sse',**result.get('_stream_receipt',{})}
     raise ModelUnavailable('Google model temporarily unavailable.')
