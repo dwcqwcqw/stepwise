@@ -29,12 +29,14 @@ done
 if [ ! -f .cloudrun-bundle/manifest.json ]; then ./scripts/export-cloudrun-bundle.sh; fi
 python3 - <<'PYVERIFY'
 import hashlib,json,pathlib
+from shared.corpus import validate_points
 root=pathlib.Path('.cloudrun-bundle')
 for name,expected in json.loads((root/'manifest.json').read_text()).items():
     assert hashlib.sha256((root/name).read_bytes()).hexdigest()==expected, name
 index=json.loads((root/'data/processed/index.manifest.json').read_text())
-assert index['points']==369, 'Rebuild and export the paragraph-level rubric index'
+assert index['points']==359, 'Rebuild and export the two-PDF rubric index'
 points=json.loads((root/'data/processed/points.json').read_text())
+validate_points(points)
 assert len(points)==index['points']
 assert sum(p['payload']['kind']=='band_statement' for p in points)==238
 assert sum(p['payload']['kind']=='band_statement' and p['payload']['task']=='academic_task_2' for p in points)==119

@@ -6,14 +6,15 @@ from shared.gemini import ModelUnavailable
 from test_assessment import fixture, ESSAY
 
 
-def sample():
+def sample(target=7.5):
     _,context=fixture();evidence=assessment.essay_evidence(ESSAY)
-    value={'summary':'The essay presents a clear argument with opportunities for more precise support.','criteria':{}}
+    value={'criteria':{}}
+    band=int(target)
     for code in assessment.CRITERIA:
-        value['criteria'][code]={'title':'Develop precise support','rationale':'The passage explains an important benefit but can add a more specific example.',
+        value['criteria'][code]={'observation_standard_id':f'{code}-B{band}-S1','refinement_standard_id':f'{code}-B{band}-S1','title':'Develop precise support','rationale':'The passage explains an important benefit but can add a more specific example.',
             'essay_evidence_id':'E001','next_step':'Add a specific commuter example to make this benefit concrete.',
             'example':{'before_evidence_id':'E002','after':'Reliable buses reduce commuting costs for workers travelling from outer suburbs.'},
-            'subcriteria':{c['subcriterion_id']:{'judgment':'develop','explanation':'Make the benefit concrete with an example.','essay_evidence_id':'E001'} for c in context['chunks'] if c['kind']=='subcriterion' and c['criterion']==code}}
+            'subcriteria':{c['subcriterion_id']:{'standard_statement_id':f'{code}-B{band}-S1','judgment':'develop','explanation':'Make the benefit concrete with an example.','essay_evidence_id':'E001'} for c in context['chunks'] if c['kind']=='subcriterion' and c['criterion']==code}}
     return value,context,evidence
 
 
@@ -22,7 +23,9 @@ def test_qualitative_feedback_keeps_exact_quotes_and_official_target_rows():
     assert len(r['criteria'])==4 and sum(len(c['subcriteria']) for c in r['criteria'])==20
     for c in r['criteria']:
         assert c['essay_quote'] in ESSAY and c['example']['before'] in ESSAY
-        assert c['rubric'][0]['band']==target_profile(7.5)[c['criterion']]
+        assert [r['band'] for r in c['rubric']]==[7,8]
+        assert c['standard_references']['observation']['band']==7
+        assert all(d['target_standard']['band']==7 for d in c['subcriteria'])
         assert not {'score','band_reviews','score_decision'}.intersection(c)
     assert not {'overall_band','score_calculation'}.intersection(r)
 
@@ -98,3 +101,51 @@ def test_generation_passes_original_essay_with_independent_optional_override_pol
     assert requests[0]['content_policy']['ideas_source']==ideas_source
     assert result['requirements']['position']==position and result['requirements']['ideas']==ideas
     assert len(requests)==1
+
+
+@pytest.mark.parametrize('target',[4,5,6,6.5,7,7.5,8.5,9])
+def test_every_comment_uses_only_real_target_boundary_statements(target):
+    value,context,evidence=sample(target)
+    result=commentary.materialize(value,context,evidence,target_profile(target))
+    allowed={int(target),int(target+.5)}
+    for row in result['criteria']:
+        assert {r['band'] for r in row['rubric']}==allowed
+        assert all(s['band'] in allowed for s in row['standard_references'].values())
+    schema=commentary.commentary_schema(context,evidence,target_profile(target))
+    for code,card in schema['properties']['criteria']['properties'].items():
+        ids=card['properties']['observation_standard_id']['enum']
+        assert set(ids)=={f'{code}-B{int(target)}-S1'}
+    assert 'verified' not in result['summary'] and 'clear argument' not in result['summary']
+
+
+@pytest.mark.parametrize('field',['observation','refinement','detail'])
+@pytest.mark.parametrize('invalid',['TR-B9-S1','CC-B6-S1','invented'])
+def test_rejects_out_of_target_or_cross_criterion_official_references(field,invalid):
+    value,context,evidence=sample(6.5)
+    if field=='detail':value['criteria']['TR']['subcriteria']['TR-1']['standard_statement_id']=invalid
+    else:value['criteria']['TR'][field+'_standard_id']=invalid
+    with pytest.raises(ValueError,match='target boundary'):
+        commentary.materialize(value,context,evidence,target_profile(6.5))
+
+
+def test_commentary_call_contains_both_boundaries_and_qualified_coaching_rules(monkeypatch):
+    value,context,evidence=sample(6.5);seen=[]
+    def model(system,payload,schema,temperature):
+        seen.append((system,payload));return value,{'response_id':'grounded'}
+    monkeypatch.setattr(commentary,'generate',model)
+    result=commentary.comment_on_essay({'prompt':'Transport question?','target_band':6.5},ESSAY,context,target_profile(6.5))
+    system,payload=seen[0]
+    assert len(seen)==1
+    assert {c['band'] for c in payload['official_writing_guidance'] if c['kind']=='band_descriptor'}=={6,7}
+    assert 'Do not invent an error' in system and 'LOCAL feature' in system
+    assert 'Keep qualifications' in system and 'not prove achievement' in system
+    assert len(result['criteria'])==4
+
+
+@pytest.mark.parametrize('field',['observation','detail'])
+def test_half_band_observations_do_not_claim_the_upper_boundary(field):
+    value,context,evidence=sample(6.5)
+    if field=='observation':value['criteria']['TR']['observation_standard_id']='TR-B7-S1'
+    else:value['criteria']['TR']['subcriteria']['TR-1']['standard_statement_id']='TR-B7-S1'
+    with pytest.raises(ValueError,match='lower target boundary'):
+        commentary.materialize(value,context,evidence,target_profile(6.5))

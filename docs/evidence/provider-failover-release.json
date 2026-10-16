@@ -1,0 +1,39 @@
+{
+  "verified_at": "2026-10-16T15:16:59.359800+00:00",
+  "status": "passed",
+  "implementation_commit": "65c36d1",
+  "cloud_build_id": "ffe26864-ee4c-44fb-96a6-0ed071f32243",
+  "cloud_run_revision": "stepwise-api-00057-niz",
+  "production_traffic_percent": 100,
+  "public_url": "https://stepwise-one.vercel.app/",
+  "primary_model": "gemini-3.8-flash",
+  "fallback_model": "gemini-3.5-flash",
+  "transport": "vertex_sse",
+  "index_id": "34ed51cdcb06ed7c",
+  "index_points": 359,
+  "unit_suite_passed": 159,
+  "focused_transport_tests_passed": 23,
+  "release_feedback_seconds": 25.641,
+  "release_feedback_statements": 119,
+  "release_feedback_attempts": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "public_original_input_generation": {
+    "verified_at": "2026-10-16T15:16:39.666Z",
+    "url": "https://stepwise-one.vercel.app/",
+    "implementation_commit": "65c36d1",
+    "cloud_run_revision": "stepwise-api-00057-niz",
+    "case": "original_user_generation_retry",
+    "original_input_words": 302,
+    "target_band": 6.5,
+    "generated_words": 277,
+    "elapsed": "21s elapsed",
+    "error": "",
+    "notice": "Written for your Band 6.5 target. Explore the feedback and examples below.",
+    "server_elapsed_ms": 18888,
+    "word_target_label": "277 words \u00b7 Target band 6.5"
+  }
+}

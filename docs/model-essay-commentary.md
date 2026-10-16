@@ -9,7 +9,7 @@ The displayed overall number is **Target band**, copied unchanged from the user'
 ## Source and implementation
 
 - `shared/assessment.py::generate_essay`: target guidance, one writer call, content/length validation, then commentary.
-- `shared/model_commentary.py`: one four-criterion feedback schema; exact evidence IDs; server-attached official target descriptors and 20 detail citations. No score fields or grading calls.
+- `shared/model_commentary.py`: one four-criterion feedback schema; exact evidence IDs; server-attached official target descriptors and 20 detail citations. Every criterion observation/refinement and each skill detail must reference an official statement from the same criterion and target boundaries. No score fields or grading calls.
 - `services/api/main.py`: one request for the complete generation/commentary flow, including its NDJSON stream.
 - `services/web/static/app.js`: preset Target band, qualitative tabs, advice/examples and text download.
 - `services/web/static/progress.js`: two real processing steps, no candidate continuation requests.
@@ -42,3 +42,14 @@ The two goal fields are blank on first load and remain blank after loading a sam
 The backend and frontend were released from `cfbedd1144018d1572aa6c5205145c1622685823` (Cloud Run `stepwise-api-00051-dox`, Vercel `dpl_2odAcynqxJe6HUVXKsFNr5Vficbh`). Regression coverage includes omitted/blank/short optional fields and all four combinations of stance/idea inheritance or overrides. **146 Python and six JavaScript tests passed.** The frontend build passed. Public verification receipts are stored in `docs/evidence/optional-goals-public.json`; the default optional form is shown in `docs/evidence/optional-goals-defaults.png`.
 
 Two real public requests used the same authored road-priority source essay. With both goals blank, the 301-word result preserved road maintenance as the primary spending priority (23 s on the retained UI timer). Entering an explicit public-transit-priority position, with ideas still blank, produced a 282-word result that changed the main priority and reused the rural road/hospital/school examples appropriately (17 s). These are two observed functional checks, not a timing benchmark.
+
+
+## Target-specific commentary (v6.4)
+
+For a 6.5 writing goal, all four commentary panels receive the official **Band 6 and Band 7** rows. For integer goals they receive that integer row. Observations and skill explanations are anchored to the lower integer band; the upper boundary is available for concrete development advice. There is no invented official half-band row, and the generation profile is not treated as an awarded criterion score.
+
+Each observation and suggested refinement selects an exact official paragraph statement ID; every one of the 20 skill explanations does likewise. The server rejects IDs from another criterion or outside the target boundaries and attaches the unchanged official statement, band and PDF source metadata. The existing UI shows the corresponding official rows.
+
+The coaching prompt requires qualified, passage-specific observations and concrete revisions, rather than global praise or claims of effortless mastery. Conditional weaknesses in a descriptor must not be asserted as actual mistakes without essay evidence. Where the text is correct, an optional practice improvement is appropriate. The summary uses neutral server text, preventing an unsupported model-generated overall endorsement.
+
+The normal flow remains one writer call plus one qualitative feedback call, with a bounded format/evidence repair. There is no post-generation numerical reassessment. Reference validation checks provenance and scope; semantic interpretation remains model-generated and is inspected in the live sample receipt.

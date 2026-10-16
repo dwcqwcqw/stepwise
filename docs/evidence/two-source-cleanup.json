@@ -1,0 +1,81 @@
+{
+  "verified_at": "2026-10-16T14:36:05.028160+00:00",
+  "status": "passed",
+  "implementation_commit": "079c220",
+  "cloud_build_id": "38fc5783-bc8a-4000-94a2-d1b54f5cbb35",
+  "cloud_run_revision": "stepwise-api-00053-ban",
+  "production_traffic_percent": 100,
+  "public_url": "https://stepwise-one.vercel.app",
+  "public_ready": {
+    "status": "ready",
+    "model": "BAAI/bge-small-en-v1.5",
+    "weights_sha256": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+    "fastembed": "0.7.3",
+    "dimension": 384,
+    "metric": "cosine",
+    "chunk_snapshot": "6f021ec96cdbaa7a",
+    "index_id": "34ed51cdcb06ed7c",
+    "collection": "stepwise_34ed51cdcb06ed7c",
+    "points": 359,
+    "qdrant_client": "1.15.1",
+    "generation": {
+      "provider": "Google Vertex AI",
+      "model": "gemini-3.5-flash",
+      "prompt_version": "official-rubric-v6.1-optional-goals-source-essay",
+      "project_configured": true
+    }
+  },
+  "source_counts": {
+    "ielts-writing-band-descriptors-2023": 333,
+    "ielts-key-assessment-criteria": 26
+  },
+  "removed_points": 10,
+  "verified_identical_embeddings_reused": 359,
+  "source_manifest": {
+    "snapshot_id": "f58ab6f2ce4fb7a9",
+    "sources": [
+      {
+        "id": "ielts-writing-band-descriptors-2023",
+        "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-band-descriptors.pdf",
+        "sha256": "e3c88943ef92d98988ce4db454fd7fa8d8435f0b25e9ec667e3720a5c1168d1b",
+        "filename": "ielts-writing-band-descriptors.pdf",
+        "role": "rubric",
+        "version": "May 2023"
+      },
+      {
+        "id": "ielts-key-assessment-criteria",
+        "url": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+        "sha256": "5e46074fab056620861710ba77fe6e8d183a9403a70b5228e00b96ef7e94422e",
+        "filename": "ielts-writing-key-assessment-criteria.pdf",
+        "role": "rubric",
+        "version": "Retrieved 2026-10-10"
+      }
+    ],
+    "rubric_records": 121,
+    "descriptor_cells": 80,
+    "task2_descriptor_cells": 40,
+    "descriptor_statements": 238,
+    "task2_descriptor_statements": 119,
+    "subcriteria": 20,
+    "training_candidates_loaded": 0,
+    "scope": "All band rules 0\u20139 for both tasks indexed; scoring constrained to Task 2 and shared rules."
+  },
+  "chunk_manifest": {
+    "source_snapshot": "f58ab6f2ce4fb7a9",
+    "chunk_snapshot": "6f021ec96cdbaa7a",
+    "strategy": "pdf_paragraph_statements_with_parent_band_cells_v3",
+    "overlap": 0,
+    "chunks": 359,
+    "band_statements": 238,
+    "min_characters": 90,
+    "max_characters": 4284,
+    "rationale": "Independent PDF paragraphs retain each band feature and its qualifications; bold limiting spans retained. Parent cells and source pages preserve full context. Task metadata prevents Task 1 contamination."
+  },
+  "unit_tests_passed": 151,
+  "live_criterion_band_queries_passed": 40,
+  "half_band_6_5_returns": [
+    6,
+    7
+  ],
+  "model_inference_exercised": false
+}

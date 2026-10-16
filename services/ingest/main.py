@@ -5,6 +5,7 @@ from pathlib import Path
 import httpx
 import pymupdf
 from shared.common import DATA, ARTIFACTS, CRITERIA, digest, jsonl, log, read_json, write_json
+from shared.corpus import validate_sources
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -21,6 +22,8 @@ def collect(source, client):
                 f"runtime/data/raw/{source['filename']}; its locked SHA-256 will still be checked."
             ) from error
         temporary = path.with_suffix('.part'); temporary.write_bytes(response.content); temporary.replace(path)
+    if not path.read_bytes().startswith(b'%PDF-'):
+        raise ValueError(f"Not a PDF: {source['id']}")
     if digest(path.read_bytes()) != source['sha256']:
         raise ValueError(f"Source changed: {source['id']}; audit before updating the lock.")
     log('source_verified', source_id=source['id'], sha256=source['sha256'], bytes=path.stat().st_size)
@@ -113,14 +116,13 @@ def key_criteria(path, source):
 
 def main():
     sources=read_json(ROOT/'data/sources.lock.json')['sources']; records=[]
+    validate_sources(sources)
     with httpx.Client(follow_redirects=True,timeout=45,headers={'User-Agent':'Mozilla/5.0'},transport=httpx.HTTPTransport(retries=1)) as client:
         for source in sources:
             path=collect(source,client)
             if source['kind']=='band_descriptors': records+=rubric_cells(path,source)
             elif source['kind']=='key_criteria': records+=key_criteria(path,source)
-            else:
-                with pymupdf.open(path) as d:
-                    records += [record(source,n,p.get_text(),criterion='TR',kind='teaching_guidance') for n,p in enumerate(d,1)]
+            else: raise ValueError(f"Unsupported official source kind: {source['kind']}")
     jsonl(DATA/'processed/rubric_cells.jsonl',records)
     receipts=[{k:s[k] for k in ['id','url','sha256','filename','role','version']} for s in sources]
     statement_count=sum(len(x.get('statements',[])) for x in records)

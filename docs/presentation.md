@@ -5,7 +5,7 @@ Every member should understand the entire implementation. Use current evidence r
 1. **Scope (1 min):** typed IELTS Academic Task 2 essays, four scores, specific revisions and tailored model essays.
 2. **Architecture (2 min):** five Python/uv containers, Qdrant, FastAPI gateway, Vertex Gemini and validated output.
 3. **Official knowledge (2 min):** three attributed sources; full nine-page band PDF, bands 0–9, all 20 detailed checks; 131 chunks. The 8,049 candidate essays are reserved for MS3 and not ingested.
-4. **Retrieval (2 min):** mandatory complete Task 2 band ladders plus semantic teaching guidance; task filtering; half-band mapping; source/page/chunk lineage.
+4. **Retrieval (2 min):** mandatory complete Task 2 band ladders plus official criterion definitions and detailed checks; task filtering; half-band mapping; source/page/chunk lineage.
 5. **Assessment (2 min):** target-blind scoring, exact quotations, source IDs, whole criterion bands, qualitative subcriteria and before/after revisions. Inspect actual successful model receipts.
 6. **Application (3 min):** question/draft -> feedback -> target/position/ideas -> complete generated essay -> a separate blind assessment. Show the real generated prose and target/assessed score difference; project authorization is verified.
 7. **Reproducibility (2 min):** make run, source/model hashes, frozen locks, runtime authorization, logs and tests.

@@ -1,0 +1,15 @@
+{
+  "verified_at": "2026-10-16T15:16:39.666Z",
+  "url": "https://stepwise-one.vercel.app/",
+  "implementation_commit": "65c36d1",
+  "cloud_run_revision": "stepwise-api-00057-niz",
+  "case": "original_user_generation_retry",
+  "original_input_words": 302,
+  "target_band": 6.5,
+  "generated_words": 277,
+  "elapsed": "21s elapsed",
+  "error": "",
+  "notice": "Written for your Band 6.5 target. Explore the feedback and examples below.",
+  "server_elapsed_ms": 18888,
+  "word_target_label": "277 words · Target band 6.5"
+}
