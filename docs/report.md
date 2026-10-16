@@ -36,7 +36,7 @@ Implementation: services/{ingest,chunk,index,api,web} each has a Dockerfile, pyp
 
 Data versions: official source snapshot f58ab6f2ce4fb7a9; paragraph chunk snapshot 6f021ec96cdbaa7a; index recorded in the active index manifest. Ingestion, chunking and index manifests record lineage and pinned dependencies; the API consumes the resulting 359-point official corpus.
 
-Evidence: docs/setup.md provides exact commands. Historical pipeline/sample receipts remain versioned; docs/evidence/band-paragraph-audit.json and band-matching-integration.json document the new 359-point index and complete live descriptor checks.
+Evidence: docs/setup.md provides exact commands. Historical pipeline/sample receipts remain versioned; docs/evidence/two-source-cleanup.json records the active 359-point index and its approved source counts.
 
 ### Requirement 3 — LLM RAG (Objective + Deliverables)
 
@@ -92,7 +92,7 @@ The four screens are Draft → Feedback → Goals → Model Essay. Generation us
 
 ## 5. Verification and exact reproduction
 
-Forty-six local tests pass, covering exact evidence, all-band coverage, duplicate/missing/cross-band statements, unsupported scores, bold limits and .25/.75 rounding. The refreshed RAG run verifies 359 points, 80 cells, 238 paragraph vectors, all 119 Task 2 statements and 40 criterion-band retrieval cases. The live container workflow completes 13 model calls across draft feedback, generation, separate assessment and a distinct weak draft. Each assessment checks all 119 statements and 20 supplementary skills.
+Forty-six local tests pass, covering exact evidence, all-band coverage, duplicate/missing/cross-band statements, unsupported scores, bold limits and .25/.75 rounding. The current two-source corpus contains 359 points, 80 cells, 238 paragraph vectors, all 119 Task 2 statements and 40 criterion-band retrieval cases. The live container workflow completes 13 model calls across draft feedback, generation, separate assessment and a distinct weak draft. Each assessment checks all 119 statements and 20 supplementary skills.
 
 Observed container outputs: the 273-word sample received 8.0; the weak draft received TR 3, CC 4, LR 3 and GRA 3, producing 3.25 → 3.5; a target-7.0 model essay was independently assessed 9.0. Draft feedback took 18.8 seconds in this run. These demonstrate complete execution, rather than scoring accuracy or guaranteed target matching; response IDs and calculations are in docs/evidence/band-matching-integration.json.
 
@@ -127,7 +127,7 @@ Current code and new receipts: https://github.com/dwcqwcqw/stepwise/tree/bei-li.
 
 ![cloud-running-detail](evidence/cloud-running-detail.png)
 
-Actual Cloud Shell VM: API, web and Qdrant are healthy; ingest/chunk/index exit 0. This historical environment screenshot shows the earlier 131-point run. The refreshed 359-point corpus is verified in band-matching-integration.json. Full logs and manifests accompany the repository.
+Actual Cloud Shell VM: API, web and Qdrant are healthy; ingest/chunk/index exit 0. This historical environment screenshot shows the earlier 131-point run. The current 359-point corpus is verified in two-source-cleanup.json. Full logs and manifests accompany the repository.
 
 ## Figure 2. Your draft
 

@@ -13,3 +13,13 @@ Cloud Run runs the existing FastAPI application with an immutable export of the 
 5. Verify readiness shows the 359-point index, then run one actual essay assessment and one generation with independent assessment through the deployed UI. Record source commit, image digest, Cloud Run revision and Vercel deployment ID.
 
 `max-instances=1`, `min-instances=0`, concurrency 2, and 300-second deadlines bound this course demo's infrastructure. Vertex usage still follows model calls. The fixed Vercel domain supports direct access without a Vercel login. Cloud Run still requires the dedicated invoker identity. Git auto-deployment requires a separate GitHub integration installation if it is not already configured.
+
+## Refresh the two-source bundle
+
+To remove a retired source from an existing frozen deployment, run:
+
+```bash
+uv run --frozen --project services/ingest python scripts/rebuild-official-bundle.py
+```
+
+This reparses and hash-checks the two official PDFs, rebuilds all 359 chunks, and reuses a frozen vector only when its complete payload and stable chunk ID match exactly. The model weights are verified against the previous manifest. The new bundle excludes every retired-source point. Both the deployment gate and bundled API startup reject any other source set. For a fresh installation, run the Compose pipeline and export its newly embedded index.
