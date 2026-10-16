@@ -46,7 +46,7 @@ Two real public requests used the same authored road-priority source essay. With
 
 ## Target-specific commentary (v6.4)
 
-For a 6.5 writing goal, all four commentary panels receive the official **Band 6 and Band 7** rows. For integer goals they receive that integer row. There is no invented official half-band row, and the generation profile is not treated as an awarded criterion score.
+For a 6.5 writing goal, all four commentary panels receive the official **Band 6 and Band 7** rows. For integer goals they receive that integer row. Observations and skill explanations are anchored to the lower integer band; the upper boundary is available for concrete development advice. There is no invented official half-band row, and the generation profile is not treated as an awarded criterion score.
 
 Each observation and suggested refinement selects an exact official paragraph statement ID; every one of the 20 skill explanations does likewise. The server rejects IDs from another criterion or outside the target boundaries and attaches the unchanged official statement, band and PDF source metadata. The existing UI shows the corresponding official rows.
 

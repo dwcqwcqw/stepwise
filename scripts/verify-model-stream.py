@@ -51,6 +51,8 @@ if args.case in {'model','both'}:
     assert all('score' not in c for c in result['commentary']['criteria'])
     for row in result['commentary']['criteria']:
         assert {c['band'] for c in row['rubric']}=={6,7}
+        assert row['standard_references']['observation']['band']==6
+        assert all(d['target_standard']['band']==6 for d in row['subcriteria'])
         refs=list(row['standard_references'].values())+[d['target_standard'] for d in row['subcriteria']]
         assert all(s['band'] in {6,7} and s['source']['criterion']==row['criterion'] for s in refs)
         assert all(s['statement_id'] in {x['statement_id'] for c in row['rubric'] for x in c['statements']} for s in refs)

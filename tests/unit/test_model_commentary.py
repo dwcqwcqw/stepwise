@@ -114,7 +114,7 @@ def test_every_comment_uses_only_real_target_boundary_statements(target):
     schema=commentary.commentary_schema(context,evidence,target_profile(target))
     for code,card in schema['properties']['criteria']['properties'].items():
         ids=card['properties']['observation_standard_id']['enum']
-        assert set(ids)=={f'{code}-B{b}-S1' for b in allowed}
+        assert set(ids)=={f'{code}-B{int(target)}-S1'}
     assert 'verified' not in result['summary'] and 'clear argument' not in result['summary']
 
 
@@ -140,3 +140,12 @@ def test_commentary_call_contains_both_boundaries_and_qualified_coaching_rules(m
     assert 'Do not invent an error' in system and 'LOCAL feature' in system
     assert 'Keep qualifications' in system and 'not prove achievement' in system
     assert len(result['criteria'])==4
+
+
+@pytest.mark.parametrize('field',['observation','detail'])
+def test_half_band_observations_do_not_claim_the_upper_boundary(field):
+    value,context,evidence=sample(6.5)
+    if field=='observation':value['criteria']['TR']['observation_standard_id']='TR-B7-S1'
+    else:value['criteria']['TR']['subcriteria']['TR-1']['standard_statement_id']='TR-B7-S1'
+    with pytest.raises(ValueError,match='lower target boundary'):
+        commentary.materialize(value,context,evidence,target_profile(6.5))
