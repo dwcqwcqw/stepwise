@@ -12,7 +12,7 @@ from pathlib import Path
 import httpx
 
 MODEL=os.getenv('GEMINI_MODEL','gemini-3.5-flash')
-PROMPT_VERSION='official-rubric-v6.3-streamed-provider-failover'
+PROMPT_VERSION='official-rubric-v6.4-target-grounded-commentary'
 CLIENT=httpx.Client(timeout=httpx.Timeout(75,connect=10,pool=5,write=15),limits=httpx.Limits(max_connections=12,max_keepalive_connections=8))
 _metadata_token=None
 _token_lock=threading.Lock()

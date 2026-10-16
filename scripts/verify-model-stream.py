@@ -49,10 +49,16 @@ if args.case in {'model','both'}:
     assert result['status']=='generated_with_commentary' and result['requirements']['target_band']==6.5
     assert 250<=result['word_count']<=450 and len(result['commentary']['criteria'])==4
     assert all('score' not in c for c in result['commentary']['criteria'])
+    for row in result['commentary']['criteria']:
+        assert {c['band'] for c in row['rubric']}=={6,7}
+        refs=list(row['standard_references'].values())+[d['target_standard'] for d in row['subcriteria']]
+        assert all(s['band'] in {6,7} and s['source']['criterion']==row['criterion'] for s in refs)
+        assert all(s['statement_id'] in {x['statement_id'] for c in row['rubric'] for x in c['statements']} for s in refs)
     calls=result['generation_calls']+result['commentary']['model_calls']
     assert all(c['transport']=='vertex_sse' for c in calls)
     receipt['cases']['model']={**trace,'target_band':6.5,'word_count':result['word_count'],
-        'mode':result['commentary']['mode'],'model_calls':calls}
+        'mode':result['commentary']['mode'],'model_calls':calls,
+        'commentary':result['commentary'],'essay':result['essay']}
 receipt['status']='passed'
 output=ROOT/args.output;output.parent.mkdir(parents=True,exist_ok=True)
 output.write_text(json.dumps(receipt,indent=2)+'\n')
