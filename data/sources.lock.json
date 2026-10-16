@@ -23,17 +23,6 @@
       "version": "Retrieved 2026-10-10",
       "selection": "Official four-criterion definitions and every Task 2 assessment bullet; shared format rules.",
       "license_note": "Official public IELTS assessment resource, retrieved at runtime with source attribution."
-    },
-    {
-      "id": "british-council-task2-relevance",
-      "role": "rubric",
-      "kind": "task_guidance",
-      "filename": "bc-task2-answer-the-question.pdf",
-      "url": "https://takeielts.britishcouncil.org/sites/default/files/writing_task_2_-_answer_the_questions.pdf",
-      "sha256": "2c973185efff8fb26d256870b33bca11b7861d31d1de3978686a47ec965219f3",
-      "version": "British Council 2013",
-      "selection": "Official teaching guidance on question analysis and relevant ideas; supplementary guidance, not a replacement band scale.",
-      "license_note": "British Council public teaching resource, retrieved at runtime with attribution."
     }
   ]
 }

@@ -4,6 +4,7 @@ from functools import lru_cache
 from fastembed import TextEmbedding
 from qdrant_client import QdrantClient, models
 from shared.common import DATA, CRITERIA, read_json
+from shared.corpus import validate_points
 
 MODEL = "BAAI/bge-small-en-v1.5"
 DIMENSION = 384
@@ -23,6 +24,7 @@ def database():
         index = active_index()
         points = read_json(DATA/'processed/points.json')
         if len(points) != index['points']: raise ValueError('Incomplete bundled index')
+        validate_points(points)
         db = QdrantClient(location=':memory:')
         db.create_collection(index['collection'], vectors_config=models.VectorParams(size=DIMENSION,distance=models.Distance.COSINE))
         db.upsert(index['collection'], points=[models.PointStruct(**p) for p in points], wait=True)
@@ -48,7 +50,7 @@ def assessment_context(query: str) -> dict:
 
     Scoring must not use the learner's requested score as a retrieval filter.
     The mandatory structured retrieval prevents semantic top-k from losing low bands.
-    Supplemental guidance is retrieved semantically from the same vector database.
+    Only the two approved official IELTS PDFs contribute assessment context.
     """
     index=active_index();db=database()
     mandatory,offset=db.scroll(index['collection'],scroll_filter=models.Filter(must=[models.FieldCondition(key='task',match=models.MatchAny(any=['academic_task_2','shared'])),models.FieldCondition(key='kind',match=models.MatchAny(any=['band_descriptor','criterion_definition','subcriterion','rating_rule']))]),limit=256,with_vectors=False)
@@ -58,8 +60,5 @@ def assessment_context(query: str) -> dict:
         ladder=[x for x in chunks if x['kind']=='band_descriptor' and x['criterion']==code]
         if {x['band'] for x in ladder}!=set(range(10)): raise ValueError('Full Task 2 band ladder required')
         if any(not x.get('statements') for x in ladder):raise ValueError('Paragraph-level descriptor index required')
-    vector=list(embedder().query_embed(query[:4000]))[0].tolist()
-    ranked=db.query_points(collection_name=index['collection'],query=vector,limit=2,query_filter=models.Filter(must=[models.FieldCondition(key='task',match=models.MatchValue(value='academic_task_2')),models.FieldCondition(key='kind',match=models.MatchValue(value='teaching_guidance'))])).points
-    chunks.extend({'similarity':p.score,**p.payload} for p in ranked)
     chunks=sorted({x['chunk_id']:x for x in chunks}.values(),key=lambda x:(x['criterion'],x['kind'],x.get('band') or 0,x['chunk_id']))
-    return {'index_id':index['index_id'],'collection':index['collection'],'chunks':chunks,'retrieval_strategy':'complete_task2_ladders_and_subcriteria_plus_semantic_guidance','target_blind':True}
+    return {'index_id':index['index_id'],'collection':index['collection'],'chunks':chunks,'retrieval_strategy':'complete_task2_ladders_and_subcriteria_two_official_pdfs','target_blind':True}
