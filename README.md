@@ -79,6 +79,7 @@ gcloud.cmd auth login
 gcloud.cmd config set project YOUR_PROJECT_ID
 ```
 **Step C**
+
 This needs to be executed every time. It runs the pipeline end to end. This is the equivalent of `make run'.
 
 ```powershell
