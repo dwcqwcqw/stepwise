@@ -78,6 +78,10 @@ Sign in to Google (use `gcloud.cmd`, not `gcloud`):
 gcloud.cmd auth login
 gcloud.cmd config set project YOUR_PROJECT_ID
 ```
+
+**Note**: If several Google accounts are signed in to your browser, the sign-in page may fail. In this case, copy the link that `gcloud.cmd auth login` prints in PowerShell and paste it into a Chrome window signed in only with the account that has access to the Google Cloud project. Keep PowerShell open while you sign in.
+
+
 **Step C**
 
 This needs to be executed every time. It runs the pipeline end to end. This is the equivalent of `make run'.
