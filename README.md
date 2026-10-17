@@ -78,6 +78,7 @@ gcloud.cmd config set project YOUR_PROJECT_ID
 ```
 
 
+
 ## Official assessment knowledge
 
 All nine pages of the official IELTS Writing Band Descriptors are indexed, including bands 0–9 for both tasks. Task 2 scoring retrieves only applicable Task 2/shared rules. The PDF is split into 238 paragraph statements (119 for Task 2), with independent vectors, parent cells and exact page links. Each of the four independent assessment calls checks every official integer band and its bold limiting features. The UI prioritizes current/next-band matches and shows the exact criterion mean before half-up conversion to a 0.5 practice estimate. The official Key Assessment Criteria supplies 20 supplementary skill checks. See [linked sources](docs/data.md).
