@@ -18,7 +18,7 @@ Vercel hosts the UI and a same-origin gateway. A restricted, short-lived OIDC id
 | --- | --- | --- |
 | [`bei-li`](https://github.com/dwcqwcqw/stepwise/tree/bei-li) | Bei Li; default view | Complete implementation, report and evidence |
 | [`ernest-ferdian`](https://github.com/dwcqwcqw/stepwise/tree/ernest-ferdian) | Ernest Ferdian | Empty workspace |
-| [`dimitris-pipinis`](https://github.com/dwcqwcqw/stepwise/tree/dimitris-pipinis) | Dimitris Pipinis | Complete implementation + instructions of running in Windows/macOS|
+| [`dimitris-pipinis`](https://github.com/dwcqwcqw/stepwise/tree/dimitris-pipinis) | Dimitris Pipinis | Complete implementation (including run.cmd) + instructions of running in Windows|
 | [`xiahui-huang`](https://github.com/dwcqwcqw/stepwise/tree/xiahui-huang) | Xiahui Huang | Empty workspace |
 | [`main`](https://github.com/dwcqwcqw/stepwise/tree/main) | Shared team integration | Empty workspace |
 | [`milestone2`](https://github.com/dwcqwcqw/stepwise/tree/milestone2) | Existing course delivery snapshot | Preserved implementation and submission artifacts |
