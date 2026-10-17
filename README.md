@@ -62,7 +62,7 @@ Prerequisites: Docker Desktop (running), Git, Python 3, the [Google Cloud CLI](h
 Run steps A and B below once:
 
 **Step A**
-Create a file called `.env` in the repository folder (compose.yaml reads it automatically).
+Create a file called `.env` in the repository folder (Docker compose reads it automatically).
 
 ```
 GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
@@ -84,7 +84,7 @@ gcloud.cmd config set project YOUR_PROJECT_ID
 
 **Step C**
 
-This needs to be executed every time. It runs the pipeline end to end. This is the equivalent of `make run'.
+This needs to be executed every time. It runs the pipeline end to end. This is the equivalent of `make run`.
 
 ```powershell
 scripts\run.cmd
