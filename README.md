@@ -57,6 +57,8 @@ Five custom Dockerfiles, five `pyproject.toml`/`uv.lock` pairs and upstream Qdra
 
 ## Running the pipeline in Windows
 
+Prerequisites: Docker Desktop (running), Git, Python 3, the [Google Cloud CLI](https://cloud.google.com/sdk/docs/install), and a Google Cloud project with billing and the Vertex AI API enabled. Run all commands in PowerShell from the repository folder.
+
 Run steps A and B below once:
 
 **Step A**
@@ -70,14 +72,19 @@ STEPWISE_AUTH_DIR=./runtime/auth
 ```
 **Step B**
 
-2. Sign in to Google (use `gcloud.cmd`, not `gcloud`):
+Sign in to Google (use `gcloud.cmd`, not `gcloud`):
 
 ```powershell
 gcloud.cmd auth login
 gcloud.cmd config set project YOUR_PROJECT_ID
 ```
+**Step C**
 
+Run the pipeline end to end. This is the equivalent of `make run'.
 
+```powershell
+scripts\run.cmd
+```
 
 ## Official assessment knowledge
 
