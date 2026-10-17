@@ -32,7 +32,7 @@ See [setup instructions](docs/setup.md) for authorized Google Cloud configuratio
 ```bash
 make run
 ```
-On Windows or macOS, first see [Running the pipeline in Windows/macOS](#running-the-pipeline-in-windowsmacos).
+On Windows or macOS, first see [Running the pipeline in Windows/macOS](##running-the-pipeline-in-windows).
 
 [Official milestone requirements](https://harvard-iacs.github.io/2026-AC215/milestone2/) · [Application design](docs/application.md) · [Sources and coverage](docs/data.md) · [Engineering decisions](docs/decisions.md) · [Evidence](docs/evidence/README.md)
 
