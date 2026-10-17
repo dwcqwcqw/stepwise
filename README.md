@@ -55,11 +55,27 @@ flowchart LR
 Five custom Dockerfiles, five `pyproject.toml`/`uv.lock` pairs and upstream Qdrant are composed in `compose.yaml`. Source locks, chunk manifests, embedding fingerprints and model-call receipts identify what each stage used.
 
 
-## Running the pipeline in Windows/macOS
+## Running the pipeline in Windows
 
-**Windows**: To be able to run the compose.yaml file you need to first set `$env:STEPWISE_AUTH_DIR = "$PWD\runtime\auth"` in PowerShell. This will allow the tokens to be saved in the correct folder. This is because "/dev/shm" is not recognised in Windows and therefore the folder is not linked to the API container. This prevents the app from accessing Gemini. Once this command is run in PowerShell you can proceed with running the pipeline.
+Run steps A and B below once:
 
-**macOS**: To be able to run the compose.yaml file you need to first set `export STEPWISE_AUTH_DIR="$PWD/runtime/auth"` in Terminal. This will allow the tokens to be saved in the correct folder. This is because "/dev/shm" is not recognised in macOS and therefore the folder is not linked to the API container. This prevents the app from accessing Gemini. Once this command is run in Terminal you can proceed with running the pipeline.
+**Step A**
+Create a file called `.env` in the repository folder (compose.yaml reads it automatically).
+
+```
+GOOGLE_CLOUD_PROJECT=YOUR_PROJECT_ID
+GOOGLE_CLOUD_LOCATION=global
+GEMINI_MODEL=gemini-3.5-flash
+STEPWISE_AUTH_DIR=./runtime/auth
+```
+**Step B**
+
+2. Sign in to Google (use `gcloud.cmd`, not `gcloud`):
+
+```powershell
+gcloud.cmd auth login
+gcloud.cmd config set project YOUR_PROJECT_ID
+```
 
 
 ## Official assessment knowledge
